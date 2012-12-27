@@ -1,0 +1,473 @@
+Global Symbol Entered (Model): 'myExampleRose' with id G.0
+Scoped Symbol Entered (Category): 'Logical View' with id S.289.1416.03.0
+Scoped Symbol Entered (Class): 'RentalItem' with id S.289.1416.03.1
+Scoped Symbol Entered (Attribute): 'number' with id S.289.1416.03.2
+Scoped Symbol Entered (Class): 'SpecialFilm' with id S.289.1416.03.3
+Scoped Symbol Entered (Attribute): 'lateReturnFee' with id S.289.1416.03.4
+Scoped Symbol Entered (Attribute): 'days1' with id S.289.1416.03.5
+Scoped Symbol Entered (Operation): 'doSomething' with id S.289.1416.03.6
+Scoped Symbol Entered (Operation): 'doSomething' with id S.289.1416.03.7
+Scoped Symbol Entered (Operation): 'computeFee' with id S.289.1416.03.8
+Scoped Symbol Entered (Operation): 'getInteger' with id S.289.1416.03.9
+Scoped Symbol Entered (Operation): 'getSpecialFee' with id S.289.1416.03.10
+Scoped Symbol Entered (Operation): 'setSpecialFee' with id S.289.1416.03.11
+Scoped Symbol Entered (Class): 'Person' with id S.289.1416.03.12
+Scoped Symbol Entered (Attribute): 'age' with id S.289.1416.03.13
+Scoped Symbol Entered (Class): 'EmployeeRanking' with id S.289.1416.03.14
+Scoped Symbol Entered (Attribute): 'score' with id S.289.1416.03.15
+Scoped Symbol Entered (Class): 'Reservation' with id S.289.1416.03.16
+Global Symbol Entered (RealizeRelation): '{SpecialFilm-O>IThing}{409FE92102C6}' with id G.1
+Global Symbol Entered (RealizeRelation): '{Product-O>IProduct}{3FE75497013D}' with id G.2
+Global Symbol Entered (Association): '{Person-Person}{3FEEE10401D4}' with id G.3
+Global Symbol Entered (Role): 'employees{3FEEE10700DA}' with id G.4
+Global Symbol Entered (Role): 'bosses{3FEEE10700DC}' with id G.5
+Global Symbol Entered (Association): '{Person-Reservation}{40867358005D}' with id G.6
+Global Symbol Entered (Role): '{40867359007D}' with id G.7
+Global Symbol Entered (Role): '{40867359007F}' with id G.8
+Global Symbol Entered (Association): '{Reservation-Film}{40A253CE0203}' with id G.9
+Global Symbol Entered (Role): '{40A253CF001F}' with id G.10
+Global Symbol Entered (Role): '{40A253CF0021}' with id G.11
+Global Symbol Entered (Association): '{RentalItem-Reservation}{41C998F102EE}' with id G.12
+Global Symbol Entered (Role): '{41C998F20242}' with id G.13
+Global Symbol Entered (Role): '{41C998F20251}' with id G.14
+Scoped Symbol Entered (Category): 'MyExample' with id S.289.1416.03.17
+Scoped Symbol Entered (Class): 'Film' with id S.289.1416.03.18
+Scoped Symbol Entered (Attribute): 'name' with id S.289.1416.03.19
+Scoped Symbol Entered (Attribute): 'rentalFee' with id S.289.1416.03.20
+Scoped Symbol Entered (Attribute): 'days' with id S.289.1416.03.21
+Scoped Symbol Entered (Attribute): 'att3' with id S.289.1416.03.22
+Scoped Symbol Entered (Operation): 'getRentalFee' with id S.289.1416.03.23
+Scoped Symbol Entered (Operation): 'getTapes' with id S.289.1416.03.24
+Scoped Symbol Entered (Operation): 'setDaysForReturn' with id S.289.1416.03.25
+Scoped Symbol Entered (Operation): 'setRentalFee' with id S.289.1416.03.26
+Scoped Symbol Entered (Operation): 'getSpecialFee' with id S.289.1416.03.27
+Scoped Symbol Entered (Operation): 'setSpecialFee' with id S.289.1416.03.28
+Scoped Symbol Entered (Class): 'Product' with id S.289.1416.03.29
+Scoped Symbol Entered (Attribute): 'code' with id S.289.1416.03.30
+Scoped Symbol Entered (Operation): 'getRentalFee' with id S.289.1416.03.31
+Scoped Symbol Entered (Class): 'Real' with id S.289.1416.03.32
+Scoped Symbol Entered (Class): 'Situation' with id S.289.1416.03.33
+Scoped Symbol Entered (Attribute): 'married' with id S.289.1416.03.34
+Scoped Symbol Entered (Attribute): 'single' with id S.289.1416.03.35
+Scoped Symbol Entered (Class): 'Tape' with id S.289.1416.03.36
+Scoped Symbol Entered (Attribute): 'number' with id S.289.1416.03.37
+Scoped Symbol Entered (Operation): '$tapesQty' with id S.289.1416.03.38
+Scoped Symbol Entered (Class): 'IProduct' with id S.289.1416.03.39
+Scoped Symbol Entered (Operation): 'getRentalFee' with id S.289.1416.03.40
+Scoped Symbol Entered (Class): 'Allocation' with id S.289.1416.03.41
+Scoped Symbol Entered (Attribute): 'abc' with id S.289.1416.03.42
+Scoped Symbol Entered (Class): 'Distributor' with id S.289.1416.03.43
+Scoped Symbol Entered (Class): 'Game' with id S.289.1416.03.44
+Scoped Symbol Entered (Class): 'IThing' with id S.289.1416.03.45
+Global Symbol Entered (Association): 'is recorded in{3FE754A10295}' with id G.15
+Global Symbol Entered (Role): 'tapes{3FE754A2016C}' with id G.16
+Global Symbol Entered (Attribute): 'n{3FEDA0C6020B}' with id G.17
+Global Symbol Entered (Role): 'theFilm{3FE754A2017B}' with id G.18
+Global Symbol Entered (Association): 'assoc special film distr{3FED28C003D8}' with id G.19
+Global Symbol Entered (Role): 'dist{3FED28C1038A}' with id G.20
+Global Symbol Entered (Role): 'films{3FED28C1038C}' with id G.21
+Scoped Symbol Entered (Category): 'package_1' with id S.289.1416.03.46
+Scoped Symbol Entered (Category): 'package_1_1' with id S.289.1416.03.47
+Scoped Symbol Entered (Class): 'MyBoolean' with id S.289.1416.03.48
+Scoped Symbol Entered (Class): 'Product' with id S.289.1416.03.49
+Scoped Symbol Entered (Category): 'package_1_2' with id S.289.1416.03.50
+Scoped Symbol Entered (Class): 'Rental' with id S.289.1416.03.51
+Scoped Symbol Entered (Attribute): 'returned' with id S.289.1416.03.52
+Scoped Symbol Entered (Attribute): 'maxDaysToReturn' with id S.289.1416.03.53
+Scoped Symbol Entered (Class): 'Client' with id S.289.1416.03.54
+Scoped Symbol Entered (Attribute): 'name' with id S.289.1416.03.55
+Scoped Symbol Entered (Attribute): 'situation' with id S.289.1416.03.56
+Global Symbol Entered (Association): '{RentalItem-Rental}{3FE753E8004C}' with id G.22
+Global Symbol Entered (Role): 'itens{3FE753E8029E}' with id G.23
+Global Symbol Entered (Role): '{3FE753E802A0}' with id G.24
+Global Symbol Entered (Association): '{Rental-Client}{3FED283702DE}' with id G.25
+Global Symbol Entered (Role): '{3FED283801E4}' with id G.26
+Global Symbol Entered (Role): '{3FED283801E6}' with id G.27
+Scoped Symbol Entered (Category): 'Other' with id S.289.1416.03.57
+Scoped Symbol Entered (Class): 'A' with id S.289.1416.03.58
+Scoped Symbol Entered (Attribute): 'iatt' with id S.289.1416.03.59
+Scoped Symbol Entered (Attribute): 'satt' with id S.289.1416.03.60
+Scoped Symbol Entered (Class): 'B' with id S.289.1416.03.61
+Scoped Symbol Entered (Attribute): 'iatt' with id S.289.1416.03.62
+Scoped Symbol Entered (Attribute): 'satt' with id S.289.1416.03.63
+Scoped Symbol Entered (Class): 'C' with id S.289.1416.03.64
+Scoped Symbol Entered (Attribute): 'iatt' with id S.289.1416.03.65
+Scoped Symbol Entered (Attribute): 'satt' with id S.289.1416.03.66
+Scoped Symbol Entered (Class): 'D' with id S.289.1416.03.67
+Scoped Symbol Entered (Attribute): 'iatt' with id S.289.1416.03.68
+Scoped Symbol Entered (Attribute): 'satt' with id S.289.1416.03.69
+Scoped Symbol Entered (Class): 'E' with id S.289.1416.03.70
+Scoped Symbol Entered (Attribute): 'iatt' with id S.289.1416.03.71
+Scoped Symbol Entered (Attribute): 'satt' with id S.289.1416.03.72
+Scoped Symbol Entered (Class): 'F' with id S.289.1416.03.73
+Scoped Symbol Entered (Attribute): 'iatt' with id S.289.1416.03.74
+Scoped Symbol Entered (Attribute): 'satt' with id S.289.1416.03.75
+Scoped Symbol Entered (Class): 'G' with id S.289.1416.03.76
+Scoped Symbol Entered (Attribute): 'iatt' with id S.289.1416.03.77
+Scoped Symbol Entered (Attribute): 'satt' with id S.289.1416.03.78
+Scoped Symbol Entered (Class): 'H' with id S.289.1416.03.79
+Scoped Symbol Entered (Attribute): 'iatt' with id S.289.1416.03.80
+Scoped Symbol Entered (Attribute): 'satt' with id S.289.1416.03.81
+Scoped Symbol Entered (Class): 'I' with id S.289.1416.03.82
+Scoped Symbol Entered (Attribute): 'iatt' with id S.289.1416.03.83
+Scoped Symbol Entered (Attribute): 'satt' with id S.289.1416.03.84
+Scoped Symbol Entered (Class): 'J' with id S.289.1416.03.85
+Scoped Symbol Entered (Attribute): 'iatt' with id S.289.1416.03.86
+Scoped Symbol Entered (Attribute): 'satt' with id S.289.1416.03.87
+Scoped Symbol Entered (Class): 'L' with id S.289.1416.03.88
+Scoped Symbol Entered (Attribute): 'iatt' with id S.289.1416.03.89
+Scoped Symbol Entered (Attribute): 'satt' with id S.289.1416.03.90
+Scoped Symbol Entered (Class): 'M' with id S.289.1416.03.91
+Scoped Symbol Entered (Attribute): 'iatt' with id S.289.1416.03.92
+Scoped Symbol Entered (Attribute): 'satt' with id S.289.1416.03.93
+Scoped Symbol Entered (Class): 'N' with id S.289.1416.03.94
+Scoped Symbol Entered (Attribute): 'iatt' with id S.289.1416.03.95
+Scoped Symbol Entered (Attribute): 'satt' with id S.289.1416.03.96
+Scoped Symbol Entered (Class): 'O' with id S.289.1416.03.97
+Scoped Symbol Entered (Attribute): 'iatt' with id S.289.1416.03.98
+Scoped Symbol Entered (Attribute): 'satt' with id S.289.1416.03.99
+Scoped Symbol Entered (Class): 'K' with id S.289.1416.03.100
+Scoped Symbol Entered (Attribute): 'iatt' with id S.289.1416.03.101
+Scoped Symbol Entered (Attribute): 'satt' with id S.289.1416.03.102
+Global Symbol Entered (Association): '{B-A}{43500E8E0251}' with id G.28
+Global Symbol Entered (Role): '{43500E8F01E4}' with id G.29
+Global Symbol Entered (Role): '{43500E8F01F4}' with id G.30
+Global Symbol Entered (Association): '{C-B}{43500E9C02FD}' with id G.31
+Global Symbol Entered (Role): '{43500E9D0177}' with id G.32
+Global Symbol Entered (Role): '{43500E9D0179}' with id G.33
+Global Symbol Entered (Association): '{D-B}{43500EAA03B9}' with id G.34
+Global Symbol Entered (Role): '{43500EAB036B}' with id G.35
+Global Symbol Entered (Role): '{43500EAB036D}' with id G.36
+Global Symbol Entered (Association): '{E-B}{43500EBE0128}' with id G.37
+Global Symbol Entered (Role): '{43500EBF008C}' with id G.38
+Global Symbol Entered (Role): '{43500EBF009C}' with id G.39
+Global Symbol Entered (Association): '{F-A}{43500EE200AB}' with id G.40
+Global Symbol Entered (Role): '{43500EE203D8}' with id G.41
+Global Symbol Entered (Role): '{43500EE203DA}' with id G.42
+Global Symbol Entered (Association): '{G-F}{43500EED030D}' with id G.43
+Global Symbol Entered (Role): '{43500EEE0280}' with id G.44
+Global Symbol Entered (Role): '{43500EEE0282}' with id G.45
+Global Symbol Entered (Association): '{H-F}{43500EF90271}' with id G.46
+Global Symbol Entered (Role): '{43500EFA00DA}' with id G.47
+Global Symbol Entered (Role): '{43500EFA00DC}' with id G.48
+Global Symbol Entered (Association): '{I-F}{43500F020177}' with id G.49
+Global Symbol Entered (Role): '{43500F030148}' with id G.50
+Global Symbol Entered (Role): '{43500F03014A}' with id G.51
+Global Symbol Entered (Association): '{J-I}{43500F17003E}' with id G.52
+Global Symbol Entered (Role): '{43500F180000}' with id G.53
+Global Symbol Entered (Role): '{43500F18000F}' with id G.54
+Global Symbol Entered (Association): '{K-I}{43500F1A0148}' with id G.55
+Global Symbol Entered (Role): '{43500F1A035B}' with id G.56
+Global Symbol Entered (Role): '{43500F1A035D}' with id G.57
+Global Symbol Entered (Association): '{L-A}{43500F2B03B9}' with id G.58
+Global Symbol Entered (Role): '{43500F2D000F}' with id G.59
+Global Symbol Entered (Role): '{43500F2D0011}' with id G.60
+Global Symbol Entered (Association): '{M-L}{43500F4101E4}' with id G.61
+Global Symbol Entered (Role): '{43500F420290}' with id G.62
+Global Symbol Entered (Role): '{43500F420292}' with id G.63
+Global Symbol Entered (Association): '{N-L}{43500F4A03D8}' with id G.64
+Global Symbol Entered (Role): '{43500F4B02FD}' with id G.65
+Global Symbol Entered (Role): '{43500F4B02FF}' with id G.66
+Global Symbol Entered (Association): '{O-L}{43500F5500DA}' with id G.67
+Global Symbol Entered (Role): '{43500F55033C}' with id G.68
+Global Symbol Entered (Role): '{43500F55033E}' with id G.69
+Scoped Symbol Entered (Subsystem): 'Component View' with id S.289.1416.03.103
+Scoped Symbol Entered (Subsystem): 'MyComponents' with id S.289.1416.03.104
+Scoped Symbol Entered (Module): 'Tape' with id S.289.1416.03.105
+DoModuleDependencies for module: Tape count =  0
+DoSubsystemDependencies for Component View
+DoSubsystemDependencies for MyComponents
+Scoped Symbol Entered (Category): 'Use Case View' with id S.289.1416.03.106
+Scoped Symbol Entered (Category): 'use cases examples' with id S.289.1416.03.107
+Scoped Symbol Entered (Class): 'client' with id S.289.1416.03.108
+Enter UseCase: Use Case View::use cases examples::register client(register client)
+Scoped Symbol Entered (UseCase): 'register client' with id S.289.1416.03.109
+Pop Thermometer(Final)
+Generate2 generstes Model: myExampleRose
+Create Package: Logical View
+Create Package: Logical View::MyExample
+Adding package to Namespace: myExampleRose
+Create Package: Logical View::MyExample::package_1
+Adding package to Namespace: MyExample
+Create Package: Logical View::MyExample::package_1::package_1_1
+Adding package to Namespace: package_1
+Create Class: MyBoolean
+Scoped Symbol Entered (Stereotype): 'primitive' with id S.289.1416.04.0
+Create Class: Product
+Create Package: Logical View::MyExample::package_1::package_1_2
+Adding package to Namespace: package_1
+Process Association: {RentalItem-Rental}{3FE753E8004C}
+Role: itens
+  Association End: RentalItem
+  Association end: G.23 added to association G.22
+Scoped Symbol Entered (Constraint): 'ordered' with id S.289.1416.04.1
+  Class/UseCase/Interface: RentalItem
+Role: 
+  Association End: Rental
+  Association end: G.24 added to association G.22
+  Class/UseCase/Interface: Rental
+Process Association: {Rental-Client}{3FED283702DE}
+Role: 
+  Association End: Rental
+  Association end: G.26 added to association G.25
+  Class/UseCase/Interface: Rental
+Role: 
+  Association End: Client
+  Association end: G.27 added to association G.25
+  Class/UseCase/Interface: Client
+Create Class: Rental
+Global Symbol Entered (Basic Type): 'Integer' with id G.70
+Create Class: Client
+Global Symbol Entered (Basic Type): 'String' with id G.71
+Process Association: is recorded in{3FE754A10295}
+Role: tapes
+  Association End: Tape
+  Association end: G.16 added to association G.15
+  Class/UseCase/Interface: Tape
+Role: theFilm
+  Association End: Film
+  Association end: G.18 added to association G.15
+  Class/UseCase/Interface: Film
+Create Class: Film
+Scoped Symbol Entered (Stereotype): 'id' with id S.289.1416.04.2
+Scoped Symbol Entered (Stereotype): 'query' with id S.289.1416.04.3
+Global Symbol Entered (Basic Type): 'Set(Tape)' with id G.72
+Scoped Symbol Entered (Stereotype): 'modifier' with id S.289.1416.04.4
+Create Class: Product
+Create Class: Real
+Scoped Symbol Entered (Stereotype): 'primitive' with id S.289.1416.04.5
+Create Class: Situation
+Scoped Symbol Entered (Stereotype): 'enumeration' with id S.289.1416.04.6
+Global Symbol Entered (Basic Type): '<undefined>' with id G.73
+Create Class: Tape
+Create Interface: IProduct
+Create AssociationClass: Allocation
+Process assoc portion of AssociationClass: S.289.1416.03.41
+Role: dist
+  Association End: Distributor
+  Association end: G.20 added to association S.289.1416.03.41
+  Class/UseCase/Interface: Distributor
+Role: films
+  Association End: SpecialFilm
+  Association end: G.21 added to association S.289.1416.03.41
+  Class/UseCase/Interface: SpecialFilm
+Create Class: Distributor
+Create Class: Game
+Create Interface: IThing
+Create Package: Logical View::Other
+Adding package to Namespace: myExampleRose
+Process Association: {B-A}{43500E8E0251}
+Role: 
+  Association End: B
+  Association end: G.29 added to association G.28
+  Class/UseCase/Interface: B
+Role: 
+  Association End: A
+  Association end: G.30 added to association G.28
+  Class/UseCase/Interface: A
+Process Association: {C-B}{43500E9C02FD}
+Role: 
+  Association End: C
+  Association end: G.32 added to association G.31
+  Class/UseCase/Interface: C
+Role: 
+  Association End: B
+  Association end: G.33 added to association G.31
+  Class/UseCase/Interface: B
+Process Association: {D-B}{43500EAA03B9}
+Role: 
+  Association End: D
+  Association end: G.35 added to association G.34
+  Class/UseCase/Interface: D
+Role: 
+  Association End: B
+  Association end: G.36 added to association G.34
+  Class/UseCase/Interface: B
+Process Association: {E-B}{43500EBE0128}
+Role: 
+  Association End: E
+  Association end: G.38 added to association G.37
+Scoped Symbol Entered (Constraint): 'ordered' with id S.289.1416.04.7
+  Class/UseCase/Interface: E
+Role: 
+  Association End: B
+  Association end: G.39 added to association G.37
+  Class/UseCase/Interface: B
+Process Association: {F-A}{43500EE200AB}
+Role: 
+  Association End: F
+  Association end: G.41 added to association G.40
+  Class/UseCase/Interface: F
+Role: 
+  Association End: A
+  Association end: G.42 added to association G.40
+  Class/UseCase/Interface: A
+Process Association: {G-F}{43500EED030D}
+Role: 
+  Association End: G
+  Association end: G.44 added to association G.43
+  Class/UseCase/Interface: G
+Role: 
+  Association End: F
+  Association end: G.45 added to association G.43
+  Class/UseCase/Interface: F
+Process Association: {H-F}{43500EF90271}
+Role: 
+  Association End: H
+  Association end: G.47 added to association G.46
+  Class/UseCase/Interface: H
+Role: 
+  Association End: F
+  Association end: G.48 added to association G.46
+  Class/UseCase/Interface: F
+Process Association: {I-F}{43500F020177}
+Role: 
+  Association End: I
+  Association end: G.50 added to association G.49
+  Class/UseCase/Interface: I
+Role: 
+  Association End: F
+  Association end: G.51 added to association G.49
+  Class/UseCase/Interface: F
+Process Association: {J-I}{43500F17003E}
+Role: 
+  Association End: J
+  Association end: G.53 added to association G.52
+  Class/UseCase/Interface: J
+Role: 
+  Association End: I
+  Association end: G.54 added to association G.52
+  Class/UseCase/Interface: I
+Process Association: {K-I}{43500F1A0148}
+Role: 
+  Association End: K
+  Association end: G.56 added to association G.55
+  Class/UseCase/Interface: K
+Role: 
+  Association End: I
+  Association end: G.57 added to association G.55
+  Class/UseCase/Interface: I
+Process Association: {L-A}{43500F2B03B9}
+Role: 
+  Association End: L
+  Association end: G.59 added to association G.58
+  Class/UseCase/Interface: L
+Role: 
+  Association End: A
+  Association end: G.60 added to association G.58
+  Class/UseCase/Interface: A
+Process Association: {M-L}{43500F4101E4}
+Role: 
+  Association End: M
+  Association end: G.62 added to association G.61
+  Class/UseCase/Interface: M
+Role: 
+  Association End: L
+  Association end: G.63 added to association G.61
+  Class/UseCase/Interface: L
+Process Association: {N-L}{43500F4A03D8}
+Role: 
+  Association End: N
+  Association end: G.65 added to association G.64
+  Class/UseCase/Interface: N
+Role: 
+  Association End: L
+  Association end: G.66 added to association G.64
+  Class/UseCase/Interface: L
+Process Association: {O-L}{43500F5500DA}
+Role: 
+  Association End: O
+  Association end: G.68 added to association G.67
+  Class/UseCase/Interface: O
+Role: 
+  Association End: L
+  Association end: G.69 added to association G.67
+  Class/UseCase/Interface: L
+Create Class: A
+Create Class: B
+Create Class: C
+Global Symbol Entered (Basic Type): 'integer' with id G.74
+Create Class: D
+Create Class: E
+Create Class: F
+Create Class: G
+Create Class: H
+Create Class: I
+Create Class: J
+Create Class: L
+Create Class: M
+Create Class: N
+Create Class: O
+Create Class: K
+Process Association: {Person-Reservation}{40867358005D}
+Role: 
+  Association End: Person
+  Association end: G.7 added to association G.6
+  Class/UseCase/Interface: Person
+Role: 
+  Association End: Reservation
+  Association end: G.8 added to association G.6
+Scoped Symbol Entered (Constraint): 'ordered' with id S.289.1416.04.8
+  Class/UseCase/Interface: Reservation
+Process Association: {Reservation-Film}{40A253CE0203}
+Role: 
+  Association End: Reservation
+  Association end: G.10 added to association G.9
+  Class/UseCase/Interface: Reservation
+Role: 
+  Association End: Film
+  Association end: G.11 added to association G.9
+  Class/UseCase/Interface: Film
+Process Association: {RentalItem-Reservation}{41C998F102EE}
+Role: 
+  Association End: RentalItem
+  Association end: G.13 added to association G.12
+  Class/UseCase/Interface: RentalItem
+Role: 
+  Association End: Reservation
+  Association end: G.14 added to association G.12
+  Class/UseCase/Interface: Reservation
+Create Class: RentalItem
+Create Class: SpecialFilm
+Scoped Symbol Entered (Stereotype): 'modifier' with id S.289.1416.04.9
+Global Symbol Entered (Basic Type): 'Set(Integer)' with id G.75
+Create Class: Person
+Create AssociationClass: EmployeeRanking
+Process assoc portion of AssociationClass: S.289.1416.03.14
+Role: employees
+  Association End: Person
+  Association end: G.4 added to association S.289.1416.03.14
+  Class/UseCase/Interface: Person
+Role: bosses
+  Association End: Person
+  Association end: G.5 added to association S.289.1416.03.14
+  Class/UseCase/Interface: Person
+Create Class: Reservation
+Root set for non-toplevel component view: MyComponents
+Module written as component: Tape
+Global Symbol Entered (Model): 'Use Case View' with id G.76
+Scoped Symbol Entered (Stereotype): 'useCaseModel' with id S.289.1416.04.10
+Create Use Case 'Use Case View::use cases examples::register client' id=S.289.1416.03.109
+Create Actor: client
+Pop Thermometer(Final)
+Global Symbol Entered (Generalization): '{SpecialFilm->Film}{3FE7549102E3}' with id G.77
+Global Symbol Entered (Generalization): '{Film->Product}{3FE7543300B6}' with id G.78
+Global Symbol Entered (Generalization): '{IProduct->IThing}{409FE9120392}' with id G.79
+Global Symbol Entered (Generalization): '{Game->Product}{409FE8F00094}' with id G.80
+Pop Thermometer(Final)
+Pop Thermometer(Final)
+Use gModel for package: Logical View
+Pop Thermometer(Final)
+Use gModel for package: Use Case View
+Pop Thermometer(Final)
+Pop Thermometer(Final)
+Pop Thermometer(Final)
+CreateModuleDependencies for MyComponents
+CreateSubsystemDependencies for Component View
+Create Subsys Deps for: MyComponents
+Create Class RealizeRelation: {SpecialFilm-O>IThing}{409FE92102C6} @G.1
+Scoped Symbol Entered (Stereotype): 'realize' with id S.289.1416.04.11
+Create Class RealizeRelation: {Product-O>IProduct}{3FE75497013D} @G.2
+-----> Diagrams are suppressed
+Pop Thermometer(Final)
+Pop Thermometer(Final)

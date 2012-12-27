@@ -1,0 +1,64 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="SheetModel.ViewModel"
+	xmlns:SheetModel_Misc="clr-namespace:SheetModel.Misc"
+	mc:Ignorable="d"
+	x:Class="SheetModel.View.WizStep1"
+	x:Name="UserControl">
+	<UserControl.Resources>
+		<SheetModel_Misc:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+	</UserControl.Resources>
+	<Grid Margin="0" Width="624" Height="367">
+		<StackPanel Background="White">
+			<StackPanel Orientation="Horizontal" Margin="0" HorizontalAlignment="Center">
+				<GroupBox Header="Classes" Width="312">
+					<DockPanel Margin="4,4,4,0">
+						<StackPanel Margin="0,3" Width="Auto">
+							<DockPanel Height="308.04" Width="292">
+								<TreeView ItemsSource="{Binding ModelClasses}" SelectedItemChanged="TreeView_SelectedItemChanged" Height="183" Width="292" DockPanel.Dock="Top">
+									<TreeView.ItemTemplate>
+										<HierarchicalDataTemplate ItemsSource="{Binding ModelAttributes}">
+											<StackPanel Orientation="Horizontal">
+												<TextBlock Text="{Binding Name}" Margin="0" />
+											</StackPanel>
+											<HierarchicalDataTemplate.ItemTemplate>
+												<HierarchicalDataTemplate>
+													<StackPanel Orientation="Horizontal">
+														<TextBlock Text="{Binding Name}" Margin="0"/>									
+													</StackPanel>
+												</HierarchicalDataTemplate>
+											</HierarchicalDataTemplate.ItemTemplate>
+										</HierarchicalDataTemplate>
+									</TreeView.ItemTemplate>
+								</TreeView>
+								<DockPanel Margin="0,3" Width="Auto">
+									<TextBlock VerticalAlignment="Center" Margin="0" HorizontalAlignment="Left" Text="Descrição:" DockPanel.Dock="Top" />
+									<TextBox Text="{Binding ClassDescription}" Margin="0,4,0,0" DockPanel.Dock="Bottom" Height="96" TextWrapping="Wrap" IsEnabled="False" />
+								</DockPanel>
+							</DockPanel>
+							<StackPanel Orientation="Horizontal" Width="292">
+								<Button x:Name="btnSetToBaseClass" Content="Definir como classe base" Height="24" Width="Auto" Click="BtnSetToBaseClassClick" Margin="0" VerticalAlignment="Top" d:LayoutOverrides="Width"/>
+								<TextBlock Text="{Binding SelectedBaseClass.Name}" VerticalAlignment="Center" Margin="8,0,0,0" d:LayoutOverrides="Width, HorizontalMargin"/>
+							</StackPanel>
+						</StackPanel>
+					</DockPanel>
+				</GroupBox>
+				<GroupBox Header="Classe Base" Width="312">
+					<StackPanel Orientation="Vertical" Margin="0,8,0,0">
+						<StackPanel Orientation="Horizontal" Height="24.04">
+							<TextBlock TextWrapping="Wrap" Text="Aconselhável ser Classe Base?"/>
+							<TextBlock TextWrapping="Wrap" Height="334.04" Margin="8,0,0,0" Text="{Binding SelectedItem.BestBaseClass}"/>
+						</StackPanel>
+						<StackPanel>
+							<TextBlock TextWrapping="Wrap" Text="Motivo:" Height="22.04" VerticalAlignment="Top"/>
+							<TextBox TextWrapping="Wrap" Height="256.04" Margin="0" IsEnabled="False" Text="{Binding SelectedItem.BcDescription}"/>
+						</StackPanel>
+					</StackPanel>
+				</GroupBox>
+			</StackPanel>
+		</StackPanel>
+	</Grid>
+</UserControl>

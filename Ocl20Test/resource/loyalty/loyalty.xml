@@ -1,0 +1,2145 @@
+<?xml version = '1.0' encoding = 'ISO-8859-1'?>
+<!-- <!DOCTYPE XMI SYSTEM 'UML1311.dtd' > -->
+<XMI xmi.version = '1.1' xmlns:UML='href://org.omg/UML/1.3' timestamp = 'Wed Nov 09 11:53:25 2005' >
+ <XMI.header>
+  <XMI.documentation>
+   <XMI.exporter>Unisys.JCR.1</XMI.exporter>
+   <XMI.exporterVersion>1.3.4</XMI.exporterVersion>
+  </XMI.documentation>
+  <XMI.metamodel xmi.name = 'UML' xmi.version = '1.3'/>
+ </XMI.header>
+<XMI.content>
+<!-- ==================== loyalty    [Model] ==================== -->
+<UML:Model xmi.id = 'G.0' 
+  name = 'loyalty' visibility = 'public' isSpecification = 'false' 
+  isRoot = 'false' isLeaf = 'false' isAbstract = 'false' >
+  <UML:Namespace.ownedElement>
+    <!-- ==================== loyalty::{ProgramPartner-LoyaltyProgram}{4187DB3F01F4}    [Association] ==================== -->
+    <UML:Association xmi.id = 'G.4' 
+      name = '' visibility = 'public' isSpecification = 'false' 
+      isRoot = 'false' isLeaf = 'false' isAbstract = 'false' >
+      <UML:Association.connection>
+        <!-- ==================== loyalty::{ProgramPartner-LoyaltyProgram}{4187DB3F01F4}.partners    [AssociationEnd] ==================== -->
+        <UML:AssociationEnd xmi.id = 'G.5' 
+          name = 'partners' visibility = 'public' isSpecification = 'false' 
+          isNavigable = 'true' ordering = 'unordered' aggregation = 'none' targetScope = 'instance' changeability = 'changeable' 
+          type = 'S.312.1153.07.19' >
+          <UML:AssociationEnd.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.1' 
+                  lower = '1' upper = '-1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:AssociationEnd.multiplicity>
+        </UML:AssociationEnd>
+        <!-- ==================== loyalty::{ProgramPartner-LoyaltyProgram}{4187DB3F01F4}.programs    [AssociationEnd] ==================== -->
+        <UML:AssociationEnd xmi.id = 'G.6' 
+          name = 'programs' visibility = 'public' isSpecification = 'false' 
+          isNavigable = 'true' ordering = 'unordered' aggregation = 'none' targetScope = 'instance' changeability = 'changeable' 
+          type = 'S.312.1153.07.1' >
+          <UML:AssociationEnd.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.2' 
+                  lower = '1' upper = '-1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:AssociationEnd.multiplicity>
+        </UML:AssociationEnd>
+      </UML:Association.connection>
+    </UML:Association>
+    <!-- ==================== loyalty::{CustomerCard-Customer}{4187DB74001F}    [Association] ==================== -->
+    <UML:Association xmi.id = 'G.7' 
+      name = '' visibility = 'public' isSpecification = 'false' 
+      isRoot = 'false' isLeaf = 'false' isAbstract = 'false' >
+      <UML:Association.connection>
+        <!-- ==================== loyalty::{CustomerCard-Customer}{4187DB74001F}.cards    [AssociationEnd] ==================== -->
+        <UML:AssociationEnd xmi.id = 'G.8' 
+          name = 'cards' visibility = 'public' isSpecification = 'false' 
+          isNavigable = 'true' ordering = 'unordered' aggregation = 'none' targetScope = 'instance' changeability = 'changeable' 
+          type = 'S.312.1153.07.46' >
+          <UML:AssociationEnd.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.3' 
+                  lower = '0' upper = '-1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:AssociationEnd.multiplicity>
+        </UML:AssociationEnd>
+        <!-- ==================== loyalty::{CustomerCard-Customer}{4187DB74001F}.owner    [AssociationEnd] ==================== -->
+        <UML:AssociationEnd xmi.id = 'G.9' 
+          name = 'owner' visibility = 'public' isSpecification = 'false' 
+          isNavigable = 'true' ordering = 'unordered' aggregation = 'none' targetScope = 'instance' changeability = 'changeable' 
+          type = 'S.312.1153.07.10' >
+          <UML:AssociationEnd.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.4' 
+                  lower = '1' upper = '1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:AssociationEnd.multiplicity>
+        </UML:AssociationEnd>
+      </UML:Association.connection>
+    </UML:Association>
+    <!-- ==================== loyalty::{Transaction-CustomerCard}{4187DB9D0251}    [Association] ==================== -->
+    <UML:Association xmi.id = 'G.10' 
+      name = '' visibility = 'public' isSpecification = 'false' 
+      isRoot = 'false' isLeaf = 'false' isAbstract = 'false' >
+      <UML:Association.connection>
+        <!-- ==================== loyalty::{Transaction-CustomerCard}{4187DB9D0251}.transactions    [AssociationEnd] ==================== -->
+        <UML:AssociationEnd xmi.id = 'G.11' 
+          name = 'transactions' visibility = 'public' isSpecification = 'false' 
+          isNavigable = 'true' ordering = 'unordered' aggregation = 'none' targetScope = 'instance' changeability = 'changeable' 
+          type = 'S.312.1153.07.40' >
+          <UML:AssociationEnd.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.5' 
+                  lower = '0' upper = '-1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:AssociationEnd.multiplicity>
+        </UML:AssociationEnd>
+        <!-- ==================== loyalty::{Transaction-CustomerCard}{4187DB9D0251}.card    [AssociationEnd] ==================== -->
+        <UML:AssociationEnd xmi.id = 'G.12' 
+          name = 'card' visibility = 'public' isSpecification = 'false' 
+          isNavigable = 'true' ordering = 'unordered' aggregation = 'none' targetScope = 'instance' changeability = 'changeable' 
+          type = 'S.312.1153.07.46' >
+          <UML:AssociationEnd.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.6' 
+                  lower = '1' upper = '1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:AssociationEnd.multiplicity>
+        </UML:AssociationEnd>
+      </UML:Association.connection>
+    </UML:Association>
+    <!-- ==================== loyalty::{Transaction-Service}{4187DBBC00CB}    [Association] ==================== -->
+    <UML:Association xmi.id = 'G.13' 
+      name = '' visibility = 'public' isSpecification = 'false' 
+      isRoot = 'false' isLeaf = 'false' isAbstract = 'false' >
+      <UML:Association.connection>
+        <!-- ==================== loyalty::{Transaction-Service}{4187DBBC00CB}.transactions    [AssociationEnd] ==================== -->
+        <UML:AssociationEnd xmi.id = 'G.14' 
+          name = 'transactions' visibility = 'public' isSpecification = 'false' 
+          isNavigable = 'true' ordering = 'unordered' aggregation = 'none' targetScope = 'instance' changeability = 'changeable' 
+          type = 'S.312.1153.07.40' >
+          <UML:AssociationEnd.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.7' 
+                  lower = '0' upper = '-1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:AssociationEnd.multiplicity>
+        </UML:AssociationEnd>
+        <!-- ==================== loyalty::{Transaction-Service}{4187DBBC00CB}.generatedBy    [AssociationEnd] ==================== -->
+        <UML:AssociationEnd xmi.id = 'G.15' 
+          name = 'generatedBy' visibility = 'public' isSpecification = 'false' 
+          isNavigable = 'true' ordering = 'unordered' aggregation = 'none' targetScope = 'instance' changeability = 'changeable' 
+          type = 'S.312.1153.07.24' >
+          <UML:AssociationEnd.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.8' 
+                  lower = '1' upper = '1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:AssociationEnd.multiplicity>
+        </UML:AssociationEnd>
+      </UML:Association.connection>
+    </UML:Association>
+    <!-- ==================== loyalty::{LoyaltyAccount-Transaction}{4187DBEC030D}    [Association] ==================== -->
+    <UML:Association xmi.id = 'G.16' 
+      name = '' visibility = 'public' isSpecification = 'false' 
+      isRoot = 'false' isLeaf = 'false' isAbstract = 'false' >
+      <UML:Association.connection>
+        <!-- ==================== loyalty::{LoyaltyAccount-Transaction}{4187DBEC030D}.account    [AssociationEnd] ==================== -->
+        <UML:AssociationEnd xmi.id = 'G.17' 
+          name = 'account' visibility = 'public' isSpecification = 'false' 
+          isNavigable = 'true' ordering = 'unordered' aggregation = 'none' targetScope = 'instance' changeability = 'changeable' 
+          type = 'S.312.1153.07.32' >
+          <UML:AssociationEnd.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.9' 
+                  lower = '1' upper = '1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:AssociationEnd.multiplicity>
+        </UML:AssociationEnd>
+        <!-- ==================== loyalty::{LoyaltyAccount-Transaction}{4187DBEC030D}.transactions    [AssociationEnd] ==================== -->
+        <UML:AssociationEnd xmi.id = 'G.18' 
+          name = 'transactions' visibility = 'public' isSpecification = 'false' 
+          isNavigable = 'true' ordering = 'unordered' aggregation = 'none' targetScope = 'instance' changeability = 'changeable' 
+          type = 'S.312.1153.07.40' >
+          <UML:AssociationEnd.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.10' 
+                  lower = '0' upper = '-1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:AssociationEnd.multiplicity>
+        </UML:AssociationEnd>
+      </UML:Association.connection>
+    </UML:Association>
+    <!-- ==================== loyalty::{Service-ProgramPartner}{4187DC15031C}    [Association] ==================== -->
+    <UML:Association xmi.id = 'G.19' 
+      name = '' visibility = 'public' isSpecification = 'false' 
+      isRoot = 'false' isLeaf = 'false' isAbstract = 'false' >
+      <UML:Association.connection>
+        <!-- ==================== loyalty::{Service-ProgramPartner}{4187DC15031C}.deliveredServices    [AssociationEnd] ==================== -->
+        <UML:AssociationEnd xmi.id = 'G.20' 
+          name = 'deliveredServices' visibility = 'public' isSpecification = 'false' 
+          isNavigable = 'true' ordering = 'unordered' aggregation = 'none' targetScope = 'instance' changeability = 'changeable' 
+          type = 'S.312.1153.07.24' >
+          <UML:AssociationEnd.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.11' 
+                  lower = '0' upper = '-1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:AssociationEnd.multiplicity>
+        </UML:AssociationEnd>
+        <!-- ==================== loyalty::{Service-ProgramPartner}{4187DC15031C}.partner    [AssociationEnd] ==================== -->
+        <UML:AssociationEnd xmi.id = 'G.21' 
+          name = 'partner' visibility = 'public' isSpecification = 'false' 
+          isNavigable = 'true' ordering = 'unordered' aggregation = 'none' targetScope = 'instance' changeability = 'changeable' 
+          type = 'S.312.1153.07.19' >
+          <UML:AssociationEnd.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.12' 
+                  lower = '1' upper = '1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:AssociationEnd.multiplicity>
+        </UML:AssociationEnd>
+      </UML:Association.connection>
+    </UML:Association>
+    <!-- ==================== loyalty::{ServiceLevel-Service}{4187DC3102EE}    [Association] ==================== -->
+    <UML:Association xmi.id = 'G.22' 
+      name = '' visibility = 'public' isSpecification = 'false' 
+      isRoot = 'false' isLeaf = 'false' isAbstract = 'false' >
+      <UML:Association.connection>
+        <!-- ==================== loyalty::{ServiceLevel-Service}{4187DC3102EE}.level    [AssociationEnd] ==================== -->
+        <UML:AssociationEnd xmi.id = 'G.23' 
+          name = 'level' visibility = 'public' isSpecification = 'false' 
+          isNavigable = 'true' ordering = 'unordered' aggregation = 'none' targetScope = 'instance' changeability = 'changeable' 
+          type = 'S.312.1153.07.22' >
+          <UML:AssociationEnd.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.13' 
+                  lower = '1' upper = '1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:AssociationEnd.multiplicity>
+        </UML:AssociationEnd>
+        <!-- ==================== loyalty::{ServiceLevel-Service}{4187DC3102EE}.availableServices    [AssociationEnd] ==================== -->
+        <UML:AssociationEnd xmi.id = 'G.24' 
+          name = 'availableServices' visibility = 'public' isSpecification = 'false' 
+          isNavigable = 'true' ordering = 'unordered' aggregation = 'none' targetScope = 'instance' changeability = 'changeable' 
+          type = 'S.312.1153.07.24' >
+          <UML:AssociationEnd.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.14' 
+                  lower = '0' upper = '-1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:AssociationEnd.multiplicity>
+        </UML:AssociationEnd>
+      </UML:Association.connection>
+    </UML:Association>
+    <!-- ==================== loyalty::{Membership-CustomerCard}{4187DC560271}    [Association] ==================== -->
+    <UML:Association xmi.id = 'G.25' 
+      name = '' visibility = 'public' isSpecification = 'false' 
+      isRoot = 'false' isLeaf = 'false' isAbstract = 'false' >
+      <UML:Association.connection>
+        <!-- ==================== loyalty::{Membership-CustomerCard}{4187DC560271}.(Role1)    [AssociationEnd] ==================== -->
+        <UML:AssociationEnd xmi.id = 'G.26' 
+          name = '' visibility = 'public' isSpecification = 'false' 
+          isNavigable = 'true' ordering = 'unordered' aggregation = 'none' targetScope = 'instance' changeability = 'changeable' 
+          type = 'S.312.1153.07.54' >
+          <UML:AssociationEnd.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.15' 
+                  lower = '1' upper = '1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:AssociationEnd.multiplicity>
+        </UML:AssociationEnd>
+        <!-- ==================== loyalty::{Membership-CustomerCard}{4187DC560271}.card    [AssociationEnd] ==================== -->
+        <UML:AssociationEnd xmi.id = 'G.27' 
+          name = 'card' visibility = 'public' isSpecification = 'false' 
+          isNavigable = 'true' ordering = 'unordered' aggregation = 'none' targetScope = 'instance' changeability = 'changeable' 
+          type = 'S.312.1153.07.46' >
+          <UML:AssociationEnd.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.16' 
+                  lower = '1' upper = '1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:AssociationEnd.multiplicity>
+        </UML:AssociationEnd>
+      </UML:Association.connection>
+    </UML:Association>
+    <!-- ==================== loyalty::{Membership-LoyaltyAccount}{4187DC6A01C5}    [Association] ==================== -->
+    <UML:Association xmi.id = 'G.28' 
+      name = '' visibility = 'public' isSpecification = 'false' 
+      isRoot = 'false' isLeaf = 'false' isAbstract = 'false' >
+      <UML:Association.connection>
+        <!-- ==================== loyalty::{Membership-LoyaltyAccount}{4187DC6A01C5}.(Role1)    [AssociationEnd] ==================== -->
+        <UML:AssociationEnd xmi.id = 'G.29' 
+          name = '' visibility = 'public' isSpecification = 'false' 
+          isNavigable = 'true' ordering = 'unordered' aggregation = 'none' targetScope = 'instance' changeability = 'changeable' 
+          type = 'S.312.1153.07.54' >
+          <UML:AssociationEnd.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.17' 
+                  lower = '1' upper = '1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:AssociationEnd.multiplicity>
+        </UML:AssociationEnd>
+        <!-- ==================== loyalty::{Membership-LoyaltyAccount}{4187DC6A01C5}.account    [AssociationEnd] ==================== -->
+        <UML:AssociationEnd xmi.id = 'G.30' 
+          name = 'account' visibility = 'public' isSpecification = 'false' 
+          isNavigable = 'true' ordering = 'unordered' aggregation = 'none' targetScope = 'instance' changeability = 'changeable' 
+          type = 'S.312.1153.07.32' >
+          <UML:AssociationEnd.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.18' 
+                  lower = '0' upper = '1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:AssociationEnd.multiplicity>
+        </UML:AssociationEnd>
+      </UML:Association.connection>
+    </UML:Association>
+    <!-- ==================== loyalty::{Membership-ServiceLevel}{4187DC810399}    [Association] ==================== -->
+    <UML:Association xmi.id = 'G.31' 
+      name = '' visibility = 'public' isSpecification = 'false' 
+      isRoot = 'false' isLeaf = 'false' isAbstract = 'false' >
+      <UML:Association.connection>
+        <!-- ==================== loyalty::{Membership-ServiceLevel}{4187DC810399}.(Role1)    [AssociationEnd] ==================== -->
+        <UML:AssociationEnd xmi.id = 'G.32' 
+          name = '' visibility = 'public' isSpecification = 'false' 
+          isNavigable = 'true' ordering = 'unordered' aggregation = 'none' targetScope = 'instance' changeability = 'changeable' 
+          type = 'S.312.1153.07.54' >
+          <UML:AssociationEnd.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.19' 
+                  lower = '0' upper = '-1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:AssociationEnd.multiplicity>
+        </UML:AssociationEnd>
+        <!-- ==================== loyalty::{Membership-ServiceLevel}{4187DC810399}.currentLevel    [AssociationEnd] ==================== -->
+        <UML:AssociationEnd xmi.id = 'G.33' 
+          name = 'currentLevel' visibility = 'public' isSpecification = 'false' 
+          isNavigable = 'true' ordering = 'unordered' aggregation = 'none' targetScope = 'instance' changeability = 'changeable' 
+          type = 'S.312.1153.07.22' >
+          <UML:AssociationEnd.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.20' 
+                  lower = '1' upper = '1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:AssociationEnd.multiplicity>
+        </UML:AssociationEnd>
+      </UML:Association.connection>
+    </UML:Association>
+    <!-- ==================== loyalty::{ServiceLevel-LoyaltyProgram}{4187DCBE0138}    [Association] ==================== -->
+    <UML:Association xmi.id = 'G.34' 
+      name = '' visibility = 'public' isSpecification = 'false' 
+      isRoot = 'false' isLeaf = 'false' isAbstract = 'false' >
+      <UML:Association.connection>
+        <!-- ==================== loyalty::{ServiceLevel-LoyaltyProgram}{4187DCBE0138}.levels    [AssociationEnd] ==================== -->
+        <UML:AssociationEnd xmi.id = 'G.35' 
+          name = 'levels' visibility = 'public' isSpecification = 'false' 
+          isNavigable = 'true' ordering = 'ordered' aggregation = 'none' targetScope = 'instance' changeability = 'changeable' 
+          constraint = 'S.312.1153.08.0' 
+          type = 'S.312.1153.07.22' >
+          <UML:AssociationEnd.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.21' 
+                  lower = '1' upper = '-1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:AssociationEnd.multiplicity>
+        </UML:AssociationEnd>
+        <!-- ==================== loyalty::{ServiceLevel-LoyaltyProgram}{4187DCBE0138}.program    [AssociationEnd] ==================== -->
+        <UML:AssociationEnd xmi.id = 'G.36' 
+          name = 'program' visibility = 'public' isSpecification = 'false' 
+          isNavigable = 'true' ordering = 'unordered' aggregation = 'none' targetScope = 'instance' changeability = 'changeable' 
+          type = 'S.312.1153.07.1' >
+          <UML:AssociationEnd.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.22' 
+                  lower = '1' upper = '1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:AssociationEnd.multiplicity>
+        </UML:AssociationEnd>
+      </UML:Association.connection>
+    </UML:Association>
+    <!-- ==================== Constraint-S.312.1153.08.0    [Constraint] ==================== -->
+    <UML:Constraint xmi.id = 'S.312.1153.08.0' 
+      name = 'Constraint-S.312.1153.08.0' visibility = 'public' isSpecification = 'false' 
+      constrainedElement = 'G.35' >
+      <UML:Constraint.body>
+        <UML:BooleanExpression 
+          language = '' body = 'ordered' />
+      </UML:Constraint.body>
+    </UML:Constraint>
+    <!-- ==================== loyalty::{LoyaltyAccount-Service}{4187EBFB0271}    [Association] ==================== -->
+    <UML:Association xmi.id = 'G.37' 
+      name = '' visibility = 'public' isSpecification = 'false' 
+      isRoot = 'false' isLeaf = 'false' isAbstract = 'false' >
+      <UML:Association.connection>
+        <!-- ==================== loyalty::{LoyaltyAccount-Service}{4187EBFB0271}.(Role1)    [AssociationEnd] ==================== -->
+        <UML:AssociationEnd xmi.id = 'G.38' 
+          name = '' visibility = 'public' isSpecification = 'false' 
+          isNavigable = 'true' ordering = 'unordered' aggregation = 'none' targetScope = 'instance' changeability = 'changeable' 
+          type = 'S.312.1153.07.32' >
+          <UML:AssociationEnd.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.23' 
+                  lower = '1' upper = '1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:AssociationEnd.multiplicity>
+        </UML:AssociationEnd>
+        <!-- ==================== loyalty::{LoyaltyAccount-Service}{4187EBFB0271}.usedServices    [AssociationEnd] ==================== -->
+        <UML:AssociationEnd xmi.id = 'G.39' 
+          name = 'usedServices' visibility = 'public' isSpecification = 'false' 
+          isNavigable = 'true' ordering = 'unordered' aggregation = 'none' targetScope = 'instance' changeability = 'changeable' 
+          type = 'S.312.1153.07.24' >
+          <UML:AssociationEnd.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.24' 
+                  lower = '0' upper = '-1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:AssociationEnd.multiplicity>
+        </UML:AssociationEnd>
+      </UML:Association.connection>
+    </UML:Association>
+    <!-- ==================== loyalty::{CustomerCard-TransactionReport}{4187ECC901D4}    [Association] ==================== -->
+    <UML:Association xmi.id = 'G.40' 
+      name = '' visibility = 'public' isSpecification = 'false' 
+      isRoot = 'false' isLeaf = 'false' isAbstract = 'false' >
+      <UML:Association.connection>
+        <!-- ==================== loyalty::{CustomerCard-TransactionReport}{4187ECC901D4}.card    [AssociationEnd] ==================== -->
+        <UML:AssociationEnd xmi.id = 'G.41' 
+          name = 'card' visibility = 'public' isSpecification = 'false' 
+          isNavigable = 'true' ordering = 'unordered' aggregation = 'none' targetScope = 'instance' changeability = 'changeable' 
+          type = 'S.312.1153.07.46' >
+          <UML:AssociationEnd.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.25' 
+                  lower = '1' upper = '1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:AssociationEnd.multiplicity>
+        </UML:AssociationEnd>
+        <!-- ==================== loyalty::{CustomerCard-TransactionReport}{4187ECC901D4}.report    [AssociationEnd] ==================== -->
+        <UML:AssociationEnd xmi.id = 'G.42' 
+          name = 'report' visibility = 'public' isSpecification = 'false' 
+          isNavigable = 'true' ordering = 'unordered' aggregation = 'none' targetScope = 'instance' changeability = 'changeable' 
+          type = 'S.312.1153.07.69' >
+          <UML:AssociationEnd.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.26' 
+                  lower = '0' upper = '-1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:AssociationEnd.multiplicity>
+        </UML:AssociationEnd>
+      </UML:Association.connection>
+    </UML:Association>
+    <!-- ==================== loyalty::{Transaction-TransactionReportLine}{4187ECF600DA}    [Association] ==================== -->
+    <UML:Association xmi.id = 'G.43' 
+      name = '' visibility = 'public' isSpecification = 'false' 
+      isRoot = 'false' isLeaf = 'false' isAbstract = 'false' >
+      <UML:Association.connection>
+        <!-- ==================== loyalty::{Transaction-TransactionReportLine}{4187ECF600DA}.transaction    [AssociationEnd] ==================== -->
+        <UML:AssociationEnd xmi.id = 'G.44' 
+          name = 'transaction' visibility = 'public' isSpecification = 'false' 
+          isNavigable = 'true' ordering = 'unordered' aggregation = 'none' targetScope = 'instance' changeability = 'changeable' 
+          type = 'S.312.1153.07.40' >
+          <UML:AssociationEnd.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.27' 
+                  lower = '1' upper = '1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:AssociationEnd.multiplicity>
+        </UML:AssociationEnd>
+        <!-- ==================== loyalty::{Transaction-TransactionReportLine}{4187ECF600DA}.line    [AssociationEnd] ==================== -->
+        <UML:AssociationEnd xmi.id = 'G.45' 
+          name = 'line' visibility = 'public' isSpecification = 'false' 
+          isNavigable = 'true' ordering = 'unordered' aggregation = 'none' targetScope = 'instance' changeability = 'changeable' 
+          type = 'S.312.1153.07.77' >
+          <UML:AssociationEnd.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.28' 
+                  lower = '0' upper = '1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:AssociationEnd.multiplicity>
+        </UML:AssociationEnd>
+      </UML:Association.connection>
+    </UML:Association>
+    <!-- ==================== loyalty::{TransactionReport-TransactionReportLine}{4187ED1C0186}    [Association] ==================== -->
+    <UML:Association xmi.id = 'G.46' 
+      name = '' visibility = 'public' isSpecification = 'false' 
+      isRoot = 'false' isLeaf = 'false' isAbstract = 'false' >
+      <UML:Association.connection>
+        <!-- ==================== loyalty::{TransactionReport-TransactionReportLine}{4187ED1C0186}.report    [AssociationEnd] ==================== -->
+        <UML:AssociationEnd xmi.id = 'G.47' 
+          name = 'report' visibility = 'public' isSpecification = 'false' 
+          isNavigable = 'true' ordering = 'unordered' aggregation = 'none' targetScope = 'instance' changeability = 'changeable' 
+          type = 'S.312.1153.07.69' >
+          <UML:AssociationEnd.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.29' 
+                  lower = '1' upper = '1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:AssociationEnd.multiplicity>
+        </UML:AssociationEnd>
+        <!-- ==================== loyalty::{TransactionReport-TransactionReportLine}{4187ED1C0186}.lines    [AssociationEnd] ==================== -->
+        <UML:AssociationEnd xmi.id = 'G.48' 
+          name = 'lines' visibility = 'public' isSpecification = 'false' 
+          isNavigable = 'true' ordering = 'unordered' aggregation = 'none' targetScope = 'instance' changeability = 'changeable' 
+          type = 'S.312.1153.07.77' >
+          <UML:AssociationEnd.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.30' 
+                  lower = '0' upper = '-1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:AssociationEnd.multiplicity>
+        </UML:AssociationEnd>
+      </UML:Association.connection>
+    </UML:Association>
+    <!-- ==================== loyalty::LoyaltyProgram    [Class] ==================== -->
+    <UML:Class xmi.id = 'S.312.1153.07.1' 
+      name = 'LoyaltyProgram' visibility = 'public' isSpecification = 'false' 
+      isRoot = 'true' isLeaf = 'true' isAbstract = 'false' 
+      isActive = 'false' 
+      namespace = 'G.0' >
+      <UML:Classifier.feature>
+        <!-- ==================== loyalty::LoyaltyProgram.name    [Attribute] ==================== -->
+        <UML:Attribute xmi.id = 'S.312.1153.07.2' 
+          name = 'name' visibility = 'private' isSpecification = 'false' 
+          ownerScope = 'instance' 
+          changeability = 'changeable' targetScope = 'instance' 
+          type = 'G.49' >
+          <UML:StructuralFeature.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.31' 
+                  lower = '1' upper = '1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:StructuralFeature.multiplicity>
+          <UML:Attribute.initialValue>
+            <UML:Expression 
+              language = '' body = '' />
+          </UML:Attribute.initialValue>
+        </UML:Attribute>
+        <!-- ==================== loyalty::LoyaltyProgram::enroll    [Operation] ==================== -->
+        <UML:Operation xmi.id = 'S.312.1153.07.3' 
+          name = 'enroll' visibility = 'public' isSpecification = 'false' 
+          ownerScope = 'instance' 
+          isQuery = 'false' 
+          concurrency = 'sequential' isRoot = 'false' isLeaf = 'false' isAbstract = 'false' specification = '' >
+          <UML:BehavioralFeature.parameter>
+            <UML:Parameter xmi.id = 'XX.9.1153.8.3' 
+              name = 'c' visibility = 'public' isSpecification = 'false' 
+              kind = 'inout' 
+              type = 'S.312.1153.07.10' >
+              <UML:Parameter.defaultValue>
+                <UML:Expression 
+                  language = '' body = '' />
+              </UML:Parameter.defaultValue>
+            </UML:Parameter>
+          </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <!-- ==================== loyalty::LoyaltyProgram::getServices    [Operation] ==================== -->
+        <UML:Operation xmi.id = 'S.312.1153.07.4' 
+          name = 'getServices' visibility = 'public' isSpecification = 'false' 
+          ownerScope = 'instance' 
+          isQuery = 'false' 
+          concurrency = 'sequential' isRoot = 'false' isLeaf = 'false' isAbstract = 'false' specification = '' >
+          <UML:BehavioralFeature.parameter>
+            <UML:Parameter xmi.id = 'XX.9.1153.8.4' 
+              name = 'getServices.Return' visibility = 'public' isSpecification = 'false' 
+              kind = 'return' 
+              type = 'G.50' >
+            </UML:Parameter>
+          </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <!-- ==================== loyalty::LoyaltyProgram::getServices    [Operation] ==================== -->
+        <UML:Operation xmi.id = 'S.312.1153.07.5' 
+          name = 'getServices' visibility = 'public' isSpecification = 'false' 
+          ownerScope = 'instance' 
+          isQuery = 'false' 
+          concurrency = 'sequential' isRoot = 'false' isLeaf = 'false' isAbstract = 'false' specification = '' >
+          <UML:BehavioralFeature.parameter>
+            <UML:Parameter xmi.id = 'XX.9.1153.8.5' 
+              name = 'pp' visibility = 'public' isSpecification = 'false' 
+              kind = 'inout' 
+              type = 'S.312.1153.07.19' >
+              <UML:Parameter.defaultValue>
+                <UML:Expression 
+                  language = '' body = '' />
+              </UML:Parameter.defaultValue>
+            </UML:Parameter>
+            <UML:Parameter xmi.id = 'XX.9.1153.8.6' 
+              name = 'getServices.Return' visibility = 'public' isSpecification = 'false' 
+              kind = 'return' 
+              type = 'G.50' >
+            </UML:Parameter>
+          </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <!-- ==================== loyalty::LoyaltyProgram::addTransaction    [Operation] ==================== -->
+        <UML:Operation xmi.id = 'S.312.1153.07.6' 
+          name = 'addTransaction' visibility = 'public' isSpecification = 'false' 
+          ownerScope = 'instance' 
+          isQuery = 'false' 
+          concurrency = 'sequential' isRoot = 'false' isLeaf = 'false' isAbstract = 'false' specification = '' >
+          <UML:BehavioralFeature.parameter>
+            <UML:Parameter xmi.id = 'XX.9.1153.8.7' 
+              name = 'accNr' visibility = 'public' isSpecification = 'false' 
+              kind = 'inout' 
+              type = 'G.51' >
+              <UML:Parameter.defaultValue>
+                <UML:Expression 
+                  language = '' body = '' />
+              </UML:Parameter.defaultValue>
+            </UML:Parameter>
+            <UML:Parameter xmi.id = 'XX.9.1153.8.8' 
+              name = 'pName' visibility = 'public' isSpecification = 'false' 
+              kind = 'inout' 
+              type = 'G.49' >
+              <UML:Parameter.defaultValue>
+                <UML:Expression 
+                  language = '' body = '' />
+              </UML:Parameter.defaultValue>
+            </UML:Parameter>
+            <UML:Parameter xmi.id = 'XX.9.1153.8.9' 
+              name = 'servId' visibility = 'public' isSpecification = 'false' 
+              kind = 'inout' 
+              type = 'G.51' >
+              <UML:Parameter.defaultValue>
+                <UML:Expression 
+                  language = '' body = '' />
+              </UML:Parameter.defaultValue>
+            </UML:Parameter>
+            <UML:Parameter xmi.id = 'XX.9.1153.8.10' 
+              name = 'amnt' visibility = 'public' isSpecification = 'false' 
+              kind = 'inout' 
+              type = 'G.52' >
+              <UML:Parameter.defaultValue>
+                <UML:Expression 
+                  language = '' body = '' />
+              </UML:Parameter.defaultValue>
+            </UML:Parameter>
+            <UML:Parameter xmi.id = 'XX.9.1153.8.11' 
+              name = 'd' visibility = 'public' isSpecification = 'false' 
+              kind = 'inout' 
+              type = 'S.312.1153.07.57' >
+              <UML:Parameter.defaultValue>
+                <UML:Expression 
+                  language = '' body = '' />
+              </UML:Parameter.defaultValue>
+            </UML:Parameter>
+          </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <!-- ==================== loyalty::LoyaltyProgram::addService    [Operation] ==================== -->
+        <UML:Operation xmi.id = 'S.312.1153.07.7' 
+          name = 'addService' visibility = 'public' isSpecification = 'false' 
+          ownerScope = 'instance' 
+          isQuery = 'false' 
+          concurrency = 'sequential' isRoot = 'false' isLeaf = 'false' isAbstract = 'false' specification = '' >
+          <UML:BehavioralFeature.parameter>
+            <UML:Parameter xmi.id = 'XX.9.1153.8.12' 
+              name = 'p' visibility = 'public' isSpecification = 'false' 
+              kind = 'inout' 
+              type = 'S.312.1153.07.19' >
+              <UML:Parameter.defaultValue>
+                <UML:Expression 
+                  language = '' body = '' />
+              </UML:Parameter.defaultValue>
+            </UML:Parameter>
+            <UML:Parameter xmi.id = 'XX.9.1153.8.13' 
+              name = 'l' visibility = 'public' isSpecification = 'false' 
+              kind = 'inout' 
+              type = 'S.312.1153.07.22' >
+              <UML:Parameter.defaultValue>
+                <UML:Expression 
+                  language = '' body = '' />
+              </UML:Parameter.defaultValue>
+            </UML:Parameter>
+            <UML:Parameter xmi.id = 'XX.9.1153.8.14' 
+              name = 's' visibility = 'public' isSpecification = 'false' 
+              kind = 'inout' 
+              type = 'S.312.1153.07.24' >
+              <UML:Parameter.defaultValue>
+                <UML:Expression 
+                  language = '' body = '' />
+              </UML:Parameter.defaultValue>
+            </UML:Parameter>
+          </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <!-- ==================== loyalty::LoyaltyProgram::enrollAndCreateCustomer    [Operation] ==================== -->
+        <UML:Operation xmi.id = 'S.312.1153.07.8' 
+          name = 'enrollAndCreateCustomer' visibility = 'public' isSpecification = 'false' 
+          ownerScope = 'instance' 
+          isQuery = 'false' 
+          concurrency = 'sequential' isRoot = 'false' isLeaf = 'false' isAbstract = 'false' specification = '' >
+          <UML:BehavioralFeature.parameter>
+            <UML:Parameter xmi.id = 'XX.9.1153.8.15' 
+              name = 'n' visibility = 'public' isSpecification = 'false' 
+              kind = 'inout' 
+              type = 'G.49' >
+              <UML:Parameter.defaultValue>
+                <UML:Expression 
+                  language = '' body = '' />
+              </UML:Parameter.defaultValue>
+            </UML:Parameter>
+            <UML:Parameter xmi.id = 'XX.9.1153.8.16' 
+              name = 'd' visibility = 'public' isSpecification = 'false' 
+              kind = 'inout' 
+              type = 'S.312.1153.07.57' >
+              <UML:Parameter.defaultValue>
+                <UML:Expression 
+                  language = '' body = '' />
+              </UML:Parameter.defaultValue>
+            </UML:Parameter>
+            <UML:Parameter xmi.id = 'XX.9.1153.8.17' 
+              name = 'enrollAndCreateCustomer.Return' visibility = 'public' isSpecification = 'false' 
+              kind = 'return' 
+              type = 'S.312.1153.07.10' >
+            </UML:Parameter>
+          </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <!-- ==================== loyalty::LoyaltyProgram::selectPopularPartners    [Operation] ==================== -->
+        <UML:Operation xmi.id = 'S.312.1153.07.9' 
+          name = 'selectPopularPartners' visibility = 'public' isSpecification = 'false' 
+          ownerScope = 'instance' 
+          isQuery = 'false' 
+          concurrency = 'sequential' isRoot = 'false' isLeaf = 'false' isAbstract = 'false' specification = '' >
+          <UML:BehavioralFeature.parameter>
+            <UML:Parameter xmi.id = 'XX.9.1153.8.18' 
+              name = 'd' visibility = 'public' isSpecification = 'false' 
+              kind = 'inout' 
+              type = 'S.312.1153.07.57' >
+              <UML:Parameter.defaultValue>
+                <UML:Expression 
+                  language = '' body = '' />
+              </UML:Parameter.defaultValue>
+            </UML:Parameter>
+            <UML:Parameter xmi.id = 'XX.9.1153.8.19' 
+              name = 'selectPopularPartners.Return' visibility = 'public' isSpecification = 'false' 
+              kind = 'return' 
+              type = 'G.53' >
+            </UML:Parameter>
+          </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+      </UML:Classifier.feature>
+    </UML:Class>
+    <!-- ==================== String    [DataType] ==================== -->
+    <UML:DataType xmi.id = 'G.49' 
+      name = 'String' visibility = 'public' isSpecification = 'false' 
+      isRoot = 'false' isLeaf = 'false' isAbstract = 'false' />
+    <!-- ==================== Set(Service)    [DataType] ==================== -->
+    <UML:DataType xmi.id = 'G.50' 
+      name = 'Set(Service)' visibility = 'public' isSpecification = 'false' 
+      isRoot = 'false' isLeaf = 'false' isAbstract = 'false' />
+    <!-- ==================== Integer    [DataType] ==================== -->
+    <UML:DataType xmi.id = 'G.51' 
+      name = 'Integer' visibility = 'public' isSpecification = 'false' 
+      isRoot = 'false' isLeaf = 'false' isAbstract = 'false' />
+    <!-- ==================== Real    [DataType] ==================== -->
+    <UML:DataType xmi.id = 'G.52' 
+      name = 'Real' visibility = 'public' isSpecification = 'false' 
+      isRoot = 'false' isLeaf = 'false' isAbstract = 'false' />
+    <!-- ==================== Set(ProgramPartner)    [DataType] ==================== -->
+    <UML:DataType xmi.id = 'G.53' 
+      name = 'Set(ProgramPartner)' visibility = 'public' isSpecification = 'false' 
+      isRoot = 'false' isLeaf = 'false' isAbstract = 'false' />
+    <!-- ==================== loyalty::Customer    [Class] ==================== -->
+    <UML:Class xmi.id = 'S.312.1153.07.10' 
+      name = 'Customer' visibility = 'public' isSpecification = 'false' 
+      isRoot = 'true' isLeaf = 'true' isAbstract = 'false' 
+      isActive = 'false' 
+      namespace = 'G.0' >
+      <UML:Classifier.feature>
+        <!-- ==================== loyalty::Customer.name    [Attribute] ==================== -->
+        <UML:Attribute xmi.id = 'S.312.1153.07.11' 
+          name = 'name' visibility = 'private' isSpecification = 'false' 
+          ownerScope = 'instance' 
+          changeability = 'changeable' targetScope = 'instance' 
+          type = 'G.49' >
+          <UML:StructuralFeature.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.32' 
+                  lower = '1' upper = '1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:StructuralFeature.multiplicity>
+          <UML:Attribute.initialValue>
+            <UML:Expression 
+              language = '' body = '' />
+          </UML:Attribute.initialValue>
+        </UML:Attribute>
+        <!-- ==================== loyalty::Customer.title    [Attribute] ==================== -->
+        <UML:Attribute xmi.id = 'S.312.1153.07.12' 
+          name = 'title' visibility = 'private' isSpecification = 'false' 
+          ownerScope = 'instance' 
+          changeability = 'changeable' targetScope = 'instance' 
+          type = 'G.49' >
+          <UML:StructuralFeature.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.33' 
+                  lower = '1' upper = '1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:StructuralFeature.multiplicity>
+          <UML:Attribute.initialValue>
+            <UML:Expression 
+              language = '' body = '' />
+          </UML:Attribute.initialValue>
+        </UML:Attribute>
+        <!-- ==================== loyalty::Customer.isMale    [Attribute] ==================== -->
+        <UML:Attribute xmi.id = 'S.312.1153.07.13' 
+          name = 'isMale' visibility = 'private' isSpecification = 'false' 
+          ownerScope = 'instance' 
+          changeability = 'changeable' targetScope = 'instance' 
+          type = 'G.54' >
+          <UML:StructuralFeature.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.34' 
+                  lower = '1' upper = '1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:StructuralFeature.multiplicity>
+          <UML:Attribute.initialValue>
+            <UML:Expression 
+              language = '' body = '' />
+          </UML:Attribute.initialValue>
+        </UML:Attribute>
+        <!-- ==================== loyalty::Customer.dateOfBirth    [Attribute] ==================== -->
+        <UML:Attribute xmi.id = 'S.312.1153.07.14' 
+          name = 'dateOfBirth' visibility = 'private' isSpecification = 'false' 
+          ownerScope = 'instance' 
+          changeability = 'changeable' targetScope = 'instance' 
+          type = 'S.312.1153.07.57' >
+          <UML:StructuralFeature.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.35' 
+                  lower = '1' upper = '1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:StructuralFeature.multiplicity>
+          <UML:Attribute.initialValue>
+            <UML:Expression 
+              language = '' body = '' />
+          </UML:Attribute.initialValue>
+        </UML:Attribute>
+        <!-- ==================== loyalty::Customer.age    [Attribute] ==================== -->
+        <UML:Attribute xmi.id = 'S.312.1153.07.15' 
+          name = 'age' visibility = 'private' isSpecification = 'false' 
+          ownerScope = 'instance' 
+          changeability = 'changeable' targetScope = 'instance' 
+          type = 'G.51' >
+          <UML:StructuralFeature.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.36' 
+                  lower = '1' upper = '1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:StructuralFeature.multiplicity>
+          <UML:Attribute.initialValue>
+            <UML:Expression 
+              language = '' body = '' />
+          </UML:Attribute.initialValue>
+        </UML:Attribute>
+        <!-- ==================== loyalty::Customer.gender    [Attribute] ==================== -->
+        <UML:Attribute xmi.id = 'S.312.1153.07.16' 
+          name = 'gender' visibility = 'private' isSpecification = 'false' 
+          ownerScope = 'instance' 
+          changeability = 'changeable' targetScope = 'instance' 
+          type = 'S.312.1153.07.66' >
+          <UML:StructuralFeature.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.37' 
+                  lower = '1' upper = '1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:StructuralFeature.multiplicity>
+          <UML:Attribute.initialValue>
+            <UML:Expression 
+              language = '' body = '' />
+          </UML:Attribute.initialValue>
+        </UML:Attribute>
+        <!-- ==================== loyalty::Customer::getAge    [Operation] ==================== -->
+        <UML:Operation xmi.id = 'S.312.1153.07.17' 
+          name = 'getAge' visibility = 'public' isSpecification = 'false' 
+          ownerScope = 'instance' 
+          isQuery = 'false' 
+          concurrency = 'sequential' isRoot = 'false' isLeaf = 'false' isAbstract = 'false' specification = '' >
+          <UML:BehavioralFeature.parameter>
+            <UML:Parameter xmi.id = 'XX.9.1153.8.21' 
+              name = 'getAge.Return' visibility = 'public' isSpecification = 'false' 
+              kind = 'return' 
+              type = 'G.51' >
+            </UML:Parameter>
+          </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <!-- ==================== loyalty::Customer::birthdayHappens    [Operation] ==================== -->
+        <UML:Operation xmi.id = 'S.312.1153.07.18' 
+          name = 'birthdayHappens' visibility = 'public' isSpecification = 'false' 
+          ownerScope = 'instance' 
+          isQuery = 'false' 
+          concurrency = 'sequential' isRoot = 'false' isLeaf = 'false' isAbstract = 'false' specification = '' />
+      </UML:Classifier.feature>
+    </UML:Class>
+    <!-- ==================== Boolean    [DataType] ==================== -->
+    <UML:DataType xmi.id = 'G.54' 
+      name = 'Boolean' visibility = 'public' isSpecification = 'false' 
+      isRoot = 'false' isLeaf = 'false' isAbstract = 'false' />
+    <!-- ==================== loyalty::ProgramPartner    [Class] ==================== -->
+    <UML:Class xmi.id = 'S.312.1153.07.19' 
+      name = 'ProgramPartner' visibility = 'public' isSpecification = 'false' 
+      isRoot = 'true' isLeaf = 'true' isAbstract = 'false' 
+      isActive = 'false' 
+      namespace = 'G.0' >
+      <UML:Classifier.feature>
+        <!-- ==================== loyalty::ProgramPartner.numberOfCustomers    [Attribute] ==================== -->
+        <UML:Attribute xmi.id = 'S.312.1153.07.20' 
+          name = 'numberOfCustomers' visibility = 'private' isSpecification = 'false' 
+          ownerScope = 'instance' 
+          changeability = 'changeable' targetScope = 'instance' 
+          type = 'G.51' >
+          <UML:StructuralFeature.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.38' 
+                  lower = '1' upper = '1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:StructuralFeature.multiplicity>
+          <UML:Attribute.initialValue>
+            <UML:Expression 
+              language = '' body = '' />
+          </UML:Attribute.initialValue>
+        </UML:Attribute>
+        <!-- ==================== loyalty::ProgramPartner.name    [Attribute] ==================== -->
+        <UML:Attribute xmi.id = 'S.312.1153.07.21' 
+          name = 'name' visibility = 'private' isSpecification = 'false' 
+          ownerScope = 'instance' 
+          changeability = 'changeable' targetScope = 'instance' 
+          type = 'G.49' >
+          <UML:StructuralFeature.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.39' 
+                  lower = '1' upper = '1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:StructuralFeature.multiplicity>
+          <UML:Attribute.initialValue>
+            <UML:Expression 
+              language = '' body = '' />
+          </UML:Attribute.initialValue>
+        </UML:Attribute>
+      </UML:Classifier.feature>
+    </UML:Class>
+    <!-- ==================== loyalty::ServiceLevel    [Class] ==================== -->
+    <UML:Class xmi.id = 'S.312.1153.07.22' 
+      name = 'ServiceLevel' visibility = 'public' isSpecification = 'false' 
+      isRoot = 'true' isLeaf = 'true' isAbstract = 'false' 
+      isActive = 'false' 
+      namespace = 'G.0' >
+      <UML:Classifier.feature>
+        <!-- ==================== loyalty::ServiceLevel.name    [Attribute] ==================== -->
+        <UML:Attribute xmi.id = 'S.312.1153.07.23' 
+          name = 'name' visibility = 'private' isSpecification = 'false' 
+          ownerScope = 'instance' 
+          changeability = 'changeable' targetScope = 'instance' 
+          type = 'G.49' >
+          <UML:StructuralFeature.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.40' 
+                  lower = '1' upper = '1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:StructuralFeature.multiplicity>
+          <UML:Attribute.initialValue>
+            <UML:Expression 
+              language = '' body = '' />
+          </UML:Attribute.initialValue>
+        </UML:Attribute>
+      </UML:Classifier.feature>
+    </UML:Class>
+    <!-- ==================== loyalty::Service    [Class] ==================== -->
+    <UML:Class xmi.id = 'S.312.1153.07.24' 
+      name = 'Service' visibility = 'public' isSpecification = 'false' 
+      isRoot = 'true' isLeaf = 'true' isAbstract = 'false' 
+      isActive = 'false' 
+      namespace = 'G.0' >
+      <UML:Classifier.feature>
+        <!-- ==================== loyalty::Service.condition    [Attribute] ==================== -->
+        <UML:Attribute xmi.id = 'S.312.1153.07.25' 
+          name = 'condition' visibility = 'private' isSpecification = 'false' 
+          ownerScope = 'instance' 
+          changeability = 'changeable' targetScope = 'instance' 
+          type = 'G.54' >
+          <UML:StructuralFeature.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.41' 
+                  lower = '1' upper = '1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:StructuralFeature.multiplicity>
+          <UML:Attribute.initialValue>
+            <UML:Expression 
+              language = '' body = '' />
+          </UML:Attribute.initialValue>
+        </UML:Attribute>
+        <!-- ==================== loyalty::Service.pointsEarned    [Attribute] ==================== -->
+        <UML:Attribute xmi.id = 'S.312.1153.07.26' 
+          name = 'pointsEarned' visibility = 'private' isSpecification = 'false' 
+          ownerScope = 'instance' 
+          changeability = 'changeable' targetScope = 'instance' 
+          type = 'G.51' >
+          <UML:StructuralFeature.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.42' 
+                  lower = '1' upper = '1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:StructuralFeature.multiplicity>
+          <UML:Attribute.initialValue>
+            <UML:Expression 
+              language = '' body = '' />
+          </UML:Attribute.initialValue>
+        </UML:Attribute>
+        <!-- ==================== loyalty::Service.pointsBurned    [Attribute] ==================== -->
+        <UML:Attribute xmi.id = 'S.312.1153.07.27' 
+          name = 'pointsBurned' visibility = 'private' isSpecification = 'false' 
+          ownerScope = 'instance' 
+          changeability = 'changeable' targetScope = 'instance' 
+          type = 'G.51' >
+          <UML:StructuralFeature.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.43' 
+                  lower = '1' upper = '1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:StructuralFeature.multiplicity>
+          <UML:Attribute.initialValue>
+            <UML:Expression 
+              language = '' body = '' />
+          </UML:Attribute.initialValue>
+        </UML:Attribute>
+        <!-- ==================== loyalty::Service.description    [Attribute] ==================== -->
+        <UML:Attribute xmi.id = 'S.312.1153.07.28' 
+          name = 'description' visibility = 'private' isSpecification = 'false' 
+          ownerScope = 'instance' 
+          changeability = 'changeable' targetScope = 'instance' 
+          type = 'G.49' >
+          <UML:StructuralFeature.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.44' 
+                  lower = '1' upper = '1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:StructuralFeature.multiplicity>
+          <UML:Attribute.initialValue>
+            <UML:Expression 
+              language = '' body = '' />
+          </UML:Attribute.initialValue>
+        </UML:Attribute>
+        <!-- ==================== loyalty::Service.serviceNr    [Attribute] ==================== -->
+        <UML:Attribute xmi.id = 'S.312.1153.07.29' 
+          name = 'serviceNr' visibility = 'private' isSpecification = 'false' 
+          ownerScope = 'instance' 
+          changeability = 'changeable' targetScope = 'instance' 
+          type = 'G.51' >
+          <UML:StructuralFeature.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.45' 
+                  lower = '1' upper = '1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:StructuralFeature.multiplicity>
+          <UML:Attribute.initialValue>
+            <UML:Expression 
+              language = '' body = '' />
+          </UML:Attribute.initialValue>
+        </UML:Attribute>
+        <!-- ==================== loyalty::Service::calcPoints    [Operation] ==================== -->
+        <UML:Operation xmi.id = 'S.312.1153.07.30' 
+          name = 'calcPoints' visibility = 'public' isSpecification = 'false' 
+          ownerScope = 'instance' 
+          isQuery = 'false' 
+          concurrency = 'sequential' isRoot = 'false' isLeaf = 'false' isAbstract = 'false' specification = '' >
+          <UML:BehavioralFeature.parameter>
+            <UML:Parameter xmi.id = 'XX.9.1153.8.25' 
+              name = 'calcPoints.Return' visibility = 'public' isSpecification = 'false' 
+              kind = 'return' 
+              type = 'G.51' >
+            </UML:Parameter>
+          </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <!-- ==================== loyalty::Service::upgradePointsEarned    [Operation] ==================== -->
+        <UML:Operation xmi.id = 'S.312.1153.07.31' 
+          name = 'upgradePointsEarned' visibility = 'public' isSpecification = 'false' 
+          ownerScope = 'instance' 
+          isQuery = 'false' 
+          concurrency = 'sequential' isRoot = 'false' isLeaf = 'false' isAbstract = 'false' specification = '' >
+          <UML:BehavioralFeature.parameter>
+            <UML:Parameter xmi.id = 'XX.9.1153.8.26' 
+              name = 'amount' visibility = 'public' isSpecification = 'false' 
+              kind = 'inout' 
+              type = 'G.51' >
+              <UML:Parameter.defaultValue>
+                <UML:Expression 
+                  language = '' body = '' />
+              </UML:Parameter.defaultValue>
+            </UML:Parameter>
+          </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+      </UML:Classifier.feature>
+    </UML:Class>
+    <!-- ==================== loyalty::LoyaltyAccount    [Class] ==================== -->
+    <UML:Class xmi.id = 'S.312.1153.07.32' 
+      name = 'LoyaltyAccount' visibility = 'public' isSpecification = 'false' 
+      isRoot = 'true' isLeaf = 'true' isAbstract = 'false' 
+      isActive = 'false' 
+      namespace = 'G.0' >
+      <UML:Classifier.feature>
+        <!-- ==================== loyalty::LoyaltyAccount.points    [Attribute] ==================== -->
+        <UML:Attribute xmi.id = 'S.312.1153.07.33' 
+          name = 'points' visibility = 'private' isSpecification = 'false' 
+          ownerScope = 'instance' 
+          changeability = 'changeable' targetScope = 'instance' 
+          type = 'G.51' >
+          <UML:StructuralFeature.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.46' 
+                  lower = '1' upper = '1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:StructuralFeature.multiplicity>
+          <UML:Attribute.initialValue>
+            <UML:Expression 
+              language = '' body = '' />
+          </UML:Attribute.initialValue>
+        </UML:Attribute>
+        <!-- ==================== loyalty::LoyaltyAccount.number    [Attribute] ==================== -->
+        <UML:Attribute xmi.id = 'S.312.1153.07.34' 
+          name = 'number' visibility = 'private' isSpecification = 'false' 
+          ownerScope = 'instance' 
+          changeability = 'changeable' targetScope = 'instance' 
+          type = 'G.51' >
+          <UML:StructuralFeature.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.47' 
+                  lower = '1' upper = '1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:StructuralFeature.multiplicity>
+          <UML:Attribute.initialValue>
+            <UML:Expression 
+              language = '' body = '' />
+          </UML:Attribute.initialValue>
+        </UML:Attribute>
+        <!-- ==================== loyalty::LoyaltyAccount.totalPointsEarned    [Attribute] ==================== -->
+        <UML:Attribute xmi.id = 'S.312.1153.07.35' 
+          name = 'totalPointsEarned' visibility = 'private' isSpecification = 'false' 
+          ownerScope = 'instance' 
+          changeability = 'changeable' targetScope = 'instance' 
+          type = 'G.51' >
+          <UML:StructuralFeature.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.48' 
+                  lower = '1' upper = '1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:StructuralFeature.multiplicity>
+          <UML:Attribute.initialValue>
+            <UML:Expression 
+              language = '' body = '' />
+          </UML:Attribute.initialValue>
+        </UML:Attribute>
+        <!-- ==================== loyalty::LoyaltyAccount::earn    [Operation] ==================== -->
+        <UML:Operation xmi.id = 'S.312.1153.07.36' 
+          name = 'earn' visibility = 'public' isSpecification = 'false' 
+          ownerScope = 'instance' 
+          isQuery = 'false' 
+          concurrency = 'sequential' isRoot = 'false' isLeaf = 'false' isAbstract = 'false' specification = '' >
+          <UML:BehavioralFeature.parameter>
+            <UML:Parameter xmi.id = 'XX.9.1153.8.28' 
+              name = 'i' visibility = 'public' isSpecification = 'false' 
+              kind = 'inout' 
+              type = 'G.51' >
+              <UML:Parameter.defaultValue>
+                <UML:Expression 
+                  language = '' body = '' />
+              </UML:Parameter.defaultValue>
+            </UML:Parameter>
+          </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <!-- ==================== loyalty::LoyaltyAccount::burn    [Operation] ==================== -->
+        <UML:Operation xmi.id = 'S.312.1153.07.37' 
+          name = 'burn' visibility = 'public' isSpecification = 'false' 
+          ownerScope = 'instance' 
+          isQuery = 'false' 
+          concurrency = 'sequential' isRoot = 'false' isLeaf = 'false' isAbstract = 'false' specification = '' >
+          <UML:BehavioralFeature.parameter>
+            <UML:Parameter xmi.id = 'XX.9.1153.8.29' 
+              name = 'i' visibility = 'public' isSpecification = 'false' 
+              kind = 'inout' 
+              type = 'G.51' >
+              <UML:Parameter.defaultValue>
+                <UML:Expression 
+                  language = '' body = '' />
+              </UML:Parameter.defaultValue>
+            </UML:Parameter>
+          </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <!-- ==================== loyalty::LoyaltyAccount::isEmpty    [Operation] ==================== -->
+        <UML:Operation xmi.id = 'S.312.1153.07.38' 
+          name = 'isEmpty' visibility = 'public' isSpecification = 'false' 
+          ownerScope = 'instance' 
+          isQuery = 'false' 
+          concurrency = 'sequential' isRoot = 'false' isLeaf = 'false' isAbstract = 'false' specification = '' >
+          <UML:BehavioralFeature.parameter>
+            <UML:Parameter xmi.id = 'XX.9.1153.8.30' 
+              name = 'isEmpty.Return' visibility = 'public' isSpecification = 'false' 
+              kind = 'return' 
+              type = 'G.54' >
+            </UML:Parameter>
+          </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <!-- ==================== loyalty::LoyaltyAccount::getCustomerName    [Operation] ==================== -->
+        <UML:Operation xmi.id = 'S.312.1153.07.39' 
+          name = 'getCustomerName' visibility = 'public' isSpecification = 'false' 
+          ownerScope = 'instance' 
+          isQuery = 'false' 
+          concurrency = 'sequential' isRoot = 'false' isLeaf = 'false' isAbstract = 'false' specification = '' >
+          <UML:BehavioralFeature.parameter>
+            <UML:Parameter xmi.id = 'XX.9.1153.8.31' 
+              name = 'getCustomerName.Return' visibility = 'public' isSpecification = 'false' 
+              kind = 'return' 
+              type = 'G.49' >
+            </UML:Parameter>
+          </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+      </UML:Classifier.feature>
+    </UML:Class>
+    <!-- ==================== loyalty::Transaction    [Class] ==================== -->
+    <UML:Class xmi.id = 'S.312.1153.07.40' 
+      name = 'Transaction' visibility = 'public' isSpecification = 'false' 
+      isRoot = 'true' isLeaf = 'false' isAbstract = 'false' 
+      isActive = 'false' 
+      namespace = 'G.0' 
+      specialization = 'G.57 G.58' >
+      <UML:Classifier.feature>
+        <!-- ==================== loyalty::Transaction.points    [Attribute] ==================== -->
+        <UML:Attribute xmi.id = 'S.312.1153.07.41' 
+          name = 'points' visibility = 'private' isSpecification = 'false' 
+          ownerScope = 'instance' 
+          changeability = 'changeable' targetScope = 'instance' 
+          type = 'G.51' >
+          <UML:StructuralFeature.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.49' 
+                  lower = '1' upper = '1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:StructuralFeature.multiplicity>
+          <UML:Attribute.initialValue>
+            <UML:Expression 
+              language = '' body = '' />
+          </UML:Attribute.initialValue>
+        </UML:Attribute>
+        <!-- ==================== loyalty::Transaction.date    [Attribute] ==================== -->
+        <UML:Attribute xmi.id = 'S.312.1153.07.42' 
+          name = 'date' visibility = 'private' isSpecification = 'false' 
+          ownerScope = 'instance' 
+          changeability = 'changeable' targetScope = 'instance' 
+          type = 'S.312.1153.07.57' >
+          <UML:StructuralFeature.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.50' 
+                  lower = '1' upper = '1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:StructuralFeature.multiplicity>
+          <UML:Attribute.initialValue>
+            <UML:Expression 
+              language = '' body = '' />
+          </UML:Attribute.initialValue>
+        </UML:Attribute>
+        <!-- ==================== loyalty::Transaction.amount    [Attribute] ==================== -->
+        <UML:Attribute xmi.id = 'S.312.1153.07.43' 
+          name = 'amount' visibility = 'private' isSpecification = 'false' 
+          ownerScope = 'instance' 
+          changeability = 'changeable' targetScope = 'instance' 
+          type = 'G.52' >
+          <UML:StructuralFeature.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.51' 
+                  lower = '1' upper = '1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:StructuralFeature.multiplicity>
+          <UML:Attribute.initialValue>
+            <UML:Expression 
+              language = '' body = '' />
+          </UML:Attribute.initialValue>
+        </UML:Attribute>
+        <!-- ==================== loyalty::Transaction::program    [Operation] ==================== -->
+        <UML:Operation xmi.id = 'S.312.1153.07.44' 
+          name = 'program' visibility = 'public' isSpecification = 'false' 
+          ownerScope = 'instance' 
+          isQuery = 'false' 
+          concurrency = 'sequential' isRoot = 'false' isLeaf = 'false' isAbstract = 'false' specification = '' >
+          <UML:BehavioralFeature.parameter>
+            <UML:Parameter xmi.id = 'XX.9.1153.8.33' 
+              name = 'program.Return' visibility = 'public' isSpecification = 'false' 
+              kind = 'return' 
+              type = 'S.312.1153.07.1' >
+            </UML:Parameter>
+          </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <!-- ==================== loyalty::Transaction::getProgram    [Operation] ==================== -->
+        <UML:Operation xmi.id = 'S.312.1153.07.45' 
+          name = 'getProgram' visibility = 'public' isSpecification = 'false' 
+          ownerScope = 'instance' 
+          isQuery = 'false' 
+          concurrency = 'sequential' isRoot = 'false' isLeaf = 'false' isAbstract = 'false' specification = '' >
+          <UML:BehavioralFeature.parameter>
+            <UML:Parameter xmi.id = 'XX.9.1153.8.34' 
+              name = 'getProgram.Return' visibility = 'public' isSpecification = 'false' 
+              kind = 'return' 
+              type = 'S.312.1153.07.1' >
+            </UML:Parameter>
+          </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+      </UML:Classifier.feature>
+    </UML:Class>
+    <!-- ==================== loyalty::CustomerCard    [Class] ==================== -->
+    <UML:Class xmi.id = 'S.312.1153.07.46' 
+      name = 'CustomerCard' visibility = 'public' isSpecification = 'false' 
+      isRoot = 'true' isLeaf = 'true' isAbstract = 'false' 
+      isActive = 'false' 
+      namespace = 'G.0' >
+      <UML:Classifier.feature>
+        <!-- ==================== loyalty::CustomerCard.valid    [Attribute] ==================== -->
+        <UML:Attribute xmi.id = 'S.312.1153.07.47' 
+          name = 'valid' visibility = 'private' isSpecification = 'false' 
+          ownerScope = 'instance' 
+          changeability = 'changeable' targetScope = 'instance' 
+          type = 'G.54' >
+          <UML:StructuralFeature.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.52' 
+                  lower = '1' upper = '1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:StructuralFeature.multiplicity>
+          <UML:Attribute.initialValue>
+            <UML:Expression 
+              language = '' body = '' />
+          </UML:Attribute.initialValue>
+        </UML:Attribute>
+        <!-- ==================== loyalty::CustomerCard.validFrom    [Attribute] ==================== -->
+        <UML:Attribute xmi.id = 'S.312.1153.07.48' 
+          name = 'validFrom' visibility = 'private' isSpecification = 'false' 
+          ownerScope = 'instance' 
+          changeability = 'changeable' targetScope = 'instance' 
+          type = 'S.312.1153.07.57' >
+          <UML:StructuralFeature.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.53' 
+                  lower = '1' upper = '1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:StructuralFeature.multiplicity>
+          <UML:Attribute.initialValue>
+            <UML:Expression 
+              language = '' body = '' />
+          </UML:Attribute.initialValue>
+        </UML:Attribute>
+        <!-- ==================== loyalty::CustomerCard.goodThru    [Attribute] ==================== -->
+        <UML:Attribute xmi.id = 'S.312.1153.07.49' 
+          name = 'goodThru' visibility = 'private' isSpecification = 'false' 
+          ownerScope = 'instance' 
+          changeability = 'changeable' targetScope = 'instance' 
+          type = 'S.312.1153.07.57' >
+          <UML:StructuralFeature.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.54' 
+                  lower = '1' upper = '1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:StructuralFeature.multiplicity>
+          <UML:Attribute.initialValue>
+            <UML:Expression 
+              language = '' body = '' />
+          </UML:Attribute.initialValue>
+        </UML:Attribute>
+        <!-- ==================== loyalty::CustomerCard.color    [Attribute] ==================== -->
+        <UML:Attribute xmi.id = 'S.312.1153.07.50' 
+          name = 'color' visibility = 'private' isSpecification = 'false' 
+          ownerScope = 'instance' 
+          changeability = 'changeable' targetScope = 'instance' 
+          type = 'S.312.1153.07.63' >
+          <UML:StructuralFeature.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.55' 
+                  lower = '1' upper = '1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:StructuralFeature.multiplicity>
+          <UML:Attribute.initialValue>
+            <UML:Expression 
+              language = '' body = '' />
+          </UML:Attribute.initialValue>
+        </UML:Attribute>
+        <!-- ==================== loyalty::CustomerCard.printedName    [Attribute] ==================== -->
+        <UML:Attribute xmi.id = 'S.312.1153.07.51' 
+          name = 'printedName' visibility = 'private' isSpecification = 'false' 
+          ownerScope = 'instance' 
+          changeability = 'changeable' targetScope = 'instance' 
+          type = 'G.49' >
+          <UML:StructuralFeature.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.56' 
+                  lower = '1' upper = '1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:StructuralFeature.multiplicity>
+          <UML:Attribute.initialValue>
+            <UML:Expression 
+              language = '' body = '' />
+          </UML:Attribute.initialValue>
+        </UML:Attribute>
+        <!-- ==================== loyalty::CustomerCard.myLevel    [Attribute] ==================== -->
+        <UML:Attribute xmi.id = 'S.312.1153.07.52' 
+          name = 'myLevel' visibility = 'private' isSpecification = 'false' 
+          ownerScope = 'instance' 
+          changeability = 'changeable' targetScope = 'instance' 
+          type = 'S.312.1153.07.22' >
+          <UML:StructuralFeature.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.57' 
+                  lower = '1' upper = '1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:StructuralFeature.multiplicity>
+          <UML:Attribute.initialValue>
+            <UML:Expression 
+              language = '' body = '' />
+          </UML:Attribute.initialValue>
+        </UML:Attribute>
+        <!-- ==================== loyalty::CustomerCard::getTransactions    [Operation] ==================== -->
+        <UML:Operation xmi.id = 'S.312.1153.07.53' 
+          name = 'getTransactions' visibility = 'public' isSpecification = 'false' 
+          ownerScope = 'instance' 
+          isQuery = 'false' 
+          concurrency = 'sequential' isRoot = 'false' isLeaf = 'false' isAbstract = 'false' specification = '' >
+          <UML:BehavioralFeature.parameter>
+            <UML:Parameter xmi.id = 'XX.9.1153.8.36' 
+              name = 'from' visibility = 'public' isSpecification = 'false' 
+              kind = 'inout' 
+              type = 'S.312.1153.07.57' >
+              <UML:Parameter.defaultValue>
+                <UML:Expression 
+                  language = '' body = '' />
+              </UML:Parameter.defaultValue>
+            </UML:Parameter>
+            <UML:Parameter xmi.id = 'XX.9.1153.8.37' 
+              name = 'rUntil' visibility = 'public' isSpecification = 'false' 
+              kind = 'inout' 
+              type = 'S.312.1153.07.57' >
+              <UML:Parameter.defaultValue>
+                <UML:Expression 
+                  language = '' body = '' />
+              </UML:Parameter.defaultValue>
+            </UML:Parameter>
+            <UML:Parameter xmi.id = 'XX.9.1153.8.38' 
+              name = 'getTransactions.Return' visibility = 'public' isSpecification = 'false' 
+              kind = 'return' 
+              type = 'G.55' >
+            </UML:Parameter>
+          </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+      </UML:Classifier.feature>
+    </UML:Class>
+    <!-- ==================== Set(Transaction)    [DataType] ==================== -->
+    <UML:DataType xmi.id = 'G.55' 
+      name = 'Set(Transaction)' visibility = 'public' isSpecification = 'false' 
+      isRoot = 'false' isLeaf = 'false' isAbstract = 'false' />
+    <!-- ==================== loyalty::Membership    [AssociationClass] ==================== -->
+    <UML:AssociationClass xmi.id = 'S.312.1153.07.54' 
+      name = 'Membership' visibility = 'public' isSpecification = 'false' 
+      isRoot = 'true' isLeaf = 'true' isAbstract = 'false' 
+      isActive = 'false' 
+      namespace = 'G.0' >
+      <UML:Association.connection>
+        <!-- ==================== loyalty::Membership.participants    [AssociationEnd] ==================== -->
+        <UML:AssociationEnd xmi.id = 'G.2' 
+          name = 'participants' visibility = 'public' isSpecification = 'false' 
+          isNavigable = 'true' ordering = 'unordered' aggregation = 'none' targetScope = 'instance' changeability = 'changeable' 
+          type = 'S.312.1153.07.10' >
+          <UML:AssociationEnd.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.58' 
+                  lower = '0' upper = '-1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:AssociationEnd.multiplicity>
+        </UML:AssociationEnd>
+        <!-- ==================== loyalty::Membership.programs    [AssociationEnd] ==================== -->
+        <UML:AssociationEnd xmi.id = 'G.3' 
+          name = 'programs' visibility = 'public' isSpecification = 'false' 
+          isNavigable = 'true' ordering = 'unordered' aggregation = 'none' targetScope = 'instance' changeability = 'changeable' 
+          type = 'S.312.1153.07.1' >
+          <UML:AssociationEnd.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.59' 
+                  lower = '0' upper = '-1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:AssociationEnd.multiplicity>
+        </UML:AssociationEnd>
+      </UML:Association.connection>
+    </UML:AssociationClass>
+    <!-- ==================== loyalty::Burning    [Class] ==================== -->
+    <UML:Class xmi.id = 'S.312.1153.07.55' 
+      name = 'Burning' visibility = 'public' isSpecification = 'false' 
+      isRoot = 'false' isLeaf = 'true' isAbstract = 'false' 
+      isActive = 'false' 
+      namespace = 'G.0' 
+      generalization = 'G.57' >
+      <UML:Namespace.ownedElement>
+        <UML:Generalization xmi.id = 'G.57' 
+          name = '' visibility = 'public' isSpecification = 'false' 
+          discriminator = '' 
+          child = 'S.312.1153.07.55' parent = 'S.312.1153.07.40' />
+      </UML:Namespace.ownedElement>
+    </UML:Class>
+    <!-- ==================== loyalty::Earning    [Class] ==================== -->
+    <UML:Class xmi.id = 'S.312.1153.07.56' 
+      name = 'Earning' visibility = 'public' isSpecification = 'false' 
+      isRoot = 'false' isLeaf = 'true' isAbstract = 'false' 
+      isActive = 'false' 
+      namespace = 'G.0' 
+      generalization = 'G.58' >
+      <UML:Namespace.ownedElement>
+        <UML:Generalization xmi.id = 'G.58' 
+          name = '' visibility = 'public' isSpecification = 'false' 
+          discriminator = '' 
+          child = 'S.312.1153.07.56' parent = 'S.312.1153.07.40' />
+      </UML:Namespace.ownedElement>
+    </UML:Class>
+    <!-- ==================== loyalty::Date    [Class] ==================== -->
+    <UML:Class xmi.id = 'S.312.1153.07.57' 
+      name = 'Date' visibility = 'public' isSpecification = 'false' 
+      isRoot = 'true' isLeaf = 'true' isAbstract = 'false' 
+      isActive = 'false' 
+      namespace = 'G.0' >
+      <UML:Classifier.feature>
+        <!-- ==================== loyalty::Date.now    [Attribute] ==================== -->
+        <UML:Attribute xmi.id = 'S.312.1153.07.58' 
+          name = 'now' visibility = 'private' isSpecification = 'false' 
+          ownerScope = 'classifier' 
+          changeability = 'changeable' targetScope = 'instance' 
+          type = 'S.312.1153.07.57' >
+          <UML:StructuralFeature.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.60' 
+                  lower = '1' upper = '1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:StructuralFeature.multiplicity>
+          <UML:Attribute.initialValue>
+            <UML:Expression 
+              language = '' body = '' />
+          </UML:Attribute.initialValue>
+        </UML:Attribute>
+        <!-- ==================== loyalty::Date::isBefore    [Operation] ==================== -->
+        <UML:Operation xmi.id = 'S.312.1153.07.59' 
+          name = 'isBefore' visibility = 'public' isSpecification = 'false' 
+          ownerScope = 'instance' 
+          isQuery = 'false' 
+          concurrency = 'sequential' isRoot = 'false' isLeaf = 'false' isAbstract = 'false' specification = '' >
+          <UML:BehavioralFeature.parameter>
+            <UML:Parameter xmi.id = 'XX.9.1153.8.43' 
+              name = 't' visibility = 'public' isSpecification = 'false' 
+              kind = 'inout' 
+              type = 'S.312.1153.07.57' >
+              <UML:Parameter.defaultValue>
+                <UML:Expression 
+                  language = '' body = '' />
+              </UML:Parameter.defaultValue>
+            </UML:Parameter>
+            <UML:Parameter xmi.id = 'XX.9.1153.8.44' 
+              name = 'isBefore.Return' visibility = 'public' isSpecification = 'false' 
+              kind = 'return' 
+              type = 'G.54' >
+            </UML:Parameter>
+          </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <!-- ==================== loyalty::Date::isAfter    [Operation] ==================== -->
+        <UML:Operation xmi.id = 'S.312.1153.07.60' 
+          name = 'isAfter' visibility = 'public' isSpecification = 'false' 
+          ownerScope = 'instance' 
+          isQuery = 'false' 
+          concurrency = 'sequential' isRoot = 'false' isLeaf = 'false' isAbstract = 'false' specification = '' >
+          <UML:BehavioralFeature.parameter>
+            <UML:Parameter xmi.id = 'XX.9.1153.8.45' 
+              name = 't' visibility = 'public' isSpecification = 'false' 
+              kind = 'inout' 
+              type = 'S.312.1153.07.57' >
+              <UML:Parameter.defaultValue>
+                <UML:Expression 
+                  language = '' body = '' />
+              </UML:Parameter.defaultValue>
+            </UML:Parameter>
+            <UML:Parameter xmi.id = 'XX.9.1153.8.46' 
+              name = 'isAfter.Return' visibility = 'public' isSpecification = 'false' 
+              kind = 'return' 
+              type = 'G.54' >
+            </UML:Parameter>
+          </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <!-- ==================== loyalty::Date::=    [Operation] ==================== -->
+        <UML:Operation xmi.id = 'S.312.1153.07.61' 
+          name = '=' visibility = 'public' isSpecification = 'false' 
+          ownerScope = 'instance' 
+          isQuery = 'false' 
+          concurrency = 'sequential' isRoot = 'false' isLeaf = 'false' isAbstract = 'false' specification = '' >
+          <UML:BehavioralFeature.parameter>
+            <UML:Parameter xmi.id = 'XX.9.1153.8.47' 
+              name = 't' visibility = 'public' isSpecification = 'false' 
+              kind = 'inout' 
+              type = 'S.312.1153.07.57' >
+              <UML:Parameter.defaultValue>
+                <UML:Expression 
+                  language = '' body = '' />
+              </UML:Parameter.defaultValue>
+            </UML:Parameter>
+            <UML:Parameter xmi.id = 'XX.9.1153.8.48' 
+              name = '=.Return' visibility = 'public' isSpecification = 'false' 
+              kind = 'return' 
+              type = 'G.54' >
+            </UML:Parameter>
+          </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+        <!-- ==================== loyalty::Date::$fromYMD    [Operation] ==================== -->
+        <UML:Operation xmi.id = 'S.312.1153.07.62' 
+          name = '$fromYMD' visibility = 'public' isSpecification = 'false' 
+          ownerScope = 'instance' 
+          isQuery = 'false' 
+          concurrency = 'sequential' isRoot = 'false' isLeaf = 'false' isAbstract = 'false' specification = '' >
+          <UML:BehavioralFeature.parameter>
+            <UML:Parameter xmi.id = 'XX.9.1153.8.49' 
+              name = 'y' visibility = 'public' isSpecification = 'false' 
+              kind = 'inout' 
+              type = 'G.51' >
+              <UML:Parameter.defaultValue>
+                <UML:Expression 
+                  language = '' body = '' />
+              </UML:Parameter.defaultValue>
+            </UML:Parameter>
+            <UML:Parameter xmi.id = 'XX.9.1153.8.50' 
+              name = 'm' visibility = 'public' isSpecification = 'false' 
+              kind = 'inout' 
+              type = 'G.51' >
+              <UML:Parameter.defaultValue>
+                <UML:Expression 
+                  language = '' body = '' />
+              </UML:Parameter.defaultValue>
+            </UML:Parameter>
+            <UML:Parameter xmi.id = 'XX.9.1153.8.51' 
+              name = 'd' visibility = 'public' isSpecification = 'false' 
+              kind = 'inout' 
+              type = 'G.51' >
+              <UML:Parameter.defaultValue>
+                <UML:Expression 
+                  language = '' body = '' />
+              </UML:Parameter.defaultValue>
+            </UML:Parameter>
+            <UML:Parameter xmi.id = 'XX.9.1153.8.52' 
+              name = '$fromYMD.Return' visibility = 'public' isSpecification = 'false' 
+              kind = 'return' 
+              type = 'S.312.1153.07.57' >
+            </UML:Parameter>
+          </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+      </UML:Classifier.feature>
+    </UML:Class>
+    <!-- ==================== loyalty::Color    [Class] ==================== -->
+    <UML:Class xmi.id = 'S.312.1153.07.63' 
+      name = 'Color' visibility = 'public' isSpecification = 'false' 
+      isRoot = 'true' isLeaf = 'true' isAbstract = 'false' 
+      isActive = 'false' 
+      namespace = 'G.0' >
+      <UML:Classifier.feature>
+        <!-- ==================== loyalty::Color.silver    [Attribute] ==================== -->
+        <UML:Attribute xmi.id = 'S.312.1153.07.64' 
+          name = 'silver' visibility = 'private' isSpecification = 'false' 
+          ownerScope = 'instance' 
+          changeability = 'changeable' targetScope = 'instance' 
+          type = 'G.56' >
+          <UML:StructuralFeature.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.61' 
+                  lower = '1' upper = '1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:StructuralFeature.multiplicity>
+          <UML:Attribute.initialValue>
+            <UML:Expression 
+              language = '' body = '' />
+          </UML:Attribute.initialValue>
+        </UML:Attribute>
+        <!-- ==================== loyalty::Color.gold    [Attribute] ==================== -->
+        <UML:Attribute xmi.id = 'S.312.1153.07.65' 
+          name = 'gold' visibility = 'private' isSpecification = 'false' 
+          ownerScope = 'instance' 
+          changeability = 'changeable' targetScope = 'instance' 
+          type = 'G.56' >
+          <UML:StructuralFeature.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.62' 
+                  lower = '1' upper = '1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:StructuralFeature.multiplicity>
+          <UML:Attribute.initialValue>
+            <UML:Expression 
+              language = '' body = '' />
+          </UML:Attribute.initialValue>
+        </UML:Attribute>
+      </UML:Classifier.feature>
+    </UML:Class>
+    <UML:Stereotype xmi.id = 'S.312.1153.08.1' 
+      name = 'enumeration' visibility = 'public' isSpecification = 'false' 
+      isRoot = 'false' isLeaf = 'false' isAbstract = 'false' 
+      icon = '' baseClass = 'Class' 
+      extendedElement = 'S.312.1153.07.63 S.312.1153.07.66' />
+    <!-- ==================== <undefined>    [DataType] ==================== -->
+    <UML:DataType xmi.id = 'G.56' 
+      name = '&lt;undefined&gt;' visibility = 'public' isSpecification = 'false' 
+      isRoot = 'false' isLeaf = 'false' isAbstract = 'false' />
+    <!-- ==================== loyalty::Gender    [Class] ==================== -->
+    <UML:Class xmi.id = 'S.312.1153.07.66' 
+      name = 'Gender' visibility = 'public' isSpecification = 'false' 
+      isRoot = 'true' isLeaf = 'true' isAbstract = 'false' 
+      isActive = 'false' 
+      namespace = 'G.0' >
+      <UML:Classifier.feature>
+        <!-- ==================== loyalty::Gender.male    [Attribute] ==================== -->
+        <UML:Attribute xmi.id = 'S.312.1153.07.67' 
+          name = 'male' visibility = 'private' isSpecification = 'false' 
+          ownerScope = 'instance' 
+          changeability = 'changeable' targetScope = 'instance' 
+          type = 'G.56' >
+          <UML:StructuralFeature.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.63' 
+                  lower = '1' upper = '1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:StructuralFeature.multiplicity>
+          <UML:Attribute.initialValue>
+            <UML:Expression 
+              language = '' body = '' />
+          </UML:Attribute.initialValue>
+        </UML:Attribute>
+        <!-- ==================== loyalty::Gender.female    [Attribute] ==================== -->
+        <UML:Attribute xmi.id = 'S.312.1153.07.68' 
+          name = 'female' visibility = 'private' isSpecification = 'false' 
+          ownerScope = 'instance' 
+          changeability = 'changeable' targetScope = 'instance' 
+          type = 'G.56' >
+          <UML:StructuralFeature.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.64' 
+                  lower = '1' upper = '1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:StructuralFeature.multiplicity>
+          <UML:Attribute.initialValue>
+            <UML:Expression 
+              language = '' body = '' />
+          </UML:Attribute.initialValue>
+        </UML:Attribute>
+      </UML:Classifier.feature>
+    </UML:Class>
+    <!-- ==================== loyalty::TransactionReport    [Class] ==================== -->
+    <UML:Class xmi.id = 'S.312.1153.07.69' 
+      name = 'TransactionReport' visibility = 'public' isSpecification = 'false' 
+      isRoot = 'true' isLeaf = 'true' isAbstract = 'false' 
+      isActive = 'false' 
+      namespace = 'G.0' >
+      <UML:Classifier.feature>
+        <!-- ==================== loyalty::TransactionReport.from    [Attribute] ==================== -->
+        <UML:Attribute xmi.id = 'S.312.1153.07.70' 
+          name = 'from' visibility = 'private' isSpecification = 'false' 
+          ownerScope = 'instance' 
+          changeability = 'changeable' targetScope = 'instance' 
+          type = 'S.312.1153.07.57' >
+          <UML:StructuralFeature.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.65' 
+                  lower = '1' upper = '1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:StructuralFeature.multiplicity>
+          <UML:Attribute.initialValue>
+            <UML:Expression 
+              language = '' body = '' />
+          </UML:Attribute.initialValue>
+        </UML:Attribute>
+        <!-- ==================== loyalty::TransactionReport.until    [Attribute] ==================== -->
+        <UML:Attribute xmi.id = 'S.312.1153.07.71' 
+          name = 'until' visibility = 'private' isSpecification = 'false' 
+          ownerScope = 'instance' 
+          changeability = 'changeable' targetScope = 'instance' 
+          type = 'S.312.1153.07.57' >
+          <UML:StructuralFeature.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.66' 
+                  lower = '1' upper = '1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:StructuralFeature.multiplicity>
+          <UML:Attribute.initialValue>
+            <UML:Expression 
+              language = '' body = '' />
+          </UML:Attribute.initialValue>
+        </UML:Attribute>
+        <!-- ==================== loyalty::TransactionReport.name    [Attribute] ==================== -->
+        <UML:Attribute xmi.id = 'S.312.1153.07.72' 
+          name = 'name' visibility = 'private' isSpecification = 'false' 
+          ownerScope = 'instance' 
+          changeability = 'changeable' targetScope = 'instance' 
+          type = 'G.49' >
+          <UML:StructuralFeature.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.67' 
+                  lower = '1' upper = '1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:StructuralFeature.multiplicity>
+          <UML:Attribute.initialValue>
+            <UML:Expression 
+              language = '' body = '' />
+          </UML:Attribute.initialValue>
+        </UML:Attribute>
+        <!-- ==================== loyalty::TransactionReport.balance    [Attribute] ==================== -->
+        <UML:Attribute xmi.id = 'S.312.1153.07.73' 
+          name = 'balance' visibility = 'private' isSpecification = 'false' 
+          ownerScope = 'instance' 
+          changeability = 'changeable' targetScope = 'instance' 
+          type = 'G.51' >
+          <UML:StructuralFeature.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.68' 
+                  lower = '1' upper = '1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:StructuralFeature.multiplicity>
+          <UML:Attribute.initialValue>
+            <UML:Expression 
+              language = '' body = '' />
+          </UML:Attribute.initialValue>
+        </UML:Attribute>
+        <!-- ==================== loyalty::TransactionReport.number    [Attribute] ==================== -->
+        <UML:Attribute xmi.id = 'S.312.1153.07.74' 
+          name = 'number' visibility = 'private' isSpecification = 'false' 
+          ownerScope = 'instance' 
+          changeability = 'changeable' targetScope = 'instance' 
+          type = 'G.51' >
+          <UML:StructuralFeature.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.69' 
+                  lower = '1' upper = '1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:StructuralFeature.multiplicity>
+          <UML:Attribute.initialValue>
+            <UML:Expression 
+              language = '' body = '' />
+          </UML:Attribute.initialValue>
+        </UML:Attribute>
+        <!-- ==================== loyalty::TransactionReport.totalEarned    [Attribute] ==================== -->
+        <UML:Attribute xmi.id = 'S.312.1153.07.75' 
+          name = 'totalEarned' visibility = 'private' isSpecification = 'false' 
+          ownerScope = 'instance' 
+          changeability = 'changeable' targetScope = 'instance' 
+          type = 'G.51' >
+          <UML:StructuralFeature.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.70' 
+                  lower = '1' upper = '1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:StructuralFeature.multiplicity>
+          <UML:Attribute.initialValue>
+            <UML:Expression 
+              language = '' body = '' />
+          </UML:Attribute.initialValue>
+        </UML:Attribute>
+        <!-- ==================== loyalty::TransactionReport.totalBurned    [Attribute] ==================== -->
+        <UML:Attribute xmi.id = 'S.312.1153.07.76' 
+          name = 'totalBurned' visibility = 'private' isSpecification = 'false' 
+          ownerScope = 'instance' 
+          changeability = 'changeable' targetScope = 'instance' 
+          type = 'G.51' >
+          <UML:StructuralFeature.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.71' 
+                  lower = '1' upper = '1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:StructuralFeature.multiplicity>
+          <UML:Attribute.initialValue>
+            <UML:Expression 
+              language = '' body = '' />
+          </UML:Attribute.initialValue>
+        </UML:Attribute>
+      </UML:Classifier.feature>
+    </UML:Class>
+    <!-- ==================== loyalty::TransactionReportLine    [Class] ==================== -->
+    <UML:Class xmi.id = 'S.312.1153.07.77' 
+      name = 'TransactionReportLine' visibility = 'public' isSpecification = 'false' 
+      isRoot = 'true' isLeaf = 'true' isAbstract = 'false' 
+      isActive = 'false' 
+      namespace = 'G.0' >
+      <UML:Classifier.feature>
+        <!-- ==================== loyalty::TransactionReportLine.partnerName    [Attribute] ==================== -->
+        <UML:Attribute xmi.id = 'S.312.1153.07.78' 
+          name = 'partnerName' visibility = 'private' isSpecification = 'false' 
+          ownerScope = 'instance' 
+          changeability = 'changeable' targetScope = 'instance' 
+          type = 'G.49' >
+          <UML:StructuralFeature.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.72' 
+                  lower = '1' upper = '1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:StructuralFeature.multiplicity>
+          <UML:Attribute.initialValue>
+            <UML:Expression 
+              language = '' body = '' />
+          </UML:Attribute.initialValue>
+        </UML:Attribute>
+        <!-- ==================== loyalty::TransactionReportLine.serviceDesc    [Attribute] ==================== -->
+        <UML:Attribute xmi.id = 'S.312.1153.07.79' 
+          name = 'serviceDesc' visibility = 'private' isSpecification = 'false' 
+          ownerScope = 'instance' 
+          changeability = 'changeable' targetScope = 'instance' 
+          type = 'G.49' >
+          <UML:StructuralFeature.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.73' 
+                  lower = '1' upper = '1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:StructuralFeature.multiplicity>
+          <UML:Attribute.initialValue>
+            <UML:Expression 
+              language = '' body = '' />
+          </UML:Attribute.initialValue>
+        </UML:Attribute>
+        <!-- ==================== loyalty::TransactionReportLine.amount    [Attribute] ==================== -->
+        <UML:Attribute xmi.id = 'S.312.1153.07.80' 
+          name = 'amount' visibility = 'private' isSpecification = 'false' 
+          ownerScope = 'instance' 
+          changeability = 'changeable' targetScope = 'instance' 
+          type = 'G.52' >
+          <UML:StructuralFeature.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.74' 
+                  lower = '1' upper = '1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:StructuralFeature.multiplicity>
+          <UML:Attribute.initialValue>
+            <UML:Expression 
+              language = '' body = '' />
+          </UML:Attribute.initialValue>
+        </UML:Attribute>
+        <!-- ==================== loyalty::TransactionReportLine.points    [Attribute] ==================== -->
+        <UML:Attribute xmi.id = 'S.312.1153.07.81' 
+          name = 'points' visibility = 'private' isSpecification = 'false' 
+          ownerScope = 'instance' 
+          changeability = 'changeable' targetScope = 'instance' 
+          type = 'G.51' >
+          <UML:StructuralFeature.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.75' 
+                  lower = '1' upper = '1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:StructuralFeature.multiplicity>
+          <UML:Attribute.initialValue>
+            <UML:Expression 
+              language = '' body = '' />
+          </UML:Attribute.initialValue>
+        </UML:Attribute>
+        <!-- ==================== loyalty::TransactionReportLine.date    [Attribute] ==================== -->
+        <UML:Attribute xmi.id = 'S.312.1153.07.82' 
+          name = 'date' visibility = 'private' isSpecification = 'false' 
+          ownerScope = 'instance' 
+          changeability = 'changeable' targetScope = 'instance' 
+          type = 'S.312.1153.07.57' >
+          <UML:StructuralFeature.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.3131453.76' 
+                  lower = '1' upper = '1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:StructuralFeature.multiplicity>
+          <UML:Attribute.initialValue>
+            <UML:Expression 
+              language = '' body = '' />
+          </UML:Attribute.initialValue>
+        </UML:Attribute>
+      </UML:Classifier.feature>
+    </UML:Class>
+  </UML:Namespace.ownedElement>
+</UML:Model>
+<UML:TaggedValue xmi.id = 'XX.9.1153.8.2' 
+  tag = 'persistence' value = 'transient' 
+  modelElement = 'S.312.1153.07.1' />
+<UML:TaggedValue xmi.id = 'XX.9.1153.8.20' 
+  tag = 'persistence' value = 'transient' 
+  modelElement = 'S.312.1153.07.10' />
+<UML:TaggedValue xmi.id = 'XX.9.1153.8.22' 
+  tag = 'persistence' value = 'transient' 
+  modelElement = 'S.312.1153.07.19' />
+<UML:TaggedValue xmi.id = 'XX.9.1153.8.23' 
+  tag = 'persistence' value = 'transient' 
+  modelElement = 'S.312.1153.07.22' />
+<UML:TaggedValue xmi.id = 'XX.9.1153.8.24' 
+  tag = 'persistence' value = 'transient' 
+  modelElement = 'S.312.1153.07.24' />
+<UML:TaggedValue xmi.id = 'XX.9.1153.8.27' 
+  tag = 'persistence' value = 'transient' 
+  modelElement = 'S.312.1153.07.32' />
+<UML:TaggedValue xmi.id = 'XX.9.1153.8.32' 
+  tag = 'persistence' value = 'transient' 
+  modelElement = 'S.312.1153.07.40' />
+<UML:TaggedValue xmi.id = 'XX.9.1153.8.35' 
+  tag = 'persistence' value = 'transient' 
+  modelElement = 'S.312.1153.07.46' />
+<UML:TaggedValue xmi.id = 'XX.9.1153.8.39' 
+  tag = 'persistence' value = 'transient' 
+  modelElement = 'S.312.1153.07.54' />
+<UML:TaggedValue xmi.id = 'XX.9.1153.8.40' 
+  tag = 'persistence' value = 'transient' 
+  modelElement = 'S.312.1153.07.55' />
+<UML:TaggedValue xmi.id = 'XX.9.1153.8.41' 
+  tag = 'persistence' value = 'transient' 
+  modelElement = 'S.312.1153.07.56' />
+<UML:TaggedValue xmi.id = 'XX.9.1153.8.42' 
+  tag = 'persistence' value = 'transient' 
+  modelElement = 'S.312.1153.07.57' />
+<UML:TaggedValue xmi.id = 'XX.9.1153.8.53' 
+  tag = 'persistence' value = 'transient' 
+  modelElement = 'S.312.1153.07.63' />
+<UML:TaggedValue xmi.id = 'XX.9.1153.8.54' 
+  tag = 'persistence' value = 'transient' 
+  modelElement = 'S.312.1153.07.66' />
+<UML:TaggedValue xmi.id = 'XX.9.1153.8.55' 
+  tag = 'persistence' value = 'transient' 
+  modelElement = 'S.312.1153.07.69' />
+<UML:TaggedValue xmi.id = 'XX.9.1153.8.56' 
+  tag = 'persistence' value = 'transient' 
+  modelElement = 'S.312.1153.07.77' />
+</XMI.content>
+</XMI>

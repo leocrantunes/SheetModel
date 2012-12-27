@@ -1,0 +1,943 @@
+<?xml version = '1.0' encoding = 'ISO-8859-1'?>
+<!-- <!DOCTYPE XMI SYSTEM 'UML1311.dtd' > -->
+<XMI xmi.version = '1.1' xmlns:UML='href://org.omg/UML/1.3' timestamp = 'Wed Nov 03 11:00:05 2004' >
+ <XMI.header>
+  <XMI.documentation>
+   <XMI.exporter>Unisys.JCR.1</XMI.exporter>
+   <XMI.exporterVersion>1.3.4</XMI.exporterVersion>
+  </XMI.documentation>
+  <XMI.metamodel xmi.name = 'UML' xmi.version = '1.3'/>
+ </XMI.header>
+<XMI.content>
+<!-- ==================== book    [Model] ==================== -->
+<UML:Model xmi.id = 'G.0' 
+  name = 'book' visibility = 'public' isSpecification = 'false' 
+  isRoot = 'false' isLeaf = 'false' isAbstract = 'false' >
+  <UML:Namespace.ownedElement>
+    <!-- ==================== book::Book    [Package] ==================== -->
+    <UML:Package xmi.id = 'S.307.1059.55.1' 
+      name = 'Book' visibility = 'public' isSpecification = 'false' 
+      isRoot = 'false' isLeaf = 'false' isAbstract = 'false' 
+      namespace = 'G.0' >
+      <UML:Namespace.ownedElement>
+        <!-- ==================== book::Book::{Chapter-Chapter}{4188E3200177}    [Association] ==================== -->
+        <UML:Association xmi.id = 'G.5' 
+          name = '' visibility = 'public' isSpecification = 'false' 
+          isRoot = 'false' isLeaf = 'false' isAbstract = 'false' >
+          <UML:Association.connection>
+            <!-- ==================== book::Book::{Chapter-Chapter}{4188E3200177}.nextChap    [AssociationEnd] ==================== -->
+            <UML:AssociationEnd xmi.id = 'G.6' 
+              name = 'nextChap' visibility = 'public' isSpecification = 'false' 
+              isNavigable = 'true' ordering = 'unordered' aggregation = 'none' targetScope = 'instance' changeability = 'changeable' 
+              type = 'S.307.1059.55.12' >
+              <UML:AssociationEnd.multiplicity>
+                <UML:Multiplicity >
+                  <UML:Multiplicity.range>
+                    <UML:MultiplicityRange xmi.id = 'id.3081359.1' 
+                      lower = '0' upper = '1' />
+                  </UML:Multiplicity.range>
+                </UML:Multiplicity>
+              </UML:AssociationEnd.multiplicity>
+            </UML:AssociationEnd>
+            <!-- ==================== book::Book::{Chapter-Chapter}{4188E3200177}.prevChap    [AssociationEnd] ==================== -->
+            <UML:AssociationEnd xmi.id = 'G.7' 
+              name = 'prevChap' visibility = 'public' isSpecification = 'false' 
+              isNavigable = 'true' ordering = 'unordered' aggregation = 'none' targetScope = 'instance' changeability = 'changeable' 
+              type = 'S.307.1059.55.12' >
+              <UML:AssociationEnd.multiplicity>
+                <UML:Multiplicity >
+                  <UML:Multiplicity.range>
+                    <UML:MultiplicityRange xmi.id = 'id.3081359.2' 
+                      lower = '0' upper = '1' />
+                  </UML:Multiplicity.range>
+                </UML:Multiplicity>
+              </UML:AssociationEnd.multiplicity>
+            </UML:AssociationEnd>
+          </UML:Association.connection>
+        </UML:Association>
+        <!-- ==================== book::Book::{Appendix-Chapter}{4188E356002E}    [Association] ==================== -->
+        <UML:Association xmi.id = 'G.8' 
+          name = '' visibility = 'public' isSpecification = 'false' 
+          isRoot = 'false' isLeaf = 'false' isAbstract = 'false' >
+          <UML:Association.connection>
+            <!-- ==================== book::Book::{Appendix-Chapter}{4188E356002E}.nextApp    [AssociationEnd] ==================== -->
+            <UML:AssociationEnd xmi.id = 'G.9' 
+              name = 'nextApp' visibility = 'public' isSpecification = 'false' 
+              isNavigable = 'true' ordering = 'unordered' aggregation = 'none' targetScope = 'instance' changeability = 'changeable' 
+              type = 'S.307.1059.55.17' >
+              <UML:AssociationEnd.multiplicity>
+                <UML:Multiplicity >
+                  <UML:Multiplicity.range>
+                    <UML:MultiplicityRange xmi.id = 'id.3081359.3' 
+                      lower = '0' upper = '1' />
+                  </UML:Multiplicity.range>
+                </UML:Multiplicity>
+              </UML:AssociationEnd.multiplicity>
+            </UML:AssociationEnd>
+            <!-- ==================== book::Book::{Appendix-Chapter}{4188E356002E}.prevChap    [AssociationEnd] ==================== -->
+            <UML:AssociationEnd xmi.id = 'G.10' 
+              name = 'prevChap' visibility = 'public' isSpecification = 'false' 
+              isNavigable = 'true' ordering = 'unordered' aggregation = 'none' targetScope = 'instance' changeability = 'changeable' 
+              type = 'S.307.1059.55.12' >
+              <UML:AssociationEnd.multiplicity>
+                <UML:Multiplicity >
+                  <UML:Multiplicity.range>
+                    <UML:MultiplicityRange xmi.id = 'id.3081359.4' 
+                      lower = '0' upper = '1' />
+                  </UML:Multiplicity.range>
+                </UML:Multiplicity>
+              </UML:AssociationEnd.multiplicity>
+            </UML:AssociationEnd>
+          </UML:Association.connection>
+        </UML:Association>
+        <!-- ==================== book::Book::{Appendix-Appendix}{4188E3820290}    [Association] ==================== -->
+        <UML:Association xmi.id = 'G.11' 
+          name = '' visibility = 'public' isSpecification = 'false' 
+          isRoot = 'false' isLeaf = 'false' isAbstract = 'false' >
+          <UML:Association.connection>
+            <!-- ==================== book::Book::{Appendix-Appendix}{4188E3820290}.nextApp    [AssociationEnd] ==================== -->
+            <UML:AssociationEnd xmi.id = 'G.12' 
+              name = 'nextApp' visibility = 'public' isSpecification = 'false' 
+              isNavigable = 'true' ordering = 'unordered' aggregation = 'none' targetScope = 'instance' changeability = 'changeable' 
+              type = 'S.307.1059.55.17' >
+              <UML:AssociationEnd.multiplicity>
+                <UML:Multiplicity >
+                  <UML:Multiplicity.range>
+                    <UML:MultiplicityRange xmi.id = 'id.3081359.5' 
+                      lower = '0' upper = '1' />
+                  </UML:Multiplicity.range>
+                </UML:Multiplicity>
+              </UML:AssociationEnd.multiplicity>
+            </UML:AssociationEnd>
+            <!-- ==================== book::Book::{Appendix-Appendix}{4188E3820290}.prevApp    [AssociationEnd] ==================== -->
+            <UML:AssociationEnd xmi.id = 'G.13' 
+              name = 'prevApp' visibility = 'public' isSpecification = 'false' 
+              isNavigable = 'true' ordering = 'unordered' aggregation = 'none' targetScope = 'instance' changeability = 'changeable' 
+              type = 'S.307.1059.55.17' >
+              <UML:AssociationEnd.multiplicity>
+                <UML:Multiplicity >
+                  <UML:Multiplicity.range>
+                    <UML:MultiplicityRange xmi.id = 'id.3081359.6' 
+                      lower = '0' upper = '1' />
+                  </UML:Multiplicity.range>
+                </UML:Multiplicity>
+              </UML:AssociationEnd.multiplicity>
+            </UML:AssociationEnd>
+          </UML:Association.connection>
+        </UML:Association>
+        <!-- ==================== book::Book::{Chapter-Prependix}{4188E3AD0242}    [Association] ==================== -->
+        <UML:Association xmi.id = 'G.14' 
+          name = '' visibility = 'public' isSpecification = 'false' 
+          isRoot = 'false' isLeaf = 'false' isAbstract = 'false' >
+          <UML:Association.connection>
+            <!-- ==================== book::Book::{Chapter-Prependix}{4188E3AD0242}.nextChap    [AssociationEnd] ==================== -->
+            <UML:AssociationEnd xmi.id = 'G.15' 
+              name = 'nextChap' visibility = 'public' isSpecification = 'false' 
+              isNavigable = 'true' ordering = 'unordered' aggregation = 'none' targetScope = 'instance' changeability = 'changeable' 
+              type = 'S.307.1059.55.12' >
+              <UML:AssociationEnd.multiplicity>
+                <UML:Multiplicity >
+                  <UML:Multiplicity.range>
+                    <UML:MultiplicityRange xmi.id = 'id.3081359.7' 
+                      lower = '0' upper = '1' />
+                  </UML:Multiplicity.range>
+                </UML:Multiplicity>
+              </UML:AssociationEnd.multiplicity>
+            </UML:AssociationEnd>
+            <!-- ==================== book::Book::{Chapter-Prependix}{4188E3AD0242}.prevPrep    [AssociationEnd] ==================== -->
+            <UML:AssociationEnd xmi.id = 'G.16' 
+              name = 'prevPrep' visibility = 'public' isSpecification = 'false' 
+              isNavigable = 'true' ordering = 'unordered' aggregation = 'none' targetScope = 'instance' changeability = 'changeable' 
+              type = 'S.307.1059.55.8' >
+              <UML:AssociationEnd.multiplicity>
+                <UML:Multiplicity >
+                  <UML:Multiplicity.range>
+                    <UML:MultiplicityRange xmi.id = 'id.3081359.8' 
+                      lower = '0' upper = '1' />
+                  </UML:Multiplicity.range>
+                </UML:Multiplicity>
+              </UML:AssociationEnd.multiplicity>
+            </UML:AssociationEnd>
+          </UML:Association.connection>
+        </UML:Association>
+        <!-- ==================== book::Book::{Prependix-Prependix}{4188E3D00186}    [Association] ==================== -->
+        <UML:Association xmi.id = 'G.17' 
+          name = '' visibility = 'public' isSpecification = 'false' 
+          isRoot = 'false' isLeaf = 'false' isAbstract = 'false' >
+          <UML:Association.connection>
+            <!-- ==================== book::Book::{Prependix-Prependix}{4188E3D00186}.prevPrep    [AssociationEnd] ==================== -->
+            <UML:AssociationEnd xmi.id = 'G.18' 
+              name = 'prevPrep' visibility = 'public' isSpecification = 'false' 
+              isNavigable = 'true' ordering = 'unordered' aggregation = 'none' targetScope = 'instance' changeability = 'changeable' 
+              type = 'S.307.1059.55.8' >
+              <UML:AssociationEnd.multiplicity>
+                <UML:Multiplicity >
+                  <UML:Multiplicity.range>
+                    <UML:MultiplicityRange xmi.id = 'id.3081359.9' 
+                      lower = '0' upper = '1' />
+                  </UML:Multiplicity.range>
+                </UML:Multiplicity>
+              </UML:AssociationEnd.multiplicity>
+            </UML:AssociationEnd>
+            <!-- ==================== book::Book::{Prependix-Prependix}{4188E3D00186}.nextPrep    [AssociationEnd] ==================== -->
+            <UML:AssociationEnd xmi.id = 'G.19' 
+              name = 'nextPrep' visibility = 'public' isSpecification = 'false' 
+              isNavigable = 'true' ordering = 'unordered' aggregation = 'none' targetScope = 'instance' changeability = 'changeable' 
+              type = 'S.307.1059.55.8' >
+              <UML:AssociationEnd.multiplicity>
+                <UML:Multiplicity >
+                  <UML:Multiplicity.range>
+                    <UML:MultiplicityRange xmi.id = 'id.3081359.10' 
+                      lower = '0' upper = '1' />
+                  </UML:Multiplicity.range>
+                </UML:Multiplicity>
+              </UML:AssociationEnd.multiplicity>
+            </UML:AssociationEnd>
+          </UML:Association.connection>
+        </UML:Association>
+        <!-- ==================== book::Book::Bookpart    [Class] ==================== -->
+        <UML:Class xmi.id = 'S.307.1059.55.2' 
+          name = 'Bookpart' visibility = 'public' isSpecification = 'false' 
+          isRoot = 'true' isLeaf = 'false' isAbstract = 'false' 
+          isActive = 'false' 
+          namespace = 'S.307.1059.55.1' 
+          specialization = 'G.27 G.28 G.29' >
+          <UML:Classifier.feature>
+            <!-- ==================== book::Book::Bookpart.title    [Attribute] ==================== -->
+            <UML:Attribute xmi.id = 'S.307.1059.55.3' 
+              name = 'title' visibility = 'private' isSpecification = 'false' 
+              ownerScope = 'instance' 
+              changeability = 'changeable' targetScope = 'instance' 
+              type = 'G.23' >
+              <UML:StructuralFeature.multiplicity>
+                <UML:Multiplicity >
+                  <UML:Multiplicity.range>
+                    <UML:MultiplicityRange xmi.id = 'id.3081359.11' 
+                      lower = '1' upper = '1' />
+                  </UML:Multiplicity.range>
+                </UML:Multiplicity>
+              </UML:StructuralFeature.multiplicity>
+              <UML:Attribute.initialValue>
+                <UML:Expression 
+                  language = '' body = '' />
+              </UML:Attribute.initialValue>
+            </UML:Attribute>
+            <!-- ==================== book::Book::Bookpart.nrOfPages    [Attribute] ==================== -->
+            <UML:Attribute xmi.id = 'S.307.1059.55.4' 
+              name = 'nrOfPages' visibility = 'private' isSpecification = 'false' 
+              ownerScope = 'instance' 
+              changeability = 'changeable' targetScope = 'instance' 
+              type = 'G.24' >
+              <UML:StructuralFeature.multiplicity>
+                <UML:Multiplicity >
+                  <UML:Multiplicity.range>
+                    <UML:MultiplicityRange xmi.id = 'id.3081359.12' 
+                      lower = '1' upper = '1' />
+                  </UML:Multiplicity.range>
+                </UML:Multiplicity>
+              </UML:StructuralFeature.multiplicity>
+              <UML:Attribute.initialValue>
+                <UML:Expression 
+                  language = '' body = '' />
+              </UML:Attribute.initialValue>
+            </UML:Attribute>
+            <!-- ==================== book::Book::Bookpart.startPageNr    [Attribute] ==================== -->
+            <UML:Attribute xmi.id = 'S.307.1059.55.5' 
+              name = 'startPageNr' visibility = 'private' isSpecification = 'false' 
+              ownerScope = 'instance' 
+              changeability = 'changeable' targetScope = 'instance' 
+              type = 'G.24' >
+              <UML:StructuralFeature.multiplicity>
+                <UML:Multiplicity >
+                  <UML:Multiplicity.range>
+                    <UML:MultiplicityRange xmi.id = 'id.3081359.13' 
+                      lower = '1' upper = '1' />
+                  </UML:Multiplicity.range>
+                </UML:Multiplicity>
+              </UML:StructuralFeature.multiplicity>
+              <UML:Attribute.initialValue>
+                <UML:Expression 
+                  language = '' body = '' />
+              </UML:Attribute.initialValue>
+            </UML:Attribute>
+            <!-- ==================== book::Book::Bookpart::determineStartPageNumber    [Operation] ==================== -->
+            <UML:Operation xmi.id = 'S.307.1059.55.6' 
+              name = 'determineStartPageNumber' visibility = 'public' isSpecification = 'false' 
+              ownerScope = 'instance' 
+              isQuery = 'false' 
+              concurrency = 'sequential' isRoot = 'false' isLeaf = 'false' isAbstract = 'false' specification = '' >
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id = 'XX.3.1059.56.3' 
+                  name = 'determineStartPageNumber.Return' visibility = 'public' isSpecification = 'false' 
+                  kind = 'return' 
+                  type = 'G.24' >
+                </UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <!-- ==================== book::Book::Bookpart::getLastPageNumber    [Operation] ==================== -->
+            <UML:Operation xmi.id = 'S.307.1059.55.7' 
+              name = 'getLastPageNumber' visibility = 'public' isSpecification = 'false' 
+              ownerScope = 'instance' 
+              isQuery = 'false' 
+              concurrency = 'sequential' isRoot = 'false' isLeaf = 'false' isAbstract = 'false' specification = '' >
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id = 'XX.3.1059.56.4' 
+                  name = 'getLastPageNumber.Return' visibility = 'public' isSpecification = 'false' 
+                  kind = 'return' 
+                  type = 'G.24' >
+                </UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+          </UML:Classifier.feature>
+        </UML:Class>
+        <!-- ==================== book::Book::Prependix    [Class] ==================== -->
+        <UML:Class xmi.id = 'S.307.1059.55.8' 
+          name = 'Prependix' visibility = 'public' isSpecification = 'false' 
+          isRoot = 'false' isLeaf = 'true' isAbstract = 'false' 
+          isActive = 'false' 
+          namespace = 'S.307.1059.55.1' 
+          generalization = 'G.27' >
+          <UML:Namespace.ownedElement>
+            <UML:Generalization xmi.id = 'G.27' 
+              name = '' visibility = 'public' isSpecification = 'false' 
+              discriminator = '' 
+              child = 'S.307.1059.55.8' parent = 'S.307.1059.55.2' />
+          </UML:Namespace.ownedElement>
+          <UML:Classifier.feature>
+            <!-- ==================== book::Book::Prependix.kind    [Attribute] ==================== -->
+            <UML:Attribute xmi.id = 'S.307.1059.55.9' 
+              name = 'kind' visibility = 'private' isSpecification = 'false' 
+              ownerScope = 'instance' 
+              changeability = 'changeable' targetScope = 'instance' 
+              type = 'S.307.1059.55.31' >
+              <UML:StructuralFeature.multiplicity>
+                <UML:Multiplicity >
+                  <UML:Multiplicity.range>
+                    <UML:MultiplicityRange xmi.id = 'id.3081359.14' 
+                      lower = '1' upper = '1' />
+                  </UML:Multiplicity.range>
+                </UML:Multiplicity>
+              </UML:StructuralFeature.multiplicity>
+              <UML:Attribute.initialValue>
+                <UML:Expression 
+                  language = '' body = '' />
+              </UML:Attribute.initialValue>
+            </UML:Attribute>
+            <!-- ==================== book::Book::Prependix::needsEmptyLastPage    [Operation] ==================== -->
+            <UML:Operation xmi.id = 'S.307.1059.55.10' 
+              name = 'needsEmptyLastPage' visibility = 'public' isSpecification = 'false' 
+              ownerScope = 'instance' 
+              isQuery = 'false' 
+              concurrency = 'sequential' isRoot = 'false' isLeaf = 'false' isAbstract = 'false' specification = '' >
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id = 'XX.3.1059.56.6' 
+                  name = 'needsEmptyLastPage.Return' visibility = 'public' isSpecification = 'false' 
+                  kind = 'return' 
+                  type = 'G.25' >
+                </UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <!-- ==================== book::Book::Prependix::isFirstBookpart    [Operation] ==================== -->
+            <UML:Operation xmi.id = 'S.307.1059.55.11' 
+              name = 'isFirstBookpart' visibility = 'public' isSpecification = 'false' 
+              ownerScope = 'instance' 
+              isQuery = 'false' 
+              concurrency = 'sequential' isRoot = 'false' isLeaf = 'false' isAbstract = 'false' specification = '' >
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id = 'XX.3.1059.56.7' 
+                  name = 'isFirstBookpart.Return' visibility = 'public' isSpecification = 'false' 
+                  kind = 'return' 
+                  type = 'G.25' >
+                </UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+          </UML:Classifier.feature>
+        </UML:Class>
+        <!-- ==================== book::Book::Chapter    [Class] ==================== -->
+        <UML:Class xmi.id = 'S.307.1059.55.12' 
+          name = 'Chapter' visibility = 'public' isSpecification = 'false' 
+          isRoot = 'false' isLeaf = 'true' isAbstract = 'false' 
+          isActive = 'false' 
+          namespace = 'S.307.1059.55.1' 
+          generalization = 'G.28' >
+          <UML:Namespace.ownedElement>
+            <UML:Generalization xmi.id = 'G.28' 
+              name = '' visibility = 'public' isSpecification = 'false' 
+              discriminator = '' 
+              child = 'S.307.1059.55.12' parent = 'S.307.1059.55.2' />
+          </UML:Namespace.ownedElement>
+          <UML:Classifier.feature>
+            <!-- ==================== book::Book::Chapter.author    [Attribute] ==================== -->
+            <UML:Attribute xmi.id = 'S.307.1059.55.14' 
+              name = 'author' visibility = 'private' isSpecification = 'false' 
+              ownerScope = 'instance' 
+              changeability = 'changeable' targetScope = 'instance' 
+              type = 'G.23' >
+              <UML:StructuralFeature.multiplicity>
+                <UML:Multiplicity >
+                  <UML:Multiplicity.range>
+                    <UML:MultiplicityRange xmi.id = 'id.3081359.15' 
+                      lower = '1' upper = '1' />
+                  </UML:Multiplicity.range>
+                </UML:Multiplicity>
+              </UML:StructuralFeature.multiplicity>
+              <UML:Attribute.initialValue>
+                <UML:Expression 
+                  language = '' body = '' />
+              </UML:Attribute.initialValue>
+            </UML:Attribute>
+            <!-- ==================== book::Book::Chapter.subject    [Attribute] ==================== -->
+            <UML:Attribute xmi.id = 'S.307.1059.55.15' 
+              name = 'subject' visibility = 'private' isSpecification = 'false' 
+              ownerScope = 'instance' 
+              changeability = 'changeable' targetScope = 'instance' 
+              type = 'G.23' >
+              <UML:StructuralFeature.multiplicity>
+                <UML:Multiplicity >
+                  <UML:Multiplicity.range>
+                    <UML:MultiplicityRange xmi.id = 'id.3081359.16' 
+                      lower = '1' upper = '1' />
+                  </UML:Multiplicity.range>
+                </UML:Multiplicity>
+              </UML:StructuralFeature.multiplicity>
+              <UML:Attribute.initialValue>
+                <UML:Expression 
+                  language = '' body = '' />
+              </UML:Attribute.initialValue>
+            </UML:Attribute>
+            <!-- ==================== book::Book::Chapter::determineDurationTillFinished    [Operation] ==================== -->
+            <UML:Operation xmi.id = 'S.307.1059.55.16' 
+              name = 'determineDurationTillFinished' visibility = 'public' isSpecification = 'false' 
+              ownerScope = 'instance' 
+              isQuery = 'false' 
+              concurrency = 'sequential' isRoot = 'false' isLeaf = 'false' isAbstract = 'false' specification = '' >
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id = 'XX.3.1059.56.10' 
+                  name = 'from' visibility = 'public' isSpecification = 'false' 
+                  kind = 'inout' 
+                  type = 'S.307.1059.55.27' >
+                  <UML:Parameter.defaultValue>
+                    <UML:Expression 
+                      language = '' body = '' />
+                  </UML:Parameter.defaultValue>
+                </UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+          </UML:Classifier.feature>
+        </UML:Class>
+        <!-- ==================== book::Book::State/Activity Model    [StateMachine] ==================== -->
+        <UML:StateMachine xmi.id = 'S.307.1059.55.13' 
+          name = 'State/Activity Model' visibility = 'public' isSpecification = 'false' 
+          context = 'S.307.1059.55.12' >
+          <UML:StateMachine.top>
+            <!-- ==================== book::Book::State/Activity Model::{top}    [CompositeState] ==================== -->
+            <UML:CompositeState xmi.id = 'XX.3.1059.56.9' 
+              name = '{top}' visibility = 'public' isSpecification = 'false' 
+              isConcurrent = 'false' >
+              <UML:CompositeState.subvertex>
+                <!-- ==================== book::Book::State/Activity Model::{top}::ready    [SimpleState] ==================== -->
+                <UML:SimpleState xmi.id = 'G.1' 
+                  name = 'ready' visibility = 'public' isSpecification = 'false' />
+                <!-- ==================== book::Book::State/Activity Model::{top}::inwriting    [CompositeState] ==================== -->
+                <UML:CompositeState xmi.id = 'G.2' 
+                  name = 'inwriting' visibility = 'public' isSpecification = 'false' 
+                  isConcurrent = 'false' >
+                  <UML:CompositeState.subvertex>
+                    <!-- ==================== book::Book::State/Activity Model::{top}::inwriting::draft    [SimpleState] ==================== -->
+                    <UML:SimpleState xmi.id = 'G.3' 
+                      name = 'draft' visibility = 'public' isSpecification = 'false' />
+                    <!-- ==================== book::Book::State/Activity Model::{top}::inwriting::finaldraft    [SimpleState] ==================== -->
+                    <UML:SimpleState xmi.id = 'G.4' 
+                      name = 'finaldraft' visibility = 'public' isSpecification = 'false' />
+                  </UML:CompositeState.subvertex>
+                </UML:CompositeState>
+              </UML:CompositeState.subvertex>
+            </UML:CompositeState>
+          </UML:StateMachine.top>
+        </UML:StateMachine>
+        <!-- ==================== book::Book::Appendix    [Class] ==================== -->
+        <UML:Class xmi.id = 'S.307.1059.55.17' 
+          name = 'Appendix' visibility = 'public' isSpecification = 'false' 
+          isRoot = 'false' isLeaf = 'true' isAbstract = 'false' 
+          isActive = 'false' 
+          namespace = 'S.307.1059.55.1' 
+          generalization = 'G.29' >
+          <UML:Namespace.ownedElement>
+            <UML:Generalization xmi.id = 'G.29' 
+              name = '' visibility = 'public' isSpecification = 'false' 
+              discriminator = '' 
+              child = 'S.307.1059.55.17' parent = 'S.307.1059.55.2' />
+          </UML:Namespace.ownedElement>
+          <UML:Classifier.feature>
+            <!-- ==================== book::Book::Appendix.kind    [Attribute] ==================== -->
+            <UML:Attribute xmi.id = 'S.307.1059.55.18' 
+              name = 'kind' visibility = 'private' isSpecification = 'false' 
+              ownerScope = 'instance' 
+              changeability = 'changeable' targetScope = 'instance' 
+              type = 'S.307.1059.55.36' >
+              <UML:StructuralFeature.multiplicity>
+                <UML:Multiplicity >
+                  <UML:Multiplicity.range>
+                    <UML:MultiplicityRange xmi.id = 'id.3081359.17' 
+                      lower = '1' upper = '1' />
+                  </UML:Multiplicity.range>
+                </UML:Multiplicity>
+              </UML:StructuralFeature.multiplicity>
+              <UML:Attribute.initialValue>
+                <UML:Expression 
+                  language = '' body = '' />
+              </UML:Attribute.initialValue>
+            </UML:Attribute>
+            <!-- ==================== book::Book::Appendix.twoColumn    [Attribute] ==================== -->
+            <UML:Attribute xmi.id = 'S.307.1059.55.19' 
+              name = 'twoColumn' visibility = 'private' isSpecification = 'false' 
+              ownerScope = 'instance' 
+              changeability = 'changeable' targetScope = 'instance' 
+              type = 'G.25' >
+              <UML:StructuralFeature.multiplicity>
+                <UML:Multiplicity >
+                  <UML:Multiplicity.range>
+                    <UML:MultiplicityRange xmi.id = 'id.3081359.18' 
+                      lower = '1' upper = '1' />
+                  </UML:Multiplicity.range>
+                </UML:Multiplicity>
+              </UML:StructuralFeature.multiplicity>
+              <UML:Attribute.initialValue>
+                <UML:Expression 
+                  language = '' body = '' />
+              </UML:Attribute.initialValue>
+            </UML:Attribute>
+            <!-- ==================== book::Book::Appendix::needsEmptyLastPage    [Operation] ==================== -->
+            <UML:Operation xmi.id = 'S.307.1059.55.20' 
+              name = 'needsEmptyLastPage' visibility = 'public' isSpecification = 'false' 
+              ownerScope = 'instance' 
+              isQuery = 'false' 
+              concurrency = 'sequential' isRoot = 'false' isLeaf = 'false' isAbstract = 'false' specification = '' >
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id = 'XX.3.1059.56.12' 
+                  name = 'needsEmptyLastPage.Return' visibility = 'public' isSpecification = 'false' 
+                  kind = 'return' 
+                  type = 'G.25' >
+                </UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+          </UML:Classifier.feature>
+        </UML:Class>
+        <!-- ==================== book::Book::TwoColumnPart    [Interface] ==================== -->
+        <UML:Interface xmi.id = 'S.307.1059.55.21' 
+          name = 'TwoColumnPart' visibility = 'public' isSpecification = 'false' 
+          isRoot = 'true' isLeaf = 'true' isAbstract = 'false' 
+          namespace = 'S.307.1059.55.1' >
+          <UML:Classifier.feature>
+            <!-- ==================== book::Book::TwoColumnPart::transformToTwoColumn    [Operation] ==================== -->
+            <UML:Operation xmi.id = 'S.307.1059.55.22' 
+              name = 'transformToTwoColumn' visibility = 'public' isSpecification = 'false' 
+              ownerScope = 'instance' 
+              isQuery = 'false' 
+              concurrency = 'sequential' isRoot = 'false' isLeaf = 'false' isAbstract = 'false' specification = '' />
+            <!-- ==================== book::Book::TwoColumnPart::transformToOneColumn    [Operation] ==================== -->
+            <UML:Operation xmi.id = 'S.307.1059.55.23' 
+              name = 'transformToOneColumn' visibility = 'public' isSpecification = 'false' 
+              ownerScope = 'instance' 
+              isQuery = 'false' 
+              concurrency = 'sequential' isRoot = 'false' isLeaf = 'false' isAbstract = 'false' specification = '' />
+          </UML:Classifier.feature>
+        </UML:Interface>
+        <!-- ==================== book::Book::Period    [Class] ==================== -->
+        <UML:Class xmi.id = 'S.307.1059.55.24' 
+          name = 'Period' visibility = 'public' isSpecification = 'false' 
+          isRoot = 'true' isLeaf = 'true' isAbstract = 'false' 
+          isActive = 'false' 
+          namespace = 'S.307.1059.55.1' >
+          <UML:Classifier.feature>
+            <!-- ==================== book::Book::Period.nrOfDays    [Attribute] ==================== -->
+            <UML:Attribute xmi.id = 'S.307.1059.55.25' 
+              name = 'nrOfDays' visibility = 'private' isSpecification = 'false' 
+              ownerScope = 'instance' 
+              changeability = 'changeable' targetScope = 'instance' 
+              type = 'G.24' >
+              <UML:StructuralFeature.multiplicity>
+                <UML:Multiplicity >
+                  <UML:Multiplicity.range>
+                    <UML:MultiplicityRange xmi.id = 'id.3081359.19' 
+                      lower = '1' upper = '1' />
+                  </UML:Multiplicity.range>
+                </UML:Multiplicity>
+              </UML:StructuralFeature.multiplicity>
+              <UML:Attribute.initialValue>
+                <UML:Expression 
+                  language = '' body = '' />
+              </UML:Attribute.initialValue>
+            </UML:Attribute>
+            <!-- ==================== book::Book::Period.nrOfWorkingDays    [Attribute] ==================== -->
+            <UML:Attribute xmi.id = 'S.307.1059.55.26' 
+              name = 'nrOfWorkingDays' visibility = 'private' isSpecification = 'false' 
+              ownerScope = 'instance' 
+              changeability = 'changeable' targetScope = 'instance' 
+              type = 'G.24' >
+              <UML:StructuralFeature.multiplicity>
+                <UML:Multiplicity >
+                  <UML:Multiplicity.range>
+                    <UML:MultiplicityRange xmi.id = 'id.3081359.20' 
+                      lower = '1' upper = '1' />
+                  </UML:Multiplicity.range>
+                </UML:Multiplicity>
+              </UML:StructuralFeature.multiplicity>
+              <UML:Attribute.initialValue>
+                <UML:Expression 
+                  language = '' body = '' />
+              </UML:Attribute.initialValue>
+            </UML:Attribute>
+          </UML:Classifier.feature>
+        </UML:Class>
+        <!-- ==================== book::Book::Date    [Class] ==================== -->
+        <UML:Class xmi.id = 'S.307.1059.55.27' 
+          name = 'Date' visibility = 'public' isSpecification = 'false' 
+          isRoot = 'true' isLeaf = 'true' isAbstract = 'false' 
+          isActive = 'false' 
+          namespace = 'S.307.1059.55.1' >
+          <UML:Classifier.feature>
+            <!-- ==================== book::Book::Date.day    [Attribute] ==================== -->
+            <UML:Attribute xmi.id = 'S.307.1059.55.28' 
+              name = 'day' visibility = 'private' isSpecification = 'false' 
+              ownerScope = 'instance' 
+              changeability = 'changeable' targetScope = 'instance' 
+              type = 'G.24' >
+              <UML:StructuralFeature.multiplicity>
+                <UML:Multiplicity >
+                  <UML:Multiplicity.range>
+                    <UML:MultiplicityRange xmi.id = 'id.3081359.21' 
+                      lower = '1' upper = '1' />
+                  </UML:Multiplicity.range>
+                </UML:Multiplicity>
+              </UML:StructuralFeature.multiplicity>
+              <UML:Attribute.initialValue>
+                <UML:Expression 
+                  language = '' body = '' />
+              </UML:Attribute.initialValue>
+            </UML:Attribute>
+            <!-- ==================== book::Book::Date.month    [Attribute] ==================== -->
+            <UML:Attribute xmi.id = 'S.307.1059.55.29' 
+              name = 'month' visibility = 'private' isSpecification = 'false' 
+              ownerScope = 'instance' 
+              changeability = 'changeable' targetScope = 'instance' 
+              type = 'G.24' >
+              <UML:StructuralFeature.multiplicity>
+                <UML:Multiplicity >
+                  <UML:Multiplicity.range>
+                    <UML:MultiplicityRange xmi.id = 'id.3081359.22' 
+                      lower = '1' upper = '1' />
+                  </UML:Multiplicity.range>
+                </UML:Multiplicity>
+              </UML:StructuralFeature.multiplicity>
+              <UML:Attribute.initialValue>
+                <UML:Expression 
+                  language = '' body = '' />
+              </UML:Attribute.initialValue>
+            </UML:Attribute>
+            <!-- ==================== book::Book::Date.year    [Attribute] ==================== -->
+            <UML:Attribute xmi.id = 'S.307.1059.55.30' 
+              name = 'year' visibility = 'private' isSpecification = 'false' 
+              ownerScope = 'instance' 
+              changeability = 'changeable' targetScope = 'instance' 
+              type = 'G.24' >
+              <UML:StructuralFeature.multiplicity>
+                <UML:Multiplicity >
+                  <UML:Multiplicity.range>
+                    <UML:MultiplicityRange xmi.id = 'id.3081359.23' 
+                      lower = '1' upper = '1' />
+                  </UML:Multiplicity.range>
+                </UML:Multiplicity>
+              </UML:StructuralFeature.multiplicity>
+              <UML:Attribute.initialValue>
+                <UML:Expression 
+                  language = '' body = '' />
+              </UML:Attribute.initialValue>
+            </UML:Attribute>
+          </UML:Classifier.feature>
+        </UML:Class>
+        <!-- ==================== book::Book::PrependixKind    [Class] ==================== -->
+        <UML:Class xmi.id = 'S.307.1059.55.31' 
+          name = 'PrependixKind' visibility = 'public' isSpecification = 'false' 
+          isRoot = 'true' isLeaf = 'true' isAbstract = 'false' 
+          isActive = 'false' 
+          namespace = 'S.307.1059.55.1' >
+          <UML:Classifier.feature>
+            <!-- ==================== book::Book::PrependixKind.contents    [Attribute] ==================== -->
+            <UML:Attribute xmi.id = 'S.307.1059.55.32' 
+              name = 'contents' visibility = 'private' isSpecification = 'false' 
+              ownerScope = 'instance' 
+              changeability = 'changeable' targetScope = 'instance' 
+              type = 'G.26' >
+              <UML:StructuralFeature.multiplicity>
+                <UML:Multiplicity >
+                  <UML:Multiplicity.range>
+                    <UML:MultiplicityRange xmi.id = 'id.3081359.24' 
+                      lower = '1' upper = '1' />
+                  </UML:Multiplicity.range>
+                </UML:Multiplicity>
+              </UML:StructuralFeature.multiplicity>
+              <UML:Attribute.initialValue>
+                <UML:Expression 
+                  language = '' body = '' />
+              </UML:Attribute.initialValue>
+            </UML:Attribute>
+            <!-- ==================== book::Book::PrependixKind.figures    [Attribute] ==================== -->
+            <UML:Attribute xmi.id = 'S.307.1059.55.33' 
+              name = 'figures' visibility = 'private' isSpecification = 'false' 
+              ownerScope = 'instance' 
+              changeability = 'changeable' targetScope = 'instance' 
+              type = 'G.26' >
+              <UML:StructuralFeature.multiplicity>
+                <UML:Multiplicity >
+                  <UML:Multiplicity.range>
+                    <UML:MultiplicityRange xmi.id = 'id.3081359.25' 
+                      lower = '1' upper = '1' />
+                  </UML:Multiplicity.range>
+                </UML:Multiplicity>
+              </UML:StructuralFeature.multiplicity>
+              <UML:Attribute.initialValue>
+                <UML:Expression 
+                  language = '' body = '' />
+              </UML:Attribute.initialValue>
+            </UML:Attribute>
+            <!-- ==================== book::Book::PrependixKind.tables    [Attribute] ==================== -->
+            <UML:Attribute xmi.id = 'S.307.1059.55.34' 
+              name = 'tables' visibility = 'private' isSpecification = 'false' 
+              ownerScope = 'instance' 
+              changeability = 'changeable' targetScope = 'instance' 
+              type = 'G.26' >
+              <UML:StructuralFeature.multiplicity>
+                <UML:Multiplicity >
+                  <UML:Multiplicity.range>
+                    <UML:MultiplicityRange xmi.id = 'id.3081359.26' 
+                      lower = '1' upper = '1' />
+                  </UML:Multiplicity.range>
+                </UML:Multiplicity>
+              </UML:StructuralFeature.multiplicity>
+              <UML:Attribute.initialValue>
+                <UML:Expression 
+                  language = '' body = '' />
+              </UML:Attribute.initialValue>
+            </UML:Attribute>
+            <!-- ==================== book::Book::PrependixKind.preface    [Attribute] ==================== -->
+            <UML:Attribute xmi.id = 'S.307.1059.55.35' 
+              name = 'preface' visibility = 'private' isSpecification = 'false' 
+              ownerScope = 'instance' 
+              changeability = 'changeable' targetScope = 'instance' 
+              type = 'G.26' >
+              <UML:StructuralFeature.multiplicity>
+                <UML:Multiplicity >
+                  <UML:Multiplicity.range>
+                    <UML:MultiplicityRange xmi.id = 'id.3081359.27' 
+                      lower = '1' upper = '1' />
+                  </UML:Multiplicity.range>
+                </UML:Multiplicity>
+              </UML:StructuralFeature.multiplicity>
+              <UML:Attribute.initialValue>
+                <UML:Expression 
+                  language = '' body = '' />
+              </UML:Attribute.initialValue>
+            </UML:Attribute>
+          </UML:Classifier.feature>
+        </UML:Class>
+        <UML:Stereotype xmi.id = 'S.307.1059.56.0' 
+          name = 'enumeration' visibility = 'public' isSpecification = 'false' 
+          isRoot = 'false' isLeaf = 'false' isAbstract = 'false' 
+          icon = '' baseClass = 'Class' 
+          extendedElement = 'S.307.1059.55.31 S.307.1059.55.36' />
+        <!-- ==================== book::Book::AppendixKind    [Class] ==================== -->
+        <UML:Class xmi.id = 'S.307.1059.55.36' 
+          name = 'AppendixKind' visibility = 'public' isSpecification = 'false' 
+          isRoot = 'true' isLeaf = 'true' isAbstract = 'false' 
+          isActive = 'false' 
+          namespace = 'S.307.1059.55.1' >
+          <UML:Classifier.feature>
+            <!-- ==================== book::Book::AppendixKind.index    [Attribute] ==================== -->
+            <UML:Attribute xmi.id = 'S.307.1059.55.37' 
+              name = 'index' visibility = 'private' isSpecification = 'false' 
+              ownerScope = 'instance' 
+              changeability = 'changeable' targetScope = 'instance' 
+              type = 'G.26' >
+              <UML:StructuralFeature.multiplicity>
+                <UML:Multiplicity >
+                  <UML:Multiplicity.range>
+                    <UML:MultiplicityRange xmi.id = 'id.3081359.28' 
+                      lower = '1' upper = '1' />
+                  </UML:Multiplicity.range>
+                </UML:Multiplicity>
+              </UML:StructuralFeature.multiplicity>
+              <UML:Attribute.initialValue>
+                <UML:Expression 
+                  language = '' body = '' />
+              </UML:Attribute.initialValue>
+            </UML:Attribute>
+            <!-- ==================== book::Book::AppendixKind.bibliography    [Attribute] ==================== -->
+            <UML:Attribute xmi.id = 'S.307.1059.55.38' 
+              name = 'bibliography' visibility = 'private' isSpecification = 'false' 
+              ownerScope = 'instance' 
+              changeability = 'changeable' targetScope = 'instance' 
+              type = 'G.26' >
+              <UML:StructuralFeature.multiplicity>
+                <UML:Multiplicity >
+                  <UML:Multiplicity.range>
+                    <UML:MultiplicityRange xmi.id = 'id.3081359.29' 
+                      lower = '1' upper = '1' />
+                  </UML:Multiplicity.range>
+                </UML:Multiplicity>
+              </UML:StructuralFeature.multiplicity>
+              <UML:Attribute.initialValue>
+                <UML:Expression 
+                  language = '' body = '' />
+              </UML:Attribute.initialValue>
+            </UML:Attribute>
+            <!-- ==================== book::Book::AppendixKind.glossary    [Attribute] ==================== -->
+            <UML:Attribute xmi.id = 'S.307.1059.55.39' 
+              name = 'glossary' visibility = 'private' isSpecification = 'false' 
+              ownerScope = 'instance' 
+              changeability = 'changeable' targetScope = 'instance' 
+              type = 'G.26' >
+              <UML:StructuralFeature.multiplicity>
+                <UML:Multiplicity >
+                  <UML:Multiplicity.range>
+                    <UML:MultiplicityRange xmi.id = 'id.3081359.30' 
+                      lower = '1' upper = '1' />
+                  </UML:Multiplicity.range>
+                </UML:Multiplicity>
+              </UML:StructuralFeature.multiplicity>
+              <UML:Attribute.initialValue>
+                <UML:Expression 
+                  language = '' body = '' />
+              </UML:Attribute.initialValue>
+            </UML:Attribute>
+          </UML:Classifier.feature>
+        </UML:Class>
+        <!-- ==================== book::Book::ChapterDependency    [AssociationClass] ==================== -->
+        <UML:AssociationClass xmi.id = 'S.307.1059.55.40' 
+          name = 'ChapterDependency' visibility = 'public' isSpecification = 'false' 
+          isRoot = 'true' isLeaf = 'true' isAbstract = 'false' 
+          isActive = 'false' 
+          namespace = 'S.307.1059.55.1' >
+          <UML:Association.connection>
+            <!-- ==================== book::Book::ChapterDependency.dependantChapters    [AssociationEnd] ==================== -->
+            <UML:AssociationEnd xmi.id = 'G.21' 
+              name = 'dependantChapters' visibility = 'public' isSpecification = 'false' 
+              isNavigable = 'true' ordering = 'unordered' aggregation = 'none' targetScope = 'instance' changeability = 'changeable' 
+              type = 'S.307.1059.55.12' >
+              <UML:AssociationEnd.multiplicity>
+                <UML:Multiplicity >
+                  <UML:Multiplicity.range>
+                    <UML:MultiplicityRange xmi.id = 'id.3081359.33' 
+                      lower = '0' upper = '-1' />
+                  </UML:Multiplicity.range>
+                </UML:Multiplicity>
+              </UML:AssociationEnd.multiplicity>
+            </UML:AssociationEnd>
+            <!-- ==================== book::Book::ChapterDependency.sourceChapter    [AssociationEnd] ==================== -->
+            <UML:AssociationEnd xmi.id = 'G.22' 
+              name = 'sourceChapter' visibility = 'public' isSpecification = 'false' 
+              isNavigable = 'true' ordering = 'unordered' aggregation = 'none' targetScope = 'instance' changeability = 'changeable' 
+              type = 'S.307.1059.55.12' >
+              <UML:AssociationEnd.multiplicity>
+                <UML:Multiplicity >
+                  <UML:Multiplicity.range>
+                    <UML:MultiplicityRange xmi.id = 'id.3081359.34' 
+                      lower = '0' upper = '1' />
+                  </UML:Multiplicity.range>
+                </UML:Multiplicity>
+              </UML:AssociationEnd.multiplicity>
+            </UML:AssociationEnd>
+          </UML:Association.connection>
+          <UML:Classifier.feature>
+            <!-- ==================== book::Book::ChapterDependency.sameAuthor    [Attribute] ==================== -->
+            <UML:Attribute xmi.id = 'S.307.1059.55.41' 
+              name = 'sameAuthor' visibility = 'private' isSpecification = 'false' 
+              ownerScope = 'instance' 
+              changeability = 'changeable' targetScope = 'instance' 
+              type = 'G.25' >
+              <UML:StructuralFeature.multiplicity>
+                <UML:Multiplicity >
+                  <UML:Multiplicity.range>
+                    <UML:MultiplicityRange xmi.id = 'id.3081359.31' 
+                      lower = '1' upper = '1' />
+                  </UML:Multiplicity.range>
+                </UML:Multiplicity>
+              </UML:StructuralFeature.multiplicity>
+              <UML:Attribute.initialValue>
+                <UML:Expression 
+                  language = '' body = '' />
+              </UML:Attribute.initialValue>
+            </UML:Attribute>
+            <!-- ==================== book::Book::ChapterDependency.sameSubject    [Attribute] ==================== -->
+            <UML:Attribute xmi.id = 'S.307.1059.55.42' 
+              name = 'sameSubject' visibility = 'private' isSpecification = 'false' 
+              ownerScope = 'instance' 
+              changeability = 'changeable' targetScope = 'instance' 
+              type = 'G.25' >
+              <UML:StructuralFeature.multiplicity>
+                <UML:Multiplicity >
+                  <UML:Multiplicity.range>
+                    <UML:MultiplicityRange xmi.id = 'id.3081359.32' 
+                      lower = '1' upper = '1' />
+                  </UML:Multiplicity.range>
+                </UML:Multiplicity>
+              </UML:StructuralFeature.multiplicity>
+              <UML:Attribute.initialValue>
+                <UML:Expression 
+                  language = '' body = '' />
+              </UML:Attribute.initialValue>
+            </UML:Attribute>
+          </UML:Classifier.feature>
+        </UML:AssociationClass>
+      </UML:Namespace.ownedElement>
+    </UML:Package>
+    <!-- ==================== String    [DataType] ==================== -->
+    <UML:DataType xmi.id = 'G.23' 
+      name = 'String' visibility = 'public' isSpecification = 'false' 
+      isRoot = 'false' isLeaf = 'false' isAbstract = 'false' />
+    <!-- ==================== Integer    [DataType] ==================== -->
+    <UML:DataType xmi.id = 'G.24' 
+      name = 'Integer' visibility = 'public' isSpecification = 'false' 
+      isRoot = 'false' isLeaf = 'false' isAbstract = 'false' />
+    <!-- ==================== Boolean    [DataType] ==================== -->
+    <UML:DataType xmi.id = 'G.25' 
+      name = 'Boolean' visibility = 'public' isSpecification = 'false' 
+      isRoot = 'false' isLeaf = 'false' isAbstract = 'false' />
+    <!-- ==================== <undefined>    [DataType] ==================== -->
+    <UML:DataType xmi.id = 'G.26' 
+      name = '&lt;undefined&gt;' visibility = 'public' isSpecification = 'false' 
+      isRoot = 'false' isLeaf = 'false' isAbstract = 'false' />
+  </UML:Namespace.ownedElement>
+</UML:Model>
+<UML:TaggedValue xmi.id = 'XX.3.1059.56.2' 
+  tag = 'persistence' value = 'transient' 
+  modelElement = 'S.307.1059.55.2' />
+<UML:TaggedValue xmi.id = 'XX.3.1059.56.5' 
+  tag = 'persistence' value = 'transient' 
+  modelElement = 'S.307.1059.55.8' />
+<UML:TaggedValue xmi.id = 'XX.3.1059.56.8' 
+  tag = 'persistence' value = 'transient' 
+  modelElement = 'S.307.1059.55.12' />
+<UML:TaggedValue xmi.id = 'XX.3.1059.56.11' 
+  tag = 'persistence' value = 'transient' 
+  modelElement = 'S.307.1059.55.17' />
+<UML:TaggedValue xmi.id = 'XX.3.1059.56.13' 
+  tag = 'persistence' value = 'transient' 
+  modelElement = 'S.307.1059.55.21' />
+<UML:TaggedValue xmi.id = 'XX.3.1059.56.14' 
+  tag = 'persistence' value = 'transient' 
+  modelElement = 'S.307.1059.55.24' />
+<UML:TaggedValue xmi.id = 'XX.3.1059.56.15' 
+  tag = 'persistence' value = 'transient' 
+  modelElement = 'S.307.1059.55.27' />
+<UML:TaggedValue xmi.id = 'XX.3.1059.56.16' 
+  tag = 'persistence' value = 'transient' 
+  modelElement = 'S.307.1059.55.31' />
+<UML:TaggedValue xmi.id = 'XX.3.1059.59.17' 
+  tag = 'persistence' value = 'transient' 
+  modelElement = 'S.307.1059.55.36' />
+<UML:TaggedValue xmi.id = 'XX.3.110.0.18' 
+  tag = 'persistence' value = 'transient' 
+  modelElement = 'S.307.1059.55.40' />
+</XMI.content>
+</XMI>

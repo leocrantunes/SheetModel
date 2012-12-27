@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<java version="1.5.0" class="java.beans.XMLDecoder"> 
+ <object class="br.ufrj.cos.lens.odyssey.tools.psw.project.PswProject"> 
+  <void property="dirty"> 
+   <boolean>true</boolean> 
+  </void> 
+  <void property="modelXmiFileName"> 
+   <string>T:\Odyssey-PSW\PSW-FrontEnd\resource\myExampleRose.xml</string> 
+  </void> 
+  <void property="name"> 
+   <string>alex</string> 
+  </void> 
+ </object> 
+</java> 

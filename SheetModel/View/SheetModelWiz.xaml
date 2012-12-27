@@ -1,0 +1,41 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:View="clr-namespace:SheetModel.View"
+	xmlns:SheetModel_Misc="clr-namespace:SheetModel.Misc"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
+	x:Class="SheetModel.View.SheetModelWiz"
+	x:Name="Window"
+	Title="SheetModelWiz"
+	Width="640" Height="480" ResizeMode="NoResize" Closing="WindowClosing" WindowStartupLocation="CenterScreen">
+
+	<Window.Resources>
+		<SheetModel_Misc:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+        <SheetModel_Misc:BooleanToReverseConverter x:Key="BooleanToReverseConverter"/>
+		<SheetModel_Misc:IsSelectedToOpacicityConverter x:Key="IsSelectedToOpacicityConverter"/>
+	</Window.Resources>
+
+	<Grid x:Name="LayoutRoot">
+		<StackPanel Margin="0">
+			<StackPanel Background="#7FF3F3F3" Height="32" Orientation="Horizontal">
+				<TextBlock TextWrapping="Wrap" VerticalAlignment="Center" Width="126.8" TextAlignment="Center" Opacity="{Binding Steps[0], Converter={StaticResource IsSelectedToOpacicityConverter}}" Text="Início"/>
+				<TextBlock TextWrapping="Wrap" VerticalAlignment="Center" Width="126.8" TextAlignment="Center" Opacity="{Binding Steps[1], Converter={StaticResource IsSelectedToOpacicityConverter}}" Text="Def. Classe Base"/>
+				<TextBlock TextWrapping="Wrap" VerticalAlignment="Center" Width="126.8" TextAlignment="Center" Opacity="{Binding Steps[2], Converter={StaticResource IsSelectedToOpacicityConverter}}" Text="Def. Planilha"/>
+				<TextBlock TextWrapping="Wrap" VerticalAlignment="Center" Width="126.8" TextAlignment="Center" Opacity="{Binding Steps[3], Converter={StaticResource IsSelectedToOpacicityConverter}}"/>
+				<TextBlock TextWrapping="Wrap" VerticalAlignment="Center" Width="126.8" TextAlignment="Center" Opacity="{Binding Steps[4], Converter={StaticResource IsSelectedToOpacicityConverter}}"><Run Language="pt-br" Text="Finalizar"/></TextBlock>
+			</StackPanel>
+			<Grid x:Name="gridSteps" Height="368">
+				<View:WizStep0 x:Name="wizStep0" VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="{Binding Steps[0], Converter={StaticResource BooleanToVisibilityConverter}}" />
+				<View:WizStep1 x:Name="wizStep1" VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="{Binding Steps[1], Converter={StaticResource BooleanToVisibilityConverter}}" />
+				<View:WizStep2 x:Name="wizStep2" VerticalAlignment="Center" HorizontalAlignment="Left" Visibility="{Binding Steps[2], Converter={StaticResource BooleanToVisibilityConverter}}" Margin="4,0,0,0" />
+			</Grid>
+			<Grid Height="52" Margin="0" Background="#7FF3F3F3">
+				<StackPanel HorizontalAlignment="Right" Margin="0" Orientation="Horizontal">
+					<Button x:Name="btnPrevious" Content="&lt; Anterior" Width="72" Margin="8,0" Height="36" Click="BtnPreviousClick" IsEnabled="{Binding Steps[0], Converter={StaticResource BooleanToReverseConverter}}"/>
+					<Button x:Name="btnNext" Content="Próximo &gt;" Width="72" Margin="0,0,8,0" Height="36" Click="BtnNextClick" IsEnabled="{Binding Steps[4], Converter={StaticResource BooleanToReverseConverter}}"/>
+					<Button x:Name="btnClose" Content="Concluir" Width="72" Margin="0,0,8,0" Height="36" Click="BtnCloseClick" IsEnabled="{Binding Steps[4]}"/>
+					<Button x:Name="btnCancel" Content="Cancelar" Width="72" Height="36" Margin="0,0,8,0" Click="BtnCancelClick"/>
+				</StackPanel>
+			</Grid>
+		</StackPanel>
+	</Grid>
+</Window>

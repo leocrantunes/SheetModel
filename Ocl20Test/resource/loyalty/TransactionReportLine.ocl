@@ -1,0 +1,14 @@
+context TransactionReportLine::partnerName : String 
+  derive: transaction.generatedBy.partner.name
+
+context TransactionReportLine::serviceDesc : String 
+  derive: transaction.generatedBy.description
+
+context TransactionReportLine::points : Integer 
+  derive: transaction.points
+
+context TransactionReportLine::amount : Real 
+  derive: transaction.amount
+
+context TransactionReportLine::date : Date 
+  derive: transaction.date

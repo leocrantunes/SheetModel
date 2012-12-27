@@ -1,0 +1,163 @@
+context LoyaltyProgram::getServices(): Set(Service) 
+  body: partners.deliveredServices->asSet()
+
+context LoyaltyProgram::getServices(pp: ProgramPartner) : Set(Service)
+  body: if partners->includes(pp) 
+	  	then pp.deliveredServices 
+	  	else Set{} 
+	 	endif
+/*
+context LoyaltyProgram 
+  def: getServicesByLevel(levelName: String): Set(Service) 
+  = levels->select( name = levelName ).availableServices->asSet()
+*/
+context LoyaltyProgram 
+  inv knownServiceLevel: levels->includesAll(Membership.currentLevel)
+
+context LoyaltyProgram 
+  inv minServices: partners.deliveredServices->size() >= 1
+
+context LoyaltyProgram 
+  inv noAccounts: partners.deliveredServices->forAll( 
+					  			pointsEarned = 0 and pointsBurned = 0 ) 
+				  implies Membership.account->isEmpty() 
+
+context LoyaltyProgram 
+  inv firstLevel: levels->first().name = 'Silver'
+
+context LoyaltyProgram::enroll(c : Customer) 
+  pre : c.name <> '' 
+  post: participants = participants@pre->including( c ) 
+
+context LoyaltyProgram::enroll(c : Customer) 
+  pre : c.name <> '' 
+  post: participants = participants@pre->including( c ) 
+
+context LoyaltyProgram::addTransaction( accNr: Integer, 
+									    pName: String, 
+									    servId: Integer, 
+									    amnt: Real, 
+									    d: Date ) 
+  post: let acc : LoyaltyAccount = 
+				  Membership.account->select( a | a.number = accNr )->any(true), 
+			newT : Transaction = 
+				  partners-> select(p | p.name = pName).deliveredServices 
+					  ->select(s | s.serviceNr = servId).transactions 
+						  ->select( date = d and amount = amnt )->any(true), 
+			card : CustomerCard = 
+				  Membership->select( m | m.account.number = accNr ).card->any(true)
+	    in acc.points = acc.points@pre + newT.points and 
+		   newT.oclIsNew() and 
+		   amnt = 0 implies newT.oclIsTypeOf( Burning ) and 
+		   amnt > 0 implies newT.oclIsTypeOf( Earning ) and 
+		   acc.transactions - acc.transactions@pre = Set{ newT } and 
+		   card.transactions - card.transactions@pre = Set{ newT } 
+
+context LoyaltyProgram 
+  def: isSaving : Boolean = 
+  	partners.deliveredServices->forAll(pointsEarned = 0)
+
+context LoyaltyProgram 
+  inv: partners.deliveredServices->forAll(pointsEarned = 0) 
+	   and 
+	   Membership.card->forAll(goodThru = "1/1/2000".toDate()) 
+	   and 
+	   participants->forAll(getAge() > 55)
+
+context LoyaltyProgram 
+  inv: partners.deliveredServices->forAll(pointsEarned = 0) 
+  inv: Membership.card->forAll(goodThru = "1/1/2000".toDate()) 
+  inv: participants->forAll(getAge() > 55)
+  inv: 10 + 10 > 20 and isSaving
+
+context LoyaltyProgram::selectPopularPartners( d: Date ): Set(ProgramPartner) 
+  post: let popularTrans : Set(Transaction) = 
+  			result.deliveredServices.transactions->asSet()
+  		in 
+		  popularTrans->forAll( date.isAfter(d) ) and 
+		  popularTrans->select( amount > 500.00 )->size() > 20000
+
+context LoyaltyProgram::enroll(c : Customer) 
+  pre : not participants->includes(c) -- fout 
+  post: participants = participants@pre->including(c)
+
+context LoyaltyProgram::addService(p: ProgramPartner, 
+								   l: ServiceLevel, 
+								   s: Service) 
+  pre: partners->includes( p ) 
+  pre: levels->includes( l ) 
+  post: partners.deliveredServices->includes( s ) 
+  post: levels.availableServices->includes( s )
+
+context LoyaltyProgram 
+  inv: levels->includesAll( Membership.currentLevel ) 
+
+context LoyaltyProgram 
+  inv: self.levels->exists(name = 'basic') 
+
+context LoyaltyProgram
+--  inv:  Set { 1 , 2 , 5 , 88 }->isEmpty()
+--  inv:  Set { 'apple' , 'orange', 'strawberry' }->isEmpty()
+--  inv:  OrderedSet { 'apple' , 'orange', 'strawberry', 'pear' }->isEmpty()
+--  inv:  Sequence { 1, 3, 45, 2, 3 }->isEmpty()
+--  inv:  Sequence { 'ape', 'nut' }->isEmpty()
+--  inv:  Bag {1 , 3 , 4, 3, 5 }->isEmpty()
+  inv:  Sequence{ 1..(6 + 4) }->isEmpty()
+  inv:  Sequence{ 1..10 }->isEmpty()
+  inv:  Sequence{ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 }->isEmpty()
+--  inv:  Set(Customer) 
+--  inv:  Sequence(Set(ProgramPartners)) 
+--  inv:  OrderedSet(ServiceLevel) 
+--  inv:  Bag(Burning)
+
+context LoyaltyProgram 
+  inv: self.participants->size() < 10000
+
+context LoyaltyProgram 
+  inv: self.Membership.account->isUnique( acc | acc.number )
+
+context LoyaltyProgram 
+  inv: self.Membership.account->isUnique( acc: LoyaltyAccount 
+  | acc.number )
+
+context LoyaltyProgram 
+  inv: self.Membership.account->isUnique( number )
+
+--context LoyaltyProgram 
+--  inv: self.Membership.account->isUnique( self.number )
+
+context LoyaltyProgram 
+  def: sortedAccounts : Sequence(LoyaltyAccount) = 
+  self.Membership.account->sortedBy( number )
+
+context LoyaltyProgram 
+  inv: participants->forAll(getAge() <= 70 )
+
+context LoyaltyProgram 
+  inv: self.participants->forAll(c1, c2 | 
+  c1 <> c2 implies c1.name <> c2.name)
+
+context LoyaltyProgram 
+  inv: self.participants->forAll( c1 | 
+  self.participants->forAll( c2 | 
+  c1 <> c2 implies c1.name <> c2.name ))
+
+context LoyaltyProgram 
+  inv: self.Membership.account->one( number < 10000 ) 
+
+context LoyaltyProgram::enroll(c : Customer) 
+  pre : not (participants->includes(c)) 
+  post: participants = participants@pre->including(c) 
+  post: Membership->select(m : Membership | m.participants = c)-> 
+  forAll( account->notEmpty() and 
+  account.points = 0 and 
+  account.transactions->isEmpty() )
+
+context LoyaltyProgram::enrollAndCreateCustomer( n : String, 
+  d: Date ) : Customer 
+  pre : true -- none 
+  post: result.oclIsNew() and 
+  result.name = n and 
+  result.dateOfBirth = d and 
+  participants->includes( result )
+

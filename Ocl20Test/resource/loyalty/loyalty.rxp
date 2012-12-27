@@ -1,0 +1,320 @@
+Global Symbol Entered (Model): 'loyalty' with id G.0
+Scoped Symbol Entered (Category): 'Logical View' with id S.312.1153.07.0
+Scoped Symbol Entered (Class): 'LoyaltyProgram' with id S.312.1153.07.1
+Scoped Symbol Entered (Attribute): 'name' with id S.312.1153.07.2
+Scoped Symbol Entered (Operation): 'enroll' with id S.312.1153.07.3
+Scoped Symbol Entered (Operation): 'getServices' with id S.312.1153.07.4
+Scoped Symbol Entered (Operation): 'getServices' with id S.312.1153.07.5
+Scoped Symbol Entered (Operation): 'addTransaction' with id S.312.1153.07.6
+Scoped Symbol Entered (Operation): 'addService' with id S.312.1153.07.7
+Scoped Symbol Entered (Operation): 'enrollAndCreateCustomer' with id S.312.1153.07.8
+Scoped Symbol Entered (Operation): 'selectPopularPartners' with id S.312.1153.07.9
+Scoped Symbol Entered (Class): 'Customer' with id S.312.1153.07.10
+Scoped Symbol Entered (Attribute): 'name' with id S.312.1153.07.11
+Scoped Symbol Entered (Attribute): 'title' with id S.312.1153.07.12
+Scoped Symbol Entered (Attribute): 'isMale' with id S.312.1153.07.13
+Scoped Symbol Entered (Attribute): 'dateOfBirth' with id S.312.1153.07.14
+Scoped Symbol Entered (Attribute): 'age' with id S.312.1153.07.15
+Scoped Symbol Entered (Attribute): 'gender' with id S.312.1153.07.16
+Scoped Symbol Entered (Operation): 'getAge' with id S.312.1153.07.17
+Scoped Symbol Entered (Operation): 'birthdayHappens' with id S.312.1153.07.18
+Scoped Symbol Entered (Class): 'ProgramPartner' with id S.312.1153.07.19
+Scoped Symbol Entered (Attribute): 'numberOfCustomers' with id S.312.1153.07.20
+Scoped Symbol Entered (Attribute): 'name' with id S.312.1153.07.21
+Scoped Symbol Entered (Class): 'ServiceLevel' with id S.312.1153.07.22
+Scoped Symbol Entered (Attribute): 'name' with id S.312.1153.07.23
+Scoped Symbol Entered (Class): 'Service' with id S.312.1153.07.24
+Scoped Symbol Entered (Attribute): 'condition' with id S.312.1153.07.25
+Scoped Symbol Entered (Attribute): 'pointsEarned' with id S.312.1153.07.26
+Scoped Symbol Entered (Attribute): 'pointsBurned' with id S.312.1153.07.27
+Scoped Symbol Entered (Attribute): 'description' with id S.312.1153.07.28
+Scoped Symbol Entered (Attribute): 'serviceNr' with id S.312.1153.07.29
+Scoped Symbol Entered (Operation): 'calcPoints' with id S.312.1153.07.30
+Scoped Symbol Entered (Operation): 'upgradePointsEarned' with id S.312.1153.07.31
+Scoped Symbol Entered (Class): 'LoyaltyAccount' with id S.312.1153.07.32
+Scoped Symbol Entered (Attribute): 'points' with id S.312.1153.07.33
+Scoped Symbol Entered (Attribute): 'number' with id S.312.1153.07.34
+Scoped Symbol Entered (Attribute): 'totalPointsEarned' with id S.312.1153.07.35
+Scoped Symbol Entered (Operation): 'earn' with id S.312.1153.07.36
+Scoped Symbol Entered (Operation): 'burn' with id S.312.1153.07.37
+Scoped Symbol Entered (Operation): 'isEmpty' with id S.312.1153.07.38
+Scoped Symbol Entered (Operation): 'getCustomerName' with id S.312.1153.07.39
+Scoped Symbol Entered (Class): 'Transaction' with id S.312.1153.07.40
+Scoped Symbol Entered (Attribute): 'points' with id S.312.1153.07.41
+Scoped Symbol Entered (Attribute): 'date' with id S.312.1153.07.42
+Scoped Symbol Entered (Attribute): 'amount' with id S.312.1153.07.43
+Scoped Symbol Entered (Operation): 'program' with id S.312.1153.07.44
+Scoped Symbol Entered (Operation): 'getProgram' with id S.312.1153.07.45
+Scoped Symbol Entered (Class): 'CustomerCard' with id S.312.1153.07.46
+Scoped Symbol Entered (Attribute): 'valid' with id S.312.1153.07.47
+Scoped Symbol Entered (Attribute): 'validFrom' with id S.312.1153.07.48
+Scoped Symbol Entered (Attribute): 'goodThru' with id S.312.1153.07.49
+Scoped Symbol Entered (Attribute): 'color' with id S.312.1153.07.50
+Scoped Symbol Entered (Attribute): 'printedName' with id S.312.1153.07.51
+Scoped Symbol Entered (Attribute): 'myLevel' with id S.312.1153.07.52
+Scoped Symbol Entered (Operation): 'getTransactions' with id S.312.1153.07.53
+Scoped Symbol Entered (Class): 'Membership' with id S.312.1153.07.54
+Scoped Symbol Entered (Class): 'Burning' with id S.312.1153.07.55
+Scoped Symbol Entered (Class): 'Earning' with id S.312.1153.07.56
+Scoped Symbol Entered (Class): 'Date' with id S.312.1153.07.57
+Scoped Symbol Entered (Attribute): 'now' with id S.312.1153.07.58
+Scoped Symbol Entered (Operation): 'isBefore' with id S.312.1153.07.59
+Scoped Symbol Entered (Operation): 'isAfter' with id S.312.1153.07.60
+Scoped Symbol Entered (Operation): '=' with id S.312.1153.07.61
+Scoped Symbol Entered (Operation): '$fromYMD' with id S.312.1153.07.62
+Scoped Symbol Entered (Class): 'Color' with id S.312.1153.07.63
+Scoped Symbol Entered (Attribute): 'silver' with id S.312.1153.07.64
+Scoped Symbol Entered (Attribute): 'gold' with id S.312.1153.07.65
+Scoped Symbol Entered (Class): 'Gender' with id S.312.1153.07.66
+Scoped Symbol Entered (Attribute): 'male' with id S.312.1153.07.67
+Scoped Symbol Entered (Attribute): 'female' with id S.312.1153.07.68
+Scoped Symbol Entered (Class): 'TransactionReport' with id S.312.1153.07.69
+Scoped Symbol Entered (Attribute): 'from' with id S.312.1153.07.70
+Scoped Symbol Entered (Attribute): 'until' with id S.312.1153.07.71
+Scoped Symbol Entered (Attribute): 'name' with id S.312.1153.07.72
+Scoped Symbol Entered (Attribute): 'balance' with id S.312.1153.07.73
+Scoped Symbol Entered (Attribute): 'number' with id S.312.1153.07.74
+Scoped Symbol Entered (Attribute): 'totalEarned' with id S.312.1153.07.75
+Scoped Symbol Entered (Attribute): 'totalBurned' with id S.312.1153.07.76
+Scoped Symbol Entered (Class): 'TransactionReportLine' with id S.312.1153.07.77
+Scoped Symbol Entered (Attribute): 'partnerName' with id S.312.1153.07.78
+Scoped Symbol Entered (Attribute): 'serviceDesc' with id S.312.1153.07.79
+Scoped Symbol Entered (Attribute): 'amount' with id S.312.1153.07.80
+Scoped Symbol Entered (Attribute): 'points' with id S.312.1153.07.81
+Scoped Symbol Entered (Attribute): 'date' with id S.312.1153.07.82
+Global Symbol Entered (Association): '{Customer-LoyaltyProgram}{4187DB1401F4}' with id G.1
+Global Symbol Entered (Role): 'participants{4187DB15029F}' with id G.2
+Global Symbol Entered (Role): 'programs{4187DB1502A1}' with id G.3
+Global Symbol Entered (Association): '{ProgramPartner-LoyaltyProgram}{4187DB3F01F4}' with id G.4
+Global Symbol Entered (Role): 'partners{4187DB4100BB}' with id G.5
+Global Symbol Entered (Role): 'programs{4187DB4100BD}' with id G.6
+Global Symbol Entered (Association): '{CustomerCard-Customer}{4187DB74001F}' with id G.7
+Global Symbol Entered (Role): 'cards{4187DB7403A9}' with id G.8
+Global Symbol Entered (Role): 'owner{4187DB7403AB}' with id G.9
+Global Symbol Entered (Association): '{Transaction-CustomerCard}{4187DB9D0251}' with id G.10
+Global Symbol Entered (Role): 'transactions{4187DB9E02DE}' with id G.11
+Global Symbol Entered (Role): 'card{4187DB9E02E0}' with id G.12
+Global Symbol Entered (Association): '{Transaction-Service}{4187DBBC00CB}' with id G.13
+Global Symbol Entered (Role): 'transactions{4187DBBD006D}' with id G.14
+Global Symbol Entered (Role): 'generatedBy{4187DBBD007D}' with id G.15
+Global Symbol Entered (Association): '{LoyaltyAccount-Transaction}{4187DBEC030D}' with id G.16
+Global Symbol Entered (Role): 'account{4187DBED02FD}' with id G.17
+Global Symbol Entered (Role): 'transactions{4187DBED02FF}' with id G.18
+Global Symbol Entered (Association): '{Service-ProgramPartner}{4187DC15031C}' with id G.19
+Global Symbol Entered (Role): 'deliveredServices{4187DC17005D}' with id G.20
+Global Symbol Entered (Role): 'partner{4187DC17005F}' with id G.21
+Global Symbol Entered (Association): '{ServiceLevel-Service}{4187DC3102EE}' with id G.22
+Global Symbol Entered (Role): 'level{4187DC3201A5}' with id G.23
+Global Symbol Entered (Role): 'availableServices{4187DC3201A7}' with id G.24
+Global Symbol Entered (Association): '{Membership-CustomerCard}{4187DC560271}' with id G.25
+Global Symbol Entered (Role): '{4187DC570261}' with id G.26
+Global Symbol Entered (Role): 'card{4187DC570263}' with id G.27
+Global Symbol Entered (Association): '{Membership-LoyaltyAccount}{4187DC6A01C5}' with id G.28
+Global Symbol Entered (Role): '{4187DC6B00AB}' with id G.29
+Global Symbol Entered (Role): 'account{4187DC6B00AD}' with id G.30
+Global Symbol Entered (Association): '{Membership-ServiceLevel}{4187DC810399}' with id G.31
+Global Symbol Entered (Role): '{4187DC820157}' with id G.32
+Global Symbol Entered (Role): 'currentLevel{4187DC820159}' with id G.33
+Global Symbol Entered (Association): '{ServiceLevel-LoyaltyProgram}{4187DCBE0138}' with id G.34
+Global Symbol Entered (Role): 'levels{4187DCBF0109}' with id G.35
+Global Symbol Entered (Role): 'program{4187DCBF010B}' with id G.36
+Global Symbol Entered (Association): '{LoyaltyAccount-Service}{4187EBFB0271}' with id G.37
+Global Symbol Entered (Role): '{4187EBFC031C}' with id G.38
+Global Symbol Entered (Role): 'usedServices{4187EBFC031E}' with id G.39
+Global Symbol Entered (Association): '{CustomerCard-TransactionReport}{4187ECC901D4}' with id G.40
+Global Symbol Entered (Role): 'card{4187ECCA01A5}' with id G.41
+Global Symbol Entered (Role): 'report{4187ECCA01B5}' with id G.42
+Global Symbol Entered (Association): '{Transaction-TransactionReportLine}{4187ECF600DA}' with id G.43
+Global Symbol Entered (Role): 'transaction{4187ECF70119}' with id G.44
+Global Symbol Entered (Role): 'line{4187ECF70128}' with id G.45
+Global Symbol Entered (Association): '{TransactionReport-TransactionReportLine}{4187ED1C0186}' with id G.46
+Global Symbol Entered (Role): 'report{4187ED1D0109}' with id G.47
+Global Symbol Entered (Role): 'lines{4187ED1D010B}' with id G.48
+Scoped Symbol Entered (Subsystem): 'Component View' with id S.312.1153.07.83
+DoSubsystemDependencies for Component View
+Scoped Symbol Entered (Category): 'Use Case View' with id S.312.1153.07.84
+Pop Thermometer(Final)
+Generate2 generstes Model: loyalty
+Create Package: Logical View
+Process Association: {ProgramPartner-LoyaltyProgram}{4187DB3F01F4}
+Role: partners
+  Association End: ProgramPartner
+  Association end: G.5 added to association G.4
+  Class/UseCase/Interface: ProgramPartner
+Role: programs
+  Association End: LoyaltyProgram
+  Association end: G.6 added to association G.4
+  Class/UseCase/Interface: LoyaltyProgram
+Process Association: {CustomerCard-Customer}{4187DB74001F}
+Role: cards
+  Association End: CustomerCard
+  Association end: G.8 added to association G.7
+  Class/UseCase/Interface: CustomerCard
+Role: owner
+  Association End: Customer
+  Association end: G.9 added to association G.7
+  Class/UseCase/Interface: Customer
+Process Association: {Transaction-CustomerCard}{4187DB9D0251}
+Role: transactions
+  Association End: Transaction
+  Association end: G.11 added to association G.10
+  Class/UseCase/Interface: Transaction
+Role: card
+  Association End: CustomerCard
+  Association end: G.12 added to association G.10
+  Class/UseCase/Interface: CustomerCard
+Process Association: {Transaction-Service}{4187DBBC00CB}
+Role: transactions
+  Association End: Transaction
+  Association end: G.14 added to association G.13
+  Class/UseCase/Interface: Transaction
+Role: generatedBy
+  Association End: Service
+  Association end: G.15 added to association G.13
+  Class/UseCase/Interface: Service
+Process Association: {LoyaltyAccount-Transaction}{4187DBEC030D}
+Role: account
+  Association End: LoyaltyAccount
+  Association end: G.17 added to association G.16
+  Class/UseCase/Interface: LoyaltyAccount
+Role: transactions
+  Association End: Transaction
+  Association end: G.18 added to association G.16
+  Class/UseCase/Interface: Transaction
+Process Association: {Service-ProgramPartner}{4187DC15031C}
+Role: deliveredServices
+  Association End: Service
+  Association end: G.20 added to association G.19
+  Class/UseCase/Interface: Service
+Role: partner
+  Association End: ProgramPartner
+  Association end: G.21 added to association G.19
+  Class/UseCase/Interface: ProgramPartner
+Process Association: {ServiceLevel-Service}{4187DC3102EE}
+Role: level
+  Association End: ServiceLevel
+  Association end: G.23 added to association G.22
+  Class/UseCase/Interface: ServiceLevel
+Role: availableServices
+  Association End: Service
+  Association end: G.24 added to association G.22
+  Class/UseCase/Interface: Service
+Process Association: {Membership-CustomerCard}{4187DC560271}
+Role: 
+  Association End: Membership
+  Association end: G.26 added to association G.25
+  Class/UseCase/Interface: Membership
+Role: card
+  Association End: CustomerCard
+  Association end: G.27 added to association G.25
+  Class/UseCase/Interface: CustomerCard
+Process Association: {Membership-LoyaltyAccount}{4187DC6A01C5}
+Role: 
+  Association End: Membership
+  Association end: G.29 added to association G.28
+  Class/UseCase/Interface: Membership
+Role: account
+  Association End: LoyaltyAccount
+  Association end: G.30 added to association G.28
+  Class/UseCase/Interface: LoyaltyAccount
+Process Association: {Membership-ServiceLevel}{4187DC810399}
+Role: 
+  Association End: Membership
+  Association end: G.32 added to association G.31
+  Class/UseCase/Interface: Membership
+Role: currentLevel
+  Association End: ServiceLevel
+  Association end: G.33 added to association G.31
+  Class/UseCase/Interface: ServiceLevel
+Process Association: {ServiceLevel-LoyaltyProgram}{4187DCBE0138}
+Role: levels
+  Association End: ServiceLevel
+  Association end: G.35 added to association G.34
+Scoped Symbol Entered (Constraint): 'ordered' with id S.312.1153.08.0
+  Class/UseCase/Interface: ServiceLevel
+Role: program
+  Association End: LoyaltyProgram
+  Association end: G.36 added to association G.34
+  Class/UseCase/Interface: LoyaltyProgram
+Process Association: {LoyaltyAccount-Service}{4187EBFB0271}
+Role: 
+  Association End: LoyaltyAccount
+  Association end: G.38 added to association G.37
+  Class/UseCase/Interface: LoyaltyAccount
+Role: usedServices
+  Association End: Service
+  Association end: G.39 added to association G.37
+  Class/UseCase/Interface: Service
+Process Association: {CustomerCard-TransactionReport}{4187ECC901D4}
+Role: card
+  Association End: CustomerCard
+  Association end: G.41 added to association G.40
+  Class/UseCase/Interface: CustomerCard
+Role: report
+  Association End: TransactionReport
+  Association end: G.42 added to association G.40
+  Class/UseCase/Interface: TransactionReport
+Process Association: {Transaction-TransactionReportLine}{4187ECF600DA}
+Role: transaction
+  Association End: Transaction
+  Association end: G.44 added to association G.43
+  Class/UseCase/Interface: Transaction
+Role: line
+  Association End: TransactionReportLine
+  Association end: G.45 added to association G.43
+  Class/UseCase/Interface: TransactionReportLine
+Process Association: {TransactionReport-TransactionReportLine}{4187ED1C0186}
+Role: report
+  Association End: TransactionReport
+  Association end: G.47 added to association G.46
+  Class/UseCase/Interface: TransactionReport
+Role: lines
+  Association End: TransactionReportLine
+  Association end: G.48 added to association G.46
+  Class/UseCase/Interface: TransactionReportLine
+Create Class: LoyaltyProgram
+Global Symbol Entered (Basic Type): 'String' with id G.49
+Global Symbol Entered (Basic Type): 'Set(Service)' with id G.50
+Global Symbol Entered (Basic Type): 'Integer' with id G.51
+Global Symbol Entered (Basic Type): 'Real' with id G.52
+Global Symbol Entered (Basic Type): 'Set(ProgramPartner)' with id G.53
+Create Class: Customer
+Global Symbol Entered (Basic Type): 'Boolean' with id G.54
+Create Class: ProgramPartner
+Create Class: ServiceLevel
+Create Class: Service
+Create Class: LoyaltyAccount
+Create Class: Transaction
+Create Class: CustomerCard
+Global Symbol Entered (Basic Type): 'Set(Transaction)' with id G.55
+Create AssociationClass: Membership
+Process assoc portion of AssociationClass: S.312.1153.07.54
+Role: participants
+  Association End: Customer
+  Association end: G.2 added to association S.312.1153.07.54
+  Class/UseCase/Interface: Customer
+Role: programs
+  Association End: LoyaltyProgram
+  Association end: G.3 added to association S.312.1153.07.54
+  Class/UseCase/Interface: LoyaltyProgram
+Create Class: Burning
+Create Class: Earning
+Create Class: Date
+Create Class: Color
+Scoped Symbol Entered (Stereotype): 'enumeration' with id S.312.1153.08.1
+Global Symbol Entered (Basic Type): '<undefined>' with id G.56
+Create Class: Gender
+Create Class: TransactionReport
+Create Class: TransactionReportLine
+Pop Thermometer(Final)
+Global Symbol Entered (Generalization): '{Burning->Transaction}{4187DBE20399}' with id G.57
+Global Symbol Entered (Generalization): '{Earning->Transaction}{4187DBE703C8}' with id G.58
+Pop Thermometer(Final)
+Use gModel for package: Logical View
+Pop Thermometer(Final)
+Use gModel for package: Use Case View
+Pop Thermometer(Final)
+Pop Thermometer(Final)
+-----> Diagrams are suppressed
+Pop Thermometer(Final)
+Pop Thermometer(Final)

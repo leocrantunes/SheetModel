@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1566069E-FEB9-4567-8228-67CBEF314A78}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OclParser</RootNamespace>
+    <AssemblyName>OclParser</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="antlr.astframe">
+      <HintPath>..\..\..\..\..\..\..\antlr\277\lib\antlr.astframe.dll</HintPath>
+    </Reference>
+    <Reference Include="antlr.runtime">
+      <HintPath>..\..\..\..\..\..\..\antlr\277\lib\antlr.runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="src\antlrcs\OCLScriptLexer.cs" />
+    <Compile Include="src\antlrcs\OCLScriptParser.cs" />
+    <Compile Include="src\antlrcs\OCLScriptTokenTypes.cs" />
+    <Compile Include="src\controller\OCLWorkbenchLexer.cs" />
+    <Compile Include="src\controller\OCLWorkbenchParser.cs" />
+    <Compile Include="src\controller\OCLWorkbenchToken.cs" />
+    <Compile Include="src\cst\ASTCollectionKind.cs" />
+    <Compile Include="src\cst\context\CSTAttrOrAssocContextCS.cs" />
+    <Compile Include="src\cst\context\CSTBodyDeclCS.cs" />
+    <Compile Include="src\cst\context\CSTClassifierContextDeclCS.cs" />
+    <Compile Include="src\cst\context\CSTConstraintDefinitionCS.cs" />
+    <Compile Include="src\cst\context\CSTContextDeclarationCS.cs" />
+    <Compile Include="src\cst\context\CSTDefCS.cs" />
+    <Compile Include="src\cst\context\CSTDefExpressionCS.cs" />
+    <Compile Include="src\cst\context\CSTDefOperationExpressionCS.cs" />
+    <Compile Include="src\cst\context\CSTDefVarExpressionCS.cs" />
+    <Compile Include="src\cst\context\CSTDerivedValueCS.cs" />
+    <Compile Include="src\cst\context\CSTExpressionInOclCS.cs" />
+    <Compile Include="src\cst\context\CSTInitDerivedValueCS.cs" />
+    <Compile Include="src\cst\context\CSTInitValueCS.cs" />
+    <Compile Include="src\cst\context\CSTInvariantCS.cs" />
+    <Compile Include="src\cst\context\CSTNamedConstraintCS.cs" />
+    <Compile Include="src\cst\context\CSTOperationConstraintCS.cs" />
+    <Compile Include="src\cst\context\CSTOperationContextCS.cs" />
+    <Compile Include="src\cst\context\CSTOperationCS.cs" />
+    <Compile Include="src\cst\context\CSTPackageDeclarationCS.cs" />
+    <Compile Include="src\cst\context\CSTPostDeclCS.cs" />
+    <Compile Include="src\cst\context\CSTPreDeclCS.cs" />
+    <Compile Include="src\cst\CSTNode.cs" />
+    <Compile Include="src\cst\CSTOclScriptVisitor.cs" />
+    <Compile Include="src\cst\CSTVisitor.cs" />
+    <Compile Include="src\cst\expression\CSTArgumentCS.cs" />
+    <Compile Include="src\cst\expression\CSTBinaryExpressionCS.cs" />
+    <Compile Include="src\cst\expression\CSTClassifierAttributeCallExpCS.cs" />
+    <Compile Include="src\cst\expression\CSTClassOperationCallExpCS.cs" />
+    <Compile Include="src\cst\expression\CSTIfExpCS.cs" />
+    <Compile Include="src\cst\expression\CSTInstanceOperationCallExpCS.cs" />
+    <Compile Include="src\cst\expression\CSTIterateExpCS.cs" />
+    <Compile Include="src\cst\expression\CSTIteratorExpCS.cs" />
+    <Compile Include="src\cst\expression\CSTIteratorOperationCS.cs" />
+    <Compile Include="src\cst\expression\CSTLetExpCS.cs" />
+    <Compile Include="src\cst\expression\CSTModelPropertyCallExpCS.cs" />
+    <Compile Include="src\cst\expression\CSTNavigationExpressionCS.cs" />
+    <Compile Include="src\cst\expression\CSTNavigationOperatorCS.cs" />
+    <Compile Include="src\cst\expression\CSTOclExpressionCS.cs" />
+    <Compile Include="src\cst\expression\CSTOperationCallExpCS.cs" />
+    <Compile Include="src\cst\expression\CSTOperatorCS.cs" />
+    <Compile Include="src\cst\expression\CSTSimpleNameExpCS.cs" />
+    <Compile Include="src\cst\expression\CSTUnaryExpressionCS.cs" />
+    <Compile Include="src\cst\literalExp\CSTBooleanLiteralExpCS.cs" />
+    <Compile Include="src\cst\literalExp\CSTCollectionLiteralExpCS.cs" />
+    <Compile Include="src\cst\literalExp\CSTCollectionLiteralPartCS.cs" />
+    <Compile Include="src\cst\literalExp\CSTCollectionLiteralRangeCS.cs" />
+    <Compile Include="src\cst\literalExp\CSTCollectionLiteralSinglePartCS.cs" />
+    <Compile Include="src\cst\literalExp\CSTIntegerLiteralExpCS.cs" />
+    <Compile Include="src\cst\literalExp\CSTInvalidLiteralExpCS.cs" />
+    <Compile Include="src\cst\literalExp\CSTLiteralExpCS.cs" />
+    <Compile Include="src\cst\literalExp\CSTNullLiteralExpCS.cs" />
+    <Compile Include="src\cst\literalExp\CSTPrimitiveLiteralExpCS.cs" />
+    <Compile Include="src\cst\literalExp\CSTRealLiteralExpCS.cs" />
+    <Compile Include="src\cst\literalExp\CSTStringLiteralExpCS.cs" />
+    <Compile Include="src\cst\literalExp\CSTTupleLiteralExpCS.cs" />
+    <Compile Include="src\cst\name\CSTNameCS.cs" />
+    <Compile Include="src\cst\name\CSTPathNameCS.cs" />
+    <Compile Include="src\cst\name\CSTSimpleNameCS.cs" />
+    <Compile Include="src\cst\SourceLocation.cs" />
+    <Compile Include="src\cst\type\CSTCollectionTypeCS.cs" />
+    <Compile Include="src\cst\type\CSTCollectionTypeIdentifierCS.cs" />
+    <Compile Include="src\cst\type\CSTSimpleTypeCS.cs" />
+    <Compile Include="src\cst\type\CSTTupleTypeCS.cs" />
+    <Compile Include="src\cst\type\CSTTypeCS.cs" />
+    <Compile Include="src\cst\type\CSTVariableDeclarationCS.cs" />
+    <Compile Include="src\cst\VisitableElement.cs" />
+    <Compile Include="src\exception\OCLCompilerException.cs" />
+    <Compile Include="src\exception\OCLMultipleSemanticExceptions.cs" />
+    <Compile Include="src\exception\OCLSemanticException.cs" />
+    <Compile Include="src\exception\OCLSyntaticException.cs" />
+    <Compile Include="src\Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="src\typeChecker\ConstraintSourceTracker.cs" />
+    <Compile Include="src\typeChecker\ConstraintSourceTrackerImpl.cs" />
+    <Compile Include="src\typeChecker\Messages.cs" />
+    <Compile Include="src\typeChecker\OclCompilerAction.cs" />
+    <Compile Include="src\typeChecker\OCLDefinedFeaturesVisitor.cs" />
+    <Compile Include="src\typeChecker\OCLSemanticAnalyzer.cs" />
+    <Compile Include="src\typeChecker\OCLSemanticAnalyzerVisitor.cs" />
+    <Compile Include="src\typeChecker\PSWOclCompiler.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="src\antlrcs\antlr.jar" />
+    <Content Include="src\antlrcs\antlr.astframe.dll" />
+    <Content Include="src\antlrcs\antlr.runtime.dll" />
+    <Content Include="src\antlrcs\OCLScriptTokenTypes.txt" />
+    <Compile Include="src\semantics\types\OclTypesFactory.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\antlrcs\antlr.bat" />
+    <None Include="src\antlrcs\OCLSCRIPT.G" />
+    <None Include="src\typeChecker\messages.properties" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OclLibrary\OclLibrary.csproj">
+      <Project>{BAE762EF-3E4D-4722-99EA-3CE76B60A7B0}</Project>
+      <Name>OclLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

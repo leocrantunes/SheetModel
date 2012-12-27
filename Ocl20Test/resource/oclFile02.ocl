@@ -1,0 +1,38 @@
+context Film inv : name.size2() <= 10 
+context Film inv : name.size3() >= 20
+context Film inv: name.size() < 10 
+context Tape 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+inv: 
+
+	number3 
+	> 
+	30 
+context SpecialFilm inv: name.size() < 50      
+context Film inv  names01: name.size() < 10
+context SpecialFilm inv names01: name.size() < 50
+context Film inv  names01: name.size() < 10

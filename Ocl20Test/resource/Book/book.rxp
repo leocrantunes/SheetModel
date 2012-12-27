@@ -1,0 +1,165 @@
+Global Symbol Entered (Model): 'book' with id G.0
+Scoped Symbol Entered (Category): 'Logical View' with id S.307.1059.55.0
+Scoped Symbol Entered (Category): 'Book' with id S.307.1059.55.1
+Scoped Symbol Entered (Class): 'Bookpart' with id S.307.1059.55.2
+Scoped Symbol Entered (Attribute): 'title' with id S.307.1059.55.3
+Scoped Symbol Entered (Attribute): 'nrOfPages' with id S.307.1059.55.4
+Scoped Symbol Entered (Attribute): 'startPageNr' with id S.307.1059.55.5
+Scoped Symbol Entered (Operation): 'determineStartPageNumber' with id S.307.1059.55.6
+Scoped Symbol Entered (Operation): 'getLastPageNumber' with id S.307.1059.55.7
+Scoped Symbol Entered (Class): 'Prependix' with id S.307.1059.55.8
+Scoped Symbol Entered (Attribute): 'kind' with id S.307.1059.55.9
+Scoped Symbol Entered (Operation): 'needsEmptyLastPage' with id S.307.1059.55.10
+Scoped Symbol Entered (Operation): 'isFirstBookpart' with id S.307.1059.55.11
+Scoped Symbol Entered (Class): 'Chapter' with id S.307.1059.55.12
+Scoped Symbol Entered (StateMachine): 'State/Activity Model' with id S.307.1059.55.13
+Global Symbol Entered (State): 'ready{4188E203031C}' with id G.1
+Global Symbol Entered (State): 'inwriting{4188E20900AB}' with id G.2
+Global Symbol Entered (State): 'draft{4188E2280167}' with id G.3
+Global Symbol Entered (State): 'finaldraft{4188E22D029F}' with id G.4
+Scoped Symbol Entered (Attribute): 'author' with id S.307.1059.55.14
+Scoped Symbol Entered (Attribute): 'subject' with id S.307.1059.55.15
+Scoped Symbol Entered (Operation): 'determineDurationTillFinished' with id S.307.1059.55.16
+Scoped Symbol Entered (Class): 'Appendix' with id S.307.1059.55.17
+Scoped Symbol Entered (Attribute): 'kind' with id S.307.1059.55.18
+Scoped Symbol Entered (Attribute): 'twoColumn' with id S.307.1059.55.19
+Scoped Symbol Entered (Operation): 'needsEmptyLastPage' with id S.307.1059.55.20
+Scoped Symbol Entered (Class): 'TwoColumnPart' with id S.307.1059.55.21
+Scoped Symbol Entered (Operation): 'transformToTwoColumn' with id S.307.1059.55.22
+Scoped Symbol Entered (Operation): 'transformToOneColumn' with id S.307.1059.55.23
+Scoped Symbol Entered (Class): 'Period' with id S.307.1059.55.24
+Scoped Symbol Entered (Attribute): 'nrOfDays' with id S.307.1059.55.25
+Scoped Symbol Entered (Attribute): 'nrOfWorkingDays' with id S.307.1059.55.26
+Scoped Symbol Entered (Class): 'Date' with id S.307.1059.55.27
+Scoped Symbol Entered (Attribute): 'day' with id S.307.1059.55.28
+Scoped Symbol Entered (Attribute): 'month' with id S.307.1059.55.29
+Scoped Symbol Entered (Attribute): 'year' with id S.307.1059.55.30
+Scoped Symbol Entered (Class): 'PrependixKind' with id S.307.1059.55.31
+Scoped Symbol Entered (Attribute): 'contents' with id S.307.1059.55.32
+Scoped Symbol Entered (Attribute): 'figures' with id S.307.1059.55.33
+Scoped Symbol Entered (Attribute): 'tables' with id S.307.1059.55.34
+Scoped Symbol Entered (Attribute): 'preface' with id S.307.1059.55.35
+Scoped Symbol Entered (Class): 'AppendixKind' with id S.307.1059.55.36
+Scoped Symbol Entered (Attribute): 'index' with id S.307.1059.55.37
+Scoped Symbol Entered (Attribute): 'bibliography' with id S.307.1059.55.38
+Scoped Symbol Entered (Attribute): 'glossary' with id S.307.1059.55.39
+Scoped Symbol Entered (Class): 'ChapterDependency' with id S.307.1059.55.40
+Scoped Symbol Entered (Attribute): 'sameAuthor' with id S.307.1059.55.41
+Scoped Symbol Entered (Attribute): 'sameSubject' with id S.307.1059.55.42
+Global Symbol Entered (Association): '{Chapter-Chapter}{4188E3200177}' with id G.5
+Global Symbol Entered (Role): 'nextChap{4188E32203B9}' with id G.6
+Global Symbol Entered (Role): 'prevChap{4188E32203BB}' with id G.7
+Global Symbol Entered (Association): '{Appendix-Chapter}{4188E356002E}' with id G.8
+Global Symbol Entered (Role): 'nextApp{4188E356029F}' with id G.9
+Global Symbol Entered (Role): 'prevChap{4188E35602A1}' with id G.10
+Global Symbol Entered (Association): '{Appendix-Appendix}{4188E3820290}' with id G.11
+Global Symbol Entered (Role): 'nextApp{4188E3840232}' with id G.12
+Global Symbol Entered (Role): 'prevApp{4188E3840234}' with id G.13
+Global Symbol Entered (Association): '{Chapter-Prependix}{4188E3AD0242}' with id G.14
+Global Symbol Entered (Role): 'nextChap{4188E3AF0177}' with id G.15
+Global Symbol Entered (Role): 'prevPrep{4188E3AF0179}' with id G.16
+Global Symbol Entered (Association): '{Prependix-Prependix}{4188E3D00186}' with id G.17
+Global Symbol Entered (Role): 'prevPrep{4188E3D200FA}' with id G.18
+Global Symbol Entered (Role): 'nextPrep{4188E3D200FC}' with id G.19
+Global Symbol Entered (Association): '{Chapter-Chapter}{4188E3FD031C}' with id G.20
+Global Symbol Entered (Role): 'dependantChapters{4188E40000AB}' with id G.21
+Global Symbol Entered (Role): 'sourceChapter{4188E40000AD}' with id G.22
+Scoped Symbol Entered (Subsystem): 'Component View' with id S.307.1059.55.43
+DoSubsystemDependencies for Component View
+Scoped Symbol Entered (Category): 'Use Case View' with id S.307.1059.55.44
+Pop Thermometer(Final)
+Generate2 generstes Model: book
+Create Package: Logical View
+Create Package: Logical View::Book
+Adding package to Namespace: book
+Process Association: {Chapter-Chapter}{4188E3200177}
+Role: nextChap
+  Association End: Chapter
+  Association end: G.6 added to association G.5
+  Class/UseCase/Interface: Chapter
+Role: prevChap
+  Association End: Chapter
+  Association end: G.7 added to association G.5
+  Class/UseCase/Interface: Chapter
+Process Association: {Appendix-Chapter}{4188E356002E}
+Role: nextApp
+  Association End: Appendix
+  Association end: G.9 added to association G.8
+  Class/UseCase/Interface: Appendix
+Role: prevChap
+  Association End: Chapter
+  Association end: G.10 added to association G.8
+  Class/UseCase/Interface: Chapter
+Process Association: {Appendix-Appendix}{4188E3820290}
+Role: nextApp
+  Association End: Appendix
+  Association end: G.12 added to association G.11
+  Class/UseCase/Interface: Appendix
+Role: prevApp
+  Association End: Appendix
+  Association end: G.13 added to association G.11
+  Class/UseCase/Interface: Appendix
+Process Association: {Chapter-Prependix}{4188E3AD0242}
+Role: nextChap
+  Association End: Chapter
+  Association end: G.15 added to association G.14
+  Class/UseCase/Interface: Chapter
+Role: prevPrep
+  Association End: Prependix
+  Association end: G.16 added to association G.14
+  Class/UseCase/Interface: Prependix
+Process Association: {Prependix-Prependix}{4188E3D00186}
+Role: prevPrep
+  Association End: Prependix
+  Association end: G.18 added to association G.17
+  Class/UseCase/Interface: Prependix
+Role: nextPrep
+  Association End: Prependix
+  Association end: G.19 added to association G.17
+  Class/UseCase/Interface: Prependix
+Create Class: Bookpart
+Global Symbol Entered (Basic Type): 'String' with id G.23
+Global Symbol Entered (Basic Type): 'Integer' with id G.24
+Create Class: Prependix
+Global Symbol Entered (Basic Type): 'Boolean' with id G.25
+Create Class: Chapter
+Create State Machine: book::Book::State/Activity Model
+Create SimpleState: book::Book::State/Activity Model::{top}::ready @ G.1
+Create CompositeState: book::Book::State/Activity Model::{top}::inwriting @ G.2
+Create SimpleState: book::Book::State/Activity Model::{top}::inwriting::draft @ G.3
+Create SimpleState: book::Book::State/Activity Model::{top}::inwriting::finaldraft @ G.4
+Add incoming refs for transitions out of state G.1
+Add incoming refs for transitions out of state G.2
+Add incoming refs for transitions out of state G.3
+Add incoming refs for transitions out of state G.4
+Create Class: Appendix
+Create Interface: TwoColumnPart
+Create Class: Period
+Create Class: Date
+Create Class: PrependixKind
+Scoped Symbol Entered (Stereotype): 'enumeration' with id S.307.1059.56.0
+Global Symbol Entered (Basic Type): '<undefined>' with id G.26
+Create Class: AppendixKind
+Create AssociationClass: ChapterDependency
+Process assoc portion of AssociationClass: S.307.1059.55.40
+Role: dependantChapters
+  Association End: Chapter
+  Association end: G.21 added to association S.307.1059.55.40
+  Class/UseCase/Interface: Chapter
+Role: sourceChapter
+  Association End: Chapter
+  Association end: G.22 added to association S.307.1059.55.40
+  Class/UseCase/Interface: Chapter
+Pop Thermometer(Final)
+Global Symbol Entered (Generalization): '{Prependix->Bookpart}{4188E1A30271}' with id G.27
+Global Symbol Entered (Generalization): '{Chapter->Bookpart}{4188E1D90128}' with id G.28
+Global Symbol Entered (Generalization): '{Appendix->Bookpart}{4188E250001F}' with id G.29
+Pop Thermometer(Final)
+Use gModel for package: Logical View
+Pop Thermometer(Final)
+Use gModel for package: Use Case View
+Pop Thermometer(Final)
+Pop Thermometer(Final)
+-----> Diagrams are suppressed
+Pop Thermometer(Final)
+Pop Thermometer(Final)

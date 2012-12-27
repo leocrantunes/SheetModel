@@ -1,0 +1,74 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:SheetModel_Misc="clr-namespace:SheetModel.Misc"
+	mc:Ignorable="d"
+	x:Class="SheetModel.View.WizStep2"
+	x:Name="UserControl"
+	d:DesignWidth="634" d:DesignHeight="368">
+	<UserControl.Resources>
+		<SheetModel_Misc:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+	</UserControl.Resources>
+	<DockPanel>
+		<StackPanel Orientation="Horizontal" Margin="0" Height="24" VerticalAlignment="Top" DockPanel.Dock="Top">
+			<TextBlock TextWrapping="Wrap" Text="Classe Base:" VerticalAlignment="Center"/>
+			<TextBlock TextWrapping="Wrap" Text="{Binding SelectedBaseClass.Name}" d:LayoutOverrides="Height" Margin="8,0,0,0" VerticalAlignment="Center" Width="245"/>
+			<Button x:Name="btnPreview" Content="Visualizar" Width="75" Click="btnPreview_Click" IsEnabled="False"/>
+		</StackPanel>
+		<StackPanel DockPanel.Dock="Bottom" Margin="0" d:LayoutOverrides="Height" Orientation="Horizontal" >
+			<GroupBox Header="Relacionamentos" Width="312" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,4,0" Height="337.96">
+				<TreeView ItemsSource="{Binding TargetAssociations}" Margin="4" SelectedItemChanged="TreeView_SelectedTargetAssociationChanged">
+					<TreeView.ItemTemplate>
+						<HierarchicalDataTemplate ItemsSource="{Binding Members}">
+							<StackPanel Orientation="Horizontal">
+								<TextBlock Text="{Binding Name}" Margin="0"/>
+							</StackPanel>
+							<HierarchicalDataTemplate.ItemTemplate>
+								<HierarchicalDataTemplate>
+									<StackPanel Orientation="Horizontal">
+										<TextBlock Text="{Binding Multiplicity}" Width="8" Height="Auto" VerticalAlignment="Center" Margin="0,0,8,0"/>
+										<TextBlock Text="{Binding ClassName}" VerticalAlignment="Center" Margin="0"/>
+									</StackPanel>
+								</HierarchicalDataTemplate>
+							</HierarchicalDataTemplate.ItemTemplate>
+						</HierarchicalDataTemplate>
+					</TreeView.ItemTemplate>
+				</TreeView>
+			</GroupBox>
+			<StackPanel Orientation="Vertical" Width="312">
+				<GroupBox Header="Workbook" Width="312" HorizontalAlignment="Left" VerticalAlignment="Top" Height="282.96">
+					<TreeView x:Name="tvWorkbook" ItemsSource="{Binding SheetTabs}" Margin="4" SelectedItemChanged="TreeView_SelectedSheetTabChanged">
+						<TreeView.ItemTemplate>
+							<HierarchicalDataTemplate ItemsSource="{Binding SheetBlocks}">
+								<StackPanel Orientation="Horizontal">
+									<TextBlock Text="{Binding Name}" />
+								</StackPanel>
+								<HierarchicalDataTemplate.ItemTemplate>
+									<HierarchicalDataTemplate>
+										<StackPanel Orientation="Horizontal">
+											<TextBlock Text="{Binding Name}" />
+										</StackPanel>
+									</HierarchicalDataTemplate>
+								</HierarchicalDataTemplate.ItemTemplate>
+							</HierarchicalDataTemplate>
+						</TreeView.ItemTemplate>
+					</TreeView>
+				</GroupBox>
+				<StackPanel Margin="0,4,0,0" d:LayoutOverrides="Width" HorizontalAlignment="Center" >
+					<WrapPanel Height="24" Orientation="Horizontal">
+						<Button x:Name="btnAddWorksheet" Content="Adicionar Aba..." Width="100" Height="24" Margin="0,0,4,0" Click="BtnAddWorksheetClick"/>
+						<Button x:Name="btnAddDataBlock" Content="Adicionar Bloco..." Width="100" Height="24" Margin="0,0,4,0" Click="BtnAddBlocoClick"/>
+						<Button x:Name="btnAddArea" Content="Adicionar Área..." Width="100" Height="24" Click="BtnAddAreaClick" IsEnabled="False"/>
+					</WrapPanel>
+					<WrapPanel Height="24" Orientation="Horizontal" Margin="0,4,0,0">
+						<Button x:Name="btnRemoveWorksheet" Content="Remover Aba..." Width="100" Height="24" Margin="0,0,4,0" Click="BtnRemoveWorksheetClick"/>
+						<Button x:Name="btnRemoveDataBlock" Content="Remover Bloco..." Width="100" Height="24" Margin="0,0,4,0"/>
+						<Button x:Name="btnRemoveArea" Content="Remover Área..." Width="100" Height="24" IsEnabled="False"/>
+					</WrapPanel>
+				</StackPanel>
+			</StackPanel>
+		</StackPanel>
+	</DockPanel>
+</UserControl>

@@ -1,0 +1,36 @@
+context Membership 
+  inv correctCard: participants.cards->includes(self.card)
+
+context Membership 
+  def : getCurrentLevelName() : String = currentLevel.name
+
+context Membership 
+  inv levelAndColor: 
+  currentLevel.name = 'Silver' implies card.color = Color::silver 
+  and 
+  currentLevel.name = 'Gold' implies card.color = Color::gold
+
+context Membership 
+  inv noEarnings: programs.partners.deliveredServices-> 
+  forAll(pointsEarned = 0) implies account->isEmpty()
+
+context LoyaltyProgram
+  inv : 10 + 10 <= 20 and isSaving
+
+context Membership 
+  inv noEarnings2: programs.isSaving implies account->isEmpty()
+
+context Membership 
+  inv: account.points >= 0 or account->isEmpty()
+
+context Membership 
+  inv: participants.cards.Membership->includes( self )
+
+context Membership 
+  inv: programs.levels->includes( currentLevel )
+
+context Membership 
+  inv: account->isEmpty() 
+
+context Membership 
+  inv: programs.levels ->includes(currentLevel)

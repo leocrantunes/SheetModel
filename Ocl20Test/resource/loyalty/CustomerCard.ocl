@@ -1,0 +1,54 @@
+context CustomerCard::getTransactions(from : Date, rUntil: Date ) 
+  : Set(Transaction) 
+  body: transactions->select( date.isAfter( from ) and 
+  date.isBefore( rUntil ) )
+
+
+context CustomerCard::valid 
+  init: true
+
+context CustomerCard::printedName 
+  derive: owner.title.concat(' ').concat(owner.name)
+
+context CustomerCard 
+  inv checkDates: validFrom.isBefore(goodThru)
+
+context CustomerCard 
+  inv ofAge: owner.age >= 18
+
+context CustomerCard 
+  inv THIS: let correctDate : Boolean = 
+  self.validFrom.isBefore("now".toDate()) and 
+  self.goodThru.isAfter("now".toDate()) 
+  in 
+  if valid then 
+  correctDate = false 
+  else 
+  correctDate = true 
+  endif
+
+context CustomerCard 
+  def: getTotalPoints( d: Date ) : Integer = 
+  transactions->select( date.isAfter(d) ).points->sum()
+
+context CustomerCard::myLevel : ServiceLevel 
+  derive: Membership.currentLevel
+
+//context CustomerCard::transactions : Set( Transaction ) 
+//  init: Set{}
+
+
+context CustomerCard 
+  inv: goodThru.isAfter( "now".toDate() )
+
+context CustomerCard 
+  inv: self.owner.dateOfBirth.isBefore( "now".toDate() )
+
+context CustomerCard 
+  inv: self.owner.programs->size() > 0
+
+context CustomerCard 
+  inv: self.transactions->select( points > 100 )->notEmpty()
+
+context LoyaltyProgram
+  def: outIsSaving : Boolean = newIsSaving

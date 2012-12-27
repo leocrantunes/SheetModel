@@ -1,0 +1,9 @@
+context Transaction::getProgram() : LoyaltyProgram 
+  post: result = self.card.Membership.programs
+
+context Transaction 
+  inv: self.oclIsKindOf(Transaction) = true 
+  inv: self.oclIsTypeOf(Transaction) = true 
+  inv: self.oclIsTypeOf(Burning) = false 
+  inv: self.oclIsKindOf(Burning) = false
+

@@ -1,0 +1,9 @@
+context RentalItem
+inv: 10 = 10
+inv: 10 > false
+
+context RentalItem
+inv: 'john' >= 10
+
+context RentalItem
+inv: false < true

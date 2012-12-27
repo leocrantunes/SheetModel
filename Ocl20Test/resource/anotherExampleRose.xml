@@ -1,0 +1,1712 @@
+<?xml version = '1.0' encoding = 'ISO-8859-1'?>
+<!-- <!DOCTYPE XMI SYSTEM 'UML1311.dtd' > -->
+<XMI xmi.version = '1.1' xmlns:UML='href://org.omg/UML/1.3' timestamp = 'Wed Feb 23 12:03:28 2005' >
+ <XMI.header>
+  <XMI.documentation>
+   <XMI.exporter>Unisys.JCR.1</XMI.exporter>
+   <XMI.exporterVersion>1.3.4</XMI.exporterVersion>
+  </XMI.documentation>
+  <XMI.metamodel xmi.name = 'UML' xmi.version = '1.3'/>
+ </XMI.header>
+<XMI.content>
+<!-- ==================== anotherExampleRose    [Model] ==================== -->
+<UML:Model xmi.id = 'G.0' 
+  name = 'anotherExampleRose' visibility = 'public' isSpecification = 'false' 
+  isRoot = 'false' isLeaf = 'false' isAbstract = 'false' >
+  <UML:Namespace.ownedElement>
+    <!-- ==================== anotherExampleRose::MyExample    [Package] ==================== -->
+    <UML:Package xmi.id = 'S.053.1203.22.13' 
+      name = 'MyExample' visibility = 'public' isSpecification = 'false' 
+      isRoot = 'false' isLeaf = 'false' isAbstract = 'false' 
+      namespace = 'G.0' >
+      <UML:Namespace.ownedElement>
+        <!-- ==================== anotherExampleRose::MyExample::package_1    [Package] ==================== -->
+        <UML:Package xmi.id = 'S.053.1203.22.38' 
+          name = 'package_1' visibility = 'public' isSpecification = 'false' 
+          isRoot = 'false' isLeaf = 'false' isAbstract = 'false' 
+          namespace = 'S.053.1203.22.13' >
+          <UML:Namespace.ownedElement>
+            <!-- ==================== anotherExampleRose::MyExample::package_1::package_1_1    [Package] ==================== -->
+            <UML:Package xmi.id = 'S.053.1203.22.39' 
+              name = 'package_1_1' visibility = 'public' isSpecification = 'false' 
+              isRoot = 'false' isLeaf = 'false' isAbstract = 'false' 
+              namespace = 'S.053.1203.22.38' >
+              <UML:Namespace.ownedElement>
+                <!-- ==================== anotherExampleRose::MyExample::package_1::package_1_1::MyBoolean    [Class] ==================== -->
+                <UML:Class xmi.id = 'S.053.1203.22.40' 
+                  name = 'MyBoolean' visibility = 'public' isSpecification = 'false' 
+                  isRoot = 'true' isLeaf = 'true' isAbstract = 'false' 
+                  isActive = 'false' 
+                  namespace = 'S.053.1203.22.39' />
+                <UML:Stereotype xmi.id = 'S.053.1203.22.69' 
+                  name = 'primitive' visibility = 'public' isSpecification = 'false' 
+                  isRoot = 'false' isLeaf = 'false' isAbstract = 'false' 
+                  icon = '' baseClass = 'Class' 
+                  extendedElement = 'S.053.1203.22.40' />
+                <!-- ==================== anotherExampleRose::MyExample::package_1::package_1_1::Product    [Class] ==================== -->
+                <UML:Class xmi.id = 'S.053.1203.22.41' 
+                  name = 'Product' visibility = 'public' isSpecification = 'false' 
+                  isRoot = 'true' isLeaf = 'true' isAbstract = 'false' 
+                  isActive = 'false' 
+                  namespace = 'S.053.1203.22.39' />
+              </UML:Namespace.ownedElement>
+            </UML:Package>
+            <!-- ==================== anotherExampleRose::MyExample::package_1::package_1_2    [Package] ==================== -->
+            <UML:Package xmi.id = 'S.053.1203.22.42' 
+              name = 'package_1_2' visibility = 'public' isSpecification = 'false' 
+              isRoot = 'false' isLeaf = 'false' isAbstract = 'false' 
+              namespace = 'S.053.1203.22.38' >
+              <UML:Namespace.ownedElement>
+                <!-- ==================== anotherExampleRose::MyExample::package_1::package_1_2::{RentalItem-Rental}{3FE753E8004C}    [Association] ==================== -->
+                <UML:Association xmi.id = 'G.22' 
+                  name = '' visibility = 'public' isSpecification = 'false' 
+                  isRoot = 'false' isLeaf = 'false' isAbstract = 'false' >
+                  <UML:Association.connection>
+                    <!-- ==================== anotherExampleRose::MyExample::package_1::package_1_2::{RentalItem-Rental}{3FE753E8004C}.itens    [AssociationEnd] ==================== -->
+                    <UML:AssociationEnd xmi.id = 'G.23' 
+                      name = 'itens' visibility = 'public' isSpecification = 'false' 
+                      isNavigable = 'true' ordering = 'ordered' aggregation = 'none' targetScope = 'instance' changeability = 'changeable' 
+                      constraint = 'S.053.1203.22.70' 
+                      type = 'S.053.1203.22.1' >
+                      <UML:AssociationEnd.multiplicity>
+                        <UML:Multiplicity >
+                          <UML:Multiplicity.range>
+                            <UML:MultiplicityRange xmi.id = 'id.0541503.1' 
+                              lower = '0' upper = '-1' />
+                          </UML:Multiplicity.range>
+                        </UML:Multiplicity>
+                      </UML:AssociationEnd.multiplicity>
+                    </UML:AssociationEnd>
+                    <!-- ==================== anotherExampleRose::MyExample::package_1::package_1_2::{RentalItem-Rental}{3FE753E8004C}.(Role2)    [AssociationEnd] ==================== -->
+                    <UML:AssociationEnd xmi.id = 'G.24' 
+                      name = '' visibility = 'public' isSpecification = 'false' 
+                      isNavigable = 'true' ordering = 'unordered' aggregation = 'none' targetScope = 'instance' changeability = 'changeable' 
+                      type = 'S.053.1203.22.43' >
+                      <UML:AssociationEnd.multiplicity>
+                        <UML:Multiplicity >
+                          <UML:Multiplicity.range>
+                            <UML:MultiplicityRange xmi.id = 'id.0541503.2' 
+                              lower = '1' upper = '1' />
+                          </UML:Multiplicity.range>
+                        </UML:Multiplicity>
+                      </UML:AssociationEnd.multiplicity>
+                    </UML:AssociationEnd>
+                  </UML:Association.connection>
+                </UML:Association>
+                <!-- ==================== Constraint-S.053.1203.22.70    [Constraint] ==================== -->
+                <UML:Constraint xmi.id = 'S.053.1203.22.70' 
+                  name = 'Constraint-S.053.1203.22.70' visibility = 'public' isSpecification = 'false' 
+                  constrainedElement = 'G.23' >
+                  <UML:Constraint.body>
+                    <UML:BooleanExpression 
+                      language = '' body = 'ordered' />
+                  </UML:Constraint.body>
+                </UML:Constraint>
+                <!-- ==================== anotherExampleRose::MyExample::package_1::package_1_2::{Rental-Client}{3FED283702DE}    [Association] ==================== -->
+                <UML:Association xmi.id = 'G.25' 
+                  name = '' visibility = 'public' isSpecification = 'false' 
+                  isRoot = 'false' isLeaf = 'false' isAbstract = 'false' >
+                  <UML:Association.connection>
+                    <!-- ==================== anotherExampleRose::MyExample::package_1::package_1_2::{Rental-Client}{3FED283702DE}.(Role1)    [AssociationEnd] ==================== -->
+                    <UML:AssociationEnd xmi.id = 'G.26' 
+                      name = '' visibility = 'public' isSpecification = 'false' 
+                      isNavigable = 'true' ordering = 'unordered' aggregation = 'none' targetScope = 'instance' changeability = 'changeable' 
+                      type = 'S.053.1203.22.43' >
+                      <UML:AssociationEnd.multiplicity>
+                        <UML:Multiplicity >
+                          <UML:Multiplicity.range>
+                            <UML:MultiplicityRange xmi.id = 'id.0541503.3' 
+                              lower = '0' upper = '-1' />
+                          </UML:Multiplicity.range>
+                        </UML:Multiplicity>
+                      </UML:AssociationEnd.multiplicity>
+                    </UML:AssociationEnd>
+                    <!-- ==================== anotherExampleRose::MyExample::package_1::package_1_2::{Rental-Client}{3FED283702DE}.(Role2)    [AssociationEnd] ==================== -->
+                    <UML:AssociationEnd xmi.id = 'G.27' 
+                      name = '' visibility = 'public' isSpecification = 'false' 
+                      isNavigable = 'true' ordering = 'unordered' aggregation = 'none' targetScope = 'instance' changeability = 'changeable' 
+                      type = 'S.053.1203.22.46' >
+                      <UML:AssociationEnd.multiplicity>
+                        <UML:Multiplicity >
+                          <UML:Multiplicity.range>
+                            <UML:MultiplicityRange xmi.id = 'id.0541503.4' 
+                              lower = '1' upper = '1' />
+                          </UML:Multiplicity.range>
+                        </UML:Multiplicity>
+                      </UML:AssociationEnd.multiplicity>
+                    </UML:AssociationEnd>
+                  </UML:Association.connection>
+                </UML:Association>
+                <!-- ==================== anotherExampleRose::MyExample::package_1::package_1_2::Rental    [Class] ==================== -->
+                <UML:Class xmi.id = 'S.053.1203.22.43' 
+                  name = 'Rental' visibility = 'public' isSpecification = 'false' 
+                  isRoot = 'true' isLeaf = 'true' isAbstract = 'false' 
+                  isActive = 'false' 
+                  namespace = 'S.053.1203.22.42' >
+                  <UML:Classifier.feature>
+                    <!-- ==================== anotherExampleRose::MyExample::package_1::package_1_2::Rental.returned    [Attribute] ==================== -->
+                    <UML:Attribute xmi.id = 'S.053.1203.22.44' 
+                      name = 'returned' visibility = 'private' isSpecification = 'false' 
+                      ownerScope = 'instance' 
+                      changeability = 'changeable' targetScope = 'instance' 
+                      type = 'S.053.1203.22.40' >
+                      <UML:StructuralFeature.multiplicity>
+                        <UML:Multiplicity >
+                          <UML:Multiplicity.range>
+                            <UML:MultiplicityRange xmi.id = 'id.0541503.5' 
+                              lower = '1' upper = '1' />
+                          </UML:Multiplicity.range>
+                        </UML:Multiplicity>
+                      </UML:StructuralFeature.multiplicity>
+                      <UML:Attribute.initialValue>
+                        <UML:Expression 
+                          language = '' body = '' />
+                      </UML:Attribute.initialValue>
+                    </UML:Attribute>
+                    <!-- ==================== anotherExampleRose::MyExample::package_1::package_1_2::Rental.maxDaysToReturn    [Attribute] ==================== -->
+                    <UML:Attribute xmi.id = 'S.053.1203.22.45' 
+                      name = 'maxDaysToReturn' visibility = 'private' isSpecification = 'false' 
+                      ownerScope = 'classifier' 
+                      changeability = 'changeable' targetScope = 'instance' 
+                      type = 'G.55' >
+                      <UML:StructuralFeature.multiplicity>
+                        <UML:Multiplicity >
+                          <UML:Multiplicity.range>
+                            <UML:MultiplicityRange xmi.id = 'id.0541503.6' 
+                              lower = '1' upper = '1' />
+                          </UML:Multiplicity.range>
+                        </UML:Multiplicity>
+                      </UML:StructuralFeature.multiplicity>
+                      <UML:Attribute.initialValue>
+                        <UML:Expression 
+                          language = '' body = '' />
+                      </UML:Attribute.initialValue>
+                    </UML:Attribute>
+                  </UML:Classifier.feature>
+                </UML:Class>
+                <!-- ==================== anotherExampleRose::MyExample::package_1::package_1_2::Client    [Class] ==================== -->
+                <UML:Class xmi.id = 'S.053.1203.22.46' 
+                  name = 'Client' visibility = 'public' isSpecification = 'false' 
+                  isRoot = 'true' isLeaf = 'true' isAbstract = 'false' 
+                  isActive = 'false' 
+                  namespace = 'S.053.1203.22.42' >
+                  <UML:Classifier.feature>
+                    <!-- ==================== anotherExampleRose::MyExample::package_1::package_1_2::Client.name    [Attribute] ==================== -->
+                    <UML:Attribute xmi.id = 'S.053.1203.22.47' 
+                      name = 'name' visibility = 'private' isSpecification = 'false' 
+                      ownerScope = 'instance' 
+                      changeability = 'changeable' targetScope = 'instance' 
+                      type = 'G.56' >
+                      <UML:StructuralFeature.multiplicity>
+                        <UML:Multiplicity >
+                          <UML:Multiplicity.range>
+                            <UML:MultiplicityRange xmi.id = 'id.0541503.7' 
+                              lower = '1' upper = '1' />
+                          </UML:Multiplicity.range>
+                        </UML:Multiplicity>
+                      </UML:StructuralFeature.multiplicity>
+                      <UML:Attribute.initialValue>
+                        <UML:Expression 
+                          language = '' body = '' />
+                      </UML:Attribute.initialValue>
+                    </UML:Attribute>
+                    <!-- ==================== anotherExampleRose::MyExample::package_1::package_1_2::Client.situation    [Attribute] ==================== -->
+                    <UML:Attribute xmi.id = 'S.053.1203.22.48' 
+                      name = 'situation' visibility = 'private' isSpecification = 'false' 
+                      ownerScope = 'instance' 
+                      changeability = 'changeable' targetScope = 'instance' 
+                      type = 'S.053.1203.22.25' >
+                      <UML:StructuralFeature.multiplicity>
+                        <UML:Multiplicity >
+                          <UML:Multiplicity.range>
+                            <UML:MultiplicityRange xmi.id = 'id.0541503.8' 
+                              lower = '1' upper = '1' />
+                          </UML:Multiplicity.range>
+                        </UML:Multiplicity>
+                      </UML:StructuralFeature.multiplicity>
+                      <UML:Attribute.initialValue>
+                        <UML:Expression 
+                          language = '' body = '' />
+                      </UML:Attribute.initialValue>
+                    </UML:Attribute>
+                  </UML:Classifier.feature>
+                </UML:Class>
+              </UML:Namespace.ownedElement>
+            </UML:Package>
+          </UML:Namespace.ownedElement>
+        </UML:Package>
+        <!-- ==================== anotherExampleRose::MyExample::is recorded in{3FE754A10295}    [Association] ==================== -->
+        <UML:Association xmi.id = 'G.15' 
+          name = 'is recorded in' visibility = 'public' isSpecification = 'false' 
+          isRoot = 'false' isLeaf = 'false' isAbstract = 'false' >
+          <UML:Association.connection>
+            <!-- ==================== anotherExampleRose::MyExample::is recorded in{3FE754A10295}.tapes    [AssociationEnd] ==================== -->
+            <UML:AssociationEnd xmi.id = 'G.16' 
+              name = 'tapes' visibility = 'public' isSpecification = 'false' 
+              isNavigable = 'true' ordering = 'unordered' aggregation = 'none' targetScope = 'instance' changeability = 'changeable' 
+              type = 'S.053.1203.22.28' >
+              <UML:AssociationEnd.multiplicity>
+                <UML:Multiplicity >
+                  <UML:Multiplicity.range>
+                    <UML:MultiplicityRange xmi.id = 'id.0541503.9' 
+                      lower = '0' upper = '1' />
+                  </UML:Multiplicity.range>
+                </UML:Multiplicity>
+              </UML:AssociationEnd.multiplicity>
+              <UML:AssociationEnd.qualifier>
+                <!-- ==================== anotherExampleRose::MyExample::is recorded in{3FE754A10295}.tapes.n    [Attribute] ==================== -->
+                <UML:Attribute xmi.id = 'G.17' 
+                  name = 'n' visibility = 'private' isSpecification = 'false' 
+                  ownerScope = 'instance' 
+                  changeability = 'changeable' targetScope = 'instance' 
+                  type = 'G.55' >
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity >
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = 'id.0541503.10' 
+                          lower = '1' upper = '1' />
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:Attribute.initialValue>
+                    <UML:Expression 
+                      language = '' body = '' />
+                  </UML:Attribute.initialValue>
+                </UML:Attribute>
+              </UML:AssociationEnd.qualifier>
+            </UML:AssociationEnd>
+            <!-- ==================== anotherExampleRose::MyExample::is recorded in{3FE754A10295}.theFilm    [AssociationEnd] ==================== -->
+            <UML:AssociationEnd xmi.id = 'G.18' 
+              name = 'theFilm' visibility = 'public' isSpecification = 'false' 
+              isNavigable = 'true' ordering = 'unordered' aggregation = 'none' targetScope = 'instance' changeability = 'changeable' 
+              type = 'S.053.1203.22.14' >
+              <UML:AssociationEnd.multiplicity>
+                <UML:Multiplicity >
+                  <UML:Multiplicity.range>
+                    <UML:MultiplicityRange xmi.id = 'id.0541503.11' 
+                      lower = '1' upper = '1' />
+                  </UML:Multiplicity.range>
+                </UML:Multiplicity>
+              </UML:AssociationEnd.multiplicity>
+            </UML:AssociationEnd>
+          </UML:Association.connection>
+        </UML:Association>
+        <!-- ==================== anotherExampleRose::MyExample::Film    [Class] ==================== -->
+        <UML:Class xmi.id = 'S.053.1203.22.14' 
+          name = 'Film' visibility = 'public' isSpecification = 'false' 
+          isRoot = 'false' isLeaf = 'false' isAbstract = 'false' 
+          isActive = 'false' 
+          namespace = 'S.053.1203.22.13' 
+          generalization = 'G.63' specialization = 'G.62' >
+          <UML:Namespace.ownedElement>
+            <UML:Generalization xmi.id = 'G.63' 
+              name = '' visibility = 'public' isSpecification = 'false' 
+              discriminator = '' 
+              child = 'S.053.1203.22.14' parent = 'S.053.1203.22.21' />
+          </UML:Namespace.ownedElement>
+          <UML:Classifier.feature>
+            <!-- ==================== anotherExampleRose::MyExample::Film.name    [Attribute] ==================== -->
+            <UML:Attribute xmi.id = 'S.053.1203.22.15' 
+              name = 'name' visibility = 'private' isSpecification = 'false' 
+              ownerScope = 'instance' 
+              changeability = 'changeable' targetScope = 'instance' 
+              type = 'G.56' >
+              <UML:StructuralFeature.multiplicity>
+                <UML:Multiplicity >
+                  <UML:Multiplicity.range>
+                    <UML:MultiplicityRange xmi.id = 'id.0541503.12' 
+                      lower = '1' upper = '1' />
+                  </UML:Multiplicity.range>
+                </UML:Multiplicity>
+              </UML:StructuralFeature.multiplicity>
+              <UML:Attribute.initialValue>
+                <UML:Expression 
+                  language = '' body = '' />
+              </UML:Attribute.initialValue>
+            </UML:Attribute>
+            <!-- ==================== anotherExampleRose::MyExample::Film.rentalFee    [Attribute] ==================== -->
+            <UML:Attribute xmi.id = 'S.053.1203.22.16' 
+              name = 'rentalFee' visibility = 'private' isSpecification = 'false' 
+              ownerScope = 'instance' 
+              changeability = 'changeable' targetScope = 'instance' 
+              type = 'G.55' >
+              <UML:StructuralFeature.multiplicity>
+                <UML:Multiplicity >
+                  <UML:Multiplicity.range>
+                    <UML:MultiplicityRange xmi.id = 'id.0541503.13' 
+                      lower = '1' upper = '1' />
+                  </UML:Multiplicity.range>
+                </UML:Multiplicity>
+              </UML:StructuralFeature.multiplicity>
+              <UML:Attribute.initialValue>
+                <UML:Expression 
+                  language = '' body = '' />
+              </UML:Attribute.initialValue>
+            </UML:Attribute>
+            <!-- ==================== anotherExampleRose::MyExample::Film.days    [Attribute] ==================== -->
+            <UML:Attribute xmi.id = 'S.053.1203.22.17' 
+              name = 'days' visibility = 'private' isSpecification = 'false' 
+              ownerScope = 'classifier' 
+              changeability = 'changeable' targetScope = 'instance' 
+              type = 'G.55' >
+              <UML:StructuralFeature.multiplicity>
+                <UML:Multiplicity >
+                  <UML:Multiplicity.range>
+                    <UML:MultiplicityRange xmi.id = 'id.0541503.14' 
+                      lower = '1' upper = '1' />
+                  </UML:Multiplicity.range>
+                </UML:Multiplicity>
+              </UML:StructuralFeature.multiplicity>
+              <UML:Attribute.initialValue>
+                <UML:Expression 
+                  language = '' body = '' />
+              </UML:Attribute.initialValue>
+            </UML:Attribute>
+            <!-- ==================== anotherExampleRose::MyExample::Film::getRentalFee    [Operation] ==================== -->
+            <UML:Operation xmi.id = 'S.053.1203.22.18' 
+              name = 'getRentalFee' visibility = 'public' isSpecification = 'false' 
+              ownerScope = 'instance' 
+              isQuery = 'false' 
+              concurrency = 'sequential' isRoot = 'false' isLeaf = 'false' isAbstract = 'false' specification = '' >
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id = 'XX.23.123.22.7' 
+                  name = 'dayOfWeek' visibility = 'public' isSpecification = 'false' 
+                  kind = 'inout' 
+                  type = 'G.55' >
+                  <UML:Parameter.defaultValue>
+                    <UML:Expression 
+                      language = '' body = '' />
+                  </UML:Parameter.defaultValue>
+                </UML:Parameter>
+                <UML:Parameter xmi.id = 'XX.23.123.22.8' 
+                  name = 'getRentalFee.Return' visibility = 'public' isSpecification = 'false' 
+                  kind = 'return' 
+                  type = 'S.053.1203.22.24' >
+                </UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <!-- ==================== anotherExampleRose::MyExample::Film::getTapes    [Operation] ==================== -->
+            <UML:Operation xmi.id = 'S.053.1203.22.19' 
+              name = 'getTapes' visibility = 'public' isSpecification = 'false' 
+              ownerScope = 'instance' 
+              isQuery = 'false' 
+              concurrency = 'sequential' isRoot = 'false' isLeaf = 'false' isAbstract = 'false' specification = '' >
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id = 'XX.23.123.22.9' 
+                  name = 'getTapes.Return' visibility = 'public' isSpecification = 'false' 
+                  kind = 'return' 
+                  type = 'G.57' >
+                </UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <!-- ==================== anotherExampleRose::MyExample::Film::setDaysForReturn    [Operation] ==================== -->
+            <UML:Operation xmi.id = 'S.053.1203.22.20' 
+              name = 'setDaysForReturn' visibility = 'public' isSpecification = 'false' 
+              ownerScope = 'instance' 
+              isQuery = 'false' 
+              concurrency = 'sequential' isRoot = 'false' isLeaf = 'false' isAbstract = 'false' specification = '' >
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id = 'XX.23.123.22.10' 
+                  name = 'days' visibility = 'public' isSpecification = 'false' 
+                  kind = 'inout' 
+                  type = 'G.55' >
+                  <UML:Parameter.defaultValue>
+                    <UML:Expression 
+                      language = '' body = '' />
+                  </UML:Parameter.defaultValue>
+                </UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+          </UML:Classifier.feature>
+        </UML:Class>
+        <!-- ==================== anotherExampleRose::MyExample::Product    [Class] ==================== -->
+        <UML:Class xmi.id = 'S.053.1203.22.21' 
+          name = 'Product' visibility = 'public' isSpecification = 'false' 
+          isRoot = 'true' isLeaf = 'false' isAbstract = 'true' 
+          isActive = 'false' 
+          namespace = 'S.053.1203.22.13' clientDependency = 'G.2' 
+          specialization = 'G.63 G.65' >
+          <UML:Classifier.feature>
+            <!-- ==================== anotherExampleRose::MyExample::Product.code    [Attribute] ==================== -->
+            <UML:Attribute xmi.id = 'S.053.1203.22.22' 
+              name = 'code' visibility = 'private' isSpecification = 'false' 
+              ownerScope = 'instance' 
+              changeability = 'changeable' targetScope = 'instance' 
+              type = 'G.56' >
+              <UML:StructuralFeature.multiplicity>
+                <UML:Multiplicity >
+                  <UML:Multiplicity.range>
+                    <UML:MultiplicityRange xmi.id = 'id.0541503.15' 
+                      lower = '1' upper = '1' />
+                  </UML:Multiplicity.range>
+                </UML:Multiplicity>
+              </UML:StructuralFeature.multiplicity>
+              <UML:Attribute.initialValue>
+                <UML:Expression 
+                  language = '' body = '' />
+              </UML:Attribute.initialValue>
+            </UML:Attribute>
+            <!-- ==================== anotherExampleRose::MyExample::Product::getRentalFee    [Operation] ==================== -->
+            <UML:Operation xmi.id = 'S.053.1203.22.23' 
+              name = 'getRentalFee' visibility = 'public' isSpecification = 'false' 
+              ownerScope = 'instance' 
+              isQuery = 'false' 
+              concurrency = 'sequential' isRoot = 'false' isLeaf = 'false' isAbstract = 'false' specification = '' >
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id = 'XX.23.123.22.12' 
+                  name = 'dayOfWeek' visibility = 'public' isSpecification = 'false' 
+                  kind = 'inout' 
+                  type = 'G.55' >
+                  <UML:Parameter.defaultValue>
+                    <UML:Expression 
+                      language = '' body = '' />
+                  </UML:Parameter.defaultValue>
+                </UML:Parameter>
+                <UML:Parameter xmi.id = 'XX.23.123.22.13' 
+                  name = 'getRentalFee.Return' visibility = 'public' isSpecification = 'false' 
+                  kind = 'return' 
+                  type = 'S.053.1203.22.24' >
+                </UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+          </UML:Classifier.feature>
+        </UML:Class>
+        <!-- ==================== anotherExampleRose::MyExample::Real    [Class] ==================== -->
+        <UML:Class xmi.id = 'S.053.1203.22.24' 
+          name = 'Real' visibility = 'public' isSpecification = 'false' 
+          isRoot = 'true' isLeaf = 'true' isAbstract = 'false' 
+          isActive = 'false' 
+          namespace = 'S.053.1203.22.13' />
+        <UML:Stereotype xmi.id = 'S.053.1203.22.71' 
+          name = 'primitive' visibility = 'public' isSpecification = 'false' 
+          isRoot = 'false' isLeaf = 'false' isAbstract = 'false' 
+          icon = '' baseClass = 'Class' 
+          extendedElement = 'S.053.1203.22.24' />
+        <!-- ==================== anotherExampleRose::MyExample::Situation    [Class] ==================== -->
+        <UML:Class xmi.id = 'S.053.1203.22.25' 
+          name = 'Situation' visibility = 'public' isSpecification = 'false' 
+          isRoot = 'true' isLeaf = 'true' isAbstract = 'false' 
+          isActive = 'false' 
+          namespace = 'S.053.1203.22.13' >
+          <UML:Classifier.feature>
+            <!-- ==================== anotherExampleRose::MyExample::Situation.married    [Attribute] ==================== -->
+            <UML:Attribute xmi.id = 'S.053.1203.22.26' 
+              name = 'married' visibility = 'private' isSpecification = 'false' 
+              ownerScope = 'instance' 
+              changeability = 'changeable' targetScope = 'instance' 
+              type = 'G.58' >
+              <UML:StructuralFeature.multiplicity>
+                <UML:Multiplicity >
+                  <UML:Multiplicity.range>
+                    <UML:MultiplicityRange xmi.id = 'id.0541503.16' 
+                      lower = '1' upper = '1' />
+                  </UML:Multiplicity.range>
+                </UML:Multiplicity>
+              </UML:StructuralFeature.multiplicity>
+              <UML:Attribute.initialValue>
+                <UML:Expression 
+                  language = '' body = '' />
+              </UML:Attribute.initialValue>
+            </UML:Attribute>
+            <!-- ==================== anotherExampleRose::MyExample::Situation.single    [Attribute] ==================== -->
+            <UML:Attribute xmi.id = 'S.053.1203.22.27' 
+              name = 'single' visibility = 'private' isSpecification = 'false' 
+              ownerScope = 'instance' 
+              changeability = 'changeable' targetScope = 'instance' 
+              type = 'G.58' >
+              <UML:StructuralFeature.multiplicity>
+                <UML:Multiplicity >
+                  <UML:Multiplicity.range>
+                    <UML:MultiplicityRange xmi.id = 'id.0541503.17' 
+                      lower = '1' upper = '1' />
+                  </UML:Multiplicity.range>
+                </UML:Multiplicity>
+              </UML:StructuralFeature.multiplicity>
+              <UML:Attribute.initialValue>
+                <UML:Expression 
+                  language = '' body = '' />
+              </UML:Attribute.initialValue>
+            </UML:Attribute>
+          </UML:Classifier.feature>
+        </UML:Class>
+        <UML:Stereotype xmi.id = 'S.053.1203.22.72' 
+          name = 'enumeration' visibility = 'public' isSpecification = 'false' 
+          isRoot = 'false' isLeaf = 'false' isAbstract = 'false' 
+          icon = '' baseClass = 'Class' 
+          extendedElement = 'S.053.1203.22.25' />
+        <!-- ==================== anotherExampleRose::MyExample::Tape    [Class] ==================== -->
+        <UML:Class xmi.id = 'S.053.1203.22.28' 
+          name = 'Tape' visibility = 'public' isSpecification = 'false' 
+          isRoot = 'true' isLeaf = 'true' isAbstract = 'false' 
+          isActive = 'false' 
+          namespace = 'S.053.1203.22.13' elementResidence = 'XX.23.123.26.70' >
+          <UML:Classifier.feature>
+            <!-- ==================== anotherExampleRose::MyExample::Tape.number    [Attribute] ==================== -->
+            <UML:Attribute xmi.id = 'S.053.1203.22.29' 
+              name = 'number' visibility = 'private' isSpecification = 'false' 
+              ownerScope = 'instance' 
+              changeability = 'changeable' targetScope = 'instance' 
+              type = 'G.55' >
+              <UML:StructuralFeature.multiplicity>
+                <UML:Multiplicity >
+                  <UML:Multiplicity.range>
+                    <UML:MultiplicityRange xmi.id = 'id.0541503.18' 
+                      lower = '1' upper = '1' />
+                  </UML:Multiplicity.range>
+                </UML:Multiplicity>
+              </UML:StructuralFeature.multiplicity>
+              <UML:Attribute.initialValue>
+                <UML:Expression 
+                  language = '' body = '' />
+              </UML:Attribute.initialValue>
+            </UML:Attribute>
+            <!-- ==================== anotherExampleRose::MyExample::Tape::$tapesQty    [Operation] ==================== -->
+            <UML:Operation xmi.id = 'S.053.1203.22.30' 
+              name = '$tapesQty' visibility = 'public' isSpecification = 'false' 
+              ownerScope = 'instance' 
+              isQuery = 'false' 
+              concurrency = 'sequential' isRoot = 'false' isLeaf = 'false' isAbstract = 'false' specification = '' >
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id = 'XX.23.123.24.30' 
+                  name = '$tapesQty.Return' visibility = 'public' isSpecification = 'false' 
+                  kind = 'return' 
+                  type = 'G.55' >
+                </UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+          </UML:Classifier.feature>
+        </UML:Class>
+        <!-- ==================== anotherExampleRose::MyExample::IProduct    [Interface] ==================== -->
+        <UML:Interface xmi.id = 'S.053.1203.22.31' 
+          name = 'IProduct' visibility = 'public' isSpecification = 'false' 
+          isRoot = 'false' isLeaf = 'false' isAbstract = 'false' 
+          namespace = 'S.053.1203.22.13' supplierDependency = 'G.2' 
+          generalization = 'G.64' >
+          <UML:Namespace.ownedElement>
+            <UML:Generalization xmi.id = 'G.64' 
+              name = '' visibility = 'public' isSpecification = 'false' 
+              discriminator = '' 
+              child = 'S.053.1203.22.31' parent = 'S.053.1203.22.37' />
+          </UML:Namespace.ownedElement>
+          <UML:Classifier.feature>
+            <!-- ==================== anotherExampleRose::MyExample::IProduct::getRentalFee    [Operation] ==================== -->
+            <UML:Operation xmi.id = 'S.053.1203.22.32' 
+              name = 'getRentalFee' visibility = 'public' isSpecification = 'false' 
+              ownerScope = 'instance' 
+              isQuery = 'false' 
+              concurrency = 'sequential' isRoot = 'false' isLeaf = 'false' isAbstract = 'false' specification = '' >
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id = 'XX.23.123.24.32' 
+                  name = 'dayOfWeek' visibility = 'public' isSpecification = 'false' 
+                  kind = 'inout' 
+                  type = 'G.55' >
+                  <UML:Parameter.defaultValue>
+                    <UML:Expression 
+                      language = '' body = '' />
+                  </UML:Parameter.defaultValue>
+                </UML:Parameter>
+                <UML:Parameter xmi.id = 'XX.23.123.24.33' 
+                  name = 'getRentalFee.Return' visibility = 'public' isSpecification = 'false' 
+                  kind = 'return' 
+                  type = 'S.053.1203.22.24' >
+                </UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+          </UML:Classifier.feature>
+        </UML:Interface>
+        <!-- ==================== anotherExampleRose::MyExample::Allocation    [AssociationClass] ==================== -->
+        <UML:AssociationClass xmi.id = 'S.053.1203.22.33' 
+          name = 'Allocation' visibility = 'public' isSpecification = 'false' 
+          isRoot = 'true' isLeaf = 'true' isAbstract = 'false' 
+          isActive = 'false' 
+          namespace = 'S.053.1203.22.13' >
+          <UML:Association.connection>
+            <!-- ==================== anotherExampleRose::MyExample::Allocation.dist    [AssociationEnd] ==================== -->
+            <UML:AssociationEnd xmi.id = 'G.20' 
+              name = 'dist' visibility = 'public' isSpecification = 'false' 
+              isNavigable = 'true' ordering = 'unordered' aggregation = 'none' targetScope = 'instance' changeability = 'changeable' 
+              type = 'S.053.1203.22.35' >
+              <UML:AssociationEnd.multiplicity>
+                <UML:Multiplicity >
+                  <UML:Multiplicity.range>
+                    <UML:MultiplicityRange xmi.id = 'id.0541503.20' 
+                      lower = '0' upper = '-1' />
+                  </UML:Multiplicity.range>
+                </UML:Multiplicity>
+              </UML:AssociationEnd.multiplicity>
+            </UML:AssociationEnd>
+            <!-- ==================== anotherExampleRose::MyExample::Allocation.films    [AssociationEnd] ==================== -->
+            <UML:AssociationEnd xmi.id = 'G.21' 
+              name = 'films' visibility = 'public' isSpecification = 'false' 
+              isNavigable = 'true' ordering = 'unordered' aggregation = 'none' targetScope = 'instance' changeability = 'changeable' 
+              type = 'S.053.1203.22.3' >
+              <UML:AssociationEnd.multiplicity>
+                <UML:Multiplicity >
+                  <UML:Multiplicity.range>
+                    <UML:MultiplicityRange xmi.id = 'id.0541503.21' 
+                      lower = '0' upper = '-1' />
+                  </UML:Multiplicity.range>
+                </UML:Multiplicity>
+              </UML:AssociationEnd.multiplicity>
+            </UML:AssociationEnd>
+          </UML:Association.connection>
+          <UML:Classifier.feature>
+            <!-- ==================== anotherExampleRose::MyExample::Allocation.abc    [Attribute] ==================== -->
+            <UML:Attribute xmi.id = 'S.053.1203.22.34' 
+              name = 'abc' visibility = 'private' isSpecification = 'false' 
+              ownerScope = 'instance' 
+              changeability = 'changeable' targetScope = 'instance' 
+              type = 'G.55' >
+              <UML:StructuralFeature.multiplicity>
+                <UML:Multiplicity >
+                  <UML:Multiplicity.range>
+                    <UML:MultiplicityRange xmi.id = 'id.0541503.19' 
+                      lower = '1' upper = '1' />
+                  </UML:Multiplicity.range>
+                </UML:Multiplicity>
+              </UML:StructuralFeature.multiplicity>
+              <UML:Attribute.initialValue>
+                <UML:Expression 
+                  language = '' body = '' />
+              </UML:Attribute.initialValue>
+            </UML:Attribute>
+          </UML:Classifier.feature>
+        </UML:AssociationClass>
+        <!-- ==================== anotherExampleRose::MyExample::Distributor    [Class] ==================== -->
+        <UML:Class xmi.id = 'S.053.1203.22.35' 
+          name = 'Distributor' visibility = 'public' isSpecification = 'false' 
+          isRoot = 'true' isLeaf = 'true' isAbstract = 'false' 
+          isActive = 'false' 
+          namespace = 'S.053.1203.22.13' />
+        <!-- ==================== anotherExampleRose::MyExample::Game    [Class] ==================== -->
+        <UML:Class xmi.id = 'S.053.1203.22.36' 
+          name = 'Game' visibility = 'public' isSpecification = 'false' 
+          isRoot = 'false' isLeaf = 'true' isAbstract = 'false' 
+          isActive = 'false' 
+          namespace = 'S.053.1203.22.13' supplierDependency = 'XX.23.123.26.65' 
+          generalization = 'G.65' >
+          <UML:Namespace.ownedElement>
+            <UML:Generalization xmi.id = 'G.65' 
+              name = '' visibility = 'public' isSpecification = 'false' 
+              discriminator = '' 
+              child = 'S.053.1203.22.36' parent = 'S.053.1203.22.21' />
+          </UML:Namespace.ownedElement>
+        </UML:Class>
+        <!-- ==================== anotherExampleRose::MyExample::IThing    [Interface] ==================== -->
+        <UML:Interface xmi.id = 'S.053.1203.22.37' 
+          name = 'IThing' visibility = 'public' isSpecification = 'false' 
+          isRoot = 'true' isLeaf = 'false' isAbstract = 'false' 
+          namespace = 'S.053.1203.22.13' supplierDependency = 'G.1' 
+          specialization = 'G.64' />
+      </UML:Namespace.ownedElement>
+    </UML:Package>
+    <!-- ==================== Integer    [DataType] ==================== -->
+    <UML:DataType xmi.id = 'G.55' 
+      name = 'Integer' visibility = 'public' isSpecification = 'false' 
+      isRoot = 'false' isLeaf = 'false' isAbstract = 'false' />
+    <!-- ==================== String    [DataType] ==================== -->
+    <UML:DataType xmi.id = 'G.56' 
+      name = 'String' visibility = 'public' isSpecification = 'false' 
+      isRoot = 'false' isLeaf = 'false' isAbstract = 'false' />
+    <!-- ==================== Set(Tape)    [DataType] ==================== -->
+    <UML:DataType xmi.id = 'G.57' 
+      name = 'Set(Tape)' visibility = 'public' isSpecification = 'false' 
+      isRoot = 'false' isLeaf = 'false' isAbstract = 'false' />
+    <!-- ==================== <undefined>    [DataType] ==================== -->
+    <UML:DataType xmi.id = 'G.58' 
+      name = '&lt;undefined&gt;' visibility = 'public' isSpecification = 'false' 
+      isRoot = 'false' isLeaf = 'false' isAbstract = 'false' />
+    <!-- ==================== anotherExampleRose::MDRTest    [Package] ==================== -->
+    <UML:Package xmi.id = 'S.053.1203.22.49' 
+      name = 'MDRTest' visibility = 'public' isSpecification = 'false' 
+      isRoot = 'false' isLeaf = 'false' isAbstract = 'false' 
+      namespace = 'G.0' >
+      <UML:Namespace.ownedElement>
+        <!-- ==================== anotherExampleRose::MDRTest::assocAbcDef{421C8D0D00CB}    [Association] ==================== -->
+        <UML:Association xmi.id = 'G.51' 
+          name = 'assocAbcDef' visibility = 'public' isSpecification = 'false' 
+          isRoot = 'false' isLeaf = 'false' isAbstract = 'false' >
+          <UML:Association.connection>
+            <!-- ==================== anotherExampleRose::MDRTest::assocAbcDef{421C8D0D00CB}.myAbc    [AssociationEnd] ==================== -->
+            <UML:AssociationEnd xmi.id = 'G.52' 
+              name = 'myAbc' visibility = 'public' isSpecification = 'false' 
+              isNavigable = 'true' ordering = 'unordered' aggregation = 'aggregate' targetScope = 'instance' changeability = 'changeable' 
+              constraint = 'S.053.1203.24.0' 
+              type = 'S.053.1203.22.50' >
+              <UML:AssociationEnd.multiplicity>
+                <UML:Multiplicity >
+                  <UML:Multiplicity.range>
+                    <UML:MultiplicityRange xmi.id = 'id.0541503.22' 
+                      lower = '0' upper = '-1' />
+                  </UML:Multiplicity.range>
+                </UML:Multiplicity>
+              </UML:AssociationEnd.multiplicity>
+              <UML:AssociationEnd.qualifier>
+                <!-- ==================== anotherExampleRose::MDRTest::assocAbcDef{421C8D0D00CB}.myAbc.abcQualif    [Attribute] ==================== -->
+                <UML:Attribute xmi.id = 'G.53' 
+                  name = 'abcQualif' visibility = 'private' isSpecification = 'false' 
+                  ownerScope = 'instance' 
+                  changeability = 'changeable' targetScope = 'instance' 
+                  type = 'G.55' >
+                  <UML:StructuralFeature.multiplicity>
+                    <UML:Multiplicity >
+                      <UML:Multiplicity.range>
+                        <UML:MultiplicityRange xmi.id = 'id.0541503.23' 
+                          lower = '1' upper = '1' />
+                      </UML:Multiplicity.range>
+                    </UML:Multiplicity>
+                  </UML:StructuralFeature.multiplicity>
+                  <UML:Attribute.initialValue>
+                    <UML:Expression 
+                      language = '' body = '' />
+                  </UML:Attribute.initialValue>
+                </UML:Attribute>
+              </UML:AssociationEnd.qualifier>
+            </UML:AssociationEnd>
+            <!-- ==================== anotherExampleRose::MDRTest::assocAbcDef{421C8D0D00CB}.myDef    [AssociationEnd] ==================== -->
+            <UML:AssociationEnd xmi.id = 'G.54' 
+              name = 'myDef' visibility = 'public' isSpecification = 'false' 
+              isNavigable = 'true' ordering = 'unordered' aggregation = 'none' targetScope = 'instance' changeability = 'frozen' 
+              type = 'S.053.1203.22.58' >
+              <UML:AssociationEnd.multiplicity>
+                <UML:Multiplicity >
+                  <UML:Multiplicity.range>
+                    <UML:MultiplicityRange xmi.id = 'id.0541503.24' 
+                      lower = '1' upper = '1' />
+                  </UML:Multiplicity.range>
+                </UML:Multiplicity>
+              </UML:AssociationEnd.multiplicity>
+            </UML:AssociationEnd>
+          </UML:Association.connection>
+        </UML:Association>
+        <!-- ==================== Constraint-S.053.1203.24.0    [Constraint] ==================== -->
+        <UML:Constraint xmi.id = 'S.053.1203.24.0' 
+          name = 'Constraint-S.053.1203.24.0' visibility = 'public' isSpecification = 'false' 
+          constrainedElement = 'G.52' >
+          <UML:Constraint.body>
+            <UML:BooleanExpression 
+              language = '' >
+              <UML:Expression.body>AlexConstraint&#x000d;&#x000a;xptoConstraint</UML:Expression.body>
+            </UML:BooleanExpression>
+          </UML:Constraint.body>
+        </UML:Constraint>
+        <!-- ==================== anotherExampleRose::MDRTest::Abc    [Class] ==================== -->
+        <UML:Class xmi.id = 'S.053.1203.22.50' 
+          name = 'Abc' visibility = 'public' isSpecification = 'false' 
+          isRoot = 'true' isLeaf = 'false' isAbstract = 'true' 
+          isActive = 'false' 
+          namespace = 'S.053.1203.22.49' 
+          specialization = 'G.66' >
+          <UML:Classifier.feature>
+            <!-- ==================== anotherExampleRose::MDRTest::Abc.attrb1    [Attribute] ==================== -->
+            <UML:Attribute xmi.id = 'S.053.1203.22.52' 
+              name = 'attrb1' visibility = 'private' isSpecification = 'false' 
+              ownerScope = 'instance' 
+              changeability = 'changeable' targetScope = 'instance' 
+              type = 'G.59' >
+              <UML:StructuralFeature.multiplicity>
+                <UML:Multiplicity >
+                  <UML:Multiplicity.range>
+                    <UML:MultiplicityRange xmi.id = 'id.0541503.27' 
+                      lower = '1' upper = '1' />
+                  </UML:Multiplicity.range>
+                </UML:Multiplicity>
+              </UML:StructuralFeature.multiplicity>
+              <UML:Attribute.initialValue>
+                <UML:Expression 
+                  language = '' body = '100' />
+              </UML:Attribute.initialValue>
+            </UML:Attribute>
+            <!-- ==================== anotherExampleRose::MDRTest::Abc.attrb2    [Attribute] ==================== -->
+            <UML:Attribute xmi.id = 'S.053.1203.22.53' 
+              name = 'attrb2' visibility = 'private' isSpecification = 'false' 
+              ownerScope = 'classifier' 
+              changeability = 'changeable' targetScope = 'instance' 
+              type = 'G.55' >
+              <UML:StructuralFeature.multiplicity>
+                <UML:Multiplicity >
+                  <UML:Multiplicity.range>
+                    <UML:MultiplicityRange xmi.id = 'id.0541503.28' 
+                      lower = '0' upper = '1' />
+                  </UML:Multiplicity.range>
+                </UML:Multiplicity>
+              </UML:StructuralFeature.multiplicity>
+              <UML:Attribute.initialValue>
+                <UML:Expression 
+                  language = '' body = '200' />
+              </UML:Attribute.initialValue>
+            </UML:Attribute>
+            <!-- ==================== anotherExampleRose::MDRTest::Abc./attrb3    [Attribute] ==================== -->
+            <UML:Attribute xmi.id = 'S.053.1203.22.54' 
+              name = '/attrb3' visibility = 'private' isSpecification = 'false' 
+              ownerScope = 'instance' 
+              changeability = 'changeable' targetScope = 'instance' 
+              type = 'S.053.1203.22.24' >
+              <UML:StructuralFeature.multiplicity>
+                <UML:Multiplicity >
+                  <UML:Multiplicity.range>
+                    <UML:MultiplicityRange xmi.id = 'id.0541503.29' 
+                      lower = '0' upper = '-1' />
+                  </UML:Multiplicity.range>
+                </UML:Multiplicity>
+              </UML:StructuralFeature.multiplicity>
+              <UML:Attribute.initialValue>
+                <UML:Expression 
+                  language = '' body = '' />
+              </UML:Attribute.initialValue>
+            </UML:Attribute>
+            <!-- ==================== anotherExampleRose::MDRTest::Abc::op01    [Operation] ==================== -->
+            <UML:Operation xmi.id = 'S.053.1203.22.55' 
+              name = 'op01' visibility = 'public' isSpecification = 'false' 
+              ownerScope = 'instance' 
+              isQuery = 'false' 
+              concurrency = 'sequential' isRoot = 'false' isLeaf = 'false' isAbstract = 'false' specification = '' 
+              clientDependency = 'XX.23.123.26.65' 
+              method = 'XX.23.123.25.45' >
+              <UML:BehavioralFeature.parameter>
+                <UML:Parameter xmi.id = 'XX.23.123.25.46' 
+                  name = 'xpto' visibility = 'public' isSpecification = 'false' 
+                  kind = 'in' 
+                  type = 'G.56' >
+                  <UML:Parameter.defaultValue>
+                    <UML:Expression 
+                      language = '' body = '10' />
+                  </UML:Parameter.defaultValue>
+                </UML:Parameter>
+                <UML:Parameter xmi.id = 'XX.23.123.25.47' 
+                  name = 'xptoInOut' visibility = 'public' isSpecification = 'false' 
+                  kind = 'inout' 
+                  type = 'G.55' >
+                  <UML:Parameter.defaultValue>
+                    <UML:Expression 
+                      language = '' body = '' />
+                  </UML:Parameter.defaultValue>
+                </UML:Parameter>
+                <UML:Parameter xmi.id = 'XX.23.123.25.48' 
+                  name = 'xptoOut' visibility = 'public' isSpecification = 'false' 
+                  kind = 'out' 
+                  type = 'G.55' >
+                  <UML:Parameter.defaultValue>
+                    <UML:Expression 
+                      language = '' body = '' />
+                  </UML:Parameter.defaultValue>
+                </UML:Parameter>
+                <UML:Parameter xmi.id = 'XX.23.123.25.49' 
+                  name = 'op01.Return' visibility = 'public' isSpecification = 'false' 
+                  kind = 'return' 
+                  type = 'G.60' >
+                </UML:Parameter>
+              </UML:BehavioralFeature.parameter>
+            </UML:Operation>
+            <!-- ==================== anotherExampleRose::MDRTest::Abc::op01    [Method] ==================== -->
+            <UML:Method xmi.id = 'XX.23.123.25.45' 
+              name = 'op01' visibility = 'public' isSpecification = 'false' 
+              ownerScope = 'instance' 
+              isQuery = 'false' 
+              specification = 'S.053.1203.22.55' >
+              <UML:Method.body>
+                <UML:ProcedureExpression 
+                  language = 'ocl-script' body = 'method body' />
+              </UML:Method.body>
+            </UML:Method>
+            <!-- ==================== anotherExampleRose::MDRTest::Abc::op2    [Operation] ==================== -->
+            <UML:Operation xmi.id = 'S.053.1203.22.56' 
+              name = 'op2' visibility = 'public' isSpecification = 'false' 
+              ownerScope = 'instance' 
+              isQuery = 'false' 
+              concurrency = 'guarded' isRoot = 'false' isLeaf = 'false' isAbstract = 'false' specification = '' />
+            <!-- ==================== anotherExampleRose::MDRTest::Abc::$op3    [Operation] ==================== -->
+            <UML:Operation xmi.id = 'S.053.1203.22.57' 
+              name = '$op3' visibility = 'public' isSpecification = 'false' 
+              ownerScope = 'instance' 
+              isQuery = 'false' 
+              concurrency = 'sequential' isRoot = 'false' isLeaf = 'false' isAbstract = 'false' specification = '' />
+          </UML:Classifier.feature>
+        </UML:Class>
+        <!-- ==================== anotherExampleRose::MDRTest::State/Activity Model    [StateMachine] ==================== -->
+        <UML:StateMachine xmi.id = 'S.053.1203.22.51' 
+          name = 'State/Activity Model' visibility = 'public' isSpecification = 'false' 
+          context = 'S.053.1203.22.50' >
+          <UML:StateMachine.top>
+            <!-- ==================== anotherExampleRose::MDRTest::State/Activity Model::{top}    [CompositeState] ==================== -->
+            <UML:CompositeState xmi.id = 'XX.23.123.24.40' 
+              name = '{top}' visibility = 'public' isSpecification = 'false' 
+              isConcurrent = 'false' >
+              <UML:CompositeState.subvertex>
+                <!-- ==================== anotherExampleRose::MDRTest::State/Activity Model::{top}::    [Pseudostate] ==================== -->
+                <UML:Pseudostate xmi.id = 'G.28' 
+                  name = '' visibility = 'public' isSpecification = 'false' 
+                  kind = 'initial' 
+                  outgoing = 'G.29' />
+                <!-- ==================== anotherExampleRose::MDRTest::State/Activity Model::{top}::NewState    [SimpleState] ==================== -->
+                <UML:SimpleState xmi.id = 'G.30' 
+                  name = 'NewState' visibility = 'public' isSpecification = 'false' 
+                  outgoing = 'G.31' incoming = 'G.29' />
+                <!-- ==================== anotherExampleRose::MDRTest::State/Activity Model::{top}::NewState2    [SimpleState] ==================== -->
+                <UML:SimpleState xmi.id = 'G.33' 
+                  name = 'NewState2' visibility = 'public' isSpecification = 'false' 
+                  outgoing = 'G.34' incoming = 'G.47' />
+                <!-- ==================== anotherExampleRose::MDRTest::State/Activity Model::{top}::NewState3    [CompositeState] ==================== -->
+                <UML:CompositeState xmi.id = 'G.35' 
+                  name = 'NewState3' visibility = 'public' isSpecification = 'false' 
+                  isConcurrent = 'false' 
+                  outgoing = 'G.36' incoming = 'G.44 G.48' >
+                  <UML:CompositeState.subvertex>
+                    <!-- ==================== anotherExampleRose::MDRTest::State/Activity Model::{top}::NewState3::NewState31    [SimpleState] ==================== -->
+                    <UML:SimpleState xmi.id = 'G.40' 
+                      name = 'NewState31' visibility = 'public' isSpecification = 'false' 
+                      outgoing = 'G.41' incoming = 'G.45' />
+                    <!-- ==================== anotherExampleRose::MDRTest::State/Activity Model::{top}::NewState3::NewState32    [SimpleState] ==================== -->
+                    <UML:SimpleState xmi.id = 'G.42' 
+                      name = 'NewState32' visibility = 'public' isSpecification = 'false' 
+                      incoming = 'G.41' />
+                    <!-- ==================== anotherExampleRose::MDRTest::State/Activity Model::{top}::NewState3::    [Pseudostate] ==================== -->
+                    <UML:Pseudostate xmi.id = 'G.43' 
+                      name = '' visibility = 'public' isSpecification = 'false' 
+                      kind = 'initial' 
+                      outgoing = 'G.44 G.45' />
+                  </UML:CompositeState.subvertex>
+                </UML:CompositeState>
+                <!-- ==================== anotherExampleRose::MDRTest::State/Activity Model::{top}::NewState4    [SimpleState] ==================== -->
+                <UML:SimpleState xmi.id = 'G.37' 
+                  name = 'NewState4' visibility = 'public' isSpecification = 'false' 
+                  outgoing = 'G.38' incoming = 'G.50' />
+                <!-- ==================== anotherExampleRose::MDRTest::State/Activity Model::{top}::    [FinalState] ==================== -->
+                <UML:FinalState xmi.id = 'G.39' 
+                  name = '' visibility = 'public' isSpecification = 'false' 
+                  incoming = 'G.38' />
+                <!-- ==================== anotherExampleRose::MDRTest::State/Activity Model::{top}::    [Pseudostate] ==================== -->
+                <UML:Pseudostate xmi.id = 'G.46' 
+                  name = '' visibility = 'public' isSpecification = 'false' 
+                  kind = 'branch' 
+                  outgoing = 'G.47 G.48' incoming = 'G.31' />
+                <!-- ==================== anotherExampleRose::MDRTest::State/Activity Model::{top}::    [Pseudostate] ==================== -->
+                <UML:Pseudostate xmi.id = 'G.49' 
+                  name = '' visibility = 'public' isSpecification = 'false' 
+                  kind = 'join' 
+                  outgoing = 'G.50' incoming = 'G.34 G.36' />
+              </UML:CompositeState.subvertex>
+            </UML:CompositeState>
+          </UML:StateMachine.top>
+          <UML:StateMachine.transitions>
+            <UML:Transition xmi.id = 'G.29' 
+              name = '' visibility = 'public' isSpecification = 'false' 
+              source = 'G.28' target = 'G.30' />
+            <UML:Transition xmi.id = 'G.31' 
+              name = '' visibility = 'public' isSpecification = 'false' 
+              trigger = 'S.053.1203.24.1' source = 'G.30' target = 'G.46' >
+              <UML:Transition.guard>
+                <UML:Guard xmi.id = 'XX.23.123.24.41' 
+                  name = '' visibility = 'public' isSpecification = 'false' >
+                  <UML:Guard.expression>
+                    <UML:BooleanExpression 
+                      language = '' body = 'guard' />
+                  </UML:Guard.expression>
+                </UML:Guard>
+              </UML:Transition.guard>
+              <UML:Transition.effect>
+                <UML:ActionSequence xmi.id = 'XX.23.123.24.43' 
+                  name = '' visibility = 'public' isSpecification = 'false' 
+                  isAsynchronous = 'false' >
+                  <UML:Action.recurrence>
+                    <UML:IterationExpression 
+                      language = '' body = '' />
+                  </UML:Action.recurrence>
+                  <UML:Action.target>
+                    <UML:ObjectSetExpression 
+                      language = '' body = '' />
+                  </UML:Action.target>
+                  <UML:Action.script>
+                    <UML:ActionExpression 
+                      language = '' body = '' />
+                  </UML:Action.script>
+                  <UML:ActionSequence.action>
+                    <UML:UninterpretedAction xmi.id = 'XX.23.123.24.42' 
+                      name = 'action' visibility = 'public' isSpecification = 'false' 
+                      isAsynchronous = 'false' >
+                      <UML:Action.recurrence>
+                        <UML:IterationExpression 
+                          language = '' body = '1' />
+                      </UML:Action.recurrence>
+                      <UML:Action.target>
+                        <UML:ObjectSetExpression 
+                          language = '' body = '' />
+                      </UML:Action.target>
+                      <UML:Action.script>
+                        <UML:ActionExpression 
+                          language = '' body = '' />
+                      </UML:Action.script>
+                    </UML:UninterpretedAction>
+                    <UML:SendAction xmi.id = 'XX.23.123.24.44' 
+                      name = '' visibility = 'public' isSpecification = 'false' 
+                      isAsynchronous = 'false' 
+                      signal = 'S.053.1203.24.3' >
+                      <UML:Action.recurrence>
+                        <UML:IterationExpression 
+                          language = '' body = '1' />
+                      </UML:Action.recurrence>
+                      <UML:Action.target>
+                        <UML:ObjectSetExpression 
+                          language = '' body = 'sendtarget' />
+                      </UML:Action.target>
+                      <UML:Action.script>
+                        <UML:ActionExpression 
+                          language = '' body = '' />
+                      </UML:Action.script>
+                      <UML:Action.actualArgument>
+                        <UML:Argument xmi.id = 'id.0541503.26' 
+                          name = '' visibility = 'public' isSpecification = 'false' >
+                          <UML:Argument.value>
+                            <UML:Expression 
+                              language = '' body = 'sendarg1' />
+                          </UML:Argument.value>
+                        </UML:Argument>
+                      </UML:Action.actualArgument>
+                    </UML:SendAction>
+                  </UML:ActionSequence.action>
+                </UML:ActionSequence>
+              </UML:Transition.effect>
+            </UML:Transition>
+            <UML:Transition xmi.id = 'G.34' 
+              name = '' visibility = 'public' isSpecification = 'false' 
+              source = 'G.33' target = 'G.49' />
+            <UML:Transition xmi.id = 'G.41' 
+              name = '' visibility = 'public' isSpecification = 'false' 
+              source = 'G.40' target = 'G.42' />
+            <UML:Transition xmi.id = 'G.44' 
+              name = '' visibility = 'public' isSpecification = 'false' 
+              source = 'G.43' target = 'G.35' />
+            <UML:Transition xmi.id = 'G.45' 
+              name = '' visibility = 'public' isSpecification = 'false' 
+              source = 'G.43' target = 'G.40' />
+            <UML:Transition xmi.id = 'G.36' 
+              name = '' visibility = 'public' isSpecification = 'false' 
+              source = 'G.35' target = 'G.49' />
+            <UML:Transition xmi.id = 'G.38' 
+              name = '' visibility = 'public' isSpecification = 'false' 
+              source = 'G.37' target = 'G.39' />
+            <UML:Transition xmi.id = 'G.47' 
+              name = '' visibility = 'public' isSpecification = 'false' 
+              source = 'G.46' target = 'G.33' />
+            <UML:Transition xmi.id = 'G.48' 
+              name = '' visibility = 'public' isSpecification = 'false' 
+              source = 'G.46' target = 'G.35' />
+            <UML:Transition xmi.id = 'G.50' 
+              name = '' visibility = 'public' isSpecification = 'false' 
+              source = 'G.49' target = 'G.37' />
+          </UML:StateMachine.transitions>
+        </UML:StateMachine>
+        <UML:SignalEvent xmi.id = 'S.053.1203.24.1' 
+          name = 'event1' visibility = 'public' isSpecification = 'false' 
+          signal = 'S.053.1203.24.2' >
+          <UML:Event.parameter>
+            <UML:Parameter xmi.id = 'id.0541503.25' 
+              name = 'arg1' visibility = 'public' isSpecification = 'false' 
+              kind = 'in' 
+              type = 'G.56' >
+            </UML:Parameter>
+          </UML:Event.parameter>
+        </UML:SignalEvent>
+        <UML:Signal xmi.id = 'S.053.1203.24.2' 
+          name = 'event1' visibility = 'public' isSpecification = 'false' 
+          isRoot = 'false' isLeaf = 'false' isAbstract = 'false' />
+        <UML:Signal xmi.id = 'S.053.1203.24.3' 
+          name = 'sendevent' visibility = 'public' isSpecification = 'false' 
+          isRoot = 'false' isLeaf = 'false' isAbstract = 'false' 
+          sendAction = 'XX.23.123.24.44' />
+        <UML:Stereotype xmi.id = 'S.053.1203.25.0' 
+          name = 'oclHelper' visibility = 'public' isSpecification = 'false' 
+          isRoot = 'false' isLeaf = 'false' isAbstract = 'false' 
+          icon = '' baseClass = 'Operation' 
+          extendedElement = 'S.053.1203.22.55' />
+        <!-- ==================== anotherExampleRose::MDRTest::Def    [Class] ==================== -->
+        <UML:Class xmi.id = 'S.053.1203.22.58' 
+          name = 'Def' visibility = 'public' isSpecification = 'false' 
+          isRoot = 'true' isLeaf = 'true' isAbstract = 'false' 
+          isActive = 'false' 
+          namespace = 'S.053.1203.22.49' />
+        <!-- ==================== anotherExampleRose::MDRTest::MyDataType    [DataType] ==================== -->
+        <UML:DataType xmi.id = 'S.053.1203.22.59' 
+          name = 'MyDataType' visibility = 'public' isSpecification = 'false' 
+          isRoot = 'true' isLeaf = 'true' isAbstract = 'false' 
+          namespace = 'S.053.1203.22.49' />
+        <!-- ==================== anotherExampleRose::MDRTest::OtherDataType    [DataType] ==================== -->
+        <UML:DataType xmi.id = 'S.053.1203.22.60' 
+          name = 'OtherDataType' visibility = 'public' isSpecification = 'false' 
+          isRoot = 'true' isLeaf = 'true' isAbstract = 'false' 
+          namespace = 'S.053.1203.22.49' />
+        <!-- ==================== anotherExampleRose::MDRTest::AbcSpecial    [Class] ==================== -->
+        <UML:Class xmi.id = 'S.053.1203.22.61' 
+          name = 'AbcSpecial' visibility = 'public' isSpecification = 'false' 
+          isRoot = 'false' isLeaf = 'true' isAbstract = 'false' 
+          isActive = 'false' 
+          namespace = 'S.053.1203.22.49' 
+          generalization = 'G.66' >
+          <UML:Namespace.ownedElement>
+            <UML:Generalization xmi.id = 'G.66' 
+              name = '' visibility = 'public' isSpecification = 'false' 
+              discriminator = '' 
+              child = 'S.053.1203.22.61' parent = 'S.053.1203.22.50' />
+          </UML:Namespace.ownedElement>
+        </UML:Class>
+      </UML:Namespace.ownedElement>
+    </UML:Package>
+    <!-- ==================== MyType    [DataType] ==================== -->
+    <UML:DataType xmi.id = 'G.59' 
+      name = 'MyType' visibility = 'public' isSpecification = 'false' 
+      isRoot = 'false' isLeaf = 'false' isAbstract = 'false' />
+    <!-- ==================== Boolean    [DataType] ==================== -->
+    <UML:DataType xmi.id = 'G.60' 
+      name = 'Boolean' visibility = 'public' isSpecification = 'false' 
+      isRoot = 'false' isLeaf = 'false' isAbstract = 'false' />
+    <!-- ==================== anotherExampleRose::{Person-Reservation}{40867358005D}    [Association] ==================== -->
+    <UML:Association xmi.id = 'G.6' 
+      name = '' visibility = 'public' isSpecification = 'false' 
+      isRoot = 'false' isLeaf = 'false' isAbstract = 'false' >
+      <UML:Association.connection>
+        <!-- ==================== anotherExampleRose::{Person-Reservation}{40867358005D}.(Role1)    [AssociationEnd] ==================== -->
+        <UML:AssociationEnd xmi.id = 'G.7' 
+          name = '' visibility = 'public' isSpecification = 'false' 
+          isNavigable = 'true' ordering = 'unordered' aggregation = 'none' targetScope = 'instance' changeability = 'changeable' 
+          type = 'S.053.1203.22.8' >
+          <UML:AssociationEnd.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.0541503.30' 
+                  lower = '1' upper = '1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:AssociationEnd.multiplicity>
+        </UML:AssociationEnd>
+        <!-- ==================== anotherExampleRose::{Person-Reservation}{40867358005D}.(Role2)    [AssociationEnd] ==================== -->
+        <UML:AssociationEnd xmi.id = 'G.8' 
+          name = '' visibility = 'public' isSpecification = 'false' 
+          isNavigable = 'true' ordering = 'ordered' aggregation = 'none' targetScope = 'instance' changeability = 'changeable' 
+          constraint = 'S.053.1203.26.0' 
+          type = 'S.053.1203.22.12' >
+          <UML:AssociationEnd.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.0541503.31' 
+                  lower = '1' upper = '-1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:AssociationEnd.multiplicity>
+        </UML:AssociationEnd>
+      </UML:Association.connection>
+    </UML:Association>
+    <!-- ==================== Constraint-S.053.1203.26.0    [Constraint] ==================== -->
+    <UML:Constraint xmi.id = 'S.053.1203.26.0' 
+      name = 'Constraint-S.053.1203.26.0' visibility = 'public' isSpecification = 'false' 
+      constrainedElement = 'G.8' >
+      <UML:Constraint.body>
+        <UML:BooleanExpression 
+          language = '' body = 'ordered' />
+      </UML:Constraint.body>
+    </UML:Constraint>
+    <!-- ==================== anotherExampleRose::{Reservation-Film}{40A253CE0203}    [Association] ==================== -->
+    <UML:Association xmi.id = 'G.9' 
+      name = '' visibility = 'public' isSpecification = 'false' 
+      isRoot = 'false' isLeaf = 'false' isAbstract = 'false' >
+      <UML:Association.connection>
+        <!-- ==================== anotherExampleRose::{Reservation-Film}{40A253CE0203}.(Role1)    [AssociationEnd] ==================== -->
+        <UML:AssociationEnd xmi.id = 'G.10' 
+          name = '' visibility = 'public' isSpecification = 'false' 
+          isNavigable = 'true' ordering = 'unordered' aggregation = 'none' targetScope = 'instance' changeability = 'changeable' 
+          type = 'S.053.1203.22.12' >
+          <UML:AssociationEnd.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.0541503.32' 
+                  lower = '0' upper = '-1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:AssociationEnd.multiplicity>
+        </UML:AssociationEnd>
+        <!-- ==================== anotherExampleRose::{Reservation-Film}{40A253CE0203}.(Role2)    [AssociationEnd] ==================== -->
+        <UML:AssociationEnd xmi.id = 'G.11' 
+          name = '' visibility = 'public' isSpecification = 'false' 
+          isNavigable = 'true' ordering = 'unordered' aggregation = 'none' targetScope = 'instance' changeability = 'changeable' 
+          type = 'S.053.1203.22.14' >
+          <UML:AssociationEnd.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.0541503.33' 
+                  lower = '1' upper = '1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:AssociationEnd.multiplicity>
+        </UML:AssociationEnd>
+      </UML:Association.connection>
+    </UML:Association>
+    <!-- ==================== anotherExampleRose::{RentalItem-Reservation}{41C998F102EE}    [Association] ==================== -->
+    <UML:Association xmi.id = 'G.12' 
+      name = '' visibility = 'public' isSpecification = 'false' 
+      isRoot = 'false' isLeaf = 'false' isAbstract = 'false' >
+      <UML:Association.connection>
+        <!-- ==================== anotherExampleRose::{RentalItem-Reservation}{41C998F102EE}.(Role1)    [AssociationEnd] ==================== -->
+        <UML:AssociationEnd xmi.id = 'G.13' 
+          name = '' visibility = 'public' isSpecification = 'false' 
+          isNavigable = 'true' ordering = 'unordered' aggregation = 'none' targetScope = 'instance' changeability = 'changeable' 
+          type = 'S.053.1203.22.1' >
+          <UML:AssociationEnd.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.0541503.34' 
+                  lower = '0' upper = '-1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:AssociationEnd.multiplicity>
+        </UML:AssociationEnd>
+        <!-- ==================== anotherExampleRose::{RentalItem-Reservation}{41C998F102EE}.(Role2)    [AssociationEnd] ==================== -->
+        <UML:AssociationEnd xmi.id = 'G.14' 
+          name = '' visibility = 'public' isSpecification = 'false' 
+          isNavigable = 'true' ordering = 'unordered' aggregation = 'none' targetScope = 'instance' changeability = 'changeable' 
+          type = 'S.053.1203.22.12' >
+          <UML:AssociationEnd.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.0541503.35' 
+                  lower = '0' upper = '-1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:AssociationEnd.multiplicity>
+        </UML:AssociationEnd>
+      </UML:Association.connection>
+    </UML:Association>
+    <!-- ==================== anotherExampleRose::RentalItem    [Class] ==================== -->
+    <UML:Class xmi.id = 'S.053.1203.22.1' 
+      name = 'RentalItem' visibility = 'public' isSpecification = 'false' 
+      isRoot = 'true' isLeaf = 'true' isAbstract = 'false' 
+      isActive = 'false' 
+      namespace = 'G.0' >
+      <UML:Classifier.feature>
+        <!-- ==================== anotherExampleRose::RentalItem.number    [Attribute] ==================== -->
+        <UML:Attribute xmi.id = 'S.053.1203.22.2' 
+          name = 'number' visibility = 'private' isSpecification = 'false' 
+          ownerScope = 'instance' 
+          changeability = 'changeable' targetScope = 'instance' 
+          type = 'G.56' >
+          <UML:StructuralFeature.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.0541503.36' 
+                  lower = '1' upper = '1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:StructuralFeature.multiplicity>
+          <UML:Attribute.initialValue>
+            <UML:Expression 
+              language = '' body = '' />
+          </UML:Attribute.initialValue>
+        </UML:Attribute>
+      </UML:Classifier.feature>
+    </UML:Class>
+    <!-- ==================== anotherExampleRose::SpecialFilm    [Class] ==================== -->
+    <UML:Class xmi.id = 'S.053.1203.22.3' 
+      name = 'SpecialFilm' visibility = 'public' isSpecification = 'false' 
+      isRoot = 'false' isLeaf = 'true' isAbstract = 'false' 
+      isActive = 'false' 
+      namespace = 'G.0' clientDependency = 'G.1' 
+      generalization = 'G.62' >
+      <UML:Namespace.ownedElement>
+        <UML:Generalization xmi.id = 'G.62' 
+          name = '' visibility = 'public' isSpecification = 'false' 
+          discriminator = '' 
+          child = 'S.053.1203.22.3' parent = 'S.053.1203.22.14' />
+      </UML:Namespace.ownedElement>
+      <UML:Classifier.feature>
+        <!-- ==================== anotherExampleRose::SpecialFilm.lateReturnFee    [Attribute] ==================== -->
+        <UML:Attribute xmi.id = 'S.053.1203.22.4' 
+          name = 'lateReturnFee' visibility = 'private' isSpecification = 'false' 
+          ownerScope = 'instance' 
+          changeability = 'changeable' targetScope = 'instance' 
+          type = 'S.053.1203.22.24' >
+          <UML:StructuralFeature.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.0541503.37' 
+                  lower = '1' upper = '1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:StructuralFeature.multiplicity>
+          <UML:Attribute.initialValue>
+            <UML:Expression 
+              language = '' body = '' />
+          </UML:Attribute.initialValue>
+        </UML:Attribute>
+        <!-- ==================== anotherExampleRose::SpecialFilm.days    [Attribute] ==================== -->
+        <UML:Attribute xmi.id = 'S.053.1203.22.5' 
+          name = 'days' visibility = 'private' isSpecification = 'false' 
+          ownerScope = 'classifier' 
+          changeability = 'changeable' targetScope = 'instance' 
+          type = 'G.55' >
+          <UML:StructuralFeature.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.0541503.38' 
+                  lower = '1' upper = '1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:StructuralFeature.multiplicity>
+          <UML:Attribute.initialValue>
+            <UML:Expression 
+              language = '' body = '' />
+          </UML:Attribute.initialValue>
+        </UML:Attribute>
+        <!-- ==================== anotherExampleRose::SpecialFilm::doSomething    [Operation] ==================== -->
+        <UML:Operation xmi.id = 'S.053.1203.22.6' 
+          name = 'doSomething' visibility = 'public' isSpecification = 'false' 
+          ownerScope = 'instance' 
+          isQuery = 'false' 
+          concurrency = 'sequential' isRoot = 'false' isLeaf = 'false' isAbstract = 'false' specification = '' />
+        <!-- ==================== anotherExampleRose::SpecialFilm::doSomething    [Operation] ==================== -->
+        <UML:Operation xmi.id = 'S.053.1203.22.7' 
+          name = 'doSomething' visibility = 'public' isSpecification = 'false' 
+          ownerScope = 'instance' 
+          isQuery = 'false' 
+          concurrency = 'sequential' isRoot = 'false' isLeaf = 'false' isAbstract = 'false' specification = '' >
+          <UML:BehavioralFeature.parameter>
+            <UML:Parameter xmi.id = 'XX.23.123.26.58' 
+              name = 'param1' visibility = 'public' isSpecification = 'false' 
+              kind = 'inout' 
+              type = 'G.55' >
+              <UML:Parameter.defaultValue>
+                <UML:Expression 
+                  language = '' body = '' />
+              </UML:Parameter.defaultValue>
+            </UML:Parameter>
+            <UML:Parameter xmi.id = 'XX.23.123.26.59' 
+              name = 'param2' visibility = 'public' isSpecification = 'false' 
+              kind = 'inout' 
+              type = 'G.55' >
+              <UML:Parameter.defaultValue>
+                <UML:Expression 
+                  language = '' body = '' />
+              </UML:Parameter.defaultValue>
+            </UML:Parameter>
+            <UML:Parameter xmi.id = 'XX.23.123.26.60' 
+              name = 'param3' visibility = 'public' isSpecification = 'false' 
+              kind = 'inout' 
+              type = 'S.053.1203.22.24' >
+              <UML:Parameter.defaultValue>
+                <UML:Expression 
+                  language = '' body = '' />
+              </UML:Parameter.defaultValue>
+            </UML:Parameter>
+            <UML:Parameter xmi.id = 'XX.23.123.26.61' 
+              name = 'doSomething.Return' visibility = 'public' isSpecification = 'false' 
+              kind = 'return' 
+              type = 'G.55' >
+            </UML:Parameter>
+          </UML:BehavioralFeature.parameter>
+        </UML:Operation>
+      </UML:Classifier.feature>
+    </UML:Class>
+    <!-- ==================== anotherExampleRose::Person    [Class] ==================== -->
+    <UML:Class xmi.id = 'S.053.1203.22.8' 
+      name = 'Person' visibility = 'public' isSpecification = 'false' 
+      isRoot = 'true' isLeaf = 'true' isAbstract = 'false' 
+      isActive = 'false' 
+      namespace = 'G.0' >
+      <UML:Classifier.feature>
+        <!-- ==================== anotherExampleRose::Person.age    [Attribute] ==================== -->
+        <UML:Attribute xmi.id = 'S.053.1203.22.9' 
+          name = 'age' visibility = 'private' isSpecification = 'false' 
+          ownerScope = 'instance' 
+          changeability = 'changeable' targetScope = 'instance' 
+          type = 'G.55' >
+          <UML:StructuralFeature.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.0541503.39' 
+                  lower = '1' upper = '1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:StructuralFeature.multiplicity>
+          <UML:Attribute.initialValue>
+            <UML:Expression 
+              language = '' body = '' />
+          </UML:Attribute.initialValue>
+        </UML:Attribute>
+      </UML:Classifier.feature>
+    </UML:Class>
+    <!-- ==================== anotherExampleRose::EmployeeRanking    [AssociationClass] ==================== -->
+    <UML:AssociationClass xmi.id = 'S.053.1203.22.10' 
+      name = 'EmployeeRanking' visibility = 'public' isSpecification = 'false' 
+      isRoot = 'true' isLeaf = 'true' isAbstract = 'false' 
+      isActive = 'false' 
+      namespace = 'G.0' >
+      <UML:Association.connection>
+        <!-- ==================== anotherExampleRose::EmployeeRanking.employees    [AssociationEnd] ==================== -->
+        <UML:AssociationEnd xmi.id = 'G.4' 
+          name = 'employees' visibility = 'public' isSpecification = 'false' 
+          isNavigable = 'true' ordering = 'unordered' aggregation = 'none' targetScope = 'instance' changeability = 'changeable' 
+          type = 'S.053.1203.22.8' >
+          <UML:AssociationEnd.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.0541503.41' 
+                  lower = '0' upper = '-1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:AssociationEnd.multiplicity>
+        </UML:AssociationEnd>
+        <!-- ==================== anotherExampleRose::EmployeeRanking.bosses    [AssociationEnd] ==================== -->
+        <UML:AssociationEnd xmi.id = 'G.5' 
+          name = 'bosses' visibility = 'public' isSpecification = 'false' 
+          isNavigable = 'true' ordering = 'unordered' aggregation = 'none' targetScope = 'instance' changeability = 'changeable' 
+          type = 'S.053.1203.22.8' >
+          <UML:AssociationEnd.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.0541503.42' 
+                  lower = '0' upper = '-1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:AssociationEnd.multiplicity>
+        </UML:AssociationEnd>
+      </UML:Association.connection>
+      <UML:Classifier.feature>
+        <!-- ==================== anotherExampleRose::EmployeeRanking.score    [Attribute] ==================== -->
+        <UML:Attribute xmi.id = 'S.053.1203.22.11' 
+          name = 'score' visibility = 'private' isSpecification = 'false' 
+          ownerScope = 'instance' 
+          changeability = 'changeable' targetScope = 'instance' 
+          type = 'G.55' >
+          <UML:StructuralFeature.multiplicity>
+            <UML:Multiplicity >
+              <UML:Multiplicity.range>
+                <UML:MultiplicityRange xmi.id = 'id.0541503.40' 
+                  lower = '1' upper = '1' />
+              </UML:Multiplicity.range>
+            </UML:Multiplicity>
+          </UML:StructuralFeature.multiplicity>
+          <UML:Attribute.initialValue>
+            <UML:Expression 
+              language = '' body = '' />
+          </UML:Attribute.initialValue>
+        </UML:Attribute>
+      </UML:Classifier.feature>
+    </UML:AssociationClass>
+    <!-- ==================== anotherExampleRose::Reservation    [Class] ==================== -->
+    <UML:Class xmi.id = 'S.053.1203.22.12' 
+      name = 'Reservation' visibility = 'public' isSpecification = 'false' 
+      isRoot = 'true' isLeaf = 'true' isAbstract = 'false' 
+      isActive = 'false' 
+      namespace = 'G.0' />
+    <UML:Dependency xmi.id = 'XX.23.123.26.65' 
+      name = '' visibility = 'public' isSpecification = 'false' 
+      client = 'S.053.1203.22.55' supplier = 'S.053.1203.22.36' />
+    <UML:Stereotype xmi.id = 'S.053.1203.26.1' 
+      name = 'throws' visibility = 'public' isSpecification = 'false' 
+      isRoot = 'false' isLeaf = 'false' isAbstract = 'false' 
+      icon = '' baseClass = 'Dependency' 
+      extendedElement = 'XX.23.123.26.65' />
+    <!-- ==================== anotherExampleRose::MyComponents    [Subsystem] ==================== -->
+    <UML:Subsystem xmi.id = 'S.053.1203.22.63' 
+      name = 'MyComponents' visibility = 'public' isSpecification = 'false' 
+      isRoot = 'true' isLeaf = 'false' isAbstract = 'false' 
+      isInstantiable = 'false' >
+      <UML:Namespace.ownedElement>
+        <!-- ==================== anotherExampleRose::MyComponents::Tape    [Component] ==================== -->
+        <UML:Component xmi.id = 'S.053.1203.22.64' 
+          name = 'Tape' visibility = 'public' isSpecification = 'false' 
+          isRoot = 'false' isLeaf = 'false' isAbstract = 'false' >
+          <UML:Component.residentElement>
+            <UML:ElementResidence xmi.id = 'XX.23.123.26.70' 
+              visibility = 'public' 
+              resident = 'S.053.1203.22.28' implementationLocation = 'S.053.1203.22.64' />
+          </UML:Component.residentElement>
+        </UML:Component>
+      </UML:Namespace.ownedElement>
+    </UML:Subsystem>
+    <!-- ==================== anotherExampleRose::Use Case View    [Model] ==================== -->
+    <UML:Model xmi.id = 'G.61' 
+      name = 'Use Case View' visibility = 'public' isSpecification = 'false' 
+      isRoot = 'false' isLeaf = 'false' isAbstract = 'false' >
+      <UML:Namespace.ownedElement>
+        <UML:Stereotype xmi.id = 'S.053.1203.26.2' 
+          name = 'useCaseModel' visibility = 'public' isSpecification = 'false' 
+          isRoot = 'false' isLeaf = 'false' isAbstract = 'false' 
+          icon = '' baseClass = 'Model' 
+          extendedElement = 'G.61' />
+        <!-- ==================== anotherExampleRose::Use Case View::use cases examples    [Package] ==================== -->
+        <UML:Package xmi.id = 'S.053.1203.22.66' 
+          name = 'use cases examples' visibility = 'public' isSpecification = 'false' 
+          isRoot = 'false' isLeaf = 'false' isAbstract = 'false' 
+          namespace = 'G.61' >
+          <UML:Namespace.ownedElement>
+            <!-- ==================== anotherExampleRose::Use Case View::use cases examples::register client    [UseCase] ==================== -->
+            <UML:UseCase xmi.id = 'S.053.1203.22.68' 
+              name = 'register client' visibility = 'public' isSpecification = 'false' 
+              isRoot = 'false' isLeaf = 'false' isAbstract = 'false' 
+              namespace = 'S.053.1203.22.66' />
+            <!-- ==================== anotherExampleRose::Use Case View::use cases examples::client    [Actor] ==================== -->
+            <UML:Actor xmi.id = 'S.053.1203.22.67' 
+              name = 'client' visibility = 'public' isSpecification = 'false' 
+              isRoot = 'true' isLeaf = 'true' isAbstract = 'false' 
+              namespace = 'S.053.1203.22.66' />
+          </UML:Namespace.ownedElement>
+        </UML:Package>
+      </UML:Namespace.ownedElement>
+    </UML:Model>
+    <!-- ==================== anotherExampleRose::{SpecialFilm-O>IThing}{409FE92102C6}    [Abstraction] ==================== -->
+    <UML:Abstraction xmi.id = 'G.1' 
+      name = '' visibility = 'public' isSpecification = 'false' 
+      client = 'S.053.1203.22.3' supplier = 'S.053.1203.22.37' >
+      <UML:Abstraction.mapping>
+        <UML:MappingExpression 
+          language = '' body = '' />
+      </UML:Abstraction.mapping>
+    </UML:Abstraction>
+    <UML:Stereotype xmi.id = 'S.053.1203.26.3' 
+      name = 'realize' visibility = 'public' isSpecification = 'false' 
+      isRoot = 'false' isLeaf = 'false' isAbstract = 'false' 
+      icon = '' baseClass = 'Abstraction' 
+      extendedElement = 'G.1 G.2' />
+    <!-- ==================== anotherExampleRose::{Product-O>IProduct}{3FE75497013D}    [Abstraction] ==================== -->
+    <UML:Abstraction xmi.id = 'G.2' 
+      name = '' visibility = 'public' isSpecification = 'false' 
+      client = 'S.053.1203.22.21' supplier = 'S.053.1203.22.31' >
+      <UML:Abstraction.mapping>
+        <UML:MappingExpression 
+          language = '' body = '' />
+      </UML:Abstraction.mapping>
+    </UML:Abstraction>
+  </UML:Namespace.ownedElement>
+</UML:Model>
+<UML:TaggedValue xmi.id = 'XX.23.123.22.2' 
+  tag = 'persistence' value = 'transient' 
+  modelElement = 'S.053.1203.22.40' />
+<UML:TaggedValue xmi.id = 'XX.23.123.22.3' 
+  tag = 'persistence' value = 'transient' 
+  modelElement = 'S.053.1203.22.41' />
+<UML:TaggedValue xmi.id = 'XX.23.123.22.4' 
+  tag = 'persistence' value = 'transient' 
+  modelElement = 'S.053.1203.22.43' />
+<UML:TaggedValue xmi.id = 'XX.23.123.22.5' 
+  tag = 'persistence' value = 'transient' 
+  modelElement = 'S.053.1203.22.46' />
+<UML:TaggedValue xmi.id = 'XX.23.123.22.6' 
+  tag = 'persistence' value = 'transient' 
+  modelElement = 'S.053.1203.22.14' />
+<UML:TaggedValue xmi.id = 'XX.23.123.22.11' 
+  tag = 'persistence' value = 'transient' 
+  modelElement = 'S.053.1203.22.21' />
+<UML:TaggedValue xmi.id = 'XX.23.123.22.14' 
+  tag = 'persistence' value = 'transient' 
+  modelElement = 'S.053.1203.22.24' />
+<UML:TaggedValue xmi.id = 'XX.23.123.22.15' 
+  tag = 'persistence' value = 'transient' 
+  modelElement = 'S.053.1203.22.25' />
+<UML:TaggedValue xmi.id = 'XX.23.123.24.16' 
+  tag = 'persistence' value = 'transient' 
+  modelElement = 'S.053.1203.22.28' />
+<UML:TaggedValue xmi.id = 'XX.23.123.24.17' 
+  tag = 'RationalRose:Tool#9' value = 'Java' 
+  modelElement = 'G.0' />
+<UML:TaggedValue xmi.id = 'XX.23.123.24.18' 
+  tag = 'RationalRose$Java:OpFormerName' value = 'tapesQty' 
+  modelElement = 'S.053.1203.22.30' />
+<UML:TaggedValue xmi.id = 'XX.23.123.24.19' 
+  tag = 'RationalRose$Java:Final' value = 'True' 
+  modelElement = 'S.053.1203.22.30' />
+<UML:TaggedValue xmi.id = 'XX.23.123.24.20' 
+  tag = 'RationalRose$Java:Static' value = 'True' 
+  modelElement = 'S.053.1203.22.30' />
+<UML:TaggedValue xmi.id = 'XX.23.123.24.21' 
+  tag = 'RationalRose$Java:Abstract' value = 'False' 
+  modelElement = 'S.053.1203.22.30' />
+<UML:TaggedValue xmi.id = 'XX.23.123.24.22' 
+  tag = 'RationalRose$Java:Native' value = 'False' 
+  modelElement = 'S.053.1203.22.30' />
+<UML:TaggedValue xmi.id = 'XX.23.123.24.23' 
+  tag = 'RationalRose$Java:Synchronized' value = 'False' 
+  modelElement = 'S.053.1203.22.30' />
+<UML:TaggedValue xmi.id = 'XX.23.123.24.24' 
+  tag = 'RationalRose$Java:Strictfp' value = 'False' 
+  modelElement = 'S.053.1203.22.30' />
+<UML:TaggedValue xmi.id = 'XX.23.123.24.25' 
+  tag = 'RationalRose$Java:GenerateFullyQualifiedArgument' value = '' 
+  modelElement = 'S.053.1203.22.30' />
+<UML:TaggedValue xmi.id = 'XX.23.123.24.26' 
+  tag = 'RationalRose$Java:GenerateFullyQualifiedThrows' value = '' 
+  modelElement = 'S.053.1203.22.30' />
+<UML:TaggedValue xmi.id = 'XX.23.123.24.27' 
+  tag = 'RationalRose:Tool#19' value = 'MOF' 
+  modelElement = 'G.0' />
+<UML:TaggedValue xmi.id = 'XX.23.123.24.28' 
+  tag = 'RationalRose$MOF:rose2mof.scope' value = 'classifier_level' 
+  modelElement = 'S.053.1203.22.30' />
+<UML:TaggedValue xmi.id = 'XX.23.123.24.29' 
+  tag = 'RationalRose$MOF:rose2mof.isQuery' value = 'true' 
+  modelElement = 'S.053.1203.22.30' />
+<UML:TaggedValue xmi.id = 'XX.23.123.24.31' 
+  tag = 'persistence' value = 'transient' 
+  modelElement = 'S.053.1203.22.31' />
+<UML:TaggedValue xmi.id = 'XX.23.123.24.34' 
+  tag = 'persistence' value = 'transient' 
+  modelElement = 'S.053.1203.22.33' />
+<UML:TaggedValue xmi.id = 'XX.23.123.24.35' 
+  tag = 'persistence' value = 'transient' 
+  modelElement = 'S.053.1203.22.35' />
+<UML:TaggedValue xmi.id = 'XX.23.123.24.36' 
+  tag = 'persistence' value = 'transient' 
+  modelElement = 'S.053.1203.22.36' />
+<UML:TaggedValue xmi.id = 'XX.23.123.24.37' 
+  tag = 'persistence' value = 'transient' 
+  modelElement = 'S.053.1203.22.37' />
+<UML:TaggedValue xmi.id = 'XX.23.123.24.38' 
+  tag = 'RationalRose:Global' value = 'true' 
+  modelElement = 'S.053.1203.22.49' />
+<UML:TaggedValue xmi.id = 'XX.23.123.24.39' 
+  tag = 'persistence' value = 'transient' 
+  modelElement = 'S.053.1203.22.50' />
+<UML:TaggedValue xmi.id = 'XX.23.123.25.50' 
+  tag = 'RationalRose$MOF:rose2mof.scope' value = 'classifier_level' 
+  modelElement = 'S.053.1203.22.57' />
+<UML:TaggedValue xmi.id = 'XX.23.123.25.51' 
+  tag = 'RationalRose$MOF:rose2mof.isQuery' value = 'true' 
+  modelElement = 'S.053.1203.22.57' />
+<UML:TaggedValue xmi.id = 'XX.23.123.25.52' 
+  tag = 'persistence' value = 'transient' 
+  modelElement = 'S.053.1203.22.58' />
+<UML:TaggedValue xmi.id = 'XX.23.123.25.53' 
+  tag = 'persistence' value = 'transient' 
+  modelElement = 'S.053.1203.22.59' />
+<UML:TaggedValue xmi.id = 'XX.23.123.26.54' 
+  tag = 'persistence' value = 'transient' 
+  modelElement = 'S.053.1203.22.60' />
+<UML:TaggedValue xmi.id = 'XX.23.123.26.55' 
+  tag = 'persistence' value = 'transient' 
+  modelElement = 'S.053.1203.22.61' />
+<UML:TaggedValue xmi.id = 'XX.23.123.26.56' 
+  tag = 'persistence' value = 'transient' 
+  modelElement = 'S.053.1203.22.1' />
+<UML:TaggedValue xmi.id = 'XX.23.123.26.57' 
+  tag = 'persistence' value = 'transient' 
+  modelElement = 'S.053.1203.22.3' />
+<UML:TaggedValue xmi.id = 'XX.23.123.26.62' 
+  tag = 'persistence' value = 'transient' 
+  modelElement = 'S.053.1203.22.8' />
+<UML:TaggedValue xmi.id = 'XX.23.123.26.63' 
+  tag = 'persistence' value = 'transient' 
+  modelElement = 'S.053.1203.22.10' />
+<UML:TaggedValue xmi.id = 'XX.23.123.26.64' 
+  tag = 'persistence' value = 'transient' 
+  modelElement = 'S.053.1203.22.12' />
+<UML:TaggedValue xmi.id = 'XX.23.123.26.66' 
+  tag = 'RationalRose:AssignedLanguage' value = 'Java' 
+  modelElement = 'S.053.1203.22.64' />
+<UML:TaggedValue xmi.id = 'XX.23.123.26.67' 
+  tag = 'RationalRose$Java:FileName' value = 'C:\Program Files\Rational\RUPBuilder\MyExample\Tape.java' 
+  modelElement = 'S.053.1203.22.64' />
+<UML:TaggedValue xmi.id = 'XX.23.123.26.68' 
+  tag = 'RationalRose$Java:RootPath' value = 'C:\Program Files\Rational\RUPBuilder' 
+  modelElement = 'S.053.1203.22.64' />
+<UML:TaggedValue xmi.id = 'XX.23.123.26.69' 
+  tag = 'persistence' value = 'transient' 
+  modelElement = 'S.053.1203.22.67' />
+</XMI.content>
+</XMI>

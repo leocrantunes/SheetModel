@@ -1,0 +1,61 @@
+context Customer 
+  inv ofAge: age >= 18
+
+context Customer 
+  inv sizesAgree: 
+  programs->size() = cards->select( valid = true )->size()
+
+context Customer::birthdayHappens() 
+  post: age = age@pre + 1
+
+context Customer 
+  def: wellUsedCards : Set( CustomerCard ) 
+  	= cards->select( transactions.points->sum() > 10000 ) 
+  def: loyalToCompanies : Bag( ProgramPartner ) 
+  	= programs.partners 
+  def: cardsForProgram(p: LoyaltyProgram) : Bag(CustomerCard) 
+  	= p.Membership.card
+    
+context Customer 
+  inv: cards->select( valid = true )->size() > 1
+
+context Customer 
+  inv: name = 'Edward'
+
+context Customer 
+  inv: self.name = 'Edward'
+
+context Customer 
+  inv: self.name = 'Edward' 
+  inv: self.title = 'Mr.'
+
+context Customer 
+  inv: self.name = 'Edward' and self.title = 'Mr.'
+
+context Customer 
+  inv myInvariant23: self.name = 'Edward'
+
+context Customer 
+  def: initial : String = name.substring(1,1)
+
+context Customer 
+  inv: gender = Gender::male implies title = 'Mr.'
+
+context Customer 
+  inv: Membership.account->select( points > 0 )->isEmpty()
+
+context Customer 
+  inv: Membership.account->reject( not (points > 0) )->isEmpty() 
+  inv ANY: self.Membership.account->any( number < 10000 )->isEmpty()
+
+ context Customer
+  inv: self.programs->collect(partners)-> 
+  collectNested(p : ProgramPartner | p.deliveredServices )->isEmpty() 
+  inv:  Set{1,2,3}->iterate( i: Integer; sum: Integer = 0 | sum + i ) = 0
+  
+context Customer 
+  inv: programs->size() = cards->select( valid = true )->size()
+
+context LoyaltyProgram
+  def: newIsSaving : Boolean = isSaving
+

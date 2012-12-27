@@ -1,0 +1,33 @@
+context Service::upgradePointsEarned(amount: Integer) 
+  post: calcPoints() = calcPoints@pre() + amount
+
+context Service 
+  inv: self.pointsEarned > 0 implies not (self.pointsBurned = 0) 
+/*  inv: not true 
+  inv:   age() > 21 and age() < 65 
+  inv:   age() <= 12 xor cards->size() > 3 
+  inv:   title = 'Mr.' or title = 'Ms.' 
+  inv:   name = 'Foobar' 
+  inv:   if standard = 'UML' 
+	     then 'using UML standard' 
+	     else 'watch out: non UML features' 
+	     endif 
+  inv:   2654 * 4.3 + 101 = 11513.2 
+  inv:   (3.2).floor() / 3 = 1 
+  inv:   1.175 * (-8.9).abs - 10 = 0.4575 
+  inv:   12 > 22.7 = false 
+  inv:   12.max(33) = 33 
+  inv:   33.max(12) = 33 
+  inv:   13.mod(2) = 1 
+  inv:   13.div(2) = 6 
+  inv:   33.7.min(12) = 12.0 
+  inv:   -24.abs() = 24 
+  inv:   (-2.4).floor() = -3 
+*/
+  inv:   'Anneke'.size() = 6 
+  inv:   ('Anneke' = 'Jos') = false 
+  inv:   'Anneke '.concat('and Jos') = 'Anneke and Jos' 
+  inv:   'Anneke'.toUpper() = 'ANNEKE' 
+  inv:   'Anneke'.toLower() = 'anneke' 
+  inv:   'Anneke and Jos'.substring(12, 14) = 'Jos'
+

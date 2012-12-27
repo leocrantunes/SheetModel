@@ -1,0 +1,247 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CBBF7939-0502-4D67-BF8F-BA1C761A072A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Ocl20Test</RootNamespace>
+    <AssemblyName>Ocl20Test</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <CodeAnalysisDependentAssemblyPaths Condition=" '$(VS100COMNTOOLS)' != '' " Include="$(VS100COMNTOOLS)..\IDE\PrivateAssemblies">
+      <Visible>False</Visible>
+    </CodeAnalysisDependentAssemblyPaths>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnitTest1.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Ocl20\Ocl20.csproj">
+      <Project>{364D247C-51B0-448C-8A42-7695EF934B36}</Project>
+      <Name>Ocl20</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="readme.txt" />
+    <Content Include="resource\anotherExampleRose.xml" />
+    <Content Include="resource\Book\book.xml" />
+    <Content Include="resource\loyalty.xml" />
+    <Content Include="resource\loyalty\loyalty.xml" />
+    <Content Include="resource\myExamplePoseidon.xml" />
+    <Content Include="resource\myExamplePoseidon2.xml" />
+    <Content Include="resource\myExampleRose.xml" />
+    <Content Include="resource\myMeta.xml" />
+    <Content Include="src\MDRRepository\ExemploRepository13.java" />
+    <Content Include="src\MDRRepository\ExemploRepository14.java" />
+    <Content Include="src\MDRRepository\models\mof14\TestCustomMof14Association.java" />
+    <Content Include="src\MDRRepository\models\mof14\TestCustomMof14Attribute.java" />
+    <Content Include="src\MDRRepository\models\mof14\TestCustomMof14Classifier.java" />
+    <Content Include="src\MDRRepository\models\mof14\TestCustomMof14Model.java" />
+    <Content Include="src\MDRRepository\models\mof14\TestCustomMof14ModelElement.java" />
+    <Content Include="src\MDRRepository\models\mof14\TestCustomMof14Package.java" />
+    <Content Include="src\MDRRepository\models\mof14\TestCustomMof14Suite.java" />
+    <Content Include="src\MDRRepository\models\ocl20\TestOcl20Suite.java" />
+    <Content Include="src\MDRRepository\models\ocl20\TestOclConstraints.java" />
+    <Compile Include="src\MDRRepository\models\ocl20\TestOclModelElements.cs" />
+    <Compile Include="src\MDRRepository\models\ocl20\TestOclTypesDefinition.cs" />
+    <Content Include="src\MDRRepository\models\uml13\TestCoreModelElementNameGenerator.java" />
+    <Content Include="src\MDRRepository\models\uml13\TestUml13CoreAssociation.java" />
+    <Content Include="src\MDRRepository\models\uml13\TestUml13CoreAssociationClass.java" />
+    <Content Include="src\MDRRepository\models\uml13\TestUml13CoreAttribute.java" />
+    <Content Include="src\MDRRepository\models\uml13\TestUml13CoreClassifier.java" />
+    <Content Include="src\MDRRepository\models\uml13\TestUml13CoreModel.java" />
+    <Content Include="src\MDRRepository\models\uml13\TestUml13CoreModelElement.java" />
+    <Content Include="src\MDRRepository\models\uml13\TestUml13CoreOperation.java" />
+    <Content Include="src\MDRRepository\models\uml13\TestUml13CorePackage.java" />
+    <Content Include="src\MDRRepository\models\uml13\TestUml13ModelSuite.java" />
+    <Content Include="src\MDRRepository\models\uml14\TestUml14CoreAssociation.java" />
+    <Content Include="src\MDRRepository\models\uml14\TestUml14CoreAssociationClass.java" />
+    <Content Include="src\MDRRepository\models\uml14\TestUml14CoreAttribute.java" />
+    <Content Include="src\MDRRepository\models\uml14\TestUml14CoreClassifier.java" />
+    <Content Include="src\MDRRepository\models\uml14\TestUml14CoreModel.java" />
+    <Content Include="src\MDRRepository\models\uml14\TestUml14CoreModelElement.java" />
+    <Content Include="src\MDRRepository\models\uml14\TestUml14CoreOperation.java" />
+    <Content Include="src\MDRRepository\models\uml14\TestUml14CorePackage.java" />
+    <Content Include="src\MDRRepository\models\uml14\TestUml14ModelSuite.java" />
+    <Content Include="src\MDRRepository\MofExample.java" />
+    <Content Include="src\psw\AllTestsCompiler.java" />
+    <Content Include="src\psw\AllTestsEvaluator.java" />
+    <Content Include="src\psw\AllTestsModels.java" />
+    <Content Include="src\psw\AllTestsOclScript.java" />
+    <Content Include="src\psw\objectSpace\persistence\TestOclValuePersistence.java" />
+    <Content Include="src\psw\objectSpace\Teste.java" />
+    <Content Include="src\psw\objectSpace\TestObjectSpaceSuite.java" />
+    <Content Include="src\psw\objectSpace\TestPSWObjectSpace.java" />
+    <Content Include="src\psw\objectSpace\TestPSWObjectValue.java" />
+    <Content Include="src\psw\objectSpace\TestPSWOclEvaluator.java" />
+    <Content Include="src\psw\objectSpace\TestSnapshotChanges.java" />
+    <Content Include="src\psw\oclEvaluator\TestEval.java" />
+    <Content Include="src\psw\oclEvaluator\TestEvalAssociationEndCallExp.java" />
+    <Content Include="src\psw\oclEvaluator\TestEvalAttributeCallExp.java" />
+    <Content Include="src\psw\oclEvaluator\TestEvalBagOperations.java" />
+    <Content Include="src\psw\oclEvaluator\TestEvalBooleanOperations.java" />
+    <Content Include="src\psw\oclEvaluator\TestEvalCastingOperations.java" />
+    <Content Include="src\psw\oclEvaluator\TestEvalCollectionLiterals.java" />
+    <Content Include="src\psw\oclEvaluator\TestEvalDateOperations.java" />
+    <Content Include="src\psw\oclEvaluator\TestEvalDateTimeOperations.java" />
+    <Content Include="src\psw\oclEvaluator\TestEvalEnumLiterals.java" />
+    <Content Include="src\psw\oclEvaluator\TestEvalEnvironment.java" />
+    <Content Include="src\psw\oclEvaluator\TestEvalIfExp.java" />
+    <Content Include="src\psw\oclEvaluator\TestEvalIntegerOperations.java" />
+    <Content Include="src\psw\oclEvaluator\TestEvalInvariants.java" />
+    <Content Include="src\psw\oclEvaluator\TestEvalIterator.java" />
+    <Content Include="src\psw\oclEvaluator\TestEvalLetExp.java" />
+    <Content Include="src\psw\oclEvaluator\TestEvalOperationCallExp.java" />
+    <Content Include="src\psw\oclEvaluator\TestEvalOrderedSetOperations.java" />
+    <Content Include="src\psw\oclEvaluator\TestEvalPrimitiveLiterals.java" />
+    <Content Include="src\psw\oclEvaluator\TestEvalRealOperations.java" />
+    <Content Include="src\psw\oclEvaluator\TestEvalSequenceOperations.java" />
+    <Content Include="src\psw\oclEvaluator\TestEvalSetOperations.java" />
+    <Content Include="src\psw\oclEvaluator\TestEvalStringOperations.java" />
+    <Content Include="src\psw\oclEvaluator\TestEvalSuite.java" />
+    <Content Include="src\psw\oclEvaluator\TestEvalTupleLiterals.java" />
+    <Content Include="src\psw\oclEvaluator\TestExpressionClone.java" />
+    <Content Include="src\psw\oclEvaluator\TestObjectEval.java" />
+    <Content Include="src\psw\oclEvaluator\TestPostConditionEvaluator.java" />
+    <Content Include="src\psw\oclEvaluator\TestPreConditionsEvaluator.java" />
+    <Content Include="src\psw\oclScript\compiler\TestInvalidPrimitiveStatements.java" />
+    <Content Include="src\psw\oclScript\compiler\TestInvalidRepetitiveStatements.java" />
+    <Content Include="src\psw\oclScript\compiler\TestModifiableConstraint.java" />
+    <Content Include="src\psw\oclScript\compiler\TestOclScriptCompilerSuite.java" />
+    <Content Include="src\psw\oclScript\compiler\TestOperationCallActions.java" />
+    <Content Include="src\psw\oclScript\compiler\TestPrimitiveStatements.java" />
+    <Content Include="src\psw\oclScript\compiler\TestRepetitiveStatements.java" />
+    <Content Include="src\psw\oclScript\virtualmachine\TestActions.java" />
+    <Content Include="src\psw\oclScript\virtualmachine\TestActionSuite.java" />
+    <Content Include="src\psw\oclScript\virtualmachine\TestCollectionAction.java" />
+    <Content Include="src\psw\oclScript\virtualmachine\TestCompositeActions.java" />
+    <Content Include="src\psw\oclScript\virtualmachine\TestJumpActions.java" />
+    <Content Include="src\psw\oclScript\virtualmachine\TestPrimitiveActions.java" />
+    <Content Include="src\psw\parser\semantic\TestArgument.java" />
+    <Content Include="src\psw\parser\semantic\TestAssociationClassCallExp.java" />
+    <Content Include="src\psw\parser\semantic\TestAssociationEndCallExp.java" />
+    <Content Include="src\psw\parser\semantic\TestAttributeCallExp.java" />
+    <Content Include="src\psw\parser\semantic\TestCollectionLiteralExp.java" />
+    <Content Include="src\psw\parser\semantic\TestCollectionOperationsExp.java" />
+    <Content Include="src\psw\parser\semantic\TestDefConstraints.java" />
+    <Content Include="src\psw\parser\semantic\TestEnumLiteralExp.java" />
+    <Content Include="src\psw\parser\semantic\TestIfExp.java" />
+    <Content Include="src\psw\parser\semantic\TestInitConstraints.java" />
+    <Content Include="src\psw\parser\semantic\TestInvConstraints.java" />
+    <Content Include="src\psw\parser\semantic\TestIterateExp.java" />
+    <Content Include="src\psw\parser\semantic\TestIteratorExp.java" />
+    <Content Include="src\psw\parser\semantic\TestLetExp.java" />
+    <Content Include="src\psw\parser\semantic\TestLiteralExp.java" />
+    <Content Include="src\psw\parser\semantic\TestNodeCS.java" />
+    <Content Include="src\psw\parser\semantic\TestOclAnyOperations.java" />
+    <Content Include="src\psw\parser\semantic\TestOCLSemanticAnalyzer.java" />
+    <Content Include="src\psw\parser\semantic\TestOperationCallExp.java" />
+    <Content Include="src\psw\parser\semantic\TestPrePostConstraints.java" />
+    <Content Include="src\psw\parser\semantic\TestPrimitiveLiteralExp.java" />
+    <Content Include="src\psw\parser\semantic\TestPropertyCallExp.java" />
+    <Content Include="src\psw\parser\semantic\TestSemanticAnalysisSuite.java" />
+    <Content Include="src\psw\parser\semantic\TestTupleLiteralExp.java" />
+    <Content Include="src\psw\parser\semantic\TestTypeCS.java" />
+    <Content Include="src\psw\parser\semantic\TestVariableDeclaration.java" />
+    <Content Include="src\psw\project\MyTest.java" />
+    <Content Include="src\psw\project\Teste.java" />
+    <Content Include="src\psw\project\TestPswProject.java" />
+    <Content Include="src\psw\semantics\values\TestBagValue.java" />
+    <Content Include="src\psw\semantics\values\TestBooleanValue.java" />
+    <Content Include="src\psw\semantics\values\TestDateTimeValue.java" />
+    <Content Include="src\psw\semantics\values\TestDateValue.java" />
+    <Content Include="src\psw\semantics\values\TestIntegerValue.java" />
+    <Content Include="src\psw\semantics\values\TestOrderedSetValue.java" />
+    <Content Include="src\psw\semantics\values\TestRealValue.java" />
+    <Content Include="src\psw\semantics\values\TestSequenceValue.java" />
+    <Content Include="src\psw\semantics\values\TestSetValue.java" />
+    <Content Include="src\psw\semantics\values\TestStringValue.java" />
+    <Content Include="src\psw\semantics\values\TestValuesSuite.java" />
+    <Content Include="src\psw\semantics\values\ValuesFactory.java" />
+    <Content Include="src\psw\typeChecker\TestPswOclCompiler.java" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resource\alex.psw" />
+    <None Include="resource\anotherExampleRose.mdl" />
+    <None Include="resource\Book\Appendix.ocl" />
+    <None Include="resource\Book\book.log" />
+    <None Include="resource\Book\book.mdl" />
+    <None Include="resource\Book\book.rxp" />
+    <None Include="resource\Book\Bookpart.ocl" />
+    <None Include="resource\Book\Chapter.ocl" />
+    <None Include="resource\Book\ChapterDependency.ocl" />
+    <None Include="resource\Book\model\Book\book.uml" />
+    <None Include="resource\Book\Period.ocl" />
+    <None Include="resource\Book\Prependix.ocl" />
+    <None Include="resource\exemplo.zargo" />
+    <None Include="resource\loyalty\Burning.ocl" />
+    <None Include="resource\loyalty\Customer.ocl" />
+    <None Include="resource\loyalty\CustomerCard.ocl" />
+    <None Include="resource\loyalty\loyalty.log" />
+    <None Include="resource\loyalty\loyalty.mdl" />
+    <None Include="resource\loyalty\loyalty.md~" />
+    <None Include="resource\loyalty\loyalty.rxp" />
+    <None Include="resource\loyalty\LoyaltyAccount.ocl" />
+    <None Include="resource\loyalty\LoyaltyProgram.ocl" />
+    <None Include="resource\loyalty\Membership.ocl" />
+    <None Include="resource\loyalty\ProgramPartner.ocl" />
+    <None Include="resource\loyalty\Service.ocl" />
+    <None Include="resource\loyalty\ServiceLevel.ocl" />
+    <None Include="resource\loyalty\Transaction.ocl" />
+    <None Include="resource\loyalty\TransactionReport.ocl" />
+    <None Include="resource\loyalty\TransactionReportLine.ocl" />
+    <None Include="resource\myExampleRose.log" />
+    <None Include="resource\myExampleRose.mdl" />
+    <None Include="resource\myExampleRose.md~" />
+    <None Include="resource\myExampleRose.rxp" />
+    <None Include="resource\oclFile01.ocl" />
+    <None Include="resource\oclFile02.ocl" />
+    <None Include="resource\oclFile03.ocl" />
+    <None Include="resource\teste.ocl" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="resource\Book\expressions\Book\" />
+    <Folder Include="src\psw\parser\antlr\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

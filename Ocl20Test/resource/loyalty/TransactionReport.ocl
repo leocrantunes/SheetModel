@@ -1,0 +1,23 @@
+context TransactionReport::name : String 
+  derive: card.owner.name
+
+context TransactionReport::balance : Integer 
+  derive: card.Membership.account.points
+
+context TransactionReport::number : Integer 
+  derive: card.Membership.account.number
+
+context TransactionReport::totalEarned : Integer 
+  derive: lines.transaction->select( oclIsTypeOf( Earning ) ) 
+  .points->sum()
+
+context TransactionReport::totalBurned : Integer 
+  derive: lines.transaction->select( oclIsTypeOf( Burning ) ) 
+  .points->sum()
+
+context TransactionReport 
+  inv dates: lines.date->forAll( d | d.isBefore( from ) and 
+  d.isAfter( from ) )
+
+context TransactionReport 
+  inv cycle: card.transactions->includesAll( lines.transaction )

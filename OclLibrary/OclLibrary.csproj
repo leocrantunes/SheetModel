@@ -1,0 +1,464 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BAE762EF-3E4D-4722-99EA-3CE76B60A7B0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OclLibrary</RootNamespace>
+    <AssemblyName>OclLibrary</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.Tools.Applications.Runtime, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="src\iface\environment\Environment.cs" />
+    <Compile Include="src\iface\evaluation\OclValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\iface\expressions\AssociationClassCallExp.cs" />
+    <Compile Include="src\iface\expressions\OclModelElement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\iface\expressions\VariableDeclaration.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\iface\Ocl20Package.cs" />
+    <Compile Include="src\impl\constraints\OclConstraintOwner.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\impl\expressions\OclExpressionImpl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\impl\expressions\OclModelElementImpl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\impl\expressions\VariableDeclarationImpl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\utils\CSharpExtensions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="src\impl\common\ClassifierConstraintsHolder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\impl\common\CoreAssociationClassImpl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\impl\common\CoreAssociationEndImpl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\impl\common\CoreAssociationHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\impl\common\CoreAssociationImpl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\impl\common\CoreAttributeImpl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\impl\common\CoreBehavioralFeatureImpl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\impl\common\CoreClassifierImpl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\impl\common\CoreDataTypeImpl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\impl\common\CoreEnumerationImpl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\impl\common\CoreEnumLiteralImpl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\impl\common\CoreFeatureImpl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\impl\common\CoreInterfaceImpl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\impl\common\CoreModelElementImpl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\impl\common\CoreModelElementNameGeneratorImpl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\impl\common\CoreModelImpl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\impl\common\CoreNamespaceImpl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\impl\common\CoreOperationImpl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\impl\common\CorePackageImpl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\impl\common\CoreStructuralFeatureImpl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\impl\common\ModelElementNameGenerator.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\impl\environment\EnvironmentFactory.cs" />
+    <Compile Include="src\impl\environment\EnvironmentFactoryManager.cs" />
+    <Compile Include="src\impl\environment\EnvironmentImpl.cs" />
+    <Compile Include="src\impl\environment\NameClashException.cs" />
+    <Compile Include="src\impl\environment\NamedElement.cs" />
+    <Compile Include="src\impl\environment\NamedElementImpl.cs" />
+    <Compile Include="src\impl\environment\NullNameException.cs" />
+    <Compile Include="src\impl\environment\PSWNamedElement.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="src\iface\common\AssociationConnections.cs" />
+    <Compile Include="src\iface\common\AssociationEndClassifier.cs" />
+    <Compile Include="src\iface\common\AttachedStereotype.cs" />
+    <Compile Include="src\iface\common\CommonPackage.cs" />
+    <Compile Include="src\iface\common\CoreAssociation.cs" />
+    <Compile Include="src\iface\common\CoreAssociationClass.cs" />
+    <Compile Include="src\iface\common\CoreAssociationClassClass.cs" />
+    <Compile Include="src\iface\common\CoreAssociationEnd.cs" />
+    <Compile Include="src\iface\common\CoreAssociationEndClass.cs" />
+    <Compile Include="src\iface\common\CoreAttribute.cs" />
+    <Compile Include="src\iface\common\CoreAttributeClass.cs" />
+    <Compile Include="src\iface\common\CoreBehavioralFeature.cs" />
+    <Compile Include="src\iface\common\CoreBehavioralFeatureClass.cs" />
+    <Compile Include="src\iface\common\CoreClass.cs" />
+    <Compile Include="src\iface\common\CoreClassClass.cs" />
+    <Compile Include="src\iface\common\CoreClassifier.cs" />
+    <Compile Include="src\iface\common\CoreClassifierClass.cs" />
+    <Compile Include="src\iface\common\CoreDataType.cs" />
+    <Compile Include="src\iface\common\CoreDataTypeClass.cs" />
+    <Compile Include="src\iface\common\CoreEnumeration.cs" />
+    <Compile Include="src\iface\common\CoreEnumerationClass.cs" />
+    <Compile Include="src\iface\common\CoreEnumLiteral.cs" />
+    <Compile Include="src\iface\common\CoreEnumLiteralClass.cs" />
+    <Compile Include="src\iface\common\CoreFeature.cs" />
+    <Compile Include="src\iface\common\CoreFeatureClass.cs" />
+    <Compile Include="src\iface\common\CoreInterface.cs" />
+    <Compile Include="src\iface\common\CoreInterfaceClass.cs" />
+    <Compile Include="src\iface\common\CoreModel.cs" />
+    <Compile Include="src\iface\common\CoreModelClass.cs" />
+    <Compile Include="src\iface\common\CoreModelElement.cs" />
+    <Compile Include="src\iface\common\CoreModelElementClass.cs" />
+    <Compile Include="src\iface\common\CoreNamespace.cs" />
+    <Compile Include="src\iface\common\CoreNamespaceClass.cs" />
+    <Compile Include="src\iface\common\CoreOperation.cs" />
+    <Compile Include="src\iface\common\CoreOperationClass.cs" />
+    <Compile Include="src\iface\common\CorePackage.cs" />
+    <Compile Include="src\iface\common\CorePackageClass.cs" />
+    <Compile Include="src\iface\common\CorePrimitive.cs" />
+    <Compile Include="src\iface\common\CorePrimitiveClass.cs" />
+    <Compile Include="src\iface\common\CoreStereotype.cs" />
+    <Compile Include="src\iface\common\CoreStereotypeClass.cs" />
+    <Compile Include="src\iface\common\CoreStructuralFeature.cs" />
+    <Compile Include="src\iface\common\CoreStructuralFeatureClass.cs" />
+    <Compile Include="src\iface\common\ElementsForEnv.cs" />
+    <Compile Include="src\iface\common\EnumerationLiterals.cs" />
+    <Compile Include="src\iface\common\FeatureOwnership.cs" />
+    <Compile Include="src\iface\common\FeatureType.cs" />
+    <Compile Include="src\iface\common\Owns.cs" />
+    <Compile Include="src\iface\common\RattributeAssocEnd.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="src\iface\types\BagType.cs" />
+    <Compile Include="src\iface\types\BagTypeClass.cs" />
+    <Compile Include="src\iface\types\CollectionOperation.cs" />
+    <Compile Include="src\iface\types\CollectionOperationClass.cs" />
+    <Compile Include="src\iface\types\CollectionOperationCoreOperation.cs" />
+    <Compile Include="src\iface\types\CollectionType.cs" />
+    <Compile Include="src\iface\types\CollectionTypeClass.cs" />
+    <Compile Include="src\iface\types\CollectionTypeElementTypes.cs" />
+    <Compile Include="src\iface\types\FactoryCollectionType.cs" />
+    <Compile Include="src\iface\types\FactoryTupleType.cs" />
+    <Compile Include="src\iface\types\OclModelElementType.cs" />
+    <Compile Include="src\iface\types\OclModelElementTypeClass.cs" />
+    <Compile Include="src\iface\types\OclModelElementTypeCoreModelElement.cs" />
+    <Compile Include="src\iface\types\OclType.cs" />
+    <Compile Include="src\iface\types\OclTypeClass.cs" />
+    <Compile Include="src\iface\types\OrderedSetType.cs" />
+    <Compile Include="src\iface\types\OrderedSetTypeClass.cs" />
+    <Compile Include="src\iface\types\SequenceType.cs" />
+    <Compile Include="src\iface\types\SequenceTypeClass.cs" />
+    <Compile Include="src\iface\types\SetType.cs" />
+    <Compile Include="src\iface\types\SetTypeClass.cs" />
+    <Compile Include="src\iface\types\TuplePartType.cs" />
+    <Compile Include="src\iface\types\TuplePartTypeClass.cs" />
+    <Compile Include="src\iface\types\TupleType.cs" />
+    <Compile Include="src\iface\types\TupleTypeClass.cs" />
+    <Compile Include="src\iface\types\TupleTypeTuplePartType.cs" />
+    <Compile Include="src\iface\types\TypesPackage.cs" />
+    <Compile Include="src\iface\types\VoidType.cs" />
+    <Compile Include="src\iface\types\VoidTypeClass.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="src\impl\IASTOclVisited.cs" />
+    <Compile Include="src\impl\IASTOclVisitor.cs" />
+    <Compile Include="src\impl\util\AstOclConstraintFactory.cs" />
+    <Compile Include="src\impl\util\AstOclConstraintFactoryImpl.cs" />
+    <Compile Include="src\impl\util\AstOclConstraintFactoryManager.cs" />
+    <Compile Include="src\impl\util\AstOclModelElementFactoryImpl.cs" />
+    <Compile Include="src\impl\util\AstOclModelElementFactoryManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="src\iface\util\AstOclModelElementFactory.cs" />
+    <Compile Include="src\iface\util\AstOclModelElementFactoryClass.cs" />
+    <Compile Include="src\iface\util\UtilPackage.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="src\iface\constraints\BodyExpressionOwnership.cs" />
+    <Compile Include="src\iface\constraints\ConstraintsPackage.cs" />
+    <Compile Include="src\iface\constraints\ExpressionInOcl.cs" />
+    <Compile Include="src\iface\constraints\ExpressionInOclClass.cs" />
+    <Compile Include="src\iface\constraints\FrameLinkConstraint.cs" />
+    <Compile Include="src\iface\constraints\IsContextFor.cs" />
+    <Compile Include="src\iface\constraints\ModelElementExpressionInOcl.cs" />
+    <Compile Include="src\iface\constraints\OclActionBodyConstraint.cs" />
+    <Compile Include="src\iface\constraints\OclAssocEndDeriveConstraint.cs" />
+    <Compile Include="src\iface\constraints\OclAssocEndDeriveConstraintClass.cs" />
+    <Compile Include="src\iface\constraints\OclassocEndDeriveConstraintCoreAssociationEnd.cs" />
+    <Compile Include="src\iface\constraints\OclAssocEndInitConstraint.cs" />
+    <Compile Include="src\iface\constraints\OclAssocEndInitConstraintClass.cs" />
+    <Compile Include="src\iface\constraints\OclassocEndInitConstraintCoreAssociationEnd.cs" />
+    <Compile Include="src\iface\constraints\OclAttributeDefConstraint.cs" />
+    <Compile Include="src\iface\constraints\OclAttributeDefConstraintClass.cs" />
+    <Compile Include="src\iface\constraints\OclAttributeDeriveConstraint.cs" />
+    <Compile Include="src\iface\constraints\OclAttributeDeriveConstraintClass.cs" />
+    <Compile Include="src\iface\constraints\OclattributeDeriveConstraintCoreAttribute.cs" />
+    <Compile Include="src\iface\constraints\OclAttributeInitConstraint.cs" />
+    <Compile Include="src\iface\constraints\OclAttributeInitConstraintClass.cs" />
+    <Compile Include="src\iface\constraints\OclattributeInitConstraintCoreAttribute.cs" />
+    <Compile Include="src\iface\constraints\OclBodyConstraint.cs" />
+    <Compile Include="src\iface\constraints\OclBodyConstraintClass.cs" />
+    <Compile Include="src\iface\constraints\OclClassifierConstraint.cs" />
+    <Compile Include="src\iface\constraints\OclClassifierConstraintClass.cs" />
+    <Compile Include="src\iface\constraints\OclConstraint.cs" />
+    <Compile Include="src\iface\constraints\OclConstraintClass.cs" />
+    <Compile Include="src\iface\constraints\OclconstraintExpressionInOcl.cs" />
+    <Compile Include="src\iface\constraints\OclDefConstraint.cs" />
+    <Compile Include="src\iface\constraints\OclDefConstraintClass.cs" />
+    <Compile Include="src\iface\constraints\OclDefinedAttribute.cs" />
+    <Compile Include="src\iface\constraints\OclDefinedAttributeClass.cs" />
+    <Compile Include="src\iface\constraints\OclDefinedOperation.cs" />
+    <Compile Include="src\iface\constraints\OclDefinedOperationClass.cs" />
+    <Compile Include="src\iface\constraints\OclDeriveConstraint.cs" />
+    <Compile Include="src\iface\constraints\OclDeriveConstraintClass.cs" />
+    <Compile Include="src\iface\constraints\OclInitConstraint.cs" />
+    <Compile Include="src\iface\constraints\OclInitConstraintClass.cs" />
+    <Compile Include="src\iface\constraints\OclInvariantConstraint.cs" />
+    <Compile Include="src\iface\constraints\OclInvariantConstraintClass.cs" />
+    <Compile Include="src\iface\constraints\OclOperationConstraint.cs" />
+    <Compile Include="src\iface\constraints\OclOperationConstraintClass.cs" />
+    <Compile Include="src\iface\constraints\OclOperationConstraintCoreOperation.cs" />
+    <Compile Include="src\iface\constraints\OclOperationDefConstraint.cs" />
+    <Compile Include="src\iface\constraints\OclOperationDefConstraintClass.cs" />
+    <Compile Include="src\iface\constraints\OclPostConstraint.cs" />
+    <Compile Include="src\iface\constraints\OclPostConstraintClass.cs" />
+    <Compile Include="src\iface\constraints\OclPreConstraint.cs" />
+    <Compile Include="src\iface\constraints\OclPreConstraintClass.cs" />
+    <Compile Include="src\iface\constraints\OclPrePostConstraint.cs" />
+    <Compile Include="src\iface\constraints\OclPrePostConstraintClass.cs" />
+    <Compile Include="src\iface\constraints\Postownership.cs" />
+    <Compile Include="src\iface\constraints\Preownership.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="src\iface\expressions\AssociationClassCallExpClass.cs" />
+    <Compile Include="src\iface\expressions\AssociationClassCallExpCoreAssociationClass.cs" />
+    <Compile Include="src\iface\expressions\AssociationEndCallExp.cs" />
+    <Compile Include="src\iface\expressions\AssociationEndCallExpClass.cs" />
+    <Compile Include="src\iface\expressions\AssociationEndCallExpCoreAssociationEnd.cs" />
+    <Compile Include="src\iface\expressions\AttributeCallExp.cs" />
+    <Compile Include="src\iface\expressions\AttributeCallExpClass.cs" />
+    <Compile Include="src\iface\expressions\AttributeCallExpCoreAttribute.cs" />
+    <Compile Include="src\iface\expressions\BooleanLiteralExp.cs" />
+    <Compile Include="src\iface\expressions\BooleanLiteralExpClass.cs" />
+    <Compile Include="src\iface\expressions\CollectionItem.cs" />
+    <Compile Include="src\iface\expressions\CollectionItemClass.cs" />
+    <Compile Include="src\iface\expressions\CollectionItemOclExpression.cs" />
+    <Compile Include="src\iface\expressions\CollectionKind.cs" />
+    <Compile Include="src\iface\expressions\CollectionKindEnum.cs" />
+    <Compile Include="src\iface\expressions\CollectionLiteralExp.cs" />
+    <Compile Include="src\iface\expressions\CollectionLiteralExpClass.cs" />
+    <Compile Include="src\iface\expressions\CollectionLiteralExpLiteralPart.cs" />
+    <Compile Include="src\iface\expressions\CollectionLiteralPart.cs" />
+    <Compile Include="src\iface\expressions\CollectionLiteralPartClass.cs" />
+    <Compile Include="src\iface\expressions\CollectionLiteralPartCoreClassifier.cs" />
+    <Compile Include="src\iface\expressions\CollectionRange.cs" />
+    <Compile Include="src\iface\expressions\CollectionRangeClass.cs" />
+    <Compile Include="src\iface\expressions\CollectionRangeFirst.cs" />
+    <Compile Include="src\iface\expressions\CollectionRangeLast.cs" />
+    <Compile Include="src\iface\expressions\CoreAssociationEnd.cs" />
+    <Compile Include="src\iface\expressions\EnumLiteralExp.cs" />
+    <Compile Include="src\iface\expressions\EnumLiteralExpClass.cs" />
+    <Compile Include="src\iface\expressions\EnumLiteralExpCoreEnumLiteral.cs" />
+    <Compile Include="src\iface\expressions\ExpressionsPackage.cs" />
+    <Compile Include="src\iface\expressions\FactoryOclModelElement.cs" />
+    <Compile Include="src\iface\expressions\IfExp.cs" />
+    <Compile Include="src\iface\expressions\IfExpClass.cs" />
+    <Compile Include="src\iface\expressions\IfExpCondition.cs" />
+    <Compile Include="src\iface\expressions\IfExpElse.cs" />
+    <Compile Include="src\iface\expressions\IfExpThen.cs" />
+    <Compile Include="src\iface\expressions\IntegerLiteralExp.cs" />
+    <Compile Include="src\iface\expressions\IntegerLiteralExpClass.cs" />
+    <Compile Include="src\iface\expressions\InvalidLiteralExp.cs" />
+    <Compile Include="src\iface\expressions\IterateExp.cs" />
+    <Compile Include="src\iface\expressions\IterateExpClass.cs" />
+    <Compile Include="src\iface\expressions\IterateExpVariableDeclaration.cs" />
+    <Compile Include="src\iface\expressions\IteratorExp.cs" />
+    <Compile Include="src\iface\expressions\IteratorExpClass.cs" />
+    <Compile Include="src\iface\expressions\LetExp.cs" />
+    <Compile Include="src\iface\expressions\LetExpClass.cs" />
+    <Compile Include="src\iface\expressions\LetExpOclExpression.cs" />
+    <Compile Include="src\iface\expressions\LetExpVariableDeclaration.cs" />
+    <Compile Include="src\iface\expressions\LiteralExp.cs" />
+    <Compile Include="src\iface\expressions\LiteralExpClass.cs" />
+    <Compile Include="src\iface\expressions\LoopExp.cs" />
+    <Compile Include="src\iface\expressions\LoopExpClass.cs" />
+    <Compile Include="src\iface\expressions\LoopExpOclExpression.cs" />
+    <Compile Include="src\iface\expressions\LoopExpVariableDeclaration.cs" />
+    <Compile Include="src\iface\expressions\ModelPropertyCallExp.cs" />
+    <Compile Include="src\iface\expressions\ModelPropertyCallExpClass.cs" />
+    <Compile Include="src\iface\expressions\NavigationCallExp.cs" />
+    <Compile Include="src\iface\expressions\NavigationCallExpClass.cs" />
+    <Compile Include="src\iface\expressions\NavigationCallExpCoreAssociationEnd.cs" />
+    <Compile Include="src\iface\expressions\NavigationCallExpOclExpression.cs" />
+    <Compile Include="src\iface\expressions\NullLiteralExp.cs" />
+    <Compile Include="src\iface\expressions\NumericLiteralExp.cs" />
+    <Compile Include="src\iface\expressions\NumericLiteralExpClass.cs" />
+    <Compile Include="src\iface\expressions\OclExpression.cs" />
+    <Compile Include="src\iface\expressions\OclExpressionClass.cs" />
+    <Compile Include="src\iface\expressions\OclExpressionClassifier.cs" />
+    <Compile Include="src\iface\expressions\OclMessageExp.cs" />
+    <Compile Include="src\iface\expressions\OclMessageExpClass.cs" />
+    <Compile Include="src\iface\expressions\OclModelElementClass.cs" />
+    <Compile Include="src\iface\expressions\OclTypeLiteralExp.cs" />
+    <Compile Include="src\iface\expressions\OclTypeLiteralExpClass.cs" />
+    <Compile Include="src\iface\expressions\OperationCallExp.cs" />
+    <Compile Include="src\iface\expressions\OperationCallExpClass.cs" />
+    <Compile Include="src\iface\expressions\OperationCallExpCoreOperation.cs" />
+    <Compile Include="src\iface\expressions\OperationCallExpOclExpression.cs" />
+    <Compile Include="src\iface\expressions\PrimitiveLiteralExp.cs" />
+    <Compile Include="src\iface\expressions\PrimitiveLiteralExpClass.cs" />
+    <Compile Include="src\iface\expressions\PropertyCallExp.cs" />
+    <Compile Include="src\iface\expressions\PropertyCallExpClass.cs" />
+    <Compile Include="src\iface\expressions\PropertyCallExpOclExpression.cs" />
+    <Compile Include="src\iface\expressions\RealLiteralExp.cs" />
+    <Compile Include="src\iface\expressions\RealLiteralExpClass.cs" />
+    <Compile Include="src\iface\expressions\StringLiteralExp.cs" />
+    <Compile Include="src\iface\expressions\StringLiteralExpClass.cs" />
+    <Compile Include="src\iface\expressions\TupleLiteralExp.cs" />
+    <Compile Include="src\iface\expressions\TupleLiteralExpClass.cs" />
+    <Compile Include="src\iface\expressions\TupleLiteralExpTuplePart.cs" />
+    <Compile Include="src\iface\expressions\VariableDeclarationClass.cs" />
+    <Compile Include="src\iface\expressions\VariableDeclarationCoreClassifier.cs" />
+    <Compile Include="src\iface\expressions\VariableDeclarationOclExpression.cs" />
+    <Compile Include="src\iface\expressions\VariableExp.cs" />
+    <Compile Include="src\iface\expressions\VariableExpClass.cs" />
+    <Compile Include="src\iface\expressions\VariableExpVariableDeclaration.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="src\iface\environment\EnvironmentClass.cs" />
+    <Compile Include="src\iface\environment\EnvironmentPackage.cs" />
+    <Compile Include="src\iface\environment\EnvironmentParent.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="src\impl\constraints\ExpressionInOclImpl.cs" />
+    <Compile Include="src\impl\constraints\OclAssocEndDeriveConstraintImpl.cs" />
+    <Compile Include="src\impl\constraints\OclAssocEndInitConstraintImpl.cs" />
+    <Compile Include="src\impl\constraints\OclAttributeDeriveConstraintImpl.cs" />
+    <Compile Include="src\impl\constraints\OclAttributeInitConstraintImpl.cs" />
+    <Compile Include="src\impl\constraints\OclBodyConstraintImpl.cs" />
+    <Compile Include="src\impl\constraints\OclClassifierConstraintImpl.cs" />
+    <Compile Include="src\impl\constraints\OclConstraintImpl.cs" />
+    <Compile Include="src\impl\constraints\OclDefConstraintImpl.cs" />
+    <Compile Include="src\impl\constraints\OclDefinedAttributeImpl.cs" />
+    <Compile Include="src\impl\constraints\OclDefinedOperationImpl.cs" />
+    <Compile Include="src\impl\constraints\OclInvariantConstraintImpl.cs" />
+    <Compile Include="src\impl\constraints\OclOperationConstraintImpl.cs" />
+    <Compile Include="src\impl\constraints\OclPostConstraintImpl.cs" />
+    <Compile Include="src\impl\constraints\OclPreConstraintImpl.cs" />
+    <Compile Include="src\impl\constraints\OclPrePostConstraintImpl.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="src\impl\expressions\AssociationClassCallExpImpl.cs" />
+    <Compile Include="src\impl\expressions\AssociationEndCallExpImpl.cs" />
+    <Compile Include="src\impl\expressions\AttributeCallExpImpl.cs" />
+    <Compile Include="src\impl\expressions\BooleanLiteralExpImpl.cs" />
+    <Compile Include="src\impl\expressions\CollectionItemImpl.cs" />
+    <Compile Include="src\impl\expressions\CollectionLiteralExpImpl.cs" />
+    <Compile Include="src\impl\expressions\CollectionLiteralPartImpl.cs" />
+    <Compile Include="src\impl\expressions\CollectionRangeImpl.cs" />
+    <Compile Include="src\impl\expressions\EnumLiteralExpImpl.cs" />
+    <Compile Include="src\impl\expressions\IfExpImpl.cs" />
+    <Compile Include="src\impl\expressions\IntegerLiteralExpImpl.cs" />
+    <Compile Include="src\impl\expressions\InvalidLiteralExpImpl.cs" />
+    <Compile Include="src\impl\expressions\IterateExpImpl.cs" />
+    <Compile Include="src\impl\expressions\IteratorExpImpl.cs" />
+    <Compile Include="src\impl\expressions\LetExpImpl.cs" />
+    <Compile Include="src\impl\expressions\LiteralExpImpl.cs" />
+    <Compile Include="src\impl\expressions\LoopExpImpl.cs" />
+    <Compile Include="src\impl\expressions\ModelPropertyCallExpImpl.cs" />
+    <Compile Include="src\impl\expressions\NavigationCallExpImpl.cs" />
+    <Compile Include="src\impl\expressions\NullLiteralExpImpl.cs" />
+    <Compile Include="src\impl\expressions\NumericLiteralExpImpl.cs" />
+    <Compile Include="src\impl\expressions\OclTypeLiteralExpImpl.cs" />
+    <Compile Include="src\impl\expressions\OperationCallExpImpl.cs" />
+    <Compile Include="src\impl\expressions\PrimitiveLiteralExpImpl.cs" />
+    <Compile Include="src\impl\expressions\PropertyCallExpImpl.cs" />
+    <Compile Include="src\impl\expressions\RealLiteralExpImpl.cs" />
+    <Compile Include="src\impl\expressions\StringLiteralExpImpl.cs" />
+    <Compile Include="src\impl\expressions\TupleLiteralExpImpl.cs" />
+    <Compile Include="src\impl\expressions\VariableExpImpl.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="src\impl\types\BagTypeImpl.cs" />
+    <Compile Include="src\impl\types\CollectionOperationImpl.cs" />
+    <Compile Include="src\impl\types\CollectionTypeImpl.cs" />
+    <Compile Include="src\impl\types\OclModelElementTypeImpl.cs" />
+    <Compile Include="src\impl\types\OrderedSetTypeImpl.cs" />
+    <Compile Include="src\impl\types\SequenceTypeImpl.cs" />
+    <Compile Include="src\impl\types\SetTypeImpl.cs" />
+    <Compile Include="src\impl\types\TuplePartTypeImpl.cs" />
+    <Compile Include="src\impl\types\TupleTypeImpl.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

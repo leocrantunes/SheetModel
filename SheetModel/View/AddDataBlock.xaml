@@ -1,0 +1,42 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="SheetModel.AddDataBlock"
+	x:Name="Window"
+	Title="Adicionar Bloco de Dados" SizeToContent="WidthAndHeight" ResizeMode="NoResize">
+	<Window.Resources>
+		<DataTemplate x:Key="DataTemplate1">
+			<StackPanel Orientation="Horizontal" Height="20">
+				<CheckBox Content="{Binding Name}" Width="150" Margin="0" VerticalAlignment="Center" IsChecked="{Binding IsSelected}"/>
+				<CheckBox Content="Totalizador" Width="100" VerticalAlignment="Center" IsChecked="{Binding HasTotal}"/>
+			</StackPanel>
+		</DataTemplate>
+	</Window.Resources>
+
+	<StackPanel x:Name="LayoutRoot" Margin="8">
+		<StackPanel Orientation="Horizontal" Height="24">
+			<TextBlock TextWrapping="Wrap" Margin="0" Text="Classe vinculada:" Width="110" VerticalAlignment="Center"/>
+			<TextBlock TextWrapping="Wrap" VerticalAlignment="Center" Text="{Binding TargetClass.Name}"/>
+		</StackPanel>
+		<StackPanel Orientation="Horizontal" Height="24">
+			<TextBlock TextWrapping="Wrap" Margin="0" Text="Relacionamento:" Width="110" VerticalAlignment="Center"/>
+			<TextBlock TextWrapping="Wrap" VerticalAlignment="Center" Text="{Binding AssociationString}"/>
+		</StackPanel>
+		<StackPanel Orientation="Horizontal" Height="24">
+			<TextBlock TextWrapping="Wrap" Margin="0" Text="Nome do bloco:" Width="110" VerticalAlignment="Center"/>
+			<TextBox TextWrapping="Wrap" VerticalAlignment="Center" Width="210" Text="{Binding Name}"/>
+		</StackPanel>
+		<StackPanel Orientation="Horizontal" Height="24">
+			<TextBlock TextWrapping="Wrap" Margin="0" Text="Tipo do bloco:" Width="110" VerticalAlignment="Center"/>
+			<TextBlock TextWrapping="Wrap" VerticalAlignment="Center" Text="{Binding TypeString}"/>
+		</StackPanel>
+		<StackPanel Orientation="Horizontal" Height="24">
+			<TextBlock TextWrapping="Wrap" Margin="0" Text="Colunas:" Width="110" VerticalAlignment="Center"/>
+		</StackPanel>
+		<ItemsControl Height="146" Margin="0" ItemsSource="{Binding TargetClass.ModelAttributes}" ItemTemplate="{DynamicResource DataTemplate1}"/>
+		<StackPanel Orientation="Horizontal" Height="24" HorizontalAlignment="Center">
+			<Button x:Name="btnOk" Content="Ok" Width="75" Margin="0,0,10,0" Click="btnOk_Click"/>
+			<Button x:Name="btnCancel" Content="Cancel" Width="75" Click="btnCancel_Click"/>
+		</StackPanel>
+	</StackPanel>
+</Window>

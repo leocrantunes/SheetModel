@@ -1,0 +1,31 @@
+--context LoyaltyAccount 
+--  def: turnover : Real = transactions.amount->sum()
+
+context LoyaltyAccount::isEmpty(): Boolean 
+  pre : true -- none 
+  post: result = (points = 0)
+
+context LoyaltyAccount::usedServices : Set(Service) 
+  derive: transactions.generatedBy->asSet()
+
+context LoyaltyAccount::points : Integer 
+  init: 0
+
+context LoyaltyAccount::transactions : Set(Transaction) 
+  init: Set{}
+
+context LoyaltyAccount::getCustomerName() : String 
+  body: Membership.card.owner.name
+
+context LoyaltyAccount 
+  inv oneOwner: transactions.card.owner->asSet()->size() = 1
+
+context LoyaltyAccount::totalPointsEarned : Integer 
+  derive: transactions->select( oclIsTypeOf( Earning ) ) 
+  .points->sum()
+
+context LoyaltyAccount 
+  inv points: points > 0 implies transactions->exists(t | t.points > 0)
+
+context LoyaltyAccount 
+  inv transactions: transactions.points->exists(p : Integer | p = 500 )
