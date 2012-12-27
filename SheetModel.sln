@@ -3,10 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SheetModel", "SheetModel\SheetModel.csproj", "{1870EA98-6DC6-45A0-AACF-23E77399D247}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OclParser", "OclParser\OclParser.csproj", "{1566069E-FEB9-4567-8228-67CBEF314A78}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OclLibrary", "OclLibrary\OclLibrary.csproj", "{BAE762EF-3E4D-4722-99EA-3CE76B60A7B0}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ocl20", "Ocl20\Ocl20.csproj", "{364D247C-51B0-448C-8A42-7695EF934B36}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ocl20Test", "Ocl20Test\Ocl20Test.csproj", "{CBBF7939-0502-4D67-BF8F-BA1C761A072A}"
@@ -41,26 +37,6 @@ Global
 		{1870EA98-6DC6-45A0-AACF-23E77399D247}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{1870EA98-6DC6-45A0-AACF-23E77399D247}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{1870EA98-6DC6-45A0-AACF-23E77399D247}.Release|x86.ActiveCfg = Release|Any CPU
-		{1566069E-FEB9-4567-8228-67CBEF314A78}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{1566069E-FEB9-4567-8228-67CBEF314A78}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
-		{1566069E-FEB9-4567-8228-67CBEF314A78}.Debug|Mixed Platforms.Build.0 = Debug|x86
-		{1566069E-FEB9-4567-8228-67CBEF314A78}.Debug|x86.ActiveCfg = Debug|x86
-		{1566069E-FEB9-4567-8228-67CBEF314A78}.Debug|x86.Build.0 = Debug|x86
-		{1566069E-FEB9-4567-8228-67CBEF314A78}.Release|Any CPU.ActiveCfg = Release|x86
-		{1566069E-FEB9-4567-8228-67CBEF314A78}.Release|Mixed Platforms.ActiveCfg = Release|x86
-		{1566069E-FEB9-4567-8228-67CBEF314A78}.Release|Mixed Platforms.Build.0 = Release|x86
-		{1566069E-FEB9-4567-8228-67CBEF314A78}.Release|x86.ActiveCfg = Release|x86
-		{1566069E-FEB9-4567-8228-67CBEF314A78}.Release|x86.Build.0 = Release|x86
-		{BAE762EF-3E4D-4722-99EA-3CE76B60A7B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BAE762EF-3E4D-4722-99EA-3CE76B60A7B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BAE762EF-3E4D-4722-99EA-3CE76B60A7B0}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{BAE762EF-3E4D-4722-99EA-3CE76B60A7B0}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{BAE762EF-3E4D-4722-99EA-3CE76B60A7B0}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{BAE762EF-3E4D-4722-99EA-3CE76B60A7B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BAE762EF-3E4D-4722-99EA-3CE76B60A7B0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BAE762EF-3E4D-4722-99EA-3CE76B60A7B0}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{BAE762EF-3E4D-4722-99EA-3CE76B60A7B0}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{BAE762EF-3E4D-4722-99EA-3CE76B60A7B0}.Release|x86.ActiveCfg = Release|Any CPU
 		{364D247C-51B0-448C-8A42-7695EF934B36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{364D247C-51B0-448C-8A42-7695EF934B36}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{364D247C-51B0-448C-8A42-7695EF934B36}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
