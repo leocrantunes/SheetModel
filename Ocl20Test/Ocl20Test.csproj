@@ -62,7 +62,9 @@
     <Content Include="resource\loyalty\loyalty.xml" />
     <Content Include="resource\myExamplePoseidon.xml" />
     <Content Include="resource\myExamplePoseidon2.xml" />
-    <Content Include="resource\myExampleRose.xml" />
+    <Content Include="resource\myExampleRose.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="resource\myMeta.xml" />
     <Content Include="src\MDRRepository\ExemploRepository13.java" />
     <Content Include="src\MDRRepository\ExemploRepository14.java" />

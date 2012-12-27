@@ -4,6 +4,7 @@ using Ocl20.library.iface;
 using Ocl20.library.iface.common;
 using Ocl20.library.impl.environment;
 using Ocl20.library.impl.util;
+using Ocl20.parser.semantics.types;
 using Environment = Ocl20.library.iface.environment.Environment;
 
 namespace Ocl20.library.impl.common
@@ -13,9 +14,6 @@ namespace Ocl20.library.impl.common
         private	Object mainPackage;
         private Ocl20Package oclPackage;
 	
-        /* (non-Javadoc)
-	 * @see ocl20.CoreModel#toOclType(ocl20.CoreClassifier)
-	 */
         public CoreClassifier toOclType(CoreClassifier classifier) {
             CoreClassifier	oclType = getPrimitiveType(classifier);
             return	oclType == null ? classifier : oclType;
@@ -62,9 +60,6 @@ namespace Ocl20.library.impl.common
             return	result;
         }
 
-        /* (non-Javadoc)
-	 * @see ocl20.CoreModel#getAssociationClassesForClassifier(ocl20.CoreClassifier)
-	 */
         public List<object> getAssociationClassesForClassifier(
             CoreClassifier classifier) {
             List<object> associationClassesCollection = new List<object>();
@@ -118,10 +113,7 @@ namespace Ocl20.library.impl.common
         public object getMainPackage() {
             return	this.mainPackage;
         }
-    
-        /* (non-Javadoc)
-	 * @see ocl20.common.CoreModel#setOclPackage(ocl20.Ocl20Package)
-	 */
+
         public void setOclPackage(Ocl20Package oclPackage) {
             this.associations = null;
             this.oclPackage = oclPackage;
@@ -162,9 +154,6 @@ namespace Ocl20.library.impl.common
             addAllClassifiersFromInnerPackages(isFirstLevel, this, environment);
         }
 
-        /* (non-Javadoc)
-	 * @see implocl20.CorePackageImpl#elementShouldBeAddedToEnvironment(ocl20.CoreModelElement)
-	 */
         protected override bool elementShouldBeAddedToEnvironment(CoreModelElement element) {
             return base.elementShouldBeAddedToEnvironment(element) && 
                    ! isPrimitiveType(element);

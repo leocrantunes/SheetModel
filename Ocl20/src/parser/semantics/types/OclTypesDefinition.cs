@@ -3,60 +3,63 @@ using System.Collections.Generic;
 using Ocl20.library.iface;
 using Ocl20.library.iface.common;
 using Ocl20.library.iface.types;
+using Ocl20.library.impl.common;
 using Ocl20.library.impl.environment;
 using Environment = Ocl20.library.iface.environment.Environment;
 
-public class OclTypesDefinition {
+namespace Ocl20.parser.semantics.types
+{
+    public class OclTypesDefinition {
 
-	    private static String[] collectionNames = {
-	        "Set", "Bag", "Sequence", "OrderedSet", "Collection"
-	    };
-	    private static String[] genericCollectionNames = {
-	        "Set<", "Bag<", "Sequence<", "OrderedSet<", "Collection<"
-	    };
+        private static String[] collectionNames = {
+            "Set", "Bag", "Sequence", "OrderedSet", "Collection"
+        };
+        private static String[] genericCollectionNames = {
+            "Set<", "Bag<", "Sequence<", "OrderedSet<", "Collection<"
+        };
 	    
-	    private static Dictionary<String, String> basicTypes;
+        private static Dictionary<String, String> basicTypes;
 	    
-	    static OclTypesDefinition() {
-	    	basicTypes = new Dictionary<string, string>();
-	    	basicTypes.Add("REAL", "Real");
-	    	basicTypes.Add("DOUBLE", "Real");
-	    	basicTypes.Add("FLOAT", "Real");
-	    	basicTypes.Add("INTEGER", "Integer");
-	    	basicTypes.Add("BYTE", "Integer");
-	    	basicTypes.Add("SHORT", "Integer");
-	    	basicTypes.Add("INT", "Integer");
-	    	basicTypes.Add("LONG", "Integer");
-	    	basicTypes.Add("STRING", "String");
-	    	basicTypes.Add("BOOLEAN", "Boolean");
-	    	basicTypes.Add("BOOL", "Boolean");
-	    	basicTypes.Add("DATE", "Date");
-	    	basicTypes.Add("DATETIME", "DateTime");
-	    	basicTypes.Add("VOID", "oclVoid");
-	    	basicTypes.Add("OCLANY", "OclAny");
-	    }
+        static OclTypesDefinition() {
+            basicTypes = new Dictionary<string, string>();
+            basicTypes.Add("REAL", "Real");
+            basicTypes.Add("DOUBLE", "Real");
+            basicTypes.Add("FLOAT", "Real");
+            basicTypes.Add("INTEGER", "Integer");
+            basicTypes.Add("BYTE", "Integer");
+            basicTypes.Add("SHORT", "Integer");
+            basicTypes.Add("INT", "Integer");
+            basicTypes.Add("LONG", "Integer");
+            basicTypes.Add("STRING", "String");
+            basicTypes.Add("BOOLEAN", "Boolean");
+            basicTypes.Add("BOOL", "Boolean");
+            basicTypes.Add("DATE", "Date");
+            basicTypes.Add("DATETIME", "DateTime");
+            basicTypes.Add("VOID", "oclVoid");
+            basicTypes.Add("OCLANY", "OclAny");
+        }
 	    
-	    private static String UMLMODEL_DEFINING_OCLPRIMITIVETYPES = "OCLTypes";
-	    private static Environment oclTypesEnvironment = null;
-	    private static Ocl20Package oclPackage = null;
-	    private static CoreModel oclTypesModel = null;
+        private static String UMLMODEL_DEFINING_OCLPRIMITIVETYPES = "OCLTypes";
+        private static Environment oclTypesEnvironment = null;
+        private static Ocl20Package oclPackage = null;
+        private static CoreModel oclTypesModel = null;
 
-	    public static Environment getEnvironment() {
-	    	try {
-	    		loadTypesDefinitions();
-	    		return	oclTypesEnvironment;
-	    	} catch (Exception e) {
-	    		Console.WriteLine(e.StackTrace);
-	    	}
+        public static Environment getEnvironment() {
+            try {
+                loadTypesDefinitions();
+                return	oclTypesEnvironment;
+            } catch (Exception e) {
+                Console.WriteLine(e.StackTrace);
+            }
 	    	
-	    	return	oclTypesEnvironment;
-	    }
+            return	oclTypesEnvironment;
+        }
 	    
-	    public static void resetEnvironment() {
-	    	oclTypesEnvironment = null;
-	    }
+        public static void resetEnvironment() {
+            oclTypesEnvironment = null;
+        }
 	    
-	    private static void loadTypesDefinitions() {
+        private static void loadTypesDefinitions() {
             if (oclTypesEnvironment == null)
             {
                 //Uml14ModelsRepository modelRepository = new Uml14ModelsRepository(MOFMetamodelRepositoryFactory.getRepository());
@@ -64,6 +67,8 @@ public class OclTypesDefinition {
                 //modelRepository.importModel(extentName, "resource/metamodels/oclPrimitiveTypes.xml");
 
                 //oclTypesModel = modelRepository.getModelWithoutOCL(extentName);
+
+                //oclTypesModel = new CoreModelImpl();
 
                 if (oclTypesModel != null)
                 {
@@ -76,137 +81,136 @@ public class OclTypesDefinition {
                     oclTypesModel.populateEnvironment(oclTypesEnvironment);
                 }
             }
-	    }
+        }
 	    
-	    public static CoreClassifier getType(String name) {
-	    	if (name.IndexOf("::", System.StringComparison.Ordinal) >= 0) {
-		        return (CoreClassifier) oclTypesEnvironment.lookupPathName(name);
-	    	} else {
-		        return (CoreClassifier) oclTypesEnvironment.lookup(name);
-	    	}
-	    }
+        public static CoreClassifier getType(String name) {
+            if (name.IndexOf("::", StringComparison.Ordinal) >= 0) {
+                return (CoreClassifier) oclTypesEnvironment.lookupPathName(name);
+            } else {
+                return (CoreClassifier) oclTypesEnvironment.lookup(name);
+            }
+        }
 
-	    public static bool isOclPrimitiveType(String name) {
-	        String type;
+        public static bool isOclPrimitiveType(String name) {
+            String type;
             basicTypes.TryGetValue(name.ToUpper(), out type);
-	    	return ((oclTypesEnvironment != null) && (oclTypesEnvironment.lookup(name) != null)) || type != null;
-	    }
+            return ((oclTypesEnvironment != null) && (oclTypesEnvironment.lookup(name) != null)) || type != null;
+        }
 
-	    public static CoreClassifier getOclPrimitiveType(String name) {
-	    	if (oclTypesEnvironment != null) {
-    			String	oclTypeName;
+        public static CoreClassifier getOclPrimitiveType(String name) {
+            if (oclTypesEnvironment != null) {
+                String	oclTypeName;
                 basicTypes.TryGetValue(name.ToUpper(), out oclTypeName);
-    			CoreClassifier oclClassifier = (CoreClassifier) oclTypesEnvironment.lookup(oclTypeName);
+                CoreClassifier oclClassifier = (CoreClassifier) oclTypesEnvironment.lookup(oclTypeName);
     			
-    			if (oclTypeName != null && oclClassifier  != null)
-    				return	oclClassifier;
-    			else if (oclTypesEnvironment.lookup(name) != null)
-	    			return	(CoreClassifier) oclTypesEnvironment.lookup(name); 
-	    	} 
-	    	return	null;
-	    }
+                if (oclTypeName != null && oclClassifier  != null)
+                    return	oclClassifier;
+                else if (oclTypesEnvironment.lookup(name) != null)
+                    return	(CoreClassifier) oclTypesEnvironment.lookup(name); 
+            } 
+            return	null;
+        }
 	    
-	    public static bool isOclGenericCollectionType(String name) {
-	        for (int i = 0; i < genericCollectionNames.Length; i++)
-	            if (name.StartsWith(genericCollectionNames[i])) {
-	                return true;
-	            }
+        public static bool isOclGenericCollectionType(String name) {
+            for (int i = 0; i < genericCollectionNames.Length; i++)
+                if (name.StartsWith(genericCollectionNames[i])) {
+                    return true;
+                }
 
-	        return false;
-	    }
+            return false;
+        }
 
-	    public static bool isOclCollectionType(String name) {
-	        for (int i = 0; i < collectionNames.Length; i++)
-	            if (name.StartsWith(collectionNames[i])) {
-	                return true;
-	            }
+        public static bool isOclCollectionType(String name) {
+            for (int i = 0; i < collectionNames.Length; i++)
+                if (name.StartsWith(collectionNames[i]))
+                    return true;
+            
+            return false;
+        }
 
-	        return false;
-	    }
-
-	    public static bool isOclTupleType(String name) {
-	        return (name.StartsWith("Tuple("));
-	    }
+        public static bool isOclTupleType(String name) {
+            return (name.StartsWith("Tuple("));
+        }
 	    
-	    public static bool isOclVoidType(String name) {
-	    	return name.Equals("OclVoid");
-	    }
+        public static bool isOclVoidType(String name) {
+            return name.Equals("OclVoid");
+        }
 
-	    public static bool isOclType(String name) {
-	    	return isOclPrimitiveType(name) || isOclCollectionType(name) || isOclTupleType(name) || isOclVoidType(name);
-	    }
+        public static bool isOclType(String name) {
+            return isOclPrimitiveType(name) || isOclCollectionType(name) || isOclTupleType(name) || isOclVoidType(name);
+        }
 	    
-	    public static bool isOclTypesModel(CoreModel model) {
-	        return model.getEnvironmentWithoutParents()
-	                    .lookup("Set<T>") != null;
-	    }
+        public static bool isOclTypesModel(CoreModel model) {
+            return model.getEnvironmentWithoutParents()
+                        .lookup("Set<T>") != null;
+        }
 
-	    public static bool typeNeedsToBeParsed(String name) {
-	        for (int i = 0; i < collectionNames.Length; i++)
-	            if (name.StartsWith(collectionNames[i]) && (name.IndexOf('<') < 0)) {
-	                return true;
-	            }
-	        	if (name.StartsWith("Tuple") && (name.IndexOf('<') < 0)) {
-	        		return	true;
-	        	}
+        public static bool typeNeedsToBeParsed(String name) {
+            for (int i = 0; i < collectionNames.Length; i++)
+                if (name.StartsWith(collectionNames[i]) && (name.IndexOf('<') < 0)) {
+                    return true;
+                }
+            if (name.StartsWith("Tuple") && (name.IndexOf('<') < 0)) {
+                return	true;
+            }
 
-	        return false;
-	    }
+            return false;
+        }
 
-	    public static bool typeNeedsToBeParsed(CoreClassifier classifier) {
-	    	if  (! (classifier.GetType() == typeof(CollectionType))) {
-	    		return	typeNeedsToBeParsed(classifier.getName());
-	    	}
+        public static bool typeNeedsToBeParsed(CoreClassifier classifier) {
+            if  (! (classifier.GetType() == typeof(CollectionType))) {
+                return	typeNeedsToBeParsed(classifier.getName());
+            }
 
-	        return false;
-	    }
+            return false;
+        }
 
-	    public void populateEnvironment(Environment environment, CoreModel model) {
-	        const bool isFirstLevel = true;
+        public void populateEnvironment(Environment environment, CoreModel model) {
+            const bool isFirstLevel = true;
 
-	        addAllClassifiersFromInnerPackages(isFirstLevel, model, environment);
-	    }
+            addAllClassifiersFromInnerPackages(isFirstLevel, model, environment);
+        }
 
-	    protected void addAllClassifiersFromInnerPackages(
-	        bool firstLevel,
-	        CorePackage aPackage,
-	        Environment environment) {
-	        foreach (CoreModelElement element in aPackage.getElemOwnedElements()) {
-	            if (element.getName() == null) {
-	                continue;
-	            }
+        protected void addAllClassifiersFromInnerPackages(
+            bool firstLevel,
+            CorePackage aPackage,
+            Environment environment) {
+            foreach (CoreModelElement element in aPackage.getElemOwnedElements()) {
+                if (element.getName() == null) {
+                    continue;
+                }
 
-	            if (isClassifierToBeAdded(element)) {
-	                addElementToEnvironment(element.getName(),
-	                        element,
-	                        environment);
-	            } else if (element.GetType() == typeof(CorePackage)) {
-	                if (firstLevel) {
-	                    addElementToEnvironment(element.getName(),
-	                            element,
-	                            environment);
-	                }
+                if (isClassifierToBeAdded(element)) {
+                    addElementToEnvironment(element.getName(),
+                                            element,
+                                            environment);
+                } else if (element.GetType() == typeof(CorePackage)) {
+                    if (firstLevel) {
+                        addElementToEnvironment(element.getName(),
+                                                element,
+                                                environment);
+                    }
 
-	                const bool notFirstLevel = true;
-	                addAllClassifiersFromInnerPackages(notFirstLevel, (CorePackage) element, environment);
-	            }
-	        }
-	    }
+                    const bool notFirstLevel = true;
+                    addAllClassifiersFromInnerPackages(notFirstLevel, (CorePackage) element, environment);
+                }
+            }
+            }
 
-	    protected void addElementToEnvironment(
-	            String name,
-	            CoreModelElement wrapper,
-	            Environment environment) {
-	            try {
-	                environment.addElement(name, wrapper, false);
-	            } catch (NameClashException e) {
-	                environment.removeElement(name);
-	            }
-	        }
+        protected void addElementToEnvironment(
+            String name,
+            CoreModelElement wrapper,
+            Environment environment) {
+            try {
+                environment.addElement(name, wrapper, false);
+            } catch (NameClashException e) {
+                environment.removeElement(name);
+            }
+            }
 
-	    protected bool isClassifierToBeAdded(CoreModelElement element) {
-	    	return	element.GetType() == typeof(CoreClassifier);
-	    }
+        protected bool isClassifierToBeAdded(CoreModelElement element) {
+            return	element.GetType() == typeof(CoreClassifier);
+        }
 
 //	    public static CoreClassifier parseType(
 //	        Environment environment,
@@ -232,4 +236,5 @@ public class OclTypesDefinition {
 //	    }
 //	}
 
+    }
 }

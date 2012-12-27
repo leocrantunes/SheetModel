@@ -5,6 +5,7 @@ using Ocl20.library.iface.expressions;
 using Ocl20.library.iface.types;
 using Ocl20.library.iface.util;
 using Ocl20.library.impl.common;
+using Ocl20.parser.semantics.types;
 using Environment = Ocl20.library.iface.environment.Environment;
 
 namespace Ocl20.library.impl.types
