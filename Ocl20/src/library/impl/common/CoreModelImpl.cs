@@ -9,8 +9,42 @@ using Environment = Ocl20.library.iface.environment.Environment;
 
 namespace Ocl20.library.impl.common
 {
-    public abstract class CoreModelImpl : CorePackageImpl, CoreModel {
-        private	Dictionary<string,CoreAssociation> associations = null;
+    public class CoreModelImplImpl : CoreModelImpl
+    {
+        protected override string super_getName()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void setName(string newValue)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void setElemOwner(CoreModelElement newValue)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override List<object> getTheStereotypes()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override List<object> getElementsForEnvironment()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void populateEnvironment(EnvironmentImpl environment)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public abstract class CoreModelImpl : CorePackageImpl, CoreModel
+    {
+        private Dictionary<string, CoreAssociation> associations = null;
         private	Object mainPackage;
         private Ocl20Package oclPackage;
 	
@@ -142,10 +176,9 @@ namespace Ocl20.library.impl.common
 
             return this.environmentWithoutParents;
         }
-
+        
         public override void setDirty(bool value) {
             this.isDirty = value;
-    	
         }
 
         public override void populateEnvironment(Environment environment) {

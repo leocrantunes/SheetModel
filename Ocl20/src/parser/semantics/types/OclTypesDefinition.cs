@@ -68,14 +68,14 @@ namespace Ocl20.parser.semantics.types
 
                 //oclTypesModel = modelRepository.getModelWithoutOCL(extentName);
 
-                //oclTypesModel = new CoreModelImpl();
+                oclTypesModel = new CoreModelImplImpl();
 
                 if (oclTypesModel != null)
                 {
                     if (oclPackage == null)
-                    {
+                        //oclPackage = new Ocl20Package();
                         //oclPackage = modelRepository.createOclExtent("oclExtent");
-                    }
+                    
                     oclTypesEnvironment = EnvironmentFactoryManager.getInstance(oclPackage).getEnvironmentInstance();
                     oclTypesModel.setOclPackage(oclPackage);
                     oclTypesModel.populateEnvironment(oclTypesEnvironment);

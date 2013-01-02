@@ -75,10 +75,10 @@
     <Content Include="src\MDRRepository\models\mof14\TestCustomMof14ModelElement.java" />
     <Content Include="src\MDRRepository\models\mof14\TestCustomMof14Package.java" />
     <Content Include="src\MDRRepository\models\mof14\TestCustomMof14Suite.java" />
-    <Content Include="src\MDRRepository\models\ocl20\TestOcl20Suite.java" />
-    <Content Include="src\MDRRepository\models\ocl20\TestOclConstraints.java" />
+    <Compile Include="src\MDRRepository\models\ocl20\TestOclConstraints.cs" />
     <Compile Include="src\MDRRepository\models\ocl20\TestOclModelElements.cs" />
     <Compile Include="src\MDRRepository\models\ocl20\TestOclTypesDefinition.cs" />
+    <Compile Include="src\MDRRepository\models\ocl20\TestOcl20Suite.cs" />
     <Content Include="src\MDRRepository\models\uml13\TestCoreModelElementNameGenerator.java" />
     <Content Include="src\MDRRepository\models\uml13\TestUml13CoreAssociation.java" />
     <Content Include="src\MDRRepository\models\uml13\TestUml13CoreAssociationClass.java" />
