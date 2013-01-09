@@ -13,7 +13,7 @@ namespace Ocl20.library.impl.common
 
         public abstract void setFeatureType(CoreClassifier newValue);
 
-        protected CoreClassifier getSpecificType() {
+        public virtual CoreClassifier getSpecificType() {
             return	null;
         }
     }

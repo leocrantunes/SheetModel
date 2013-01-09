@@ -34,7 +34,7 @@ namespace Ocl20.library.impl.common
             return new List<object>(result);
         }
 	
-        protected List<object> getSpecificAllDirectImplementors() {
+        protected virtual List<object> getSpecificAllDirectImplementors() {
             return	new	List<object>();
         }
     }

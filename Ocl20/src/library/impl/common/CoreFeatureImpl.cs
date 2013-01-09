@@ -24,7 +24,7 @@ namespace Ocl20.library.impl.common
             return	false;
         }
 	
-        public bool getSpecificIsInstanceScope() {
+        public virtual bool getSpecificIsInstanceScope() {
             return	true;
         }
     }

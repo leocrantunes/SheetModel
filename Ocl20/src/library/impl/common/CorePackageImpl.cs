@@ -1,6 +1,7 @@
 using System;
 using Ocl20.library.iface.common;
 using Ocl20.parser.semantics.types;
+using CorePackage = Ocl20.library.iface.common.CorePackage;
 
 namespace Ocl20.library.impl.common
 {
@@ -31,6 +32,6 @@ namespace Ocl20.library.impl.common
                 Console.WriteLine("has stereotype: " + ((CoreClassifier) element).hasStereotype("Actor"));
             }
             return ((element.GetType() == typeof(CoreClassifier)) && ((CoreClassifier) element).hasStereotype("Actor"));
-        }	
+        }
     }
 }

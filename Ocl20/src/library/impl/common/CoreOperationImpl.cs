@@ -388,7 +388,7 @@ namespace Ocl20.library.impl.common
         }
 
 
-        protected bool getSpecificHasStereotype(String name)
+        protected virtual bool getSpecificHasStereotype(String name)
         {
             return false;
         }
@@ -408,7 +408,7 @@ namespace Ocl20.library.impl.common
             return new List<object>();
         }
 
-        public bool getSpecificIsQuery()
+        public virtual bool getSpecificIsQuery()
         {
             return true;
         }

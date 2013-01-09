@@ -1,47 +1,16 @@
 using System;
 using System.Collections.Generic;
+using System.Xml.Linq;
 using Ocl20.library.iface;
 using Ocl20.library.iface.common;
 using Ocl20.library.impl.environment;
 using Ocl20.library.impl.util;
 using Ocl20.parser.semantics.types;
+using CorePackage = Ocl20.library.iface.common.CorePackage;
 using Environment = Ocl20.library.iface.environment.Environment;
 
 namespace Ocl20.library.impl.common
 {
-    public class CoreModelImplImpl : CoreModelImpl
-    {
-        protected override string super_getName()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void setName(string newValue)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void setElemOwner(CoreModelElement newValue)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override List<object> getTheStereotypes()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override List<object> getElementsForEnvironment()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void populateEnvironment(EnvironmentImpl environment)
-        {
-            throw new NotImplementedException();
-        }
-    }
-
     public abstract class CoreModelImpl : CorePackageImpl, CoreModel
     {
         private Dictionary<string, CoreAssociation> associations = null;
@@ -52,8 +21,6 @@ namespace Ocl20.library.impl.common
             CoreClassifier	oclType = getPrimitiveType(classifier);
             return	oclType == null ? classifier : oclType;
         }
-
-        public abstract void populateEnvironment(EnvironmentImpl environment);
 
         public bool isPrimitiveType(CoreModelElement element) {
             return	getPrimitiveType(element) != null;
@@ -158,7 +125,6 @@ namespace Ocl20.library.impl.common
     
         public Ocl20Package getOclPackage() {
             return	this.oclPackage;
-    	
         }
 	
         public override Environment getEnvironmentWithoutParents() {

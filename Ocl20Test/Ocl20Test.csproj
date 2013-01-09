@@ -58,6 +58,9 @@
     <Content Include="readme.txt" />
     <Content Include="resource\anotherExampleRose.xml" />
     <Content Include="resource\Book\book.xml" />
+    <Content Include="resource\myExampleRose2.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="resource\loyalty.xml" />
     <Content Include="resource\loyalty\loyalty.xml" />
     <Content Include="resource\myExamplePoseidon.xml" />

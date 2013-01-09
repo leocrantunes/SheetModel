@@ -72,22 +72,22 @@ namespace Ocl20.library.impl.common
             return getSpecificIsOrdered();
         }
 
-        protected CoreAssociation getSpecificAssociation() {
+        protected virtual CoreAssociation getSpecificAssociation() {
             return	null;
         }
-        protected List<object>	getSpecificQualifiers() {
+        protected virtual List<object>	getSpecificQualifiers() {
             return	new List<object>();
         }
-        protected CoreClassifier getSpecificParticipant() {
+        protected virtual CoreClassifier getSpecificParticipant() {
             return	null;
         }
-        protected bool getSpecificIsMandatory() {
+        protected virtual bool getSpecificIsMandatory() {
             return	false;
         }
-        protected bool getSpecificIsOneMultiplicity() {
+        protected virtual bool getSpecificIsOneMultiplicity() {
             return	false;
         }
-        protected bool getSpecificIsOrdered() {
+        protected virtual bool getSpecificIsOrdered() {
             return	false;
         }
 	

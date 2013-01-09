@@ -774,32 +774,32 @@ namespace Ocl20.library.impl.common
             base.setDirty(true);
         }
 
-        protected bool getSpecificIsEnumeration()
+        protected virtual bool getSpecificIsEnumeration()
         {
             return false;
         }
 
-        public List<object> getSpecificClassifierAncestors()
+        public virtual List<object> getSpecificClassifierAncestors()
         {
             return new List<object>();
         }
 
-        public List<object> getSpecificClassifierInterfaces()
+        public virtual List<object> getSpecificClassifierInterfaces()
         {
             return new List<object>();
         }
 
-        protected List<object> getSpecificClassifierFeatures()
+        protected virtual List<object> getSpecificClassifierFeatures()
         {
             return new List<object>();
         }
 
-        protected bool getSpecificIsConcrete()
+        protected virtual bool getSpecificIsConcrete()
         {
             return false;
         }
 
-        protected List<object> getSpecificSubClasses()
+        protected virtual List<object> getSpecificSubClasses()
         {
             return new List<object>();
         }

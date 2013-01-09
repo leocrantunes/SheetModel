@@ -64,11 +64,11 @@ namespace Ocl20.library.impl.common
             return 	allOwnedElements;
         }
 
-        protected CoreAssociationEnd getSpecificAssociationEnd() {
+        protected virtual CoreAssociationEnd getSpecificAssociationEnd() {
             return	null;
         }
 	
-        public bool getSpecificIsDerived() {
+        public virtual bool getSpecificIsDerived() {
             return	false;
         }
 

@@ -21,6 +21,7 @@ using Ocl20.parser.cst.type;
 using Ocl20.parser.exception;
 using Ocl20.parser.semantics.types;
 using CoreAssociationEnd = Ocl20.library.iface.common.CoreAssociationEnd;
+using CorePackage = Ocl20.library.iface.common.CorePackage;
 using Environment = Ocl20.library.iface.environment.Environment;
 
 namespace Ocl20.parser.typeChecker
