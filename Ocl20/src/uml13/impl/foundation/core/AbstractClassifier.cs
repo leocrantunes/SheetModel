@@ -1,12 +1,24 @@
 using System.Collections.Generic;
+using System.Xml.Linq;
 using Ocl20.library.iface.common;
 using Ocl20.library.impl.common;
 using Ocl20.uml13.iface.foundation.core;
 
 namespace Ocl20.uml13.impl.foundation.core
 {
-    public abstract class AbstractClassifier : CoreClassifierImpl, Classifier {
-        
+    public abstract class AbstractClassifier : CoreClassifierImpl, Classifier
+    {
+        #region members
+
+        private List<Feature> feature; 
+
+        #endregion
+
+        protected AbstractClassifier(XElement classifier)
+        {
+            
+        }
+
         protected override CoreModelElement getSpecificOwnerElement() {
             return	(CoreModelElement) getNamespace();
         }
