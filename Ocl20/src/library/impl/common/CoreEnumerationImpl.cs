@@ -33,7 +33,7 @@ namespace Ocl20.library.impl.common
         }
 	
         protected List<object> getSpecificEnumLiterals() {
-            return	new List<object>();
+            return new List<object>();
         }
     }
 }

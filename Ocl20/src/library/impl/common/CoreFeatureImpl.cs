@@ -1,21 +1,40 @@
 using Ocl20.library.iface.common;
+using Ocl20.uml13.iface.foundation.datatypes;
 
 namespace Ocl20.library.impl.common
 {
-    public abstract class CoreFeatureImpl : CoreModelElementImpl, CoreFeature {
+    public class CoreFeatureImpl : CoreModelElementImpl, CoreFeature
+    {
+        private ScopeKind ownerScope;
+
+        public CoreFeatureImpl() 
+        {
+            ownerScope = null;
+        }
+
         public virtual CoreClassifier getFeatureOwner() {
             CoreModelElement owner = getSpecificOwnerElement();
-            if (owner != null && owner.GetType() == typeof(CoreClassifier)) 
+            if (owner != null && owner.GetType() == typeof(CoreClassifierImpl)) 
                 return	(CoreClassifier) owner;
             else
                 return	null;
         }
 
-        public abstract void setFeatureOwner(CoreClassifier newValue);
+        public virtual void setFeatureOwner(CoreClassifier newValue)
+        {
+            setFeatureOwner(newValue);
+        }
+        
+        public ScopeKind getOwnerScope()
+        {
+            return ownerScope;
+        }
 
-        /* (non-Javadoc)
-	 * @see ocl20.CoreFeature#isInstanceScope()
-	 */
+        public void setOwnerScope(ScopeKind newValue)
+        {
+            ownerScope = newValue;
+        }
+
         public virtual bool isInstanceScope() {
             return getSpecificIsInstanceScope();
         }

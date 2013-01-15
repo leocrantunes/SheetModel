@@ -1,17 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text.RegularExpressions;
 using System.Xml.Linq;
 using Ocl20.library.iface;
 using Ocl20.library.iface.common;
 using Ocl20.library.iface.types;
+using Ocl20.library.impl;
 using Ocl20.library.impl.common;
 using Ocl20.library.impl.environment;
-using Ocl20.uml13.iface.foundation.core;
-using Ocl20.uml13.iface.modelmanagement;
-using Ocl20.uml13.impl.foundation.core;
-using Ocl20.uml13.impl.modelmanagement;
+using Ocl20.xmireader;
 using CorePackage = Ocl20.library.iface.common.CorePackage;
 using Environment = Ocl20.library.iface.environment.Environment;
 
@@ -73,32 +70,15 @@ namespace Ocl20.parser.semantics.types
                 //Uml14ModelsRepository modelRepository = new Uml14ModelsRepository(MOFMetamodelRepositoryFactory.getRepository());
                 //String extentName = "UMLMODEL_DEFINING_OCLPRIMITIVETYPES";
                 //modelRepository.importModel(extentName, "resource/metamodels/oclPrimitiveTypes.xml");
-                
-                XDocument doc = XDocument.Load(@"C:\Users\Leo\Documents\visual studio 2010\Projects\SheetModel_20121206\SheetModel\Ocl20\resource\metamodels\oclPrimitiveTypes.xml");
+
+                XmiReader reader = new XmiReader(@"C:\Users\Leo\Documents\visual studio 2010\Projects\SheetModel_20121206\SheetModel\Ocl20\resource\metamodels\oclPrimitiveTypes.xml");
+                oclTypesModel = reader.getMetamodel();
                 //oclTypesModel = modelRepository.getModelWithoutOCL(extentName);
 
-                XNamespace uml = "org.omg.xmi.namespace.UML";
-                var model = doc.Descendants(uml + "Model").FirstOrDefault();
-                var ownedElement = model.Elements(uml + "Namespace.ownedElement").FirstOrDefault();
-                var packages = from o in ownedElement.Elements(uml + "Package") select o;
-                var pOwnedElements = from p in packages.Elements(uml + "Namespace.ownedElement") select p;
-                var classes = from c in pOwnedElements.Elements(uml + "Class") select c;
-
-                foreach (var c in classes)
-                {
-                    string name = c.Attribute("name").Value;
-                    //UmlClass umlClass = new UmlClassImpl();
-                }
-
-                //CoreModelElement coreModelElement = new ModelElementImpl();
-
-                string n = model.Attribute("name").Value;
-                oclTypesModel = new ModelImpl();
-                
                 if (oclTypesModel != null)
                 {
                     if (oclPackage == null)
-                        //oclPackage = modelRepository.createOclExtent("oclExtent");
+                        oclPackage = new Ocl20PackageImpl();
                     
                     oclTypesEnvironment = EnvironmentFactoryManager.getInstance(oclPackage).getEnvironmentInstance();
                     oclTypesModel.setOclPackage(oclPackage);

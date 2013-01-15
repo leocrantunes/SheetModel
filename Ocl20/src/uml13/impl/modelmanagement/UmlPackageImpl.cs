@@ -12,7 +12,7 @@ namespace Ocl20.uml13.impl.modelmanagement
             return	(CoreModelElement) getNamespace();
         }
 
-        public override List<object> getSpecificOwnedElements() {
+        public override List<object> getSpecificOwnedElements() { 
             return	getOwnedElement();
         }
 

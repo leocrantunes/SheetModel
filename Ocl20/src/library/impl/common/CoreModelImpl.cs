@@ -11,11 +11,18 @@ using Environment = Ocl20.library.iface.environment.Environment;
 
 namespace Ocl20.library.impl.common
 {
-    public abstract class CoreModelImpl : CorePackageImpl, CoreModel
+    public class CoreModelImpl : CorePackageImpl, CoreModel
     {
         private Dictionary<string, CoreAssociation> associations = null;
         private	Object mainPackage;
         private Ocl20Package oclPackage;
+
+        public CoreModelImpl()
+        {
+            associations = new Dictionary<string, CoreAssociation>();
+            mainPackage = null;
+            oclPackage = new Ocl20PackageImpl();
+        }
 	
         public CoreClassifier toOclType(CoreClassifier classifier) {
             CoreClassifier	oclType = getPrimitiveType(classifier);
@@ -51,10 +58,10 @@ namespace Ocl20.library.impl.common
             List<object> result = new List<object>();
 				
             foreach (CoreModelElement element in ns.getElemOwnedElements()) {
-                if (element.GetType() == typeof(CoreStereotype))
+                if (element.GetType() == typeof(CoreStereotypeImpl))
                     result.Add(element);
 				
-                if (element.GetType() == typeof(CorePackage))
+                if (element.GetType() == typeof(CorePackageImpl))
                     result.AddRange(getAllStereotypesOfNamespace((CoreNamespace) element));	
             }
 		
@@ -142,7 +149,12 @@ namespace Ocl20.library.impl.common
 
             return this.environmentWithoutParents;
         }
-        
+
+        public override List<object> getElementsForEnvironment()
+        {
+            throw new NotImplementedException();
+        }
+
         public override void setDirty(bool value) {
             this.isDirty = value;
         }
@@ -174,7 +186,7 @@ namespace Ocl20.library.impl.common
                 {
                     addElementToEnvironment(element.getName(), element, environment);
                 }
-                else if (element.GetType() == typeof (CorePackage))
+                else if (element.GetType() == typeof (CorePackageImpl))
                 {
                     if (firstLevel)
                     {
@@ -188,7 +200,7 @@ namespace Ocl20.library.impl.common
         }
 
         protected bool isClassifierToBeAdded(CoreModelElement element) {
-            return	element.GetType() == typeof(CoreClassifier) && !isPrimitiveType(element);
+            return	element.GetType() == typeof(CoreClassifierImpl) && !isPrimitiveType(element);
         }
     }
 }

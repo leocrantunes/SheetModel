@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Ocl20.library.iface.common;
 using Ocl20.library.iface.constraints;
@@ -9,7 +10,7 @@ using Environment = Ocl20.library.iface.environment.Environment;
 
 namespace Ocl20.library.impl.common
 {
-    public abstract class CoreClassifierImpl : CoreNamespaceImpl, CoreClassifier, CoreEnumeration
+    public class CoreClassifierImpl : CoreNamespaceImpl, CoreEnumeration
     {
         private Dictionary<String, CoreModelElement> featuresMap = null;
         private ClassifierConstraintsHolder constraintsHolder;
@@ -18,7 +19,7 @@ namespace Ocl20.library.impl.common
         private static String OCLINVALID = "OclInvalid";
         private Environment envWithoutAncestors = null;
 
-        protected CoreClassifierImpl()
+        public CoreClassifierImpl()
         {
             constraintsHolder = new ClassifierConstraintsHolder(this);
         }
@@ -93,7 +94,7 @@ namespace Ocl20.library.impl.common
 
             HashSet<object> result = new HashSet<object>();
             Environment env = this.getEnvironmentWithoutAncestors();
-            result.AddRange(env.getAllOfType(typeof (CoreAttribute)));
+            result.AddRange(env.getAllOfType(typeof (CoreAttributeImpl)));
             return result;
 
 //		for (Iterator iter = getClassifierFeatures().iterator(); iter.hasNext();) {
@@ -171,11 +172,40 @@ namespace Ocl20.library.impl.common
 	 * @see ocl20.CoreClassifier#getClassifierFeatures()
 	 */
 
-        public abstract List<object> getConstraint();
+        public List<object> getConstraint()
+        {
+            return null;
+        }
 
         public List<object> getClassifierFeatures()
         {
             return adjustCollectionResult(getSpecificClassifierFeatures());
+        }
+
+        public bool isAbstract()
+        {
+            return false;
+        }
+
+        public List<object> getGeneralization()
+        {
+            return null;
+        }
+
+        public List<object> getSpecialization()
+        {
+            return null;
+        }
+
+        public List<object> getFeature()
+        {
+            List<object> a = base.getElemOwnedElements().Where(e => elementShouldBeAddedToEnvironment((CoreModelElement) e)).ToList();
+            return a;
+        }
+
+        public List<object> getSupplierDependency()
+        {
+            return null;
         }
 
         /* (non-Javadoc)
@@ -334,15 +364,17 @@ namespace Ocl20.library.impl.common
 
         public override ICollection<object> getElemOwnedElements()
         {
+            return base.getElemOwnedElements();
+
             HashSet<object> resultAttr = new HashSet<object>();
             HashSet<object> resultOper = new HashSet<object>();
             HashSet<object> resultAssocEnd = new HashSet<object>();
 
             Environment env = this.getEnvironmentWithoutAncestors();
 
-            resultAttr.AddRange(env.getAllOfType(typeof (CoreAttribute)));
-            resultOper.AddRange(env.getAllOfType(typeof (CoreOperation)));
-            resultAssocEnd.AddRange(env.getAllOfType(typeof (CoreAssociationEnd)));
+            resultAttr.AddRange(env.getAllOfType(typeof (CoreAttributeImpl)));
+            resultOper.AddRange(env.getAllOfType(typeof (CoreOperationImpl)));
+            resultAssocEnd.AddRange(env.getAllOfType(typeof (CoreAssociationEndImpl)));
 
             List<object> allOwnedElements = new List<object>();
 
@@ -371,7 +403,7 @@ namespace Ocl20.library.impl.common
 
         public virtual CoreAttribute lookupAttribute(String name)
         {
-            return (CoreAttribute) this.lookupFeature(name, typeof (CoreAttribute));
+            return (CoreAttribute) this.lookupFeature(name, typeof (CoreAttributeImpl));
         }
 
 
@@ -381,7 +413,7 @@ namespace Ocl20.library.impl.common
 
         public CoreAssociationClass lookupAssociationClass(String name)
         {
-            return (CoreAssociationClass) this.lookupFeature(name, typeof (CoreAssociationClass));
+            return (CoreAssociationClass) this.lookupFeature(name, typeof (CoreAssociationClassImpl));
         }
 
         /* (non-Javadoc)
@@ -391,13 +423,13 @@ namespace Ocl20.library.impl.common
         public CoreAssociationEnd lookupAssociationEnd(String name)
         {
             CoreAssociationEnd result;
-            result = (CoreAssociationEnd) this.lookupFeature(name, typeof (CoreAssociationEnd));
+            result = (CoreAssociationEnd) this.lookupFeature(name, typeof (CoreAssociationEndImpl));
             if (result == null)
             {
                 StringBuilder upperCaseName = new StringBuilder(name);
                 char firstChar = name.Substring(0, 1).ToUpper()[0];
                 upperCaseName.Insert(0, firstChar);
-                result = (CoreAssociationEnd) this.lookupFeature(upperCaseName.ToString(), typeof (CoreAssociationEnd));
+                result = (CoreAssociationEnd) this.lookupFeature(upperCaseName.ToString(), typeof (CoreAssociationEndImpl));
             }
             return result;
         }
@@ -526,7 +558,10 @@ namespace Ocl20.library.impl.common
             return null;
         }
 
-
+        public override List<object> getElementsForEnvironment()
+        {
+            throw new NotImplementedException();
+        }
 
         public override void populateEnvironment(Environment environment)
         {
@@ -552,7 +587,7 @@ namespace Ocl20.library.impl.common
 
         protected override bool elementShouldBeAddedToEnvironment(CoreModelElement element)
         {
-            return (element.GetType() == typeof (CoreAttribute) || element.GetType() == typeof (CoreOperation));
+            return (element.GetType() == typeof (CoreAttributeImpl) || element.GetType() == typeof (CoreOperationImpl));
         }
 
         private void populateWithAssociationEnds(Environment environment)
@@ -763,7 +798,6 @@ namespace Ocl20.library.impl.common
             }
         }
 
-
         public override void setDirty(bool dirty)
         {
             foreach (CoreClassifier cls in getAllDirectSubClasses())
@@ -773,40 +807,88 @@ namespace Ocl20.library.impl.common
             base.setDirty(true);
         }
 
-        protected virtual bool getSpecificIsEnumeration()
-        {
-            return false;
-        }
-
-        public virtual List<object> getSpecificClassifierAncestors()
-        {
-            return new List<object>();
-        }
-
-        public virtual List<object> getSpecificClassifierInterfaces()
-        {
-            return new List<object>();
-        }
-
-        protected virtual List<object> getSpecificClassifierFeatures()
-        {
-            return new List<object>();
-        }
-
-        protected virtual bool getSpecificIsConcrete()
-        {
-            return false;
-        }
-
-        protected virtual List<object> getSpecificSubClasses()
-        {
-            return new List<object>();
-        }
-
         public virtual List<object> getSpecificAssociationEnds()
         {
             return new List<object>();
         }
+
+        #region from uml13
+
+        protected bool getSpecificIsEnumeration()
+        {
+            return hasStereotype("Enumeration");
+        }
+
+        public List<object> getSpecificClassifierAncestors()
+        {
+            List<object> result = new List<object>();
+
+            List<object> superClasses = getGeneralization();
+            foreach (Generalization generalization in superClasses)
+            {
+                result.Add((generalization.getParent()));
+            }
+
+            return result;
+        }
+
+        public List<object> getSpecificClassifierInterfaces()
+        {
+            List<object> result = new List<object>();
+
+            foreach (Dependency realization in getClientDependency())
+            {
+                foreach (object i in realization.getSupplier())
+                {
+                    result.Add(i);
+                }
+            }
+
+            return result;
+        }
+
+        protected List<object> getSpecificClassifierFeatures()
+        {
+            return getFeature();
+        }
+
+        protected virtual bool getSpecificIsConcrete()
+        {
+            return !isAbstract();
+        }
+
+        protected List<object> getSpecificSubClasses()
+        {
+            List<object> result = new List<object>();
+
+            List<object> subClasses = getSpecialization();
+            foreach (Generalization generalization in subClasses)
+            {
+                result.Add(generalization.getChild());
+            }
+
+            return result;
+        }
+
+        protected CoreAttribute createSpecificAttribute(String name, CoreClassifier type)
+        {
+            CoreElementFactory umlFactory = new CoreElementFactory();
+            return (CoreAttribute)umlFactory.createSpecificAttribute(this, name, type);
+        }
+
+        protected CoreOperation createSpecificOperation(String name, List<object> paramNames, List<object> paramTypes, CoreClassifier returnType)
+        {
+            CoreElementFactory umlFactory = new CoreElementFactory();
+            return (CoreOperation)umlFactory.createSpecificOperation(this, name, paramNames, paramTypes, returnType);
+        }
+
+        protected void createSpecificStereotype(CoreFeature feature, String stereotypeName)
+        {
+            CoreElementFactory umlFactory = new CoreElementFactory();
+            umlFactory.createSpecificStereotype(this, feature, stereotypeName);
+        }
+
+        #endregion
 
     }
 

@@ -4,6 +4,8 @@ using System.Linq;
 using Ocl20.library.iface;
 using Ocl20.library.iface.common;
 using Ocl20.library.iface.expressions;
+using Ocl20.library.impl.common;
+using Ocl20.library.impl.expressions;
 using CoreAssociationEnd = Ocl20.library.iface.common.CoreAssociationEnd;
 using Environment = Ocl20.library.iface.environment.Environment;
 
@@ -67,7 +69,7 @@ namespace Ocl20.library.impl.environment
             NamedElement namedElement = new PSWNamedElement(name, elem, implic);
             namedElements.Add(name, namedElement);
 
-            if (elem.GetType() == typeof(VariableDeclaration))
+            if (elem.GetType() == typeof(VariableDeclarationImpl))
             variableDeclarations.Add(namedElement);
         
             return this;
@@ -208,7 +210,7 @@ namespace Ocl20.library.impl.environment
                     NamedElement element;
                     this.namedElements.TryGetValue(entry.Key, out element);
 
-                    if (element != null && element.getReferredElement().GetType() == typeof(CoreOperation)) {
+                    if (element != null && element.getReferredElement().GetType() == typeof(CoreOperationImpl)) {
                         CoreOperation operation = (CoreOperation) element.getReferredElement();
                         if (operation.operationNameMatches(name)) {
                             operationsFound.Add(operation);
@@ -263,13 +265,13 @@ namespace Ocl20.library.impl.environment
 
             object element = this.lookupLocal((string) names[0]);
 
-            if (element != null && element.GetType() == typeof(CoreModelElement)) {
+            if (element != null && element.GetType() == typeof(CoreModelElementImpl)) {
                 firstNamespace = (CoreModelElement) element;
             } else {
                 firstNamespace = null;
             }
 
-            if ((firstNamespace != null) && firstNamespace.GetType() == typeof(CoreNamespace)) {
+            if ((firstNamespace != null) && firstNamespace.GetType() == typeof(CoreNamespaceImpl)) {
                     if (names.Count > 1) {
                         List<string> namesTail = new List<string>();
                         namesTail.AddRange(names.GetRange(1, names.Count));
@@ -331,7 +333,7 @@ namespace Ocl20.library.impl.environment
         public VariableDeclaration lookupVariable(string name) {
             object variable = lookup(name);
 
-            if (variable.GetType() == typeof(VariableDeclaration)) {
+            if (variable.GetType() == typeof(VariableDeclarationImpl)) {
                 return (VariableDeclaration) variable;
             } else {
                 return null;
@@ -407,7 +409,7 @@ namespace Ocl20.library.impl.environment
             List<object> variables = new List<object>();
 
             foreach (KeyValuePair<string,NamedElement> element in namedElements) {
-                if (element.Value.getReferredElement().GetType() == typeof(VariableDeclaration)) {
+                if (element.Value.getReferredElement().GetType() == typeof(VariableDeclarationImpl)) {
                     variables.Add(element);
                 }
             }

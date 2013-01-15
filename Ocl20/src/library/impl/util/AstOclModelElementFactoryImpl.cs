@@ -13,7 +13,7 @@ using CoreAssociationEnd = Ocl20.library.iface.common.CoreAssociationEnd;
 
 namespace Ocl20.library.impl.util
 {
-    public abstract class AstOclModelElementFactoryImpl : AstOclModelElementFactory {
+    public class AstOclModelElementFactoryImpl : AstOclModelElementFactory {
 
         private Dictionary<object,object> allTypesCreated = new Dictionary<object,object>();
         private List<object> allTuplesCreated = new List<object>();
@@ -64,7 +64,7 @@ namespace Ocl20.library.impl.util
         public BagType createBagType(CoreClassifier elementType) {
             BagType result = (BagType) getCollectionType("Bag(" + elementType.getName() + ")");
             if (result == null) {
-                result = oclPackage.getTypes().getBagType().createBagType();
+                result = oclPackage.getTypes().getBagType();
                 result.setFactory(this);
                 result.setElementType(elementType);
                 allTypesCreated.Add(result.getName(), result);
@@ -80,7 +80,7 @@ namespace Ocl20.library.impl.util
 
             SetType result = (SetType) getCollectionType("Set(" + elementType.getName() + ")");
             if (result == null) {
-                result = oclPackage.getTypes().getSetType().createSetType();
+                result = oclPackage.getTypes().getSetType();
                 result.setFactory(this);
                 result.setElementType(elementType);
                 allTypesCreated.Add(result.getName(), result);
@@ -97,7 +97,7 @@ namespace Ocl20.library.impl.util
 
             OrderedSetType result = (OrderedSetType) getCollectionType("OrderedSet(" + elementType.getName() + ")");
             if (result == null) {
-                result = oclPackage.getTypes().getOrderedSetType().createOrderedSetType();
+                result = oclPackage.getTypes().getOrderedSetType();
                 result.setFactory(this);
                 result.setElementType(elementType);
                 allTypesCreated.Add(result.getName(), result);
@@ -113,7 +113,7 @@ namespace Ocl20.library.impl.util
 
             SequenceType result = (SequenceType) getCollectionType("Sequence(" + elementType.getName() + ")");
             if (result == null) {
-                result = oclPackage.getTypes().getSequenceType().createSequenceType();
+                result = oclPackage.getTypes().getSequenceType();
                 result.setFactory(this);
                 result.setElementType(elementType);
                 allTypesCreated.Add(result.getName(), result);
@@ -126,7 +126,7 @@ namespace Ocl20.library.impl.util
 
             CollectionType result = (CollectionType) getCollectionType("Collection(" + elementType.getName() + ")");
             if (result == null) {
-                result = oclPackage.getTypes().getCollectionType().createCollectionType();
+                result = oclPackage.getTypes().getCollectionType();
                 result.setFactory(this);
                 result.setElementType(elementType);
                 allTypesCreated.Add(result.getName(), result);
@@ -165,14 +165,14 @@ namespace Ocl20.library.impl.util
      * @see br.cos.ufrj.lens.odyssey.tools.psw.metamodels.ocl20.Factory#createTupleType()
      */
         public TupleType createTupleType() {
-            TupleType type = oclPackage.getTypes().getTupleType().createTupleType();
+            TupleType type = oclPackage.getTypes().getTupleType();
             type.setFactory(this);
             allTuplesCreated.Add(type);
             return	type;
         }
     
         public TuplePartType  createTuplePartType(TupleType tupleType, String name, CoreClassifier type) {
-            TuplePartType partType = oclPackage.getTypes().getTuplePartType().createTuplePartType();
+            TuplePartType partType = oclPackage.getTypes().getTuplePartType();
     	
             partType.setTupleType(tupleType);
             partType.setFeatureType(type);
@@ -388,7 +388,7 @@ namespace Ocl20.library.impl.util
         }
 
         public OclModelElementType createOclModelElementType(CoreModelElement referredElement) {
-            OclModelElementType modelElement = oclPackage.getTypes().getOclModelElementType().createOclModelElementType();
+            OclModelElementType modelElement = oclPackage.getTypes().getOclModelElementType();
             modelElement.setReferredModelElement(referredElement);
             return	modelElement;
         }
@@ -607,7 +607,7 @@ namespace Ocl20.library.impl.util
             allCollectionOperations.TryGetValue(key, out operation);
     		
             if (operation == null) {
-                operation = oclPackage.getTypes().getCollectionOperation().createCollectionOperation();
+                operation = oclPackage.getTypes().getCollectionOperation();
                 operation.setFeatureOwner(owner);
                 operation.setJmiOperation(jmiOperation);
                 allCollectionOperations.Add(key, operation);

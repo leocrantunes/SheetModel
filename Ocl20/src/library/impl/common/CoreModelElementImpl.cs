@@ -4,20 +4,37 @@ using Ocl20.library.iface.common;
 
 namespace Ocl20.library.impl.common
 {
-    public abstract class CoreModelElementImpl : CoreModelElement, IComparable
+    public class CoreModelElementImpl : CoreModelElement, IComparable
     {
-        protected abstract String super_getName();
+        private string name;
+        private CoreModelElement elemOwner;
+        private List<object> elemOwnedElements;
+        private List<CoreStereotype> theStereotypes;
+        private CoreNamespace coreNamespace;
+        private List<object> connection;
+        List<object> clientDependency;
+
+        public CoreModelElementImpl()
+        {
+            name = "";
+            elemOwner = null;
+            elemOwnedElements = new List<object>();
+            theStereotypes = new List<CoreStereotype>();
+            coreNamespace = null;
+            connection = new List<object>();
+            clientDependency = new List<object>();
+        }
 
         public virtual String getName()
         {
-            return super_getName();
+            return name;
         }
 
-        public abstract void setName(string newValue);
+        public virtual void setName(string newValue)
+        {
+            name = newValue;
+        }
 
-        /* (non-Javadoc)
-	 * @see java.lang.Comparable#compareTo(java.lang.Object)
-	 */
         public virtual int CompareTo(Object arg0)
         {
             int compareClassNames = this.GetType().FullName.CompareTo(arg0.GetType().FullName);
@@ -31,36 +48,37 @@ namespace Ocl20.library.impl.common
                 return compareClassNames;
         }
 
-        /* (non-Javadoc)
-	 * @see ocl20.CoreModelElement#getElemOwner()
-	 */
         public virtual CoreModelElement getElemOwner()
         {
-            return getSpecificOwnerElement();
+            return elemOwner;
+            //return getSpecificOwnerElement();
         }
 
-        public abstract void setElemOwner(CoreModelElement newValue);
+        public virtual void setElemOwner(CoreModelElement newValue)
+        {
+            elemOwner = newValue;
+        }
 
-        /* (non-Javadoc)
-	 * @see ocl20.CoreModelElement#getElemOwnedElements()
-	 */
         public virtual ICollection<object> getElemOwnedElements()
         {
-            return getSpecificOwnedElements();
+            return elemOwnedElements;
+        }
+
+        public void setElemOwnedElements(List<object> newValue)
+        {
+            elemOwnedElements = newValue;
         }
 
         public CoreModel getModel()
         {
-            if (this.GetType() == typeof(CoreModel))
-                return (CoreModel)this;
-            else
-            {
+            if (this.GetType() == typeof (CoreModelImpl))
+                return (CoreModel) this;
+            else {
                 CoreModelElement ns = this.getElemOwner();
-                while ((ns != null) && !(ns.GetType() == typeof(CoreModel)))
-                {
+                while ((ns != null) && !(ns.GetType() == typeof (CoreModelImpl))) {
                     ns = ns.getElemOwner();
                 }
-                return (CoreModel)ns;
+                return (CoreModel) ns;
             }
         }
 
@@ -68,8 +86,7 @@ namespace Ocl20.library.impl.common
         {
             if (getSpecificHasDirectStereotype())
             {
-                foreach (CoreStereotype stereotype in getSpecificStereotypes())
-                {
+                foreach (CoreStereotype stereotype in getSpecificStereotypes()) {
                     if (stereotypeName != null && stereotypeName.ToUpper().Equals(stereotype.getName().ToUpper()))
                         return true;
                 }
@@ -78,22 +95,12 @@ namespace Ocl20.library.impl.common
             {
                 foreach (CoreStereotype stereotype in getModel().getAllStereotypes())
                 {
-                    if (stereotype.getTheExtendedElement().Contains(this) && stereotypeName != null && stereotypeName.ToUpper().Equals(stereotype.getName().ToUpper()))
+                    if (stereotype.getExtendedElement().Contains(this) && stereotypeName != null && stereotypeName.ToUpper().Equals(stereotype.getName().ToUpper()))
                         return true;
                 }
             }
 
             return false;
-        }
-
-        protected virtual CoreModelElement getSpecificOwnerElement()
-        {
-            return null;
-        }
-
-        public virtual List<object> getSpecificOwnedElements()
-        {
-            return new List<object>();
         }
 
         protected bool getSpecificHasDirectStereotype()
@@ -122,15 +129,65 @@ namespace Ocl20.library.impl.common
                 return new List<object>();
         }
 
-        /* (non-Javadoc)
-         * * @see ocl20.common.CoreModelElement#getConstraintExpressionInOcl()
-         */
         public List<object> getConstraintExpressionInOcl()
         {
-            // TODO Auto-generated method stub
             return new List<object>();
         }
 
-        public abstract List<object> getTheStereotypes();
+        public virtual List<CoreStereotype> getTheStereotypes()
+        {
+            return theStereotypes;
+        }
+
+        public void setTheStereotypes(List<CoreStereotype> newValue)
+        {
+            theStereotypes = newValue;
+        }
+
+        public CoreNamespace getNamespace()
+        {
+            return coreNamespace;
+        }
+
+        public void setNamespace(CoreNamespace newValue)
+        {
+            coreNamespace = newValue;
+        }
+
+        #region from uml13
+
+        protected virtual CoreModelElement getSpecificOwnerElement()
+        {
+            //return getNamespace();
+            return getElemOwner();
+        }
+
+        public virtual ICollection<object> getSpecificOwnedElements()
+        {
+            return getElemOwnedElements();
+        }
+
+        public List<object> getConnection()
+        {
+            return connection;
+        }
+
+        public void setConnection(List<object> newValue)
+        {
+            connection = newValue;
+        }
+
+        public List<object> getClientDependency()
+        {
+            return clientDependency;
+        }
+
+        public void setClientDependency(List<object> newValue)
+        {
+            clientDependency = newValue;
+        }
+
+        #endregion
+
     }
 }

@@ -7,7 +7,7 @@ using Ocl20.uml13.iface.foundation.core;
 namespace Ocl20.uml13.impl.foundation.core
 {
     public abstract class NamespaceImpl : CoreNamespaceImpl, Namespace {
-
+         
         protected override CoreModelElement getSpecificOwnerElement() {
             return	(CoreModelElement) getNamespace();
         }

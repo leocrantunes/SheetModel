@@ -2,19 +2,28 @@ using Ocl20.library.iface.common;
 
 namespace Ocl20.library.impl.common
 {
-    public abstract class CoreStructuralFeatureImpl : CoreFeatureImpl, CoreStructuralFeature {
+    public class CoreStructuralFeatureImpl : CoreFeatureImpl, CoreStructuralFeature
+    {
+        private CoreClassifier featureType;
 
-        /* (non-Javadoc)
-	 * @see ocl20.CoreStructuralFeature#getFeatureType()
-	 */
-        public virtual CoreClassifier getFeatureType() {
-            return getSpecificType();
+        public CoreStructuralFeatureImpl()
+        {
+            featureType = null;
         }
 
-        public abstract void setFeatureType(CoreClassifier newValue);
+        public virtual CoreClassifier getFeatureType()
+        {
+            return featureType;
+        }
 
-        public virtual CoreClassifier getSpecificType() {
-            return	null;
+        public virtual void setFeatureType(CoreClassifier newValue)
+        {
+            featureType = newValue;
+        }
+
+        public virtual CoreClassifier getSpecificType()
+        {
+            return getFeatureType();
         }
     }
 }

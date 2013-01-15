@@ -12,13 +12,13 @@ namespace Ocl20.uml13.iface.foundation.core
      * Returns the value of attribute isNavigable.
      * @return Value of attribute isNavigable.
      */
-        bool isNavigable();
+        //bool isNavigable();
         /**
      * Sets the value of isNavigable attribute. See {@link #isNavigable} for description 
      * on the attribute.
      * @param newValue New value to be set.
      */
-        void setNavigable(bool newValue);
+        //void setNavigable(bool newValue);
         /**
      * Returns the value of attribute ordering.
      * @return Value of attribute ordering.
@@ -29,29 +29,29 @@ namespace Ocl20.uml13.iface.foundation.core
      * on the attribute.
      * @param newValue New value to be set.
      */
-       void setOrdering(OrderingKind newValue);
+       //void setOrdering(OrderingKind newValue);
         /**
      * Returns the value of attribute aggregation.
      * @return Value of attribute aggregation.
      */
-        AggregationKind getAggregation();
+        //AggregationKind getAggregation();
         /**
      * Sets the value of aggregation attribute. See {@link #getAggregation} for 
      * description on the attribute.
      * @param newValue New value to be set.
      */
-        void setAggregation(AggregationKind newValue);
+        //void setAggregation(AggregationKind newValue);
         /**
      * Returns the value of attribute targetScope.
      * @return Value of attribute targetScope.
      */
-        ScopeKind getTargetScope();
+        //ScopeKind getTargetScope();
         /**
      * Sets the value of targetScope attribute. See {@link #getTargetScope} for 
      * description on the attribute.
      * @param newValue New value to be set.
      */
-        void setTargetScope(ScopeKind newValue);
+        //void setTargetScope(ScopeKind newValue);
         /**
      * Returns the value of attribute multiplicity.
      * @return Value of attribute multiplicity.
@@ -62,18 +62,18 @@ namespace Ocl20.uml13.iface.foundation.core
      * for description on the attribute.
      * @param newValue New value to be set.
      */
-        void setMultiplicity(Multiplicity newValue);
+        //void setMultiplicity(Multiplicity newValue);
         /**
      * Returns the value of attribute changeability.
      * @return Value of attribute changeability.
      */
-        ChangeableKind getChangeability();
+        //ChangeableKind getChangeability();
         /**
      * Sets the value of changeability attribute. See {@link #getChangeability} 
      * for description on the attribute.
      * @param newValue New value to be set.
      */
-        void setChangeability(ChangeableKind newValue);
+        //void setChangeability(ChangeableKind newValue);
         /**
      * Returns the value of reference association.
      * @return Value of reference association.
@@ -84,7 +84,7 @@ namespace Ocl20.uml13.iface.foundation.core
      * description on the reference.
      * @param newValue New value to be set.
      */
-        void setAssociation(UmlAssociation newValue);
+        //void setAssociation(UmlAssociation newValue);
         /**
      * Returns the value of reference qualifier.
      * @return Value of reference qualifier.
@@ -100,11 +100,11 @@ namespace Ocl20.uml13.iface.foundation.core
      * on the reference.
      * @param newValue New value to be set.
      */
-        void setType(Classifier newValue);
+        //void setType(Classifier newValue);
         /**
      * Returns the value of reference specification.
      * @return Value of reference specification.
      */
-        List<object> getSpecification();
+        //List<object> getSpecification();
     }
 }

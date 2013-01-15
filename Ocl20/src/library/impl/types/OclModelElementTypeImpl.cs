@@ -24,10 +24,18 @@ namespace Ocl20.library.impl.types
 
         public abstract void setName(string newValue);
         public abstract ICollection<object> getElemOwnedElements();
+        public abstract void setElemOwnedElements(List<object> newValue);
         public abstract CoreModelElement getElemOwner();
         public abstract void setElemOwner(CoreModelElement newValue);
         public abstract List<object> getConstraintExpressionInOcl();
-        public abstract List<object> getTheStereotypes();
+        public abstract List<CoreStereotype> getTheStereotypes();
+        public abstract void setTheStereotypes(List<CoreStereotype> newValue);
+        public abstract CoreNamespace getNamespace();
+        public abstract void setNamespace(CoreNamespace newValue);
+        public abstract List<object> getConnection();
+        public abstract void setConnection(List<object> newValue);
+        public abstract List<object> getExtendedElement();
+        public abstract void setExtendedElement(List<object> newValue);
 
         public abstract CoreAttribute lookupAttribute(string name);
         public abstract CoreOperation lookupSameSignatureOperation(string name, List<object> paramTypes, CoreClassifier returnType);
@@ -72,6 +80,13 @@ namespace Ocl20.library.impl.types
         public abstract void setDirty(bool dirty);
         public abstract List<object> getConstraint();
         public abstract List<object> getClassifierFeatures();
+        public abstract bool isAbstract();
+        public abstract List<object> getGeneralization();
+        public abstract List<object> getSpecialization();
+        public abstract List<object> getFeature();
+        public abstract List<object> getSupplierDependency();
+        public abstract List<object> getClientDependency();
+        public abstract void setClientDependency(List<object> newValue);
 
         public abstract List<object> getAllAssociations();
         public abstract Environment getEnvironmentWithParents();

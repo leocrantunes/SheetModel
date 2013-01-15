@@ -7,7 +7,7 @@ using Ocl20.uml13.iface.modelmanagement;
 
 namespace Ocl20.uml13.impl.foundation.core
 {
-    public abstract class UmlPackageImpl : CorePackageImpl, UmlPackage {
+    /*public abstract class UmlPackageImpl : CorePackageImpl, UmlPackage {
 
         protected override CoreModelElement getSpecificOwnerElement() {
             return	(CoreModelElement) this.getNamespace();
@@ -25,5 +25,5 @@ namespace Ocl20.uml13.impl.foundation.core
         public abstract bool isAbstract();
         public abstract List<object> getGeneralizations();
         public abstract List<object> getSpecialization();
-    }
+    }*/
 }

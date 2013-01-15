@@ -4,6 +4,7 @@ using Ocl20.library.iface.common;
 using Ocl20.library.iface.constraints;
 using Ocl20.library.iface.expressions;
 using Ocl20.library.iface.types;
+using Ocl20.library.impl.common;
 using Ocl20.parser.semantics.types;
 using Environment = Ocl20.library.iface.environment.Environment;
 
@@ -133,6 +134,8 @@ namespace Ocl20.library.impl.types
         {
             return getJmiOperation().getElemOwnedElements();
         }
+
+        public abstract void setElemOwnedElements(List<object> newValue);
         /**
 	 * @return
 	 */
@@ -182,9 +185,23 @@ namespace Ocl20.library.impl.types
         /**
 	 * @return
 	 */
-        public List<object> getTheStereotypes() {
+        public List<CoreStereotype> getTheStereotypes() {
             return getJmiOperation().getTheStereotypes();
         }
+
+        public void setTheStereotypes(List<CoreStereotype> newValue)
+        {
+            throw new NotImplementedException();
+        }
+        
+        public abstract CoreNamespace getNamespace();
+        public abstract void setNamespace(CoreNamespace newValue);
+        public abstract List<object> getConnection();
+        public abstract void setConnection(List<object> newValue);
+        public abstract List<object> getExtendedElement();
+        public abstract void setExtendedElement(List<object> newValue);
+        public abstract List<object> getClientDependency();
+        public abstract void setClientDependency(List<object> newValue);
         /**
 	 * @param paramTypes
 	 * @param returnType
@@ -213,6 +230,8 @@ namespace Ocl20.library.impl.types
         public bool isQuery() {
             return getJmiOperation().isQuery();
         }
+
+        public abstract List<object> getParameter();
         /**
 	 * @param name
 	 * @return
@@ -290,6 +309,8 @@ namespace Ocl20.library.impl.types
 
         public abstract CoreClassifier getFeatureOwner();
         public abstract void setFeatureOwner(CoreClassifier newValue);
+        public abstract ScopeKind getOwnerScope();
+        public abstract void setOwnerScope(ScopeKind newValue);
         /**
 	 * @param body
 	 */

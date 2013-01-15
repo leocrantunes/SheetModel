@@ -1,6 +1,7 @@
+using System;
 using System.Collections.Generic;
 using Ocl20.library.iface.common;
-using Ocl20.library.iface.environment;
+using Environment = Ocl20.library.iface.environment.Environment;
 
 namespace Ocl20.library.impl.common
 {
@@ -45,7 +46,14 @@ namespace Ocl20.library.impl.common
         public List<object> getTheAssociationEnds() {
             return	adjustListResult(getSpecificAssociationEnds());
         }
+        
+        #region from uml13
 
-        public override abstract List<object> getSpecificAssociationEnds();
+        public override List<object> getSpecificAssociationEnds()
+        {
+            return getConnection();
+        }
+        
+        #endregion
     }
 }

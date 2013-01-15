@@ -8,7 +8,7 @@ using Ocl20.parser.semantics.types;
 
 namespace Ocl20.library.impl.common
 {
-    public abstract class CoreOperationImpl : CoreBehavioralFeatureImpl, CoreOperation
+    public class CoreOperationImpl : CoreBehavioralFeatureImpl, CoreOperation
     {
         private List<OclOperationConstraint> specifications = new List<OclOperationConstraint>();
         //private List<OclModifiableDeclarationConstraint> modifiableConstraints = new List<OclModifiableDeclarationConstraint>();
@@ -263,6 +263,11 @@ namespace Ocl20.library.impl.common
             return !hasStereotype("modifier");
         }
 
+        public override List<object> getParameter()
+        {
+            throw new NotImplementedException();
+        }
+
         public void addOperationSpecification(OclOperationConstraint operationSpec)
         {
             specifications.Add(operationSpec);
@@ -293,9 +298,9 @@ namespace Ocl20.library.impl.common
             return this.body;
         }
 
-        public abstract List<object> getConstraint();
-        public abstract void setActionBody(OclActionBodyConstraint body);
-        public abstract OclActionBodyConstraint getActionBody();
+        public List<object> getConstraint(){ throw new NotImplementedException(); }
+        public void setActionBody(OclActionBodyConstraint body) { throw new NotImplementedException(); }
+        public OclActionBodyConstraint getActionBody() { throw new NotImplementedException(); }
 
         //public void setActionBody(OclActionBodyConstraint body)
         //{
@@ -355,7 +360,7 @@ namespace Ocl20.library.impl.common
             return null;
         }
 
-        public abstract List<object> getModifiableConstraints();
+        public List<object> getModifiableConstraints() { throw new NotImplementedException(); }
 
         public List<VariableDeclaration> getLocalVariables()
         {
@@ -387,30 +392,90 @@ namespace Ocl20.library.impl.common
             return allOwnedElements;
         }
 
+        #region 
 
-        protected virtual bool getSpecificHasStereotype(String name)
+        protected override CoreModelElement getSpecificOwnerElement()
+        {
+            return (CoreModelElement) getFeatureOwner();
+        }
+
+        public override ICollection<object> getSpecificOwnedElements()
+        {
+            return new List<object>();
+        }
+
+        public override bool getSpecificIsInstanceScope()
+        {
+            return (getOwnerScope() == ScopeKindEnum.SK_INSTANCE) && (getName()[0] != '$');
+        }
+
+        public bool getSpecificIsQuery()
+        {
+            return isQuery();
+        }
+
+        protected bool getSpecificHasStereotype(String name)
         {
             return false;
         }
 
         protected virtual CoreClassifier getSpecificReturnParameterType()
         {
+            List<object> parameters = getParameter();
+
+            for (int i = 0; i < parameters.Count; i++)
+            {
+                Parameter param = (Parameter) parameters[i];
+                if (isReturnParameter(param) && !param.getType().getName().Equals("void"))
+                    return (CoreClassifier) param.getType();
+            }
             return null;
         }
 
         protected virtual List<object> getSpecificParameterTypesExceptReturn()
         {
-            return new List<object>();
+            List<object> paramTypes = new List<object>();
+
+            foreach (Parameter param in getParameter())
+            {
+                if (!isReturnParameter(param))
+                {
+                    paramTypes.Add(param.getType());
+                }
+            }
+
+            return paramTypes;
         }
 
         protected virtual List<object> getSpecificParameterNamesExceptReturn()
         {
-            return new List<object>();
+            List<object> paramNames = new List<object>();
+
+            foreach (Parameter param in getParameter())
+            {
+                if (!isReturnParameter(param))
+                {
+                    paramNames.Add(param.getName());
+                }
+            }
+
+            return paramNames;
         }
 
-        public virtual bool getSpecificIsQuery()
+        public override String getName()
         {
-            return true;
+            String name = base.getName();
+
+            return (name[0] == '$')
+                       ? name.Substring(1, name.Length)
+                       : name;
         }
+
+        private bool isReturnParameter(Parameter param)
+        {
+            return param.getKind() == ParameterDirectionKindEnum.PDK_RETURN;
+        }
+
+        #endregion
     }
 }

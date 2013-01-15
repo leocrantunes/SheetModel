@@ -9,7 +9,7 @@ namespace Ocl20.uml13.impl.foundation.core
     {
         protected override string super_getName()
         {
-            throw new System.NotImplementedException();
+            throw new System.NotImplementedException(); 
         }
 
         public override void setName(string newValue)

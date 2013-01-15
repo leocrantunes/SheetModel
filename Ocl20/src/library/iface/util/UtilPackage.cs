@@ -9,6 +9,6 @@ namespace Ocl20.library.iface.util
      * Returns AstOclModelElementFactory class proxy object.
      * @return AstOclModelElementFactory class proxy object.
      */
-        AstOclModelElementFactoryClass getAstOclModelElementFactory();
+        AstOclModelElementFactory getAstOclModelElementFactory();
     }
 }

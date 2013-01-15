@@ -9,97 +9,97 @@ namespace Ocl20.library.iface.common
      * Returns CoreStructuralFeature class proxy object.
      * @return CoreStructuralFeature class proxy object.
      */
-        CoreStructuralFeatureClass getCoreStructuralFeature();
+        CoreStructuralFeature getCoreStructuralFeature();
         /**
      * Returns CoreStereotype class proxy object.
      * @return CoreStereotype class proxy object.
      */
-        CoreStereotypeClass getCoreStereotype();
+        CoreStereotype getCoreStereotype();
         /**
      * Returns CorePrimitive class proxy object.
      * @return CorePrimitive class proxy object.
      */
-        CorePrimitiveClass getCorePrimitive();
+        CorePrimitive getCorePrimitive();
         /**
      * Returns CorePackage class proxy object.
      * @return CorePackage class proxy object.
      */
-        CorePackageClass getCorePackage();
+        CorePackage getCorePackage();
         /**
      * Returns CoreOperation class proxy object.
      * @return CoreOperation class proxy object.
      */
-        CoreOperationClass getCoreOperation();
+        CoreOperation getCoreOperation();
         /**
      * Returns CoreNamespace class proxy object.
      * @return CoreNamespace class proxy object.
      */
-        CoreNamespaceClass getCoreNamespace();
+        CoreNamespace getCoreNamespace();
         /**
      * Returns CoreModelElement class proxy object.
      * @return CoreModelElement class proxy object.
      */
-        CoreModelElementClass getCoreModelElement();
+        CoreModelElement getCoreModelElement();
         /**
      * Returns CoreModel class proxy object.
      * @return CoreModel class proxy object.
      */
-        CoreModelClass getCoreModel();
+        CoreModel getCoreModel();
         /**
      * Returns CoreInterface class proxy object.
      * @return CoreInterface class proxy object.
      */
-        CoreInterfaceClass getCoreInterface();
+        CoreInterface getCoreInterface();
         /**
      * Returns CoreFeature class proxy object.
      * @return CoreFeature class proxy object.
      */
-        CoreFeatureClass getCoreFeature();
+        CoreFeature getCoreFeature();
         /**
      * Returns CoreEnumeration class proxy object.
      * @return CoreEnumeration class proxy object.
      */
-        CoreEnumerationClass getCoreEnumeration();
+        CoreEnumeration getCoreEnumeration();
         /**
      * Returns CoreEnumLiteral class proxy object.
      * @return CoreEnumLiteral class proxy object.
      */
-        CoreEnumLiteralClass getCoreEnumLiteral();
+        CoreEnumLiteral getCoreEnumLiteral();
         /**
      * Returns CoreDataType class proxy object.
      * @return CoreDataType class proxy object.
      */
-        CoreDataTypeClass getCoreDataType();
+        CoreDataType getCoreDataType();
         /**
      * Returns CoreClassifier class proxy object.
      * @return CoreClassifier class proxy object.
      */
-        CoreClassifierClass getCoreClassifier();
+        CoreClassifier getCoreClassifier();
         /**
      * Returns CoreClass class proxy object.
      * @return CoreClass class proxy object.
      */
-        CoreClassClass getCoreClass();
+        CoreClass getCoreClass();
         /**
      * Returns CoreBehavioralFeature class proxy object.
      * @return CoreBehavioralFeature class proxy object.
      */
-        CoreBehavioralFeatureClass getCoreBehavioralFeature();
+        CoreBehavioralFeature getCoreBehavioralFeature();
         /**
      * Returns CoreAttribute class proxy object.
      * @return CoreAttribute class proxy object.
      */
-        CoreAttributeClass getCoreAttribute();
+        CoreAttribute getCoreAttribute();
         /**
      * Returns CoreAssociationEnd class proxy object.
      * @return CoreAssociationEnd class proxy object.
      */
-        CoreAssociationEndClass getCoreAssociationEnd();
+        CoreAssociationEnd getCoreAssociationEnd();
         /**
      * Returns CoreAssociationClass class proxy object.
      * @return CoreAssociationClass class proxy object.
      */
-        CoreAssociationClassClass getCoreAssociationClass();
+        CoreAssociationClass getCoreAssociationClass();
         /**
      * Returns CoreAssociation class proxy object.
      * @return CoreAssociation class proxy object.

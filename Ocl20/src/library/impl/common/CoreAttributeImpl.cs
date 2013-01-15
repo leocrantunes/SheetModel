@@ -1,17 +1,21 @@
+using System;
 using System.Collections.Generic;
 using Ocl20.library.iface.common;
 using Ocl20.library.iface.constraints;
 
 namespace Ocl20.library.impl.common
 {
-    public abstract class CoreAttributeImpl : CoreStructuralFeatureImpl, CoreAttribute, CoreEnumLiteral {
+    public class CoreAttributeImpl : CoreStructuralFeatureImpl, CoreAttribute, CoreEnumLiteral {
 
-        private ExpressionInOcl initialValue = null;
-        private ExpressionInOcl	derivedValue = null;
+        private ExpressionInOcl initialValue;
+        private ExpressionInOcl	derivedValue;
+
+        public CoreAttributeImpl()
+        {
+            initialValue = null;
+            derivedValue = null;
+        }
     
-        /* (non-Javadoc)
-	 * @see ocl20.CoreEnumLiteral#getTheEnumeration()
-	 */
         public CoreEnumeration getTheEnumeration() {
             CoreClassifier featureOwner = getFeatureOwner();
             if (featureOwner != null && featureOwner.isEnumeration())
@@ -20,11 +24,11 @@ namespace Ocl20.library.impl.common
                 return	null;
         }
 
-        public abstract void setTheEnumeration(CoreEnumeration newValue);
+        public void setTheEnumeration(CoreEnumeration newValue)
+        {
+            setFeatureOwner(newValue);
+        }
 
-        /* (non-Javadoc)
-	 * @see ocl20.CoreAttribute#getTheAssociationEnd()
-	 */
         public CoreAssociationEnd getTheAssociationEnd() {
             return getSpecificAssociationEnd();
         }
@@ -67,31 +71,50 @@ namespace Ocl20.library.impl.common
         protected virtual CoreAssociationEnd getSpecificAssociationEnd() {
             return	null;
         }
-	
-        public virtual bool getSpecificIsDerived() {
-            return	false;
+
+        public List<object> getDeriveConstraint() {
+            return null;
         }
 
-        /* (non-Javadoc)
-	 * @see ocl20.common.CoreAttribute#getDeriveConstraint()
-	 */
-        public List<object> getDeriveConstraint() {
-            // TODO Auto-generated method stub
-            return null;
-        }
-        /* (non-Javadoc)
-	 * @see ocl20.common.CoreAttribute#getInitConstraint()
-	 */
         public List<object> getInitConstraint() {
-            // TODO Auto-generated method stub
             return null;
         }
-        /* (non-Javadoc)
-	 * @see ocl20.common.CoreAttribute#setTheAssociationEnd(ocl20.common.CoreAssociationEnd)
-	 */
-        public void setTheAssociationEnd(CoreAssociationEnd newValue) {
-            // TODO Auto-generated method stub
+
+        public void setTheAssociationEnd(CoreAssociationEnd newValue) 
+        {}
+
+        #region from uml13
+
+        public override bool getSpecificIsInstanceScope()
+        {
+            return (getOwnerScope() == ScopeKindEnum.SK_INSTANCE);
         }
+
+        public override CoreClassifier getSpecificType()
+        {
+            return getFeatureType();
+        }
+
+        public bool getSpecificIsDerived()
+        {
+            String name = getName();
+
+            return (name[0] == '/');
+        }
+        
+        public override String getName()
+        {
+            String name = base.getName();
+
+            if (name == null)
+                return name;
+            else
+                return (name[0] == '/') ?
+                           name.Substring(1, name.Length) :
+                           name;
+        }
+        
+        #endregion
 
     }
 }

@@ -17,11 +17,6 @@ namespace Ocl20.uml13.impl.foundation.core
 
         #endregion
 
-        public AttributeImpl(XElement attribute)
-        {
-            
-        }
-        
         protected override CoreModelElement getSpecificOwnerElement() {
             return	(CoreModelElement) getOwner();
         }

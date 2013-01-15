@@ -16,7 +16,7 @@ namespace Ocl20.uml13.impl.foundation.core
         }
 
         protected override CoreClassifier getSpecificParticipant() {
-            if (getType() == typeof(CoreClassifier))
+            if (GetType() == typeof(CoreClassifier))
                 return (CoreClassifier) getType();
             else
                 return	null;
@@ -51,23 +51,10 @@ namespace Ocl20.uml13.impl.foundation.core
         public abstract void setNamespace(Namespace newValue);
         public abstract List<object> getClientDependency();
         public abstract List<object> getSupplierDependency();
-        public abstract bool isNavigable();
-        public abstract void setNavigable(bool newValue);
         public abstract OrderingKind getOrdering();
-        public abstract void setOrdering(OrderingKind newValue);
-        public abstract AggregationKind getAggregation();
-        public abstract void setAggregation(AggregationKind newValue);
-        public abstract ScopeKind getTargetScope();
-        public abstract void setTargetScope(ScopeKind newValue);
         public abstract Multiplicity getMultiplicity();
-        public abstract void setMultiplicity(Multiplicity newValue);
-        public abstract ChangeableKind getChangeability();
-        public abstract void setChangeability(ChangeableKind newValue);
         public abstract UmlAssociation getAssociation();
-        public abstract void setAssociation(UmlAssociation newValue);
         public abstract List<object> getQualifier();
         public abstract Classifier getType();
-        public abstract void setType(Classifier newValue);
-        public abstract List<object> getSpecification();
     }
 }

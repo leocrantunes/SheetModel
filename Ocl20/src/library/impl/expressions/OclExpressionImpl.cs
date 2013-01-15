@@ -243,7 +243,6 @@ namespace Ocl20.library.impl.expressions
             this.type = newValue;
         }
 	
-	
         /**
 	 * @return Returns the expressionInOcl.
 	 */

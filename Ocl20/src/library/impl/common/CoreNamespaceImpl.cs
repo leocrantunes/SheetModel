@@ -3,39 +3,11 @@ using System.Collections.Generic;
 using Ocl20.library.iface.common;
 using Ocl20.library.impl.environment;
 using Ocl20.parser.semantics.types;
-using CorePackage = Ocl20.uml13.iface.foundation.core.CorePackage;
 using Environment = Ocl20.library.iface.environment.Environment;
 
 namespace Ocl20.library.impl.common
 {
-    public class CoreNamespaceImplImpl : CoreNamespaceImpl
-    {
-        protected override string super_getName() {
-            throw new NotImplementedException();
-        }
-
-        public override void setName(string newValue) {
-            throw new NotImplementedException();
-        }
-
-        public override void setElemOwner(CoreModelElement newValue) {
-            throw new NotImplementedException();
-        }
-
-        public override List<object> getTheStereotypes() {
-            throw new NotImplementedException();
-        }
-
-        public override List<object> getElementsForEnvironment() {
-            throw new NotImplementedException();
-        }
-
-        protected override bool elementShouldBeAddedToEnvironment(CoreModelElement element) {
-            throw new NotImplementedException();
-        }
-    }
-
-    public abstract class CoreNamespaceImpl : CoreModelElementImpl, CoreNamespace {
+    public class CoreNamespaceImpl : CoreModelElementImpl, CoreNamespace {
         protected Environment environmentWithParents;
         protected Environment environmentWithoutParents;
         protected bool	isDirty = false;
@@ -95,7 +67,10 @@ namespace Ocl20.library.impl.common
             return this.environmentWithoutParents;
         }
 
-        public abstract List<object> getElementsForEnvironment();
+        public virtual List<object> getElementsForEnvironment()
+        {
+            throw new NotImplementedException();
+        }
 
         public virtual void populateEnvironment(Environment environment) {
             foreach (CoreModelElement element in getElemOwnedElements()) {
@@ -138,7 +113,10 @@ namespace Ocl20.library.impl.common
         public bool getIsDirty() {
             return this.isDirty;
         }
-    
-        protected abstract bool elementShouldBeAddedToEnvironment(CoreModelElement element);
+
+        protected virtual bool elementShouldBeAddedToEnvironment(CoreModelElement element)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

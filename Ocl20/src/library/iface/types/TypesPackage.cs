@@ -9,57 +9,57 @@ namespace Ocl20.library.iface.types
      * Returns CollectionOperation class proxy object.
      * @return CollectionOperation class proxy object.
      */
-        CollectionOperationClass getCollectionOperation();
+        CollectionOperation getCollectionOperation();
         /**
      * Returns TuplePartType class proxy object.
      * @return TuplePartType class proxy object.
      */
-        TuplePartTypeClass getTuplePartType();
+        TuplePartType getTuplePartType();
         /**
      * Returns OclModelElementType class proxy object.
      * @return OclModelElementType class proxy object.
      */
-        OclModelElementTypeClass getOclModelElementType();
+        OclModelElementType getOclModelElementType();
         /**
      * Returns OclType class proxy object.
      * @return OclType class proxy object.
      */
-        OclTypeClass getOclType();
+        OclType getOclType();
         /**
      * Returns VoidType class proxy object.
      * @return VoidType class proxy object.
      */
-        VoidTypeClass getVoidType();
+        VoidType getVoidType();
         /**
      * Returns OrderedSetType class proxy object.
      * @return OrderedSetType class proxy object.
      */
-        OrderedSetTypeClass getOrderedSetType();
+        OrderedSetType getOrderedSetType();
         /**
      * Returns BagType class proxy object.
      * @return BagType class proxy object.
      */
-        BagTypeClass getBagType();
+        BagType getBagType();
         /**
      * Returns SequenceType class proxy object.
      * @return SequenceType class proxy object.
      */
-        SequenceTypeClass getSequenceType();
+        SequenceType getSequenceType();
         /**
      * Returns SetType class proxy object.
      * @return SetType class proxy object.
      */
-        SetTypeClass getSetType();
+        SetType getSetType();
         /**
      * Returns CollectionType class proxy object.
      * @return CollectionType class proxy object.
      */
-        CollectionTypeClass getCollectionType();
+        CollectionType getCollectionType();
         /**
      * Returns TupleType class proxy object.
      * @return TupleType class proxy object.
      */
-        TupleTypeClass getTupleType();
+        TupleType getTupleType();
         /**
      * Returns FactoryCollectionType association proxy object.
      * @return FactoryCollectionType association proxy object.

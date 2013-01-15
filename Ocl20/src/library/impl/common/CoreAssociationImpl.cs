@@ -50,7 +50,17 @@ namespace Ocl20.library.impl.common
         public List<object> getTheAssociationEnds() {
             return	adjustListResult(getSpecificAssociationEnds());
         }
+        
+        #region from uml13
 
-        public	abstract List<object> getSpecificAssociationEnds();
+        public List<object> getSpecificAssociationEnds()
+        {
+            return getConnection();
+        }
+
+
+        
+        #endregion
+
     }
 }

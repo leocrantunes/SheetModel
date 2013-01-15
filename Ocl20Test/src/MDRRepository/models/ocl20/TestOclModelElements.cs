@@ -7,6 +7,7 @@ using Ocl20.library.iface.types;
 using Ocl20.library.iface.util;
 using Ocl20.library.impl.types;
 using Ocl20.library.impl.util;
+using Ocl20.xmireader;
 using CoreAssociationEnd = Ocl20.library.iface.common.CoreAssociationEnd;
 
 namespace Ocl20Test.MDRRepository.models.ocl20
@@ -15,6 +16,7 @@ namespace Ocl20Test.MDRRepository.models.ocl20
     public class TestOclModelElements
     {
         //protected static XMIMetamodelReader repository;
+        protected static XmiReader reader;
         protected static CoreModel umlModel = null;
         //protected static XMIModelUml13ModelsRepository modelRepository = null;
         protected static String extentName = "RoseExample";
@@ -26,6 +28,7 @@ namespace Ocl20Test.MDRRepository.models.ocl20
             //{
                 try
                 {
+                    reader = new XmiReader(@"C:\Users\Leo\Documents\visual studio 2010\Projects\SheetModel_20121206\SheetModel\Ocl20Test\resource\myExampleRose.xml");
                     //modelRepository = new Uml13ModelsRepository(MOFMetamodelRepositoryFactory.getRepository());
                     //modelRepository.importModel(extentName, "tests/resource/examples/myExampleRose.xml");
                     //repository = modelRepository;
@@ -40,7 +43,7 @@ namespace Ocl20Test.MDRRepository.models.ocl20
 
         public static void setUmlModelsRepository()
         {
-            //Assert.IsNotNull(umlModel = repository.getModel(extentName));
+            Assert.IsNotNull(umlModel = reader.getModel());
         }
 
         protected CoreClassifier getClassifier(String name)
@@ -53,12 +56,12 @@ namespace Ocl20Test.MDRRepository.models.ocl20
         {
             AstOclModelElementFactory factory1 = AstOclModelElementFactoryManager.getInstance(umlModel.getOclPackage());
             BooleanLiteralExp exp1 = factory1.createBooleanLiteralExp(true, getClassifier("Boolean"));
-            Assert.AreEqual("true", exp1.ToString());
+            Assert.AreEqual("True", exp1.ToString());
             Assert.AreEqual("Boolean", exp1.getType().getName());
 
             AstOclModelElementFactory factory2 = AstOclModelElementFactoryManager.getInstance(umlModel.getOclPackage());
             BooleanLiteralExp exp2 = factory2.createBooleanLiteralExp(true, getClassifier("Boolean"));
-            Assert.AreEqual("true", exp2.ToString());
+            Assert.AreEqual("True", exp2.ToString());
 
             Assert.IsFalse(exp1 == exp2);
             Assert.IsTrue(factory1 == factory2);

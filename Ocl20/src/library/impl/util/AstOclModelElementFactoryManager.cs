@@ -11,7 +11,7 @@ namespace Ocl20.library.impl.util
             AstOclModelElementFactory factory;
             astFactoryMap.TryGetValue(oclPackage, out factory);
             if (factory == null) {
-                factory = oclPackage.getUtil().getAstOclModelElementFactory().createAstOclModelElementFactory();
+                factory = oclPackage.getUtil().getAstOclModelElementFactory();
                 ((AstOclModelElementFactoryImpl) factory).setOclPackage(oclPackage);
                 astFactoryMap.Add(oclPackage, factory);
             }

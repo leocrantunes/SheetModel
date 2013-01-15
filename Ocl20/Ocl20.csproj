@@ -56,49 +56,58 @@
     <Compile Include="src\library\iface\common\CommonPackage.cs" />
     <Compile Include="src\library\iface\common\CoreAssociation.cs" />
     <Compile Include="src\library\iface\common\CoreAssociationClass.cs" />
-    <Compile Include="src\library\iface\common\CoreAssociationClassClass.cs" />
     <Compile Include="src\library\iface\common\CoreAssociationEnd.cs" />
-    <Compile Include="src\library\iface\common\CoreAssociationEndClass.cs" />
     <Compile Include="src\library\iface\common\CoreAttribute.cs" />
-    <Compile Include="src\library\iface\common\CoreAttributeClass.cs" />
     <Compile Include="src\library\iface\common\CoreBehavioralFeature.cs" />
-    <Compile Include="src\library\iface\common\CoreBehavioralFeatureClass.cs" />
     <Compile Include="src\library\iface\common\CoreClass.cs" />
-    <Compile Include="src\library\iface\common\CoreClassClass.cs" />
     <Compile Include="src\library\iface\common\CoreClassifier.cs" />
-    <Compile Include="src\library\iface\common\CoreClassifierClass.cs" />
     <Compile Include="src\library\iface\common\CoreDataType.cs" />
-    <Compile Include="src\library\iface\common\CoreDataTypeClass.cs" />
     <Compile Include="src\library\iface\common\CoreEnumeration.cs" />
-    <Compile Include="src\library\iface\common\CoreEnumerationClass.cs" />
     <Compile Include="src\library\iface\common\CoreEnumLiteral.cs" />
-    <Compile Include="src\library\iface\common\CoreEnumLiteralClass.cs" />
     <Compile Include="src\library\iface\common\CoreFeature.cs" />
-    <Compile Include="src\library\iface\common\CoreFeatureClass.cs" />
     <Compile Include="src\library\iface\common\CoreInterface.cs" />
-    <Compile Include="src\library\iface\common\CoreInterfaceClass.cs" />
     <Compile Include="src\library\iface\common\CoreModel.cs" />
-    <Compile Include="src\library\iface\common\CoreModelClass.cs" />
     <Compile Include="src\library\iface\common\CoreModelElement.cs" />
-    <Compile Include="src\library\iface\common\CoreModelElementClass.cs" />
     <Compile Include="src\library\iface\common\CoreNamespace.cs" />
-    <Compile Include="src\library\iface\common\CoreNamespaceClass.cs" />
     <Compile Include="src\library\iface\common\CoreOperation.cs" />
-    <Compile Include="src\library\iface\common\CoreOperationClass.cs" />
     <Compile Include="src\library\iface\common\CorePackage.cs" />
-    <Compile Include="src\library\iface\common\CorePackageClass.cs" />
     <Compile Include="src\library\iface\common\CorePrimitive.cs" />
-    <Compile Include="src\library\iface\common\CorePrimitiveClass.cs" />
     <Compile Include="src\library\iface\common\CoreStereotype.cs" />
-    <Compile Include="src\library\iface\common\CoreStereotypeClass.cs" />
     <Compile Include="src\library\iface\common\CoreStructuralFeature.cs" />
-    <Compile Include="src\library\iface\common\CoreStructuralFeatureClass.cs" />
+    <Compile Include="src\library\iface\common\Dependency.cs" />
     <Compile Include="src\library\iface\common\ElementsForEnv.cs" />
     <Compile Include="src\library\iface\common\EnumerationLiterals.cs" />
+    <Compile Include="src\library\iface\common\Expression.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="src\library\iface\common\FeatureOwnership.cs" />
     <Compile Include="src\library\iface\common\FeatureType.cs" />
+    <Compile Include="src\library\iface\common\Generalization.cs" />
+    <Compile Include="src\library\iface\common\Multiplicity.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\library\iface\common\MultiplicityRange.cs" />
+    <Compile Include="src\library\iface\common\OrderingKind.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\library\iface\common\OrderingKindEnum.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="src\library\iface\common\Owns.cs" />
+    <Compile Include="src\library\iface\common\Parameter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\library\iface\common\ParameterDirectionKind.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="src\library\iface\common\ParameterDirectionKindEnum.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="src\library\iface\common\RattributeAssocEnd.cs" />
+    <Compile Include="src\library\iface\common\Relationship.cs" />
+    <Compile Include="src\library\iface\common\ScopeKindEnum.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="src\library\iface\constraints\BodyExpressionOwnership.cs" />
     <Compile Include="src\library\iface\constraints\ConstraintsPackage.cs" />
     <Compile Include="src\library\iface\constraints\ExpressionInOcl.cs" />
@@ -256,38 +265,27 @@
     <Compile Include="src\library\iface\expressions\VariableExpVariableDeclaration.cs" />
     <Compile Include="src\library\iface\Ocl20Package.cs" />
     <Compile Include="src\library\iface\types\BagType.cs" />
-    <Compile Include="src\library\iface\types\BagTypeClass.cs" />
     <Compile Include="src\library\iface\types\CollectionOperation.cs" />
-    <Compile Include="src\library\iface\types\CollectionOperationClass.cs" />
     <Compile Include="src\library\iface\types\CollectionOperationCoreOperation.cs" />
     <Compile Include="src\library\iface\types\CollectionType.cs" />
-    <Compile Include="src\library\iface\types\CollectionTypeClass.cs" />
     <Compile Include="src\library\iface\types\CollectionTypeElementTypes.cs" />
     <Compile Include="src\library\iface\types\FactoryCollectionType.cs" />
     <Compile Include="src\library\iface\types\FactoryTupleType.cs" />
     <Compile Include="src\library\iface\types\OclModelElementType.cs" />
-    <Compile Include="src\library\iface\types\OclModelElementTypeClass.cs" />
     <Compile Include="src\library\iface\types\OclModelElementTypeCoreModelElement.cs" />
     <Compile Include="src\library\iface\types\OclType.cs" />
-    <Compile Include="src\library\iface\types\OclTypeClass.cs" />
     <Compile Include="src\library\iface\types\OrderedSetType.cs" />
-    <Compile Include="src\library\iface\types\OrderedSetTypeClass.cs" />
     <Compile Include="src\library\iface\types\SequenceType.cs" />
-    <Compile Include="src\library\iface\types\SequenceTypeClass.cs" />
     <Compile Include="src\library\iface\types\SetType.cs" />
-    <Compile Include="src\library\iface\types\SetTypeClass.cs" />
     <Compile Include="src\library\iface\types\TuplePartType.cs" />
-    <Compile Include="src\library\iface\types\TuplePartTypeClass.cs" />
     <Compile Include="src\library\iface\types\TupleType.cs" />
-    <Compile Include="src\library\iface\types\TupleTypeClass.cs" />
     <Compile Include="src\library\iface\types\TupleTypeTuplePartType.cs" />
     <Compile Include="src\library\iface\types\TypesPackage.cs" />
     <Compile Include="src\library\iface\types\VoidType.cs" />
-    <Compile Include="src\library\iface\types\VoidTypeClass.cs" />
     <Compile Include="src\library\iface\util\AstOclModelElementFactory.cs" />
-    <Compile Include="src\library\iface\util\AstOclModelElementFactoryClass.cs" />
     <Compile Include="src\library\iface\util\UtilPackage.cs" />
     <Compile Include="src\library\impl\common\ClassifierConstraintsHolder.cs" />
+    <Compile Include="src\library\impl\common\CommonPackageImpl.cs" />
     <Compile Include="src\library\impl\common\CoreAssociationClassImpl.cs" />
     <Compile Include="src\library\impl\common\CoreAssociationEndImpl.cs" />
     <Compile Include="src\library\impl\common\CoreAssociationHelper.cs" />
@@ -296,6 +294,7 @@
     <Compile Include="src\library\impl\common\CoreBehavioralFeatureImpl.cs" />
     <Compile Include="src\library\impl\common\CoreClassifierImpl.cs" />
     <Compile Include="src\library\impl\common\CoreDataTypeImpl.cs" />
+    <Compile Include="src\library\impl\common\CoreElementFactory.cs" />
     <Compile Include="src\library\impl\common\CoreEnumerationImpl.cs" />
     <Compile Include="src\library\impl\common\CoreEnumLiteralImpl.cs" />
     <Compile Include="src\library\impl\common\CoreFeatureImpl.cs" />
@@ -306,8 +305,10 @@
     <Compile Include="src\library\impl\common\CoreNamespaceImpl.cs" />
     <Compile Include="src\library\impl\common\CoreOperationImpl.cs" />
     <Compile Include="src\library\impl\common\CorePackageImpl.cs" />
+    <Compile Include="src\library\impl\common\CoreStereotypeImpl.cs" />
     <Compile Include="src\library\impl\common\CoreStructuralFeatureImpl.cs" />
     <Compile Include="src\library\impl\common\ModelElementNameGenerator.cs" />
+    <Compile Include="src\library\iface\common\ScopeKind.cs" />
     <Compile Include="src\library\impl\constraints\ExpressionInOclImpl.cs" />
     <Compile Include="src\library\impl\constraints\OclAssocEndDeriveConstraintImpl.cs" />
     <Compile Include="src\library\impl\constraints\OclAssocEndInitConstraintImpl.cs" />
@@ -367,6 +368,7 @@
     <Compile Include="src\library\impl\expressions\VariableExpImpl.cs" />
     <Compile Include="src\library\impl\IASTOclVisited.cs" />
     <Compile Include="src\library\impl\IASTOclVisitor.cs" />
+    <Compile Include="src\library\impl\Ocl20PackageImpl.cs" />
     <Compile Include="src\library\impl\types\BagTypeImpl.cs" />
     <Compile Include="src\library\impl\types\CollectionOperationImpl.cs" />
     <Compile Include="src\library\impl\types\CollectionTypeImpl.cs" />
@@ -376,11 +378,13 @@
     <Compile Include="src\library\impl\types\SetTypeImpl.cs" />
     <Compile Include="src\library\impl\types\TuplePartTypeImpl.cs" />
     <Compile Include="src\library\impl\types\TupleTypeImpl.cs" />
+    <Compile Include="src\library\impl\types\TypesPackageImpl.cs" />
     <Compile Include="src\library\impl\util\AstOclConstraintFactory.cs" />
     <Compile Include="src\library\impl\util\AstOclConstraintFactoryImpl.cs" />
     <Compile Include="src\library\impl\util\AstOclConstraintFactoryManager.cs" />
     <Compile Include="src\library\impl\util\AstOclModelElementFactoryImpl.cs" />
     <Compile Include="src\library\impl\util\AstOclModelElementFactoryManager.cs" />
+    <Compile Include="src\library\impl\util\UtilPackageImpl.cs" />
     <Compile Include="src\library\utils\CSharpExtensions.cs" />
     <Compile Include="src\parser\antlrcs\OCLScriptLexer.cs" />
     <Compile Include="src\parser\antlrcs\OCLScriptParser.cs" />
@@ -468,6 +472,7 @@
     <Compile Include="src\parser\typeChecker\OCLSemanticAnalyzer.cs" />
     <Compile Include="src\parser\typeChecker\OCLSemanticAnalyzerVisitor.cs" />
     <Compile Include="src\parser\typeChecker\PSWOclCompiler.cs" />
+    <Compile Include="src\xmireader\XmiReader.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="resource\metamodels\01-02-15.xml" />
@@ -475,81 +480,30 @@
     <Content Include="resource\metamodels\01-12-02.xml" />
     <Content Include="resource\metamodels\01-12-02_Diff.xml" />
     <Content Include="resource\metamodels\MOFOCL20.XML" />
-    <Content Include="resource\metamodels\oclPrimitiveTypes.xml" />
+    <Content Include="resource\metamodels\oclPrimitiveTypes.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="src\parser\antlrcs\antlr.astframe.dll" />
     <Content Include="src\parser\antlrcs\antlr.jar" />
     <Content Include="src\parser\antlrcs\antlr.runtime.dll" />
     <Content Include="src\parser\antlrcs\OCLScriptTokenTypes.txt" />
     <Compile Include="src\parser\semantics\types\OclTypesDefinition.cs" />
-    <Compile Include="src\uml13\iface\foundation\core\Classifier.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="src\uml13\iface\common\UmlPackage.cs" />
-    <Compile Include="src\uml13\impl\foundation\core\AbstractClassifier.cs" />
-    <Compile Include="src\uml13\impl\foundation\core\AssociationClassImpl.cs" />
-    <Compile Include="src\uml13\impl\foundation\core\AssociationEndImpl.cs" />
-    <Compile Include="src\uml13\impl\foundation\core\AttributeImpl.cs" />
-    <Compile Include="src\uml13\impl\foundation\core\CoreElementFactory.cs" />
-    <Compile Include="src\uml13\impl\foundation\core\DataTypeImpl.cs" />
-    <Compile Include="src\uml13\impl\foundation\core\InterfaceImpl.cs" />
-    <Compile Include="src\uml13\impl\foundation\core\ModelElementImpl.cs" />
-    <Compile Include="src\uml13\impl\foundation\core\NamespaceImpl.cs" />
-    <Compile Include="src\uml13\impl\foundation\core\OperationImpl.cs" />
-    <Compile Include="src\uml13\impl\foundation\core\UmlAssociationImpl.cs" />
-    <Compile Include="src\uml13\impl\foundation\core\UmlClassImpl.cs" />
-    <Compile Include="src\uml13\impl\foundation\core\UmlPackageImpl.cs" />
-    <Compile Include="src\uml13\impl\foundation\extensionmechanisms\StereotypeImpl.cs" />
-    <Compile Include="src\uml13\impl\modelmanagement\ModelImpl.cs" />
-    <Compile Include="src\uml13\impl\modelmanagement\UmlPackageImpl.cs" />
-    <Compile Include="src\uml13\iface\modelmanagement\UmlPackage.cs" />
-    <Compile Include="src\uml13\iface\foundation\core\AssociationClass.cs" />
-    <Compile Include="src\uml13\iface\foundation\core\GeneralizableElement.cs" />
-    <Compile Include="src\uml13\iface\foundation\core\Namespace.cs" />
-    <Compile Include="src\uml13\iface\foundation\core\UmlAssociation.cs" />
-    <Compile Include="src\uml13\iface\foundation\core\UmlClass.cs" />
-    <Compile Include="src\uml13\iface\foundation\core\ModelElement.cs" />
-    <Compile Include="src\uml13\iface\foundation\core\Element.cs" />
-    <Compile Include="src\uml13\iface\foundation\core\Relationship.cs" />
-    <Compile Include="src\uml13\iface\foundation\core\Generalization.cs" />
-    <Compile Include="src\uml13\iface\foundation\datatypes\VisibilityKind.cs" />
-    <Compile Include="src\uml13\iface\foundation\core\Binding.cs" />
-    <Compile Include="src\uml13\iface\foundation\core\Dependency.cs" />
-    <Compile Include="src\uml13\iface\foundation\extensionmechanisms\Stereotype.cs" />
-    <Compile Include="src\uml13\iface\foundation\core\Parameter.cs" />
-    <Compile Include="src\uml13\iface\foundation\datatypes\Expression.cs" />
-    <Compile Include="src\uml13\iface\foundation\datatypes\ParameterDirectionKind.cs" />
-    <Compile Include="src\uml13\iface\modelmanagement\Model.cs" />
-    <Compile Include="src\uml13\iface\foundation\core\Operation.cs" />
-    <Compile Include="src\uml13\iface\foundation\core\BehavioralFeature.cs" />
-    <Compile Include="src\uml13\iface\foundation\core\Feature.cs" />
-    <Compile Include="src\uml13\iface\foundation\datatypes\ScopeKind.cs" />
-    <Compile Include="src\uml13\iface\foundation\datatypes\CallConcurrencyKind.cs" />
-    <Compile Include="src\uml13\iface\foundation\core\Interface.cs" />
-    <Compile Include="src\uml13\iface\foundation\core\CorePackage.cs" />
-    <Compile Include="src\uml13\iface\foundation\core\AssociationEnd.cs" />
-    <Compile Include="src\uml13\iface\foundation\datatypes\ChangeableKind.cs" />
-    <Compile Include="src\uml13\iface\foundation\core\Multiplicity.cs" />
-    <Compile Include="src\uml13\iface\foundation\datatypes\AggregationKind.cs" />
-    <Compile Include="src\uml13\iface\foundation\datatypes\OrderingKind.cs" />
-    <Compile Include="src\uml13\iface\foundation\datatypes\DataType.cs" />
-    <Compile Include="src\uml13\iface\foundation\core\Attribute.cs" />
-    <Compile Include="src\uml13\iface\foundation\core\StructuralFeature.cs" />
-    <Compile Include="src\uml13\iface\foundation\datatypes\ParameterDirectionKindEnum.cs" />
-    <Compile Include="src\uml13\iface\foundation\datatypes\ScopeKindEnum.cs" />
-    <Compile Include="src\uml13\iface\foundation\core\MultiplicityRange.cs" />
-    <Compile Include="src\uml13\iface\foundation\datatypes\OrderingKindEnum.cs" />
-    <Compile Include="src\uml13\iface\foundation\FoundationPackage.cs" />
-    <Compile Include="src\uml13\iface\foundation\extensionmechanisms\ExtensionMechanismsPackage.cs" />
-    <Compile Include="src\uml13\iface\foundation\datatypes\DataTypesPackage.cs" />
-    <Compile Include="src\uml13\iface\modelmanagement\ModelManagementPackage.cs" />
-    <Compile Include="src\uml13\iface\foundation\extensionmechanisms\AStereotypeExtendedElement.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="src\parser\antlrcs\antlr.bat" />
     <None Include="src\parser\antlrcs\OCLSCRIPT.G" />
     <None Include="src\parser\typeChecker\messages.properties" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="src\uml13\iface\common\" />
+    <Folder Include="src\uml13\iface\foundation\core\" />
+    <Folder Include="src\uml13\iface\foundation\datatypes\" />
+    <Folder Include="src\uml13\iface\foundation\extensionmechanisms\" />
+    <Folder Include="src\uml13\iface\modelmanagement\" />
+    <Folder Include="src\uml13\impl\foundation\core\" />
+    <Folder Include="src\uml13\impl\foundation\extensionmechanisms\" />
+    <Folder Include="src\uml13\impl\modelmanagement\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

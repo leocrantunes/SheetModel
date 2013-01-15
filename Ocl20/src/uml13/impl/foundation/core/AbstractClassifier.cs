@@ -6,19 +6,8 @@ using Ocl20.uml13.iface.foundation.core;
 
 namespace Ocl20.uml13.impl.foundation.core
 {
-    public abstract class AbstractClassifier : CoreClassifierImpl, Classifier
+    /*public abstract class AbstractClassifier : CoreClassifierImpl, Classifier
     {
-        #region members
-
-        private List<Feature> feature; 
-
-        #endregion
-
-        protected AbstractClassifier(XElement classifier)
-        {
-            
-        }
-
         protected override CoreModelElement getSpecificOwnerElement() {
             return	(CoreModelElement) getNamespace();
         }
@@ -79,5 +68,5 @@ namespace Ocl20.uml13.impl.foundation.core
         public abstract bool isAbstract();
         public abstract List<object> getGeneralizations();
         public abstract List<object> getSpecialization();
-    }
+    }*/
 }

@@ -9,7 +9,7 @@ namespace Ocl20.uml13.impl.foundation.core
         public override List<object> getSpecificAssociationEnds() {
             return	getConnection();
         }
-
+         
         public abstract Namespace getNamespace();
         public abstract void setNamespace(Namespace newValue);
         public abstract List<object> getClientDependency();
