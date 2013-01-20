@@ -5,7 +5,7 @@ using Ocl20.library.iface.types;
 
 namespace Ocl20.library.impl.types
 {
-    public abstract class BagTypeImpl : CollectionTypeImpl, BagType {
+    public class BagTypeImpl : CollectionTypeImpl, BagType {
 
         public override CollectionKind getCollectionKind() {
             return	CollectionKindEnum.BAG;

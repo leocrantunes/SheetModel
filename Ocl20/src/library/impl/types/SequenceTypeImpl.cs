@@ -5,7 +5,7 @@ using Ocl20.library.iface.types;
 
 namespace Ocl20.library.impl.types
 {
-    public abstract class SequenceTypeImpl : CollectionTypeImpl, SequenceType {
+    public class SequenceTypeImpl : CollectionTypeImpl, SequenceType {
     
         public override CollectionKind getCollectionKind() {
             return	CollectionKindEnum.SEQUENCE;

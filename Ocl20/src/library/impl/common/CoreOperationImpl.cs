@@ -93,6 +93,10 @@ namespace Ocl20.library.impl.common
             {
                 foreach (CoreClassifier paramType in parameters)
                 {
+                    if (paramType == null)
+                    {
+                    }
+
                     if (OclTypesDefinition.typeNeedsToBeParsed(paramType.getName()))
                         result.Add(OclTypesFactory.createTypeFromString(paramType.getName()));
                     else
@@ -255,7 +259,7 @@ namespace Ocl20.library.impl.common
 	 * @see ocl20.CoreBehavioralFeature#isQuery()
 	 */
 
-        public override bool isQuery()
+        public override bool getIsQuery()
         {
             // default of most case tools is to return isQuery as false.
             // so we adopted the stereotype modifier as an indicator that the operation isQuery
@@ -263,9 +267,14 @@ namespace Ocl20.library.impl.common
             return !hasStereotype("modifier");
         }
 
-        public override List<object> getParameter()
+        public override List<Parameter> getParameter()
         {
-            throw new NotImplementedException();
+            return base.getParameter();
+        }
+
+        public override void setParameter(List<Parameter> newValue)
+        {
+            base.setParameter(newValue);
         }
 
         public void addOperationSpecification(OclOperationConstraint operationSpec)
@@ -411,7 +420,7 @@ namespace Ocl20.library.impl.common
 
         public bool getSpecificIsQuery()
         {
-            return isQuery();
+            return getIsQuery();
         }
 
         protected bool getSpecificHasStereotype(String name)
@@ -421,7 +430,7 @@ namespace Ocl20.library.impl.common
 
         protected virtual CoreClassifier getSpecificReturnParameterType()
         {
-            List<object> parameters = getParameter();
+            List<Parameter> parameters = getParameter();
 
             for (int i = 0; i < parameters.Count; i++)
             {

@@ -5,12 +5,21 @@ using Ocl20.library.iface.expressions;
 using Ocl20.library.iface.types;
 using Ocl20.library.iface.util;
 using Ocl20.library.impl.common;
+using Ocl20.library.impl.util;
 using Ocl20.parser.semantics.types;
 using Environment = Ocl20.library.iface.environment.Environment;
 
 namespace Ocl20.library.impl.types
 {
-    public abstract class CollectionTypeImpl : CoreDataTypeImpl, CollectionType {
+    public class CollectionTypeImpl : CoreDataTypeImpl, CollectionType
+    {
+        private AstOclModelElementFactory factory;
+        private CoreClassifier elementType;
+
+        public CollectionTypeImpl()
+        {
+            factory = null;
+        }
 
         public virtual CollectionKind getCollectionKind() {
             return	CollectionKindEnum.COLLECTION;
@@ -99,14 +108,14 @@ namespace Ocl20.library.impl.types
         }
 
         protected virtual bool areCollectionsCompatible(CoreClassifier c) {
-            if (c.GetType() == this.GetType() || (c.getName().Equals(this.getName())) ||  (c.GetType() == typeof(CollectionType) && c.getName().StartsWith("Collection"))) 
+            if (c.GetType() == this.GetType() || (c.getName().Equals(this.getName())) ||  (c.GetType() == typeof(CollectionTypeImpl) && c.getName().StartsWith("Collection"))) 
                 return elementTypesConformance(c);
             else
                 return false;
         }
 
         protected bool elementTypesConformance(CoreClassifier c) {
-            if ( ! (this.getElementType().GetType() == typeof(CollectionType)) && (((CollectionType) c).getElementType().GetType() == typeof(CollectionType))) 
+            if ( ! (this.getElementType().GetType() == typeof(CollectionTypeImpl)) && (((CollectionType) c).getElementType().GetType() == typeof(CollectionTypeImpl))) 
                 return	false;
 		
             return 	this.getElementType().conformsTo(((CollectionType) c).getElementType()) || isVoidType(((CollectionType) c).getElementType());
@@ -127,7 +136,7 @@ namespace Ocl20.library.impl.types
             if (this.GetType() == otherClassifier.GetType()) {
                 CollectionType	otherCollection = (CollectionType) otherClassifier;
                 return	createSpecificCollectionType(getElementType().getMostSpecificCommonSuperType(otherCollection.getElementType()));
-            } else if (otherClassifier.GetType() == typeof(CollectionType)) {
+            } else if (otherClassifier.GetType() == typeof(CollectionTypeImpl)) {
                 CollectionType	otherCollection = (CollectionType) otherClassifier;
                 return	createGenericCollectionType(getElementType().getMostSpecificCommonSuperType(otherCollection.getElementType()));
             } else {
@@ -147,9 +156,24 @@ namespace Ocl20.library.impl.types
             return this.getName();
         }
 
-        public abstract AstOclModelElementFactory getFactory();
-        public abstract void setFactory(AstOclModelElementFactory newValue);
-        public abstract CoreClassifier getElementType();
-        public abstract void setElementType(CoreClassifier newValue);
+        public AstOclModelElementFactory getFactory()
+        {
+            return factory;
+        }
+
+        public void setFactory(AstOclModelElementFactory newValue)
+        {
+            factory = newValue;
+        }
+
+        public CoreClassifier getElementType()
+        {
+            return elementType;
+        }
+
+        public void setElementType(CoreClassifier newValue)
+        {
+            elementType = newValue;
+        }
     }
 }

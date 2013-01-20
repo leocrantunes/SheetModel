@@ -1827,7 +1827,7 @@ namespace Ocl20.parser.typeChecker
                                                              "{0} is not a valid classifier name",
                                                              new object[] { oper.getName() });
                                }
-                           } else if (returnType == null && oper.isQuery()) {
+                           } else if (returnType == null && oper.getIsQuery()) {
                                generateSemanticException(expression,
                                                          "return type for operation {0} is void or not defined",
                                                          new object[] { oper.getName() });
@@ -2263,7 +2263,7 @@ namespace Ocl20.parser.typeChecker
             CSTNode operationContextDeclaration,
             CoreOperation operation)  {
 
-            if (! operation.isQuery()) {
+            if (! operation.getIsQuery()) {
                 generateSemanticException(operationContextDeclaration,
                                           "non query operation {0} can not have a body definition",
                                           new object[] { operation.getName() });

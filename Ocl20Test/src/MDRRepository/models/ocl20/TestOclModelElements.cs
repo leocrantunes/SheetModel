@@ -192,7 +192,7 @@ namespace Ocl20Test.MDRRepository.models.ocl20
 
             OclExpression exp = factory1.createTupleLiteralExp(parts, tupleType);
 
-            Assert.AreEqual("Tuple{ a : Integer = 100, b : Real = 100.38, c : Boolean = true }", exp.ToString());
+            Assert.AreEqual("Tuple{ a : Integer = 100, b : Real = 100.38, c : Boolean = True }", exp.ToString());
 
             Assert.AreEqual("Tuple(a : Integer, b : Real, c : Boolean)", exp.getType().getName());
 
@@ -267,9 +267,9 @@ namespace Ocl20Test.MDRRepository.models.ocl20
                                                                                          factory1.createSetType(
                                                                                              getClassifier("Integer")));
             CollectionTypeImpl type1 = (CollectionTypeImpl) factory1.createSetType(getClassifier("Integer"));
-            CoreOperation collectionOper = type1.lookupOperation("size", new List<object> ());
+            CoreOperation collectionOper = type1.lookupOperation("size", new List<object>());
 
-            OperationCallExp exp1 = factory1.createOperationCallExp(literalCollection, collectionOper, new List<object> (),
+            OperationCallExp exp1 = factory1.createOperationCallExp(literalCollection, collectionOper, new List<object>(),
                                                                     getClassifier("Integer"), false);
             Assert.IsNotNull(exp1);
         }

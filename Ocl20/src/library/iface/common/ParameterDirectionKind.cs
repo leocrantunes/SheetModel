@@ -1,7 +1,7 @@
 /**
  * ParameterDirectionKind enumeration interface.
  */
-namespace Ocl20.uml13.iface.foundation.datatypes
+namespace Ocl20.library.iface.common
 {
     public interface ParameterDirectionKind {
     }

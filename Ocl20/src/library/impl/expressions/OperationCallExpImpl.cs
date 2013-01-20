@@ -5,6 +5,7 @@ using System.Text;
 using Ocl20.library.iface.common;
 using Ocl20.library.iface.expressions;
 using Ocl20.library.iface.types;
+using Ocl20.library.impl.types;
 using Ocl20.library.utils;
 
 namespace Ocl20.library.impl.expressions
@@ -51,7 +52,7 @@ namespace Ocl20.library.impl.expressions
                     if (sourceAsString.EndsWith("@pre")) {
                         int indexPre = sourceAsString.LastIndexOf("@pre");
                         return	sourceAsString.Substring(0, indexPre) + "."  + this.getReferredOperation().getName() + "@pre" + "(" + this.getArgumentsAsString() + ")";
-                    } else if (getSource().getType().GetType() == typeof(CollectionType)){
+                    } else if (getSource().getType().GetType() == typeof(CollectionTypeImpl)){
                         return	getSource().ToString() + "->" + getSpecificString();
                     } else {
                         return	getSource().ToString() + "." + getSpecificString();

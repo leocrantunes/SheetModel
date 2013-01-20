@@ -10,14 +10,13 @@ using Environment = Ocl20.library.iface.environment.Environment;
 
 namespace Ocl20.library.impl.types
 {
-    public abstract class TupleTypeImpl : CoreClassifierImpl, TupleType {
+    public class TupleTypeImpl : CoreClassifierImpl, TupleType {
         private	List<object> tupleParts;
+        private AstOclModelElementFactory factory;
 
-        /**
-	 * 
-	 */
         public TupleTypeImpl() {
             tupleParts = new List<object>();
+            factory = null;
         }
 
         public void addElement(String name, CoreClassifier type) {
@@ -118,8 +117,15 @@ namespace Ocl20.library.impl.types
         /* (non-Javadoc)
 	 * @see ocl20.types.TupleType#getTupleParts()
 	 */
-        public abstract AstOclModelElementFactory getFactory();
-        public abstract void setFactory(AstOclModelElementFactory newValue);
+        public AstOclModelElementFactory getFactory()
+        {
+            return factory;
+        }
+
+        public void setFactory(AstOclModelElementFactory newValue)
+        {
+            factory = newValue;
+        }
 
         public List<object> getTupleParts() {
             return	tupleParts;

@@ -110,7 +110,7 @@ namespace Ocl20.library.impl.common
                 return name;
             else
                 return (name[0] == '/') ?
-                           name.Substring(1, name.Length) :
+                           name.Substring(1, name.Length - 1) :
                            name;
         }
         

@@ -81,10 +81,13 @@ namespace Ocl20.library.impl.types
         public abstract List<object> getConstraint();
         public abstract List<object> getClassifierFeatures();
         public abstract bool isAbstract();
-        public abstract List<object> getGeneralization();
-        public abstract List<object> getSpecialization();
+        public abstract List<Generalization> getGeneralization();
+        public abstract void setGeneralization(List<Generalization> newValue);
+        public abstract List<Generalization> getSpecialization();
+        public abstract void setSpecialization(List<Generalization> newValue);
         public abstract List<object> getFeature();
-        public abstract List<object> getSupplierDependency();
+        public abstract List<Dependency> getSupplierDependency();
+        public abstract void setSupplierDependency(List<Dependency> newValue);
         public abstract List<object> getClientDependency();
         public abstract void setClientDependency(List<object> newValue);
 

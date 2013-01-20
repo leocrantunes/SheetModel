@@ -26,7 +26,7 @@ namespace Ocl20.library.impl.constraints
         /* (non-Javadoc)
 	 * @see impl.ocl20.common.CoreOperationImpl#isQuery()
 	 */
-        public override bool isQuery() {
+        public override bool getIsQuery() {
             return true;
         }
     

@@ -34,7 +34,7 @@ namespace Ocl20.library.impl.common
         }
 
         private	CoreClassifier getPrimitiveType(CoreModelElement element) {
-            return  (element.GetType() == typeof(CoreClassifier))
+            return  (element.GetType() == typeof(CoreClassifierImpl))
                         ? (CoreClassifier) OclTypesDefinition.getEnvironment().lookup(element.getName())
                         : null;		
         }

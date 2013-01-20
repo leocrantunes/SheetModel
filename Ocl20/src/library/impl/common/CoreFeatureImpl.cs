@@ -22,7 +22,7 @@ namespace Ocl20.library.impl.common
 
         public virtual void setFeatureOwner(CoreClassifier newValue)
         {
-            setFeatureOwner(newValue);
+            setElemOwner(newValue);
         }
         
         public ScopeKind getOwnerScope()

@@ -5,7 +5,7 @@ using Ocl20.library.iface.types;
 
 namespace Ocl20.library.impl.types
 {
-    public abstract class OrderedSetTypeImpl : CollectionTypeImpl, OrderedSetType {
+    public class OrderedSetTypeImpl : CollectionTypeImpl, OrderedSetType {
 
         public override CollectionKind getCollectionKind() {
             return	CollectionKindEnum.ORDERED_SET;

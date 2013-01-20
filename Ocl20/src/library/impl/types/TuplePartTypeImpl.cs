@@ -5,9 +5,10 @@ using Ocl20.library.impl.common;
 
 namespace Ocl20.library.impl.types
 {
-    public abstract class TuplePartTypeImpl : CoreAttributeImpl, TuplePartType {
+    public class TuplePartTypeImpl : CoreAttributeImpl, TuplePartType {
 
         private	CoreClassifier	featureType;
+        private TupleType tupleType;
 	
         /* (non-Javadoc)
 	 * @see impl.ocl20.common.CoreStructuralFeatureImpl#getFeatureType()
@@ -63,8 +64,14 @@ namespace Ocl20.library.impl.types
             return base.isOclDefined();
         }
 
+        public TupleType getTupleType()
+        {
+            return tupleType;
+        }
 
-        public abstract TupleType getTupleType();
-        public abstract void setTupleType(TupleType newValue);
+        public void setTupleType(TupleType newValue)
+        {
+            tupleType = newValue;
+        }
     }
 }

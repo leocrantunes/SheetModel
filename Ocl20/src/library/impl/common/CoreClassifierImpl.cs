@@ -19,9 +19,16 @@ namespace Ocl20.library.impl.common
         private static String OCLINVALID = "OclInvalid";
         private Environment envWithoutAncestors = null;
 
+        private List<Generalization> generalizations;
+        private List<Generalization> specializations;
+        private List<Dependency> supplierDependency;
+
         public CoreClassifierImpl()
         {
             constraintsHolder = new ClassifierConstraintsHolder(this);
+            generalizations = new List<Generalization>();
+            specializations = new List<Generalization>();
+            supplierDependency = new List<Dependency>();
         }
 
         /* (non-Javadoc)
@@ -75,7 +82,8 @@ namespace Ocl20.library.impl.common
             CoreClassifier thisClassifier = getModel() != null ? getModel().toOclType(this) : this;
             CoreClassifier theOtherClassifier = c.getModel() != null ? (CoreClassifier) c.getModel().toOclType(c) : c;
 
-            return ((thisClassifier == theOtherClassifier) ||
+            return ((thisClassifier.getName().Equals(theOtherClassifier.getName())) || // shortcut (::Integer x ::PrimitiveTypes::Integer)
+                    (thisClassifier == theOtherClassifier) ||
                     (thisClassifier.getFullPathName().Equals(theOtherClassifier.getFullPathName())) ||
                     (OCLANY.Equals(theOtherClassifier.getName())) ||
                     (OCLVOID.Equals(thisClassifier.getName())) ||
@@ -187,25 +195,39 @@ namespace Ocl20.library.impl.common
             return false;
         }
 
-        public List<object> getGeneralization()
+        public List<Generalization> getGeneralization()
         {
-            return null;
+            return generalizations;
         }
 
-        public List<object> getSpecialization()
+        public void setGeneralization(List<Generalization> newValue)
         {
-            return null;
+            generalizations = newValue;
+        }
+
+        public List<Generalization> getSpecialization()
+        {
+            return specializations;
+        }
+
+        public void setSpecialization(List<Generalization> newValue)
+        {
+            specializations = newValue;
         }
 
         public List<object> getFeature()
         {
-            List<object> a = base.getElemOwnedElements().Where(e => elementShouldBeAddedToEnvironment((CoreModelElement) e)).ToList();
-            return a;
+            return base.getElemOwnedElements().Where(e => elementShouldBeAddedToEnvironment((CoreModelElement) e)).ToList();
         }
 
-        public List<object> getSupplierDependency()
+        public List<Dependency> getSupplierDependency()
         {
-            return null;
+            return supplierDependency;
+        }
+
+        public void setSupplierDependency(List<Dependency> newValue)
+        {
+            supplierDependency = newValue;
         }
 
         /* (non-Javadoc)
@@ -823,7 +845,7 @@ namespace Ocl20.library.impl.common
         {
             List<object> result = new List<object>();
 
-            List<object> superClasses = getGeneralization();
+            List<Generalization> superClasses = getGeneralization();
             foreach (Generalization generalization in superClasses)
             {
                 result.Add((generalization.getParent()));
@@ -861,7 +883,7 @@ namespace Ocl20.library.impl.common
         {
             List<object> result = new List<object>();
 
-            List<object> subClasses = getSpecialization();
+            List<Generalization> subClasses = getSpecialization();
             foreach (Generalization generalization in subClasses)
             {
                 result.Add(generalization.getChild());

@@ -307,8 +307,10 @@
     <Compile Include="src\library\impl\common\CorePackageImpl.cs" />
     <Compile Include="src\library\impl\common\CoreStereotypeImpl.cs" />
     <Compile Include="src\library\impl\common\CoreStructuralFeatureImpl.cs" />
+    <Compile Include="src\library\impl\common\GeneralizationImpl.cs" />
     <Compile Include="src\library\impl\common\ModelElementNameGenerator.cs" />
     <Compile Include="src\library\iface\common\ScopeKind.cs" />
+    <Compile Include="src\library\impl\common\ParameterImpl.cs" />
     <Compile Include="src\library\impl\constraints\ExpressionInOclImpl.cs" />
     <Compile Include="src\library\impl\constraints\OclAssocEndDeriveConstraintImpl.cs" />
     <Compile Include="src\library\impl\constraints\OclAssocEndInitConstraintImpl.cs" />

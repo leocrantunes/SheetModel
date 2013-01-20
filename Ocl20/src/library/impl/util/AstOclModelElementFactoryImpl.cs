@@ -15,7 +15,7 @@ namespace Ocl20.library.impl.util
 {
     public class AstOclModelElementFactoryImpl : AstOclModelElementFactory {
 
-        private Dictionary<object,object> allTypesCreated = new Dictionary<object,object>();
+        private Dictionary<string, CollectionType> allTypesCreated = new Dictionary<string, CollectionType>();
         private List<object> allTuplesCreated = new List<object>();
         private	Ocl20Package oclPackage;
         private Dictionary<String, CollectionOperation> allCollectionOperations = new Dictionary<String, CollectionOperation>();
@@ -136,12 +136,16 @@ namespace Ocl20.library.impl.util
         }
 
     
-        private CollectionType getCollectionType(
-            String name) {
+        private CollectionType getCollectionType(String name)
+        {
+            CollectionType typeAlreadyCreated;
+            allTypesCreated.TryGetValue(name, out typeAlreadyCreated);
+            return typeAlreadyCreated;
+
             //CollectionType typeAlreadyCreated = (CollectionType) allTypesCreated.get(name);
-            return	null;
+            //return	null;
             //return	typeAlreadyCreated;
-            }
+        }
 
         public CollectionType createCollectionType(
             String name,

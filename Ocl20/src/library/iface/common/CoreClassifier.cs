@@ -48,9 +48,12 @@ namespace Ocl20.library.iface.common
         List<object> getConstraint();
         List<object> getClassifierFeatures();
         bool isAbstract();
-        List<object> getGeneralization();
-        List<object> getSpecialization();
+        List<Generalization> getGeneralization();
+        void setGeneralization(List<Generalization> newValue);
+        List<Generalization> getSpecialization();
+        void setSpecialization(List<Generalization> newValue);
         List<object> getFeature();
-        List<object> getSupplierDependency();
+        List<Dependency> getSupplierDependency();
+        void setSupplierDependency(List<Dependency> newValue);
     }
 }

@@ -8,7 +8,9 @@ namespace Ocl20.library.iface.common
 {
     public interface CoreBehavioralFeature : CoreFeature {
        
-        bool isQuery();
-        List<object> getParameter();
+        bool getIsQuery();
+        void setIsQuery(bool newValue);
+        List<Parameter> getParameter();
+        void setParameter(List<Parameter> newValue);
     }
 }

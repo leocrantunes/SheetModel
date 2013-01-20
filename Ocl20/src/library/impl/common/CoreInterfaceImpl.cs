@@ -5,7 +5,7 @@ using Ocl20.library.utils;
 
 namespace Ocl20.library.impl.common
 {
-    public abstract class CoreInterfaceImpl : CoreClassifierImpl, CoreInterface {
+    public class CoreInterfaceImpl : CoreClassifierImpl, CoreInterface {
         /* (non-Javadoc)
 	 * @see ocl20.CoreInterface#getAllDirectImplementors()
 	 */
@@ -51,24 +51,6 @@ namespace Ocl20.library.impl.common
             }
 
             return result;
-        }
-
-        protected CoreAttribute createSpecificAttribute(String name, CoreClassifier type)
-        {
-            CoreElementFactory umlFactory = new CoreElementFactory();
-            return (CoreAttribute)umlFactory.createSpecificAttribute(this, name, type);
-        }
-
-        protected CoreOperation createSpecificOperation(String name, List<object> paramNames, List<object> paramTypes, CoreClassifier returnType)
-        {
-            CoreElementFactory umlFactory = new CoreElementFactory();
-            return (CoreOperation)umlFactory.createSpecificOperation(this, name, paramNames, paramTypes, returnType);
-        }
-
-        protected void createSpecificStereotype(CoreFeature feature, String stereotypeName)
-        {
-            CoreElementFactory umlFactory = new CoreElementFactory();
-            umlFactory.createSpecificStereotype(this, feature, stereotypeName);
         }
     }
 }

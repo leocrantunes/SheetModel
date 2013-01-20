@@ -6,12 +6,12 @@ namespace Ocl20.library.impl.types
     {
         public CollectionOperation getCollectionOperation()
         {
-            throw new System.NotImplementedException();
+            return new CollectionOperationImpl();
         }
 
         public TuplePartType getTuplePartType()
         {
-            throw new System.NotImplementedException();
+            return new TuplePartTypeImpl();
         }
 
         public OclModelElementType getOclModelElementType()
@@ -31,32 +31,32 @@ namespace Ocl20.library.impl.types
 
         public OrderedSetType getOrderedSetType()
         {
-            throw new System.NotImplementedException();
+            return new OrderedSetTypeImpl();
         }
 
         public BagType getBagType()
         {
-            throw new System.NotImplementedException();
+            return new BagTypeImpl();
         }
 
         public SequenceType getSequenceType()
         {
-            throw new System.NotImplementedException();
+            return new SequenceTypeImpl();
         }
 
         public SetType getSetType()
         {
-            throw new System.NotImplementedException();
+            return new SetTypeImpl();
         }
 
         public CollectionType getCollectionType()
         {
-            throw new System.NotImplementedException();
+            return new CollectionTypeImpl();
         }
 
         public TupleType getTupleType()
         {
-            throw new System.NotImplementedException();
+            return new TupleTypeImpl();
         }
 
         public FactoryCollectionType getFactoryCollectionType()

@@ -10,7 +10,10 @@ using Environment = Ocl20.library.iface.environment.Environment;
 
 namespace Ocl20.library.impl.types
 {
-    public abstract class CollectionOperationImpl  : CollectionOperation {
+    public class CollectionOperationImpl  : CollectionOperation
+    {
+        private CoreModelElement elemOwner;
+        private CoreOperation jmiOperation;
 
         public bool isInvalidSumOperation() {
             CollectionType	collection = (CollectionType) getFeatureOwner();
@@ -135,15 +138,22 @@ namespace Ocl20.library.impl.types
             return getJmiOperation().getElemOwnedElements();
         }
 
-        public abstract void setElemOwnedElements(List<object> newValue);
+        public void setElemOwnedElements(List<object> newValue)
+        {
+            getJmiOperation().setElemOwnedElements(newValue);
+        }
+
         /**
 	 * @return
 	 */
         public CoreModelElement getElemOwner() {
-            return getFeatureOwner();
+            return elemOwner;
         }
 
-        public abstract void setElemOwner(CoreModelElement newValue);
+        public void setElemOwner(CoreModelElement newValue)
+        {
+            elemOwner = newValue;
+        }
 
         /**
 	 * @return
@@ -194,14 +204,36 @@ namespace Ocl20.library.impl.types
             throw new NotImplementedException();
         }
         
-        public abstract CoreNamespace getNamespace();
-        public abstract void setNamespace(CoreNamespace newValue);
-        public abstract List<object> getConnection();
-        public abstract void setConnection(List<object> newValue);
-        public abstract List<object> getExtendedElement();
-        public abstract void setExtendedElement(List<object> newValue);
-        public abstract List<object> getClientDependency();
-        public abstract void setClientDependency(List<object> newValue);
+        public CoreNamespace getNamespace()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void setNamespace(CoreNamespace newValue)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<object> getConnection()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void setConnection(List<object> newValue)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<object> getClientDependency()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void setClientDependency(List<object> newValue)
+        {
+            throw new NotImplementedException();
+        }
+
         /**
 	 * @param paramTypes
 	 * @param returnType
@@ -227,11 +259,30 @@ namespace Ocl20.library.impl.types
         /**
 	 * @return
 	 */
-        public bool isQuery() {
-            return getJmiOperation().isQuery();
+        public bool getIsQuery() {
+            return getJmiOperation().getIsQuery();
         }
 
-        public abstract List<object> getParameter();
+        public void setIsQuery(bool newValue)
+        {
+            getJmiOperation().setIsQuery(newValue);
+        }
+
+        public List<Parameter> getParameter()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<object> setParameter()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void setParameter(List<Parameter> newValue)
+        {
+            throw new NotImplementedException();
+        }
+
         /**
 	 * @param name
 	 * @return
@@ -268,12 +319,35 @@ namespace Ocl20.library.impl.types
             return new List<object>();
         }
 
-        public abstract void setActionBody(OclActionBodyConstraint body);
-        public abstract OclActionBodyConstraint getActionBody();
-        public abstract void addLocalVariable(string source, VariableDeclaration variable);
-        public abstract List<VariableDeclaration> getLocalVariables();
-        public abstract VariableDeclaration lookupLocalVariable(string name);
-        public abstract List<object> getModifiableConstraints();
+        public void setActionBody(OclActionBodyConstraint body)
+        {
+            throw new NotImplementedException();
+        }
+
+        public OclActionBodyConstraint getActionBody()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void addLocalVariable(string source, VariableDeclaration variable)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<VariableDeclaration> getLocalVariables()
+        {
+            throw new NotImplementedException();
+        }
+
+        public VariableDeclaration lookupLocalVariable(string name)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<object> getModifiableConstraints()
+        {
+            throw new NotImplementedException();
+        }
 
         /**
 	 * @param operationSpec
@@ -307,10 +381,26 @@ namespace Ocl20.library.impl.types
             return getJmiOperation().isOclDefined();
         }
 
-        public abstract CoreClassifier getFeatureOwner();
-        public abstract void setFeatureOwner(CoreClassifier newValue);
-        public abstract ScopeKind getOwnerScope();
-        public abstract void setOwnerScope(ScopeKind newValue);
+        public CoreClassifier getFeatureOwner()
+        {
+            return (CoreClassifier) getElemOwner();
+        }
+
+        public void setFeatureOwner(CoreClassifier newValue)
+        {
+            setElemOwner(newValue);
+        }
+
+        public ScopeKind getOwnerScope()
+        {
+            return getJmiOperation().getOwnerScope();
+        }
+
+        public void setOwnerScope(ScopeKind newValue)
+        {
+            getJmiOperation().setOwnerScope(newValue);
+        }
+
         /**
 	 * @param body
 	 */
@@ -318,7 +408,14 @@ namespace Ocl20.library.impl.types
             getJmiOperation().setBodyDefinition(body);
         }
 
-        public abstract CoreOperation getJmiOperation();
-        public abstract void setJmiOperation(CoreOperation newValue);
+        public CoreOperation getJmiOperation()
+        {
+            return jmiOperation;
+        }
+
+        public void setJmiOperation(CoreOperation newValue)
+        {
+            jmiOperation = newValue;
+        }
     }
 }

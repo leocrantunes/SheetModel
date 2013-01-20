@@ -6,7 +6,32 @@ namespace Ocl20.library.impl.common
 {
     public class CoreBehavioralFeatureImpl : CoreFeatureImpl, CoreBehavioralFeature
     {
-        public virtual bool isQuery() { throw new NotImplementedException(); }
-        public virtual List<object> getParameter() { throw new NotImplementedException(); }
+        private bool isQuery;
+        private List<Parameter> parameter;
+
+        public CoreBehavioralFeatureImpl()
+        {
+            parameter = new List<Parameter>();
+        }
+
+        public virtual bool getIsQuery()
+        {
+            return isQuery;
+        }
+
+        public void setIsQuery(bool newValue)
+        {
+            isQuery = newValue;
+        }
+        
+        public virtual List<Parameter> getParameter()
+        {
+            return parameter;
+        }
+
+        public virtual void setParameter(List<Parameter> newValue)
+        {
+            parameter = newValue;
+        }
     }
 }
