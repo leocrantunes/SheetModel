@@ -74,7 +74,7 @@ namespace Ocl20.library.impl.common
             List<object> associations = getAllAssociations();
 
             foreach (CoreAssociation association in associations) {
-                if (association.GetType() == typeof(CoreAssociationClass) &&
+                if (association.GetType() == typeof(CoreAssociationClassImpl) &&
                     association.isClassifierInAssociation(classifier)) {
                         associationClassesCollection.Add(association);
                     }

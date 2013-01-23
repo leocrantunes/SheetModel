@@ -21,9 +21,14 @@ namespace Ocl20.library.iface.common
         List<object> getTheQualifiers();
         List<object> getDeriveConstraint();
         OrderingKind getOrdering();
+        void setOrdering(OrderingKind newValue);
         Multiplicity getMultiplicity();
+        void setMultiplicity(Multiplicity newValue);
         CoreAssociation getAssociation();
+        void setAssociation(CoreAssociation newValue);
         List<object> getQualifier();
+        void setQualifier(List<object> newValue);
         CoreClassifier getType();
+        void setType(CoreClassifier newValue);
     }
 }

@@ -4,6 +4,8 @@ using System.Linq;
 using Ocl20.library.iface.common;
 using Ocl20.library.iface.expressions;
 using Ocl20.library.iface.types;
+using Ocl20.library.impl.common;
+using Ocl20.library.impl.types;
 using Ocl20.library.utils;
 using CoreAssociationEnd = Ocl20.library.iface.common.CoreAssociationEnd;
 
@@ -22,8 +24,8 @@ namespace Ocl20.library.impl.expressions
         }
 
         public CoreClassifier getExpressionType(CoreClassifier sourceType, CoreAssociationEnd associationEnd, CoreClassifier elementType) {
-            if (sourceType.GetType() == typeof(CollectionType)) {
-                if ( (sourceType.GetType() == typeof(SetType) || sourceType.GetType() == typeof(BagType)) && (! associationEnd.isOrdered()) 
+            if (sourceType.GetType() == typeof(CollectionTypeImpl)) {
+                if ( (sourceType.GetType() == typeof(SetTypeImpl) || sourceType.GetType() == typeof(BagTypeImpl)) && (! associationEnd.isOrdered()) 
                     ) {
                         return  getFactory().createBagType(elementType);
                     } else {
@@ -43,7 +45,7 @@ namespace Ocl20.library.impl.expressions
 
         private	bool isSingleElementAccess(CoreClassifier sourceType, CoreAssociationEnd associationEnd) {
             return 
-                (sourceType.GetType() == typeof(CoreAssociationClass)) ||
+                (sourceType.GetType() == typeof(CoreAssociationClassImpl)) ||
                 (associationEnd.isOneMultiplicity() && ! associationEndHasQualifiers(associationEnd)) ||
                 (associationEnd.isOneMultiplicity() && associationEndHasQualifiers(associationEnd) && getQualifiers().Count > 0);
         }

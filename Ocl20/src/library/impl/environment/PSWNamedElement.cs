@@ -1,5 +1,7 @@
 using Ocl20.library.iface.common;
 using Ocl20.library.iface.expressions;
+using Ocl20.library.impl.common;
+using Ocl20.library.impl.expressions;
 
 namespace Ocl20.library.impl.environment
 {
@@ -43,9 +45,9 @@ namespace Ocl20.library.impl.environment
         }
 	
         public CoreClassifier getType() {
-            if (getReferredElement().GetType() == typeof(CoreClassifier)) {
+            if (getReferredElement().GetType() == typeof(CoreClassifierImpl)) {
                 return (CoreClassifier) getReferredElement();
-            } else if (getReferredElement().GetType() == typeof(VariableDeclaration)) {
+            } else if (getReferredElement().GetType() == typeof(VariableDeclarationImpl)) {
                 return ((VariableDeclaration) getReferredElement()).getType();
             } else {
                 return null;

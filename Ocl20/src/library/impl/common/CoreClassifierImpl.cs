@@ -217,6 +217,9 @@ namespace Ocl20.library.impl.common
 
         public List<object> getFeature()
         {
+
+            // new
+
             return base.getElemOwnedElements().Where(e => elementShouldBeAddedToEnvironment((CoreModelElement) e)).ToList();
         }
 
@@ -329,7 +332,7 @@ namespace Ocl20.library.impl.common
             StringBuilder result = new StringBuilder();
             CoreNamespace ns = (CoreNamespace) getElemOwner();
 
-            while ((ns != null) && !(ns.GetType() == typeof (CoreModel)))
+            while ((ns != null) && !(ns.GetType() == typeof (CoreModelImpl)))
             {
                 result.Insert(0, ns.getName() + "::");
                 ns = (CoreNamespace) ns.getElemOwner();
@@ -387,7 +390,7 @@ namespace Ocl20.library.impl.common
         public override ICollection<object> getElemOwnedElements()
         {
             return base.getElemOwnedElements();
-
+            
             HashSet<object> resultAttr = new HashSet<object>();
             HashSet<object> resultOper = new HashSet<object>();
             HashSet<object> resultAssocEnd = new HashSet<object>();
@@ -473,9 +476,7 @@ namespace Ocl20.library.impl.common
                 return null;
             }
         }
-
-
-
+        
         /* (non-Javadoc)
 	 * @see ocl20.CoreClassifier#lookupOperation(java.lang.String, java.util.Collection)
 	 */
@@ -661,7 +662,6 @@ namespace Ocl20.library.impl.common
                 }
             }
         }
-
 
         protected override void resetEnvironments()
         {

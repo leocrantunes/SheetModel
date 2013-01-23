@@ -33,7 +33,7 @@ namespace Ocl20.library.impl.expressions
 
 
         public override bool conformsTo(CoreClassifier type) {
-            if (type.GetType() != typeof(CollectionType))
+            if (type.GetType() != typeof(CollectionTypeImpl))
                 return	false;
 	
             if (((CollectionTypeImpl) type).getCollectionKind() == CollectionKindEnum.COLLECTION ||

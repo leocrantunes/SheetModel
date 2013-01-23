@@ -242,7 +242,7 @@ namespace Ocl20.library.impl.common
             this.definedFeaturesBySource.TryGetValue(sourceName, out elementsToBeRemoved);
             if (elementsToBeRemoved != null) {
                 foreach(CoreFeature modelElement in elementsToBeRemoved) {
-                    if (modelElement.GetType() == typeof(CoreAttribute)) {
+                    if (modelElement.GetType() == typeof(CoreAttributeImpl)) {
                         CoreAttribute attr = (CoreAttribute) modelElement;
                         namesToBeRemovedFromEnvironment.Add(attr.getName());
                     } else {

@@ -16,11 +16,12 @@ namespace Ocl20.library.impl.common
             List<object> associations = new List<object>();
 		
             foreach (CoreModelElement element in getElemOwnedElements()) {
-                if (element.GetType() == typeof(CoreAssociation)) {
+                if (element.GetType() == typeof(CoreAssociationImpl)) 
+                {
                     associations.Add(element);
                 }
 			
-                if (element.GetType() ==  typeof(CorePackage)) {
+                if (element.GetType() ==  typeof(CorePackageImpl)) {
                     associations.AddRange( ((CoreNamespace) element).getAllAssociations());
                 }
             }
@@ -47,7 +48,7 @@ namespace Ocl20.library.impl.common
                 }
 
                 CoreModelElement owner = this.getElemOwner();
-                if (owner != null && owner.GetType() == typeof(CoreNamespace)) {
+                if (owner != null && owner.GetType() == typeof(CoreNamespaceImpl)) {
                     this.environmentWithParents.setParent(((CoreNamespace) owner).getEnvironmentWithParents());
                 }
     		
@@ -90,8 +91,8 @@ namespace Ocl20.library.impl.common
             } catch (NameClashException e) {
                 Object element = environment.lookupLocal(name);
                 try {
-                    if (element.GetType() == typeof(CoreClassifier) && 
-                        wrapper.GetType() == typeof(CoreClassifier) &&
+                    if (element.GetType() == typeof(CoreClassifierImpl) && 
+                        wrapper.GetType() == typeof(CoreClassifierImpl) &&
                         ! OclTypesDefinition.isOclPrimitiveType(wrapper.getName())) {
                             environment.removeElement(name);
                             CoreClassifier cls = (CoreClassifier) element;

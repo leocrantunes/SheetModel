@@ -93,10 +93,6 @@ namespace Ocl20.library.impl.common
             {
                 foreach (CoreClassifier paramType in parameters)
                 {
-                    if (paramType == null)
-                    {
-                    }
-
                     if (OclTypesDefinition.typeNeedsToBeParsed(paramType.getName()))
                         result.Add(OclTypesFactory.createTypeFromString(paramType.getName()));
                     else

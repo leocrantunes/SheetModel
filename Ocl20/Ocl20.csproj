@@ -310,6 +310,8 @@
     <Compile Include="src\library\impl\common\GeneralizationImpl.cs" />
     <Compile Include="src\library\impl\common\ModelElementNameGenerator.cs" />
     <Compile Include="src\library\iface\common\ScopeKind.cs" />
+    <Compile Include="src\library\impl\common\MultiplicityImpl.cs" />
+    <Compile Include="src\library\impl\common\MultiplicityRangeImpl.cs" />
     <Compile Include="src\library\impl\common\ParameterImpl.cs" />
     <Compile Include="src\library\impl\constraints\ExpressionInOclImpl.cs" />
     <Compile Include="src\library\impl\constraints\OclAssocEndDeriveConstraintImpl.cs" />

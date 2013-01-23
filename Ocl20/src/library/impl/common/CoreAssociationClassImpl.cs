@@ -5,7 +5,7 @@ using Environment = Ocl20.library.iface.environment.Environment;
 
 namespace Ocl20.library.impl.common
 {
-    public abstract class CoreAssociationClassImpl : CoreClassifierImpl, CoreAssociationClass {
+    public class CoreAssociationClassImpl : CoreClassifierImpl, CoreAssociationClass {
 	
         public CoreAssociationEnd lookupAssociationEnd(CoreClassifier c) {
             Environment env = getEnvironmentWithoutParents();

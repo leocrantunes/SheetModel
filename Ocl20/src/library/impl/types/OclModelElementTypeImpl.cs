@@ -42,7 +42,7 @@ namespace Ocl20.library.impl.types
         public abstract CoreOperation lookupOperation(string name, List<object> paramTypes);
 
         public bool conformsTo(CoreClassifier c) {
-            return (c.GetType()  == typeof(OclModelElementType)) || (c.getName().Equals("OclType"));
+            return (c.GetType()  == typeof(OclModelElementTypeImpl)) || (c.getName().Equals("OclType"));
         }
 
         public abstract ICollection<object> getAllAttributes();

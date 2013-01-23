@@ -124,7 +124,7 @@ namespace Ocl20.library.impl.environment
 
         public void addNamedElements(List<object> pNamedElements) {
             foreach (NamedElement element in pNamedElements)
-                if (!this.namedElements.ContainsKey(element.getName()))
+                if (!this.namedElements.ContainsKey(element.getName())) // new
                     this.namedElements.Add(element.getName(), element);
         }
 

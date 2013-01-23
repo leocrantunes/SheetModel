@@ -12,5 +12,7 @@ namespace Ocl20.library.iface.common
      * @return Value of reference range.
      */
         List<object> getRange();
+
+        void setRange(List<object> newValue);
     }
 }

@@ -4,6 +4,7 @@ using Ocl20.library.iface;
 using Ocl20.library.iface.common;
 using Ocl20.library.iface.constraints;
 using Ocl20.library.iface.expressions;
+using Ocl20.library.impl.common;
 using Ocl20.library.impl.constraints;
 using CoreAssociationEnd = Ocl20.library.iface.common.CoreAssociationEnd;
 
@@ -25,18 +26,18 @@ namespace Ocl20.library.impl.util
         }
 
         public	OclConstraint	createModelElementInitConstraint(string source, CoreClassifier contextualClassifier, CoreModelElement element, ExpressionInOcl initialValue) {
-            if (element.GetType() == typeof(CoreAttribute)) {
+            if (element.GetType() == typeof(CoreAttributeImpl)) {
                 return	createAttributeInitConstraint(source, contextualClassifier, (CoreAttribute) element, initialValue);
-            } else if (element.GetType() == typeof(CoreAssociationEnd)) {
+            } else if (element.GetType() == typeof(CoreAssociationEndImpl)) {
                 return	createAssociationEndInitConstraint(source, contextualClassifier, (CoreAssociationEnd) element, initialValue);
             } else
                 return	null;
         }
 
         public	OclConstraint	createModelElementDeriveConstraint(string source, CoreClassifier contextualClassifier, CoreModelElement element, ExpressionInOcl initialValue) {
-            if (element.GetType() == typeof(CoreAttribute)) {
+            if (element.GetType() == typeof(CoreAttributeImpl)) {
                 return	createAttributeDeriveConstraint(source, contextualClassifier, (CoreAttribute) element, initialValue);
-            } else if (element.GetType() == typeof(CoreAssociationEnd)) {
+            } else if (element.GetType() == typeof(CoreAssociationEndImpl)) {
                 return	createAssociationEndDeriveConstraint(source, contextualClassifier, (CoreAssociationEnd) element, initialValue);
             } else
                 return	null;

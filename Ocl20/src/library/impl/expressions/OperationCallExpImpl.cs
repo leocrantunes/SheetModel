@@ -82,7 +82,7 @@ namespace Ocl20.library.impl.expressions
 
             if (isBasicOperator(this.getReferredOperation().getName()) && this.getArguments().Count == 1) {
                 OclExpression argument = (OclExpression) this.getArguments()[0];
-                if (argument.GetType() == typeof(OperationCallExp) && isBasicOperator(((OperationCallExp) argument).getReferredOperation().getName())) {
+                if (argument.GetType() == typeof(OperationCallExpImpl) && isBasicOperator(((OperationCallExp) argument).getReferredOperation().getName())) {
                     return	"(" + result.ToString() + ")";
                 }
             }

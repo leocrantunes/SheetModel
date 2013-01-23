@@ -5,6 +5,7 @@ using System.Text;
 using Ocl20.library.iface.common;
 using Ocl20.library.iface.expressions;
 using Ocl20.library.iface.types;
+using Ocl20.library.impl.types;
 using Ocl20.library.utils;
 
 namespace Ocl20.library.impl.expressions
@@ -21,7 +22,7 @@ namespace Ocl20.library.impl.expressions
         }
 
         public override bool conformsTo(CoreClassifier type) {
-            if (type.GetType() != typeof(TupleType))
+            if (type.GetType() != typeof(TupleTypeImpl))
                 return	false;
 		
             TupleType targetType = (TupleType) type;

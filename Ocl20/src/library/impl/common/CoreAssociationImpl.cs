@@ -4,7 +4,7 @@ using Ocl20.library.iface.common;
 
 namespace Ocl20.library.impl.common
 {
-    public abstract class CoreAssociationImpl : CoreModelElementImpl, CoreAssociation {
+    public class CoreAssociationImpl : CoreModelElementImpl, CoreAssociation {
 
         private	string	fullName = null;
 	
@@ -57,8 +57,6 @@ namespace Ocl20.library.impl.common
         {
             return getConnection();
         }
-
-
         
         #endregion
 

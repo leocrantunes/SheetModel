@@ -8,6 +8,7 @@ using Ocl20.library.iface.types;
 using Ocl20.library.impl;
 using Ocl20.library.impl.common;
 using Ocl20.library.impl.environment;
+using Ocl20.library.impl.types;
 using Ocl20.xmireader;
 using CorePackage = Ocl20.library.iface.common.CorePackage;
 using Environment = Ocl20.library.iface.environment.Environment;
@@ -67,13 +68,8 @@ namespace Ocl20.parser.semantics.types
         private static void loadTypesDefinitions() {
             if (oclTypesEnvironment == null)
             {
-                //Uml14ModelsRepository modelRepository = new Uml14ModelsRepository(MOFMetamodelRepositoryFactory.getRepository());
-                //String extentName = "UMLMODEL_DEFINING_OCLPRIMITIVETYPES";
-                //modelRepository.importModel(extentName, "resource/metamodels/oclPrimitiveTypes.xml");
-
                 XmiReader reader = new XmiReader(@"C:\Users\Leo\Documents\visual studio 2010\Projects\SheetModel_20121206\SheetModel\Ocl20\resource\metamodels\oclPrimitiveTypes.xml");
                 oclTypesModel = reader.getMetamodel();
-                //oclTypesModel = modelRepository.getModelWithoutOCL(extentName);
 
                 if (oclTypesModel != null)
                 {
@@ -162,7 +158,7 @@ namespace Ocl20.parser.semantics.types
         }
 
         public static bool typeNeedsToBeParsed(CoreClassifier classifier) {
-            if  (! (classifier.GetType() == typeof(CollectionType))) {
+            if  (! (classifier.GetType() == typeof(CollectionTypeImpl))) {
                 return	typeNeedsToBeParsed(classifier.getName());
             }
 
@@ -188,7 +184,7 @@ namespace Ocl20.parser.semantics.types
                     addElementToEnvironment(element.getName(),
                                             element,
                                             environment);
-                } else if (element.GetType() == typeof(CorePackage)) {
+                } else if (element.GetType() == typeof(CorePackageImpl)) {
                     if (firstLevel) {
                         addElementToEnvironment(element.getName(),
                                                 element,
@@ -213,7 +209,7 @@ namespace Ocl20.parser.semantics.types
             }
 
         protected bool isClassifierToBeAdded(CoreModelElement element) {
-            return	element.GetType() == typeof(CoreClassifier);
+            return	element.GetType() == typeof(CoreClassifierImpl);
         }
 
 //	    public static CoreClassifier parseType(

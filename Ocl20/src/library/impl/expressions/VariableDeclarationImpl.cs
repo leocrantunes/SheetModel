@@ -31,7 +31,7 @@ namespace Ocl20.library.impl.expressions
 
             // adjust type if Set{}, Bag{}, Sequence{}, OrderedSet{}
             OclExpression initExp = getInitExpression();
-            if (initExp != null && initExp.getType().GetType() == typeof(CollectionType) && "OclVoid".Equals(((CollectionTypeImpl) initExp.getType()).getInnerMostElementType().getName())) {
+            if (initExp != null && initExp.getType().GetType() == typeof(CollectionTypeImpl) && "OclVoid".Equals(((CollectionTypeImpl) initExp.getType()).getInnerMostElementType().getName())) {
                 initExp.setType(type);
             }
         }

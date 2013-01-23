@@ -2,6 +2,7 @@ using System;
 using Ocl20.library.iface.common;
 using Ocl20.library.iface.expressions;
 using Ocl20.library.iface.types;
+using Ocl20.library.impl.types;
 
 namespace Ocl20.library.impl.expressions
 {
@@ -14,15 +15,15 @@ namespace Ocl20.library.impl.expressions
         }
 	
         public CoreClassifier getExpressionType(OclExpression source, CoreClassifier propertyType) {
-            if (source != null && source.getType().GetType() == typeof(CollectionType)) {
+            if (source != null && source.getType().GetType() == typeof(CollectionTypeImpl)) {
                 CoreClassifier	elementType;
 			
-                if (propertyType.GetType() == typeof(CollectionType)) 
+                if (propertyType.GetType() == typeof(CollectionTypeImpl)) 
                     elementType = ((CollectionType) propertyType).getElementType();
                 else
                     elementType = propertyType;
 			
-                if ( (source.getType().GetType() == typeof(SetType) || source.getType().GetType() == typeof(BagType)) ) {
+                if ( (source.getType().GetType() == typeof(SetTypeImpl) || source.getType().GetType() == typeof(BagTypeImpl)) ) {
                     return  getFactory().createBagType(elementType); 
                 } else {
                     return  getFactory().createSequenceType(elementType);

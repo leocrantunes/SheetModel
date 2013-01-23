@@ -60,7 +60,7 @@ namespace Ocl20.parser.semantics.types
             if (result == null) {
                 PSWOclCompiler oclCompiler = new PSWOclCompiler(environment, new ConstraintSourceTrackerImpl());
                 result = oclCompiler.parseType(environment, classifierName);
-                if (result.GetType() == typeof(CollectionType)) {
+                if (result.GetType() == typeof(CollectionTypeImpl)) {
                     ((CollectionTypeImpl) result).setInnerMostElementType(getType(((CollectionTypeImpl) result).getInnerMostElementType().getName()));
                 }
             }

@@ -4,8 +4,19 @@ using Ocl20.uml13.iface.foundation.datatypes;
 
 namespace Ocl20.library.impl.common
 {
-    public abstract class CoreAssociationEndImpl : CoreModelElementImpl, CoreAssociationEnd {
-	
+    public class CoreAssociationEndImpl : CoreModelElementImpl, CoreAssociationEnd
+    {
+        private OrderingKind ordering;
+        private Multiplicity multiplicity;
+        private CoreAssociation association;
+        private List<object> qualifier;
+        private CoreClassifier type;
+
+        public CoreAssociationEndImpl()
+        {
+            qualifier = new List<object>();
+        }
+
         public string getFullPathName() {
             return	getTheAssociation().getName() + "::" + this.getName();
         }
@@ -21,7 +32,10 @@ namespace Ocl20.library.impl.common
             }
         }
 
-        public abstract void setTheParticipant(CoreClassifier newValue);
+        public void setTheParticipant(CoreClassifier newValue)
+        {
+            setType(newValue);
+        }
 
         public List<object> getTheQualifiers() {
             return adjustListResult(getSpecificQualifiers());
@@ -31,7 +45,10 @@ namespace Ocl20.library.impl.common
             return	getSpecificAssociation();
         }
 
-        public abstract void setTheAssociation(CoreAssociation newValue);
+        public void setTheAssociation(CoreAssociation newValue)
+        {
+            setAssociation(newValue);
+        }
 
         public CoreClassifier getTheParticipant() {
             return	getSpecificParticipant();
@@ -65,6 +82,7 @@ namespace Ocl20.library.impl.common
         {
             return (CoreAssociation) getAssociation();
         }
+
         protected List<object> getSpecificQualifiers()
         {
             return getQualifier();
@@ -72,7 +90,7 @@ namespace Ocl20.library.impl.common
 
         protected CoreClassifier getSpecificParticipant()
         {
-            if (GetType() == typeof(CoreClassifier))
+            if (getType().GetType() == typeof(CoreClassifierImpl))
                 return (CoreClassifier) getType();
             else
                 return null;
@@ -109,11 +127,55 @@ namespace Ocl20.library.impl.common
             return (getOrdering() == OrderingKindEnum.OK_ORDERED);
         }
 
-        public abstract OrderingKind getOrdering();
-        public abstract Multiplicity getMultiplicity();
-        public abstract CoreAssociation getAssociation();
-        public abstract List<object> getQualifier();
-        public abstract CoreClassifier getType();
+        public OrderingKind getOrdering()
+        {
+            return ordering;
+        }
+
+        public void setOrdering(OrderingKind newValue)
+        {
+            ordering = newValue;
+        }
+
+        public Multiplicity getMultiplicity()
+        {
+            return multiplicity;
+        }
+
+        public void setMultiplicity(Multiplicity newValue)
+        {
+            multiplicity = newValue;
+        }
+
+        public CoreAssociation getAssociation()
+        {
+            return association;
+        }
+
+        public void setAssociation(CoreAssociation newValue)
+        {
+            association = newValue;
+        }
+
+        public List<object> getQualifier()
+        {
+            return qualifier;
+        }
+
+        public void setQualifier(List<object> newValue)
+        {
+            qualifier = newValue;
+        }
+
+        public CoreClassifier getType()
+        {
+            return type;
+        }
+
+        public void setType(CoreClassifier newValue)
+        {
+            type = newValue;
+        }
 
         #endregion
 

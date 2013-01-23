@@ -1,14 +1,18 @@
 using System;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Ocl20.library.iface;
 using Ocl20.library.iface.common;
 using Ocl20.library.iface.expressions;
 using Ocl20.library.iface.types;
 using Ocl20.library.iface.util;
+using Ocl20.library.impl;
+using Ocl20.library.impl.environment;
 using Ocl20.library.impl.types;
 using Ocl20.library.impl.util;
 using Ocl20.xmireader;
 using CoreAssociationEnd = Ocl20.library.iface.common.CoreAssociationEnd;
+using Environment = Ocl20.library.iface.environment.Environment;
 
 namespace Ocl20Test.MDRRepository.models.ocl20
 {
@@ -24,20 +28,7 @@ namespace Ocl20Test.MDRRepository.models.ocl20
         [ClassInitialize]
         public static void setUp(TestContext testContext)
         {
-            //if (modelRepository == null)
-            //{
-                try
-                {
-                    reader = new XmiReader(@"C:\Users\Leo\Documents\visual studio 2010\Projects\SheetModel_20121206\SheetModel\Ocl20Test\resource\myExampleRose.xml");
-                    //modelRepository = new Uml13ModelsRepository(MOFMetamodelRepositoryFactory.getRepository());
-                    //modelRepository.importModel(extentName, "tests/resource/examples/myExampleRose.xml");
-                    //repository = modelRepository;
-                }
-                catch (Exception e)
-                {
-                    //e.printStackTrace();
-                }
-            //}
+            reader = new XmiReader(@"C:\Users\Leo\Documents\visual studio 2010\Projects\SheetModel_20121206\SheetModel\Ocl20Test\resource\myExampleRose.xml");
             setUmlModelsRepository();
         }
 

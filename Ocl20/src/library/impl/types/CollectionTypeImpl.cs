@@ -75,7 +75,7 @@ namespace Ocl20.library.impl.types
         public CoreClassifier getInnerMostElementType() {
             CoreClassifier	innerElementType = this.getElementType();
 		 
-            while (innerElementType.GetType() == typeof(CollectionType)) {
+            while (innerElementType.GetType() == typeof(CollectionTypeImpl)) {
                 innerElementType = ((CollectionType) innerElementType).getElementType();
             }
 		
@@ -86,7 +86,7 @@ namespace Ocl20.library.impl.types
             CoreClassifier	innerElementType = this.getElementType();
             CollectionType	collectionType = this;
 		 
-            while (innerElementType.GetType() == typeof(CollectionType)) {
+            while (innerElementType.GetType() == typeof(CollectionTypeImpl)) {
                 collectionType = (CollectionType) innerElementType;
                 innerElementType = ((CollectionType) innerElementType).getElementType();
             }

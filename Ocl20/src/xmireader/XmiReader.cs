@@ -1,14 +1,17 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Linq;
 using Ocl20.library.iface.common;
 using Ocl20.library.impl.common;
+using Ocl20.uml13.iface.foundation.datatypes;
 
 namespace Ocl20.xmireader
 {
     public class XmiReader
     {
         private Dictionary<string, CoreModelElement> lookup;
+        private Dictionary<string, string> idToType; 
         private XDocument doc;
         private CoreModel coreModel;
 
@@ -18,6 +21,7 @@ namespace Ocl20.xmireader
         public XmiReader(string modelPath)
         {
             lookup = new Dictionary<string, CoreModelElement>();
+            idToType = new Dictionary<string, string>();
             doc = XDocument.Load(modelPath);
         }
 
@@ -65,6 +69,32 @@ namespace Ocl20.xmireader
                     var xgeneralizations = getAllAvailableGeneralizations(xnamespace, xcoreModelNamespace);
                     foreach (var xgeneralization in xgeneralizations)
                         createGeneralization(xnamespace, xgeneralization);
+
+                    // create all model abstractions
+                    var xabstractions = xcoreModelNamespace.Descendants(xnamespace + "Abstraction");
+                    foreach (var xabstraction in xabstractions)
+                        createAbstraction(xnamespace, xabstraction);
+
+                    // fill model types
+                    fillModelElementTypes();
+
+                    // all associations classes
+                    var xassociationclasses = xcoreModelNamespace.Descendants(xnamespace + "AssociationClass");
+                    foreach (var xassociationclass in xassociationclasses)
+                    {
+                        CoreAssociationClass associationClass = (CoreAssociationClass) createAssociation(xnamespace, coreNamespace, xassociationclass, new CoreAssociationClassImpl());
+                        fillModelElementTypes();
+                        coreModel.addAssociation(associationClass);
+                    }
+
+                    // all model associations
+                    var xassociations = xcoreModelNamespace.Descendants(xnamespace + "Association");
+                    foreach (var xassociation in xassociations)
+                    {
+                        CoreAssociation coreAssociation = createAssociation(xnamespace, coreNamespace, xassociation, new CoreAssociationImpl());
+                        fillModelElementTypes();
+                        coreModel.addAssociation(coreAssociation);
+                    }
                 }
             }
 
@@ -85,6 +115,125 @@ namespace Ocl20.xmireader
         {
             return xcoreModelNamespace.Descendants(xnamespace + "Generalization").Where(x => x.Attribute("xmi.id") != null);
         }
+
+        private CoreAssociation createAssociation(XNamespace xnamespace, CoreNamespace ownerNamespace, XElement xassociation, CoreAssociation coreAssociation)
+        {
+            coreAssociation.setName(xassociation.Attribute("name").Value);
+            
+            XElement xelementconnection = xassociation.Element(xnamespace + "Association.connection");
+            if (xelementconnection != null)
+            {
+                var xassociationends = xelementconnection.Elements(xnamespace + "AssociationEnd");
+                foreach (var xassociationend in xassociationends)
+                    createAssociationEnd(xnamespace, coreAssociation, xassociationend);
+            }
+            
+            XElement xelementfeature = xassociation.Element(xnamespace + "Classifier.feature");
+            if (xelementfeature != null)
+            {
+                var xattributes = xelementfeature.Elements(xnamespace + "Attribute");
+                foreach (var xattribute in xattributes)
+                    createAttribute(ownerNamespace, coreAssociation, xattribute);
+            }
+
+            lookup.Add(xassociation.Attribute("xmi.id").Value, coreAssociation);
+
+            return coreAssociation;
+        }
+
+        private void createAssociationEnd(XNamespace xnamespace, CoreAssociation coreAssociation, XElement xassociationend)
+        {
+            CoreAssociationEnd coreAssociationEnd = new CoreAssociationEndImpl();
+            coreAssociationEnd.setName(xassociationend.Attribute("name").Value);
+
+            coreAssociationEnd.setAssociation(coreAssociation);
+            coreAssociationEnd.setOrdering(getOrderingKind(xassociationend.Attribute("ordering").Value));
+
+            updateConnection(coreAssociation, coreAssociationEnd);
+
+            var xqualifiernamespace = xassociationend.Element(xnamespace + "AssociationEnd.qualifier");
+            if (xqualifiernamespace != null)
+            {
+                var xqualifiers = xqualifiernamespace.Elements(xnamespace + "Attribute");
+                foreach (var xqualifier in xqualifiers)
+                {
+                    CoreAttribute qualifier = createAttribute(null, coreAssociationEnd, xqualifier);
+                    updateQualifiers(coreAssociationEnd, qualifier);
+                }
+            }
+
+            var multiplicity = createMultiplicity(xnamespace, xassociationend);
+            coreAssociationEnd.setMultiplicity(multiplicity);
+
+            var id = xassociationend.Attribute("xmi.id").Value;
+            lookup.Add(id, coreAssociationEnd);
+            var xtyperefid = xassociationend.Attribute("type").Value;
+            idToType.Add(id, xtyperefid);
+        }
+
+        private Multiplicity createMultiplicity(XNamespace xnamespace, XElement xassociationend)
+        {
+            var xmultiplicitynamespace = xassociationend.Element(xnamespace + "AssociationEnd.multiplicity");
+            if (xmultiplicitynamespace != null)
+            {
+
+                var xmultiplicity = xmultiplicitynamespace.Element(xnamespace + "Multiplicity");
+                if (xmultiplicity != null)
+                {
+                    Multiplicity multiplicity = new MultiplicityImpl();
+                    MultiplicityRange range = createMultiplicityRange(xnamespace, xmultiplicity, multiplicity);
+                    updateRanges(multiplicity, range);
+
+                    return multiplicity;
+                }
+            }
+
+            return null;
+        }
+
+        private MultiplicityRange createMultiplicityRange(XNamespace xnamespace, XElement xmultiplicity, Multiplicity multiplicity)
+        {
+            var xrangenamespace = xmultiplicity.Element(xnamespace + "Multiplicity.range");
+            if (xrangenamespace != null)
+            {
+                var xranges = xrangenamespace.Elements(xnamespace + "MultiplicityRange");
+                foreach (var xrange in xranges)
+                {
+                    MultiplicityRange range = new MultiplicityRangeImpl();
+                    int lower = Convert.ToInt32(xrange.Attribute("lower").Value);
+                    range.setLower(lower);
+                    int upper = Convert.ToInt32(xrange.Attribute("upper").Value);
+                    range.setUpper(upper);
+                    range.setMultiplicity(multiplicity);
+                    return range;
+                }
+            }
+
+            return null;
+        }
+
+        private OrderingKind getOrderingKind(string skind)
+        {
+            switch (skind)
+            {
+                case "ordered":
+                    return OrderingKindEnum.OK_ORDERED;
+                case "unordered":
+                    return OrderingKindEnum.OK_UNORDERED;
+                case "sorted":
+                    return OrderingKindEnum.OK_SORTED;
+                default:
+                    return OrderingKindEnum.OK_UNORDERED;
+            }
+        }
+
+        private Generalization createAbstraction(XNamespace xnamespace, XElement xgeneralization)
+        {
+            Generalization generalization = new GeneralizationImpl();
+
+            return generalization;
+        }
+
 
         private Generalization createGeneralization(XNamespace xnamespace, XElement xgeneralization)
         {
@@ -254,7 +403,7 @@ namespace Ocl20.xmireader
 
             return coreStereotype;
         }
-
+        
         private void createModelClasses(XNamespace xnamespace, CoreNamespace ownerNamespace, CoreModelElement owner, IEnumerable<XElement> xmodelClasses)
         {
             if (xmodelClasses != null)
@@ -270,27 +419,20 @@ namespace Ocl20.xmireader
                     modelClass.setNamespace(ownerNamespace);
                     updateNamespaceElemOwnedElements(ownerNamespace, modelClass);
 
-                    var id = xmodelClass.Attribute("xmi.id").Value;
-                    lookup.Add(id, modelClass);
-                }
-
-                // second iteration to reference classes that are types
-                foreach (var xmodelClass in iEnumerable)
-                {
-                    var id = xmodelClass.Attribute("xmi.id").Value;
-                    CoreModelElement modelClass;
-                    lookup.TryGetValue(id, out modelClass);
-                    var modelClassFeature = xmodelClass.Element(xnamespace + "Classifier.feature");
-                    if (modelClassFeature != null)
+                    var xclassifierfeature = xmodelClass.Element(xnamespace + "Classifier.feature");
+                    if (xclassifierfeature != null)
                     {
-                        var xoperations = modelClassFeature.Elements(xnamespace + "Operation");
+                        var xoperations = xclassifierfeature.Elements(xnamespace + "Operation");
                         foreach (var xoperation in xoperations)
                             createOperation(xnamespace, ownerNamespace, modelClass, xoperation);
 
-                        var xattributes = modelClassFeature.Elements(xnamespace + "Attribute");
+                        var xattributes = xclassifierfeature.Elements(xnamespace + "Attribute");
                         foreach (var xattribute in xattributes)
                             createAttribute(ownerNamespace, modelClass, xattribute);
                     }
+
+                    var id = xmodelClass.Attribute("xmi.id").Value;
+                    lookup.Add(id, modelClass);
                 }
             }
         }
@@ -304,16 +446,36 @@ namespace Ocl20.xmireader
             coreAttribute.setNamespace(ownerNamespace);
             updateNamespaceElemOwnedElements(ownerNamespace, coreAttribute);
 
+            var id = xattribute.Attribute("xmi.id").Value;
+            lookup.Add(id, coreAttribute);
             string xidref = xattribute.Attribute("type").Value;
-            CoreModelElement featureType;
-            lookup.TryGetValue(xidref, out featureType);
-            coreAttribute.setFeatureType((CoreClassifier) featureType);
-
-            // bug : when type is enum, maybe it's not on the list
-
-            lookup.Add(xattribute.Attribute("xmi.id").Value, coreAttribute);
+            idToType.Add(id, xidref);
 
             return coreAttribute;
+        }
+
+        private void fillModelElementTypes()
+        {
+            foreach (KeyValuePair<string, string> pair in idToType)
+            {
+                CoreModelElement type;
+                lookup.TryGetValue(pair.Value, out type);
+                
+                CoreModelElement modelElement;
+                lookup.TryGetValue(pair.Key, out modelElement);
+
+                if (modelElement != null)
+                {
+                    if (modelElement.GetType() == typeof (CoreAssociationEndImpl))
+                        ((CoreAssociationEnd) modelElement).setType((CoreClassifier) type);
+                    else if (modelElement.GetType() == typeof(CoreAttributeImpl))
+                        ((CoreAttribute) modelElement).setFeatureType((CoreClassifier) type);
+                    else if (modelElement.GetType() == typeof(ParameterImpl))
+                        ((Parameter) modelElement).setType((CoreClassifier)type);
+                }
+            }
+
+            idToType.Clear();
         }
 
         private CoreOperation createOperation(XNamespace xnamespace, CoreNamespace ownerNamespace, CoreModelElement owner, XElement xoperation)
@@ -350,16 +512,34 @@ namespace Ocl20.xmireader
             parameter.setNamespace(ownerNamespace);
             updateNamespaceElemOwnedElements(ownerNamespace, parameter);
 
-            bool mode1 = fillParameterTypeMode1(xnamespace, xparameter, parameter);
-            if (!mode1)
-                fillParameterTypeMode2(xparameter, parameter);
+            var id = xparameter.Attribute("xmi.id").Value;
+            lookup.Add(id, parameter);
+            
+            // mode 1
+            var xptype = xparameter.Element(xnamespace + "Parameter.type");
+            if (xptype != null)
+            {
+                var xpclass = xptype.Element(xnamespace + "Class");
+                if (xpclass != null)
+                {
+                    var xtyperefid = xpclass.Attribute("xmi.idref").Value;
+                    idToType.Add(id, xtyperefid);
+                }
+            }
+            else // mode 2
+            {
+                var xtype = xparameter.Attribute("type");
+                if (xtype != null)
+                {
+                    string xtypeidref = xtype.Value;
+                    idToType.Add(id, xtypeidref);
+                }
+            }
 
             string skind = xparameter.Attribute("kind").Value;
             CoreModelElement kind;
             lookup.TryGetValue(skind, out kind);
             parameter.setKind(getParameterDirectionKind(skind));
-
-            lookup.Add(xparameter.Attribute("xmi.id").Value, parameter);
 
             return parameter;
         }
@@ -380,39 +560,7 @@ namespace Ocl20.xmireader
                     return ParameterDirectionKindEnum.PDK_IN;
             }
         }
-
-        private bool fillParameterTypeMode1(XNamespace xnamespace, XElement xparameter, Parameter parameter)
-        {
-            var xptype = xparameter.Element(xnamespace + "Parameter.type");
-            if (xptype != null)
-            {
-                var xpclass = xptype.Element(xnamespace + "Class");
-                if (xpclass != null)
-                {
-                    string xtypeidref = xpclass.Attribute("xmi.idref").Value;
-                    CoreModelElement type;
-                    lookup.TryGetValue(xtypeidref, out type);
-                    parameter.setType((CoreClassifier) type);
-
-                    return true;
-                }
-            }
-
-            return false;
-        }
-
-        private void fillParameterTypeMode2(XElement xparameter, Parameter parameter)
-        {
-            var xtype = xparameter.Attribute("type");
-            if (xtype != null)
-            {
-                string xtypeidref = xtype.Value;
-                CoreModelElement type;
-                lookup.TryGetValue(xtypeidref, out type);
-                parameter.setType((CoreClassifier)type);
-            }
-        }
-
+        
         private void updateOperationParameters(CoreBehavioralFeature owner, Parameter newParameter)
         {
             List<Parameter> parameters = owner.getParameter();
@@ -429,9 +577,12 @@ namespace Ocl20.xmireader
 
         private void updateNamespaceElemOwnedElements(CoreNamespace coreNamespace, CoreModelElement newOwnedElement)
         {
-            List<object> ownedElements = (List<object>)coreNamespace.getElemOwnedElements();
-            ownedElements.Add(newOwnedElement);
-            coreNamespace.setElemOwnedElements(ownedElements);
+            if (coreNamespace != null)
+            {
+                List<object> ownedElements = (List<object>) coreNamespace.getElemOwnedElements();
+                ownedElements.Add(newOwnedElement);
+                coreNamespace.setElemOwnedElements(ownedElements);
+            }
         }
 
         private void updateExtendedElements(CoreStereotype owner, CoreModelElement newExtendedElement)
@@ -446,6 +597,27 @@ namespace Ocl20.xmireader
             List<CoreStereotype> stereotypes = owner.getTheStereotypes();
             stereotypes.Add(newStereotype);
             owner.setTheStereotypes(stereotypes);
+        }
+
+        private void updateQualifiers(CoreAssociationEnd owner, CoreAttribute newQualifier)
+        {
+            List<object> qualifiers = owner.getQualifier();
+            qualifiers.Add(newQualifier);
+            owner.setQualifier(qualifiers);
+        }
+
+        private void updateRanges(Multiplicity owner, MultiplicityRange newRange)
+        {
+            List<object> ranges = owner.getRange();
+            ranges.Add(newRange);
+            owner.setRange(ranges);
+        }
+
+        private void updateConnection(CoreAssociation owner, CoreAssociationEnd newConnection)
+        {
+            List<object> connections = owner.getConnection();
+            connections.Add(newConnection);
+            owner.setConnection(connections);
         }
 
         #endregion
