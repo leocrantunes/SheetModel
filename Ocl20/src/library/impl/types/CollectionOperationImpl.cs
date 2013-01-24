@@ -33,7 +33,7 @@ namespace Ocl20.library.impl.types
 		
             if (getName().Equals("collect")) {
                 CoreClassifier elementType = (CoreClassifier) argumentTypes[0];
-                if (elementType.GetType() == typeof(CollectionTypeImpl)) {
+                if (elementType is CollectionTypeImpl) {
                     elementType = ((CollectionTypeImpl) elementType).getInnerMostElementType();
                 }
                 CoreClassifier type = collection.getFactory().createCollectionType(collection.getReturnTypeForCollect(), elementType);
@@ -48,7 +48,7 @@ namespace Ocl20.library.impl.types
                         CoreClassifier	argumentElementType;
                         if (argumentTypes.Count == 0)
                             argumentElementType = collection.getElementType();
-                        else if (argumentTypes[0].GetType() == typeof(CollectionTypeImpl))
+                        else if (argumentTypes[0] is CollectionTypeImpl)
                             argumentElementType = ((CollectionType) argumentTypes[0]).getElementType();
                         else
                             argumentElementType = (CoreClassifier) argumentTypes[0];
@@ -121,7 +121,7 @@ namespace Ocl20.library.impl.types
             if (parameter.getName().IndexOf("<T>") >= 0)
                 return ownerCollection.getFactory().createCollectionType(parameter.getName(), ownerCollection.getElementType());
             else {
-                if (typeToBeMatched.GetType() == typeof(CollectionTypeImpl)) {
+                if (typeToBeMatched is CollectionTypeImpl) {
                     CollectionType collection = (CollectionType) typeToBeMatched;
                     return ownerCollection.getFactory().createCollectionType(parameter.getName(), collection.getElementType());
                 }	

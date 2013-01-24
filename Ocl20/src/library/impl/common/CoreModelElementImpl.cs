@@ -71,11 +71,11 @@ namespace Ocl20.library.impl.common
 
         public CoreModel getModel()
         {
-            if (this.GetType() == typeof (CoreModelImpl))
+            if (this is CoreModelImpl)
                 return (CoreModel) this;
             else {
                 CoreModelElement ns = this.getElemOwner();
-                while ((ns != null) && !(ns.GetType() == typeof (CoreModelImpl))) {
+                while ((ns != null) && !(ns is CoreModelImpl)) {
                     ns = ns.getElemOwner();
                 }
                 return (CoreModel) ns;

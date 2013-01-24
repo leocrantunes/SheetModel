@@ -26,15 +26,15 @@ namespace SheetModel.View
 
         private void TreeView_SelectedItemChanged(object sender, System.Windows.RoutedPropertyChangedEventArgs<object> e)
         {
-            if (e.NewValue.GetType() == typeof(ModelClass))
+            if (e.NewValue is ModelClass)
                 
 
-            if (e.NewValue != null && e.NewValue.GetType() == typeof(ModelClass))
+            if (e.NewValue != null && e.NewValue is ModelClass)
             {
                 ViewModel.SelectedItem = (ModelClass)e.NewValue;
                 ViewModel.ClassDescription = ((ModelClass)e.NewValue).Description;
             }
-            else if (e.NewValue != null && e.NewValue.GetType() == typeof(ModelAttribute))
+            else if (e.NewValue != null && e.NewValue is ModelAttribute)
             {
                 ViewModel.ClassDescription = ((ModelAttribute)e.NewValue).Description;
             }

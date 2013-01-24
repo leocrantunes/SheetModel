@@ -332,7 +332,7 @@ namespace Ocl20.library.impl.common
             StringBuilder result = new StringBuilder();
             CoreNamespace ns = (CoreNamespace) getElemOwner();
 
-            while ((ns != null) && !(ns.GetType() == typeof (CoreModelImpl)))
+            while ((ns != null) && !(ns is CoreModelImpl))
             {
                 result.Insert(0, ns.getName() + "::");
                 ns = (CoreNamespace) ns.getElemOwner();
@@ -610,7 +610,7 @@ namespace Ocl20.library.impl.common
 
         protected override bool elementShouldBeAddedToEnvironment(CoreModelElement element)
         {
-            return (element.GetType() == typeof (CoreAttributeImpl) || element.GetType() == typeof (CoreOperationImpl));
+            return (element is CoreAttributeImpl || element is CoreOperationImpl);
         }
 
         private void populateWithAssociationEnds(Environment environment)

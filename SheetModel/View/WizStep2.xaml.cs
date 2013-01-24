@@ -33,7 +33,7 @@ namespace SheetModel.View
 
         private void TreeView_SelectedSheetTabChanged(object sender, System.Windows.RoutedPropertyChangedEventArgs<object> e)
         {
-            if (e.NewValue != null && e.NewValue.GetType() == typeof(SheetTab))
+            if (e.NewValue != null && e.NewValue is SheetTab)
             {
                 ViewModel.SelectedSheetTab = (SheetTab)e.NewValue;
                 ViewModel.OnChangeSelection((SheetTab)e.NewValue);
@@ -42,7 +42,7 @@ namespace SheetModel.View
 
         private void TreeView_SelectedTargetAssociationChanged(object sender, System.Windows.RoutedPropertyChangedEventArgs<object> e)
         {
-            if (e.NewValue != null && e.NewValue.GetType() == typeof(ModelAssociation))
+            if (e.NewValue != null && e.NewValue is ModelAssociation)
                 ViewModel.SelectedTargetAssociation = (ModelAssociation)e.NewValue;
         }
 

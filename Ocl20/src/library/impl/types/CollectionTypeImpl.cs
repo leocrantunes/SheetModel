@@ -75,7 +75,7 @@ namespace Ocl20.library.impl.types
         public CoreClassifier getInnerMostElementType() {
             CoreClassifier	innerElementType = this.getElementType();
 		 
-            while (innerElementType.GetType() == typeof(CollectionTypeImpl)) {
+            while (innerElementType is CollectionTypeImpl) {
                 innerElementType = ((CollectionType) innerElementType).getElementType();
             }
 		
@@ -86,7 +86,7 @@ namespace Ocl20.library.impl.types
             CoreClassifier	innerElementType = this.getElementType();
             CollectionType	collectionType = this;
 		 
-            while (innerElementType.GetType() == typeof(CollectionTypeImpl)) {
+            while (innerElementType is CollectionTypeImpl) {
                 collectionType = (CollectionType) innerElementType;
                 innerElementType = ((CollectionType) innerElementType).getElementType();
             }
@@ -108,14 +108,14 @@ namespace Ocl20.library.impl.types
         }
 
         protected virtual bool areCollectionsCompatible(CoreClassifier c) {
-            if (c.GetType() == this.GetType() || (c.getName().Equals(this.getName())) ||  (c.GetType() == typeof(CollectionTypeImpl) && c.getName().StartsWith("Collection"))) 
+            if (c.GetType() == this.GetType() || (c.getName().Equals(this.getName())) ||  (c is CollectionTypeImpl) && c.getName().StartsWith("Collection")) 
                 return elementTypesConformance(c);
             else
                 return false;
         }
 
         protected bool elementTypesConformance(CoreClassifier c) {
-            if ( ! (this.getElementType().GetType() == typeof(CollectionTypeImpl)) && (((CollectionType) c).getElementType().GetType() == typeof(CollectionTypeImpl))) 
+            if ( ! (this.getElementType() is CollectionTypeImpl) && (((CollectionType) c).getElementType() is CollectionTypeImpl)) 
                 return	false;
 		
             return 	this.getElementType().conformsTo(((CollectionType) c).getElementType()) || isVoidType(((CollectionType) c).getElementType());
@@ -136,7 +136,7 @@ namespace Ocl20.library.impl.types
             if (this.GetType() == otherClassifier.GetType()) {
                 CollectionType	otherCollection = (CollectionType) otherClassifier;
                 return	createSpecificCollectionType(getElementType().getMostSpecificCommonSuperType(otherCollection.getElementType()));
-            } else if (otherClassifier.GetType() == typeof(CollectionTypeImpl)) {
+            } else if (otherClassifier is CollectionTypeImpl) {
                 CollectionType	otherCollection = (CollectionType) otherClassifier;
                 return	createGenericCollectionType(getElementType().getMostSpecificCommonSuperType(otherCollection.getElementType()));
             } else {

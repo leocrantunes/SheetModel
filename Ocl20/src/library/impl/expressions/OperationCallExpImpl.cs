@@ -52,7 +52,7 @@ namespace Ocl20.library.impl.expressions
                     if (sourceAsString.EndsWith("@pre")) {
                         int indexPre = sourceAsString.LastIndexOf("@pre");
                         return	sourceAsString.Substring(0, indexPre) + "."  + this.getReferredOperation().getName() + "@pre" + "(" + this.getArgumentsAsString() + ")";
-                    } else if (getSource().getType().GetType() == typeof(CollectionTypeImpl)){
+                    } else if (getSource().getType() is CollectionTypeImpl) {
                         return	getSource().ToString() + "->" + getSpecificString();
                     } else {
                         return	getSource().ToString() + "." + getSpecificString();
@@ -82,7 +82,7 @@ namespace Ocl20.library.impl.expressions
 
             if (isBasicOperator(this.getReferredOperation().getName()) && this.getArguments().Count == 1) {
                 OclExpression argument = (OclExpression) this.getArguments()[0];
-                if (argument.GetType() == typeof(OperationCallExpImpl) && isBasicOperator(((OperationCallExp) argument).getReferredOperation().getName())) {
+                if (argument is OperationCallExpImpl && isBasicOperator(((OperationCallExp) argument).getReferredOperation().getName())) {
                     return	"(" + result.ToString() + ")";
                 }
             }

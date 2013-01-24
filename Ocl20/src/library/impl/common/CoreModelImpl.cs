@@ -34,7 +34,7 @@ namespace Ocl20.library.impl.common
         }
 
         private	CoreClassifier getPrimitiveType(CoreModelElement element) {
-            return  (element.GetType() == typeof(CoreClassifierImpl))
+            return  (element is CoreClassifierImpl)
                         ? (CoreClassifier) OclTypesDefinition.getEnvironment().lookup(element.getName())
                         : null;		
         }
@@ -58,10 +58,10 @@ namespace Ocl20.library.impl.common
             List<object> result = new List<object>();
 				
             foreach (CoreModelElement element in ns.getElemOwnedElements()) {
-                if (element.GetType() == typeof(CoreStereotypeImpl))
+                if (element is CoreStereotypeImpl)
                     result.Add(element);
 				
-                if (element.GetType() == typeof(CorePackageImpl))
+                if (element is CorePackageImpl)
                     result.AddRange(getAllStereotypesOfNamespace((CoreNamespace) element));	
             }
 		
@@ -74,7 +74,7 @@ namespace Ocl20.library.impl.common
             List<object> associations = getAllAssociations();
 
             foreach (CoreAssociation association in associations) {
-                if (association.GetType() == typeof(CoreAssociationClassImpl) &&
+                if (association is CoreAssociationClassImpl &&
                     association.isClassifierInAssociation(classifier)) {
                         associationClassesCollection.Add(association);
                     }
@@ -186,7 +186,7 @@ namespace Ocl20.library.impl.common
                 {
                     addElementToEnvironment(element.getName(), element, environment);
                 }
-                else if (element.GetType() == typeof (CorePackageImpl))
+                else if (element is CorePackageImpl)
                 {
                     if (firstLevel)
                     {
@@ -200,7 +200,7 @@ namespace Ocl20.library.impl.common
         }
 
         protected bool isClassifierToBeAdded(CoreModelElement element) {
-            return	element.GetType() == typeof(CoreClassifierImpl) && !isPrimitiveType(element);
+            return element is CoreClassifierImpl && !isPrimitiveType(element);
         }
     }
 }

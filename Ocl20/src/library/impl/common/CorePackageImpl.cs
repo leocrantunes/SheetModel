@@ -18,12 +18,12 @@ namespace Ocl20.library.impl.common
 
         protected override bool elementShouldBeAddedToEnvironment(CoreModelElement element) {
             return (element.getName() != null) &&
-                   (element.GetType() == typeof(CorePackageImpl) || element.GetType() == typeof(CoreClassifierImpl)) &&
+                   (element is CorePackageImpl || element is CoreClassifierImpl) &&
                    (! primitiveTypeRedeclaration(element) && (! isUseCaseElement(element)));
         }
 	
         protected bool primitiveTypeRedeclaration(CoreModelElement element) {
-            if (element.GetType() == typeof(CoreClassifierImpl)) {
+            if (element is CoreClassifierImpl) {
                 CoreClassifier cls = (CoreClassifier) element;
                 if (OclTypesDefinition.isOclType(element.getName()) &&
                     ! "PrimitiveTypes".Equals(this.getName()) &&
@@ -37,7 +37,7 @@ namespace Ocl20.library.impl.common
             if (element.getName().StartsWith("Operador")) {
                 Console.WriteLine("has stereotype: " + ((CoreClassifier) element).hasStereotype("Actor"));
             }
-            return ((element.GetType() == typeof(CoreClassifierImpl)) && ((CoreClassifier) element).hasStereotype("Actor"));
+            return ((element is CoreClassifierImpl) && ((CoreClassifier) element).hasStereotype("Actor"));
         }
 
 

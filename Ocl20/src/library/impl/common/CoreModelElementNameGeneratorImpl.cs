@@ -22,7 +22,7 @@ namespace Ocl20.library.impl.common
 	 * 	@see br.cos.ufrj.lens.odyssey.tools.psw.metamodels.core.uml14Bridge.ModelElementNameGenerator#generateName()
 	 */
         public String generateName(CoreModelElement element) {
-            if (element.GetType() == typeof(CoreOperationImpl))
+            if (element is CoreOperationImpl)
                 return generateNameForOperation((CoreOperation) element);
             else	
                 return element.getName();

@@ -76,8 +76,8 @@ namespace Ocl20.library.iface.common
      * of the same value.
      */
         public bool equals(Object o) {
-            if (o.GetType() == typeof(ParameterDirectionKindEnum)) return (o == this);
-            else if (o.GetType() == typeof (ParameterDirectionKind)) return (o.ToString().Equals(literalName));
+            if (o is ParameterDirectionKindEnum) return (o == this);
+            else if (o is ParameterDirectionKind) return (o.ToString().Equals(literalName));
             else return false;
         }
 

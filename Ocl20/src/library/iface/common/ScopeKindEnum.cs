@@ -68,8 +68,8 @@ namespace Ocl20.library.iface.common
      * of the same value.
      */
         public bool equals(Object o) {
-            if (o.GetType() == typeof(ScopeKindEnum)) return (o == this);
-            else if (o.GetType() == typeof(ScopeKind)) return (o.ToString().Equals(literalName));
+            if (o is ScopeKindEnum) return (o == this);
+            else if (o is ScopeKind) return (o.ToString().Equals(literalName));
             else return false;
         }
 

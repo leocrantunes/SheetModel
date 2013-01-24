@@ -14,7 +14,7 @@ namespace Ocl20.library.impl.common
 
         public virtual CoreClassifier getFeatureOwner() {
             CoreModelElement owner = getSpecificOwnerElement();
-            if (owner != null && owner.GetType() == typeof(CoreClassifierImpl)) 
+            if (owner != null && owner is CoreClassifierImpl) 
                 return	(CoreClassifier) owner;
             else
                 return	null;

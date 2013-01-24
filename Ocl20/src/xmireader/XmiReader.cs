@@ -73,7 +73,7 @@ namespace Ocl20.xmireader
                     // create all model abstractions
                     var xabstractions = xcoreModelNamespace.Descendants(xnamespace + "Abstraction");
                     foreach (var xabstraction in xabstractions)
-                        createAbstraction(xnamespace, xabstraction);
+                        createAbstraction(xabstraction);
 
                     // fill model types
                     fillModelElementTypes();
@@ -82,18 +82,37 @@ namespace Ocl20.xmireader
                     var xassociationclasses = xcoreModelNamespace.Descendants(xnamespace + "AssociationClass");
                     foreach (var xassociationclass in xassociationclasses)
                     {
-                        CoreAssociationClass associationClass = (CoreAssociationClass) createAssociation(xnamespace, coreNamespace, xassociationclass, new CoreAssociationClassImpl());
+                        CoreAssociationClass associationClass = (CoreAssociationClass) createAssociation(xnamespace, coreNamespace, coreModel, xassociationclass, new CoreAssociationClassImpl());
                         fillModelElementTypes();
-                        coreModel.addAssociation(associationClass);
+                        updateElemOwnedElements(coreModel, associationClass);
+
+                        associationClass.setElemOwner(coreModel);
+                        updateElemOwnedElements(coreModel, associationClass);
+                        associationClass.setNamespace(coreNamespace);
+                        updateNamespaceElemOwnedElements(coreNamespace, associationClass);
+
+                        var xclassifierfeature = xassociationclass.Element(xnamespace + "Classifier.feature");
+                        if (xclassifierfeature != null)
+                        {
+                            var xoperations = xclassifierfeature.Elements(xnamespace + "Operation");
+                            foreach (var xoperation in xoperations)
+                                createOperation(xnamespace, coreNamespace, associationClass, xoperation);
+
+                            var xattributes = xclassifierfeature.Elements(xnamespace + "Attribute");
+                            foreach (var xattribute in xattributes)
+                                createAttribute(coreNamespace, associationClass, xattribute);
+                        }
+                        
                     }
 
                     // all model associations
                     var xassociations = xcoreModelNamespace.Descendants(xnamespace + "Association");
                     foreach (var xassociation in xassociations)
                     {
-                        CoreAssociation coreAssociation = createAssociation(xnamespace, coreNamespace, xassociation, new CoreAssociationImpl());
+                        CoreAssociation coreAssociation = createAssociation(xnamespace, coreNamespace, coreModel, xassociation, new CoreAssociationImpl());
                         fillModelElementTypes();
-                        coreModel.addAssociation(coreAssociation);
+                        //coreModel.addAssociation(coreAssociation);
+                        updateElemOwnedElements(coreModel, coreAssociation);
                     }
                 }
             }
@@ -116,7 +135,7 @@ namespace Ocl20.xmireader
             return xcoreModelNamespace.Descendants(xnamespace + "Generalization").Where(x => x.Attribute("xmi.id") != null);
         }
 
-        private CoreAssociation createAssociation(XNamespace xnamespace, CoreNamespace ownerNamespace, XElement xassociation, CoreAssociation coreAssociation)
+        private CoreAssociation createAssociation(XNamespace xnamespace, CoreNamespace ownerNamespace, CoreModelElement owner, XElement xassociation, CoreAssociation coreAssociation)
         {
             coreAssociation.setName(xassociation.Attribute("name").Value);
             
@@ -128,14 +147,6 @@ namespace Ocl20.xmireader
                     createAssociationEnd(xnamespace, coreAssociation, xassociationend);
             }
             
-            XElement xelementfeature = xassociation.Element(xnamespace + "Classifier.feature");
-            if (xelementfeature != null)
-            {
-                var xattributes = xelementfeature.Elements(xnamespace + "Attribute");
-                foreach (var xattribute in xattributes)
-                    createAttribute(ownerNamespace, coreAssociation, xattribute);
-            }
-
             lookup.Add(xassociation.Attribute("xmi.id").Value, coreAssociation);
 
             return coreAssociation;
@@ -227,11 +238,34 @@ namespace Ocl20.xmireader
             }
         }
 
-        private Generalization createAbstraction(XNamespace xnamespace, XElement xgeneralization)
+        private void createAbstraction(XElement xabstraction)
         {
-            Generalization generalization = new GeneralizationImpl();
+            CoreModelElement client = null;
+            CoreModelElement supplier = null;
 
-            return generalization;
+            XAttribute xattributeclient = xabstraction.Attribute("client");
+            if (xattributeclient != null)
+            {
+                string xclientidref = xattributeclient.Value;
+                lookup.TryGetValue(xclientidref, out client);
+            }
+
+            XAttribute xattributesupplier = xabstraction.Attribute("supplier");
+            if (xattributesupplier != null)
+            {
+                string xsupplieridref = xattributesupplier.Value;
+                lookup.TryGetValue(xsupplieridref, out supplier);
+            }
+
+            CoreClassifier coreClassifier = (CoreClassifier) client;
+            CoreInterface coreInterface = (CoreInterface) supplier;
+
+            Dependency dependency = new DependencyImpl();
+            updateClient(dependency, coreClassifier);
+            updateSupplier(dependency, coreInterface);
+
+            updateClientDependency(coreInterface, dependency);
+            updateSupplierDependency(coreClassifier, dependency);
         }
 
 
@@ -466,11 +500,11 @@ namespace Ocl20.xmireader
 
                 if (modelElement != null)
                 {
-                    if (modelElement.GetType() == typeof (CoreAssociationEndImpl))
+                    if (modelElement is CoreAssociationEndImpl)
                         ((CoreAssociationEnd) modelElement).setType((CoreClassifier) type);
-                    else if (modelElement.GetType() == typeof(CoreAttributeImpl))
+                    else if (modelElement is CoreAttributeImpl)
                         ((CoreAttribute) modelElement).setFeatureType((CoreClassifier) type);
-                    else if (modelElement.GetType() == typeof(ParameterImpl))
+                    else if (modelElement is ParameterImpl)
                         ((Parameter) modelElement).setType((CoreClassifier)type);
                 }
             }
@@ -618,6 +652,34 @@ namespace Ocl20.xmireader
             List<object> connections = owner.getConnection();
             connections.Add(newConnection);
             owner.setConnection(connections);
+        }
+
+        private void updateClient(Dependency owner, CoreModelElement newConnection)
+        {
+            List<object> dependency = owner.getClient();
+            dependency.Add(newConnection);
+            owner.setClient(dependency);
+        }
+
+        private void updateSupplier(Dependency owner, CoreModelElement newConnection)
+        {
+            List<object> supplierDependency = owner.getSupplier();
+            supplierDependency.Add(newConnection);
+            owner.setSupplier(supplierDependency);
+        }
+
+        private void updateClientDependency(CoreInterface owner, Dependency newConnection)
+        {
+            List<object> dependency = owner.getClientDependency();
+            dependency.Add(newConnection);
+            owner.setClientDependency(dependency);
+        }
+
+        private void updateSupplierDependency(CoreClassifier owner, Dependency newConnection)
+        {
+            List<Dependency> supplierDependency = owner.getSupplierDependency();
+            supplierDependency.Add(newConnection);
+            owner.setSupplierDependency(supplierDependency);
         }
 
         #endregion

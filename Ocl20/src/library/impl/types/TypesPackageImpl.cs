@@ -16,7 +16,7 @@ namespace Ocl20.library.impl.types
 
         public OclModelElementType getOclModelElementType()
         {
-            throw new System.NotImplementedException();
+            return new OclModelElementTypeImpl();
         }
 
         public OclType getOclType()

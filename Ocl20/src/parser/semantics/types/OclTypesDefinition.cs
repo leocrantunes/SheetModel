@@ -158,7 +158,7 @@ namespace Ocl20.parser.semantics.types
         }
 
         public static bool typeNeedsToBeParsed(CoreClassifier classifier) {
-            if  (! (classifier.GetType() == typeof(CollectionTypeImpl))) {
+            if  (! (classifier is CollectionTypeImpl)) {
                 return	typeNeedsToBeParsed(classifier.getName());
             }
 
@@ -184,7 +184,7 @@ namespace Ocl20.parser.semantics.types
                     addElementToEnvironment(element.getName(),
                                             element,
                                             environment);
-                } else if (element.GetType() == typeof(CorePackageImpl)) {
+                } else if (element is CorePackageImpl) {
                     if (firstLevel) {
                         addElementToEnvironment(element.getName(),
                                                 element,
@@ -209,7 +209,7 @@ namespace Ocl20.parser.semantics.types
             }
 
         protected bool isClassifierToBeAdded(CoreModelElement element) {
-            return	element.GetType() == typeof(CoreClassifierImpl);
+            return	element is CoreClassifierImpl;
         }
 
 //	    public static CoreClassifier parseType(

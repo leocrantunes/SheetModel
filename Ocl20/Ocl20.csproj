@@ -307,6 +307,7 @@
     <Compile Include="src\library\impl\common\CorePackageImpl.cs" />
     <Compile Include="src\library\impl\common\CoreStereotypeImpl.cs" />
     <Compile Include="src\library\impl\common\CoreStructuralFeatureImpl.cs" />
+    <Compile Include="src\library\impl\common\DependencyImpl.cs" />
     <Compile Include="src\library\impl\common\GeneralizationImpl.cs" />
     <Compile Include="src\library\impl\common\ModelElementNameGenerator.cs" />
     <Compile Include="src\library\iface\common\ScopeKind.cs" />

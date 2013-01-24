@@ -24,8 +24,8 @@ namespace Ocl20.library.impl.expressions
         }
 
         public CoreClassifier getExpressionType(CoreClassifier sourceType, CoreAssociationEnd associationEnd, CoreClassifier elementType) {
-            if (sourceType.GetType() == typeof(CollectionTypeImpl)) {
-                if ( (sourceType.GetType() == typeof(SetTypeImpl) || sourceType.GetType() == typeof(BagTypeImpl)) && (! associationEnd.isOrdered()) 
+            if (sourceType is CollectionTypeImpl) {
+                if ( (sourceType is SetTypeImpl || sourceType is BagTypeImpl) && (! associationEnd.isOrdered()) 
                     ) {
                         return  getFactory().createBagType(elementType);
                     } else {
@@ -45,7 +45,7 @@ namespace Ocl20.library.impl.expressions
 
         private	bool isSingleElementAccess(CoreClassifier sourceType, CoreAssociationEnd associationEnd) {
             return 
-                (sourceType.GetType() == typeof(CoreAssociationClassImpl)) ||
+                (sourceType is CoreAssociationClassImpl) ||
                 (associationEnd.isOneMultiplicity() && ! associationEndHasQualifiers(associationEnd)) ||
                 (associationEnd.isOneMultiplicity() && associationEndHasQualifiers(associationEnd) && getQualifiers().Count > 0);
         }

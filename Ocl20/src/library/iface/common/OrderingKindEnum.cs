@@ -71,8 +71,8 @@ namespace Ocl20.uml13.iface.foundation.datatypes
      * of the same value.
      */
         public bool equals(Object o) {
-            if (o.GetType() == typeof(OrderingKindEnum)) return (o == this);
-            else if (o.GetType() == typeof(OrderingKind)) return (o.ToString().Equals(literalName));
+            if (o is OrderingKindEnum) return (o == this);
+            else if (o is OrderingKind) return (o.ToString().Equals(literalName));
             else return false;
         }
 

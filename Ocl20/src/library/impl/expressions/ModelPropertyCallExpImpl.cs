@@ -15,15 +15,15 @@ namespace Ocl20.library.impl.expressions
         }
 	
         public CoreClassifier getExpressionType(OclExpression source, CoreClassifier propertyType) {
-            if (source != null && source.getType().GetType() == typeof(CollectionTypeImpl)) {
+            if (source != null && source.getType() is CollectionTypeImpl) {
                 CoreClassifier	elementType;
 			
-                if (propertyType.GetType() == typeof(CollectionTypeImpl)) 
+                if (propertyType is CollectionTypeImpl) 
                     elementType = ((CollectionType) propertyType).getElementType();
                 else
                     elementType = propertyType;
 			
-                if ( (source.getType().GetType() == typeof(SetTypeImpl) || source.getType().GetType() == typeof(BagTypeImpl)) ) {
+                if ( (source.getType() is SetTypeImpl || source.getType() is BagTypeImpl) ) {
                     return  getFactory().createBagType(elementType); 
                 } else {
                     return  getFactory().createSequenceType(elementType);

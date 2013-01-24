@@ -287,8 +287,8 @@ namespace Ocl20.parser.typeChecker
             CSTOperationConstraintCS operationConstraintExpression)
         {
 
-            if ((operationConstraintExpression.GetType() == typeof(CSTPreDeclCS)) ||
-                (operationConstraintExpression.GetType() == typeof(CSTPostDeclCS))) {
+            if ((operationConstraintExpression is CSTPreDeclCS) ||
+                (operationConstraintExpression is CSTPostDeclCS)) {
                     checkForOperationConstraintNotBoolean(operationConstraintExpression);
                 }
 
@@ -936,7 +936,7 @@ namespace Ocl20.parser.typeChecker
 
                 CoreClassifier classifier = currentExpression.getType();
 
-                if (classifier.GetType() == typeof(CollectionTypeImpl)) {
+                if (classifier is CollectionTypeImpl) {
                     if (!matchIteratorExp(simpleNameExp, currentExpression)) {
                         generateSemanticException(simpleNameExp,
                                                   "{0} is not a feature of {1}",
@@ -968,7 +968,7 @@ namespace Ocl20.parser.typeChecker
 
             try {
                 if ((currentExpression != null) &&
-                    currentExpression.getType().GetType() == typeof(CollectionTypeImpl)) {
+                    currentExpression.getType() is CollectionTypeImpl) {
                         envToBePushed = currentEnvironment.nestedEnvironment();
 
                         CoreClassifier elementType = ((CollectionType) currentExpression.getType()).getElementType();
@@ -1087,7 +1087,7 @@ namespace Ocl20.parser.typeChecker
                 matchCollectionOperation(expression, currentExpression);
             } else {
                 if ((currentExpression != null) &&
-                    currentExpression.getType().GetType() == typeof(CollectionTypeImpl)) {
+                    currentExpression.getType() is CollectionTypeImpl) {
                         matchIteratorCollectOperationCallExp(expression,
                                                              currentEnvironment, currentExpression);
                     } else {
@@ -1219,7 +1219,7 @@ namespace Ocl20.parser.typeChecker
             // check if left ocl expression is a collection
             OclExpression currentExpression = getCurrentExpression();
 
-            if (!(currentExpression.getType().GetType() == typeof(CollectionTypeImpl))) {
+            if (!(currentExpression.getType() is CollectionTypeImpl)) {
                 generateSemanticException(expression,
                                           "left operand of iterate should be a collection");
             }
@@ -1298,7 +1298,7 @@ namespace Ocl20.parser.typeChecker
         	
             if (isImplicitSetAccess(currentExpression)) {
                 currentExpression = generateWithAsSetExpression(currentExpression);
-            } else if (!(currentExpression.getType().GetType() == typeof(CollectionTypeImpl))) {
+            } else if (!(currentExpression.getType() is CollectionTypeImpl)) {
                 generateSemanticException(expression,
                                           "collection type expected in left operand for -> operator, found: {0}",
                                           new object[] { currentExpression.getType()
@@ -1360,8 +1360,8 @@ namespace Ocl20.parser.typeChecker
 
         protected bool isImplicitSetAccess(OclExpression expression)
         {
-            return (!(expression.GetType() == typeof (LiteralExp)) &&
-                    !(expression.GetType() == typeof (CollectionType)));
+            return (!(expression is LiteralExp) &&
+                    !(expression is CollectionType));
         }
 
         protected OclExpression generateWithAsSetExpression(
@@ -1386,7 +1386,7 @@ namespace Ocl20.parser.typeChecker
             Environment currentEnvironment)  {
 
             CoreModelElement c = (CoreModelElement) currentEnvironment.lookupPathName(simpleNameExp.getNameAsString());
-            bool isClassifierLiteral = ((c != null) && c.GetType() == typeof(CoreClassifierImpl));
+            bool isClassifierLiteral = ((c != null) && c is CoreClassifierImpl);
 
             if (isClassifierLiteral) {
                 simpleNameExp.setAst(astFactory.createOclTypeLiteralExp(
@@ -1591,7 +1591,7 @@ namespace Ocl20.parser.typeChecker
             CSTClassifierAttributeCallExpCS classifierAttributeCallExp)
         {
 
-            if ((element != null) && (element.GetType() == typeof(CoreClassifierImpl) && ((CoreClassifier) element).isEnumeration())) {
+            if ((element != null) && (element is CoreClassifierImpl && ((CoreClassifier) element).isEnumeration())) {
                 CoreEnumeration enumeration = (CoreEnumeration) element;
                 checkForEnumerationLiteralWithAtPre(enumeration,
                                                     classifierAttributeCallExp);
@@ -1614,7 +1614,7 @@ namespace Ocl20.parser.typeChecker
 
             bool result = false;
 
-            if ((element != null) && (element.GetType() == typeof(CoreClassifierImpl))) {
+            if ((element != null) && (element is CoreClassifierImpl)) {
                 CoreClassifier classifier = (CoreClassifier) element;
                 CoreAttribute attribute = classifier.lookupAttribute(classifierAttributeCallExp.getFeatureName());
 
@@ -1820,8 +1820,8 @@ namespace Ocl20.parser.typeChecker
                 } else if ((returnType != null) && returnType.getName()
                                                              .Equals("<T>") &&
                            (arguments.Count == 1) &&
-                           arguments[0].GetType() == typeof(OclModelElementTypeImpl)) {
-                               if (((OclModelElementType) arguments[0]).getReferredModelElement().GetType() == typeof(CoreClassifierImpl))
+                           arguments[0] is OclModelElementTypeImpl) {
+                               if (((OclModelElementType) arguments[0]).getReferredModelElement() is CoreClassifierImpl)
                                    result = (CoreClassifier) ((OclModelElementType) arguments[0]).getReferredModelElement();
                                else {
                                    generateSemanticException(expression,
@@ -1861,7 +1861,7 @@ namespace Ocl20.parser.typeChecker
 
             object modelElement = this.initialContext.lookupPathName(packageDeclaration.getName());
 
-            if ((modelElement != null) && (modelElement.GetType() == typeof(CorePackageImpl))) {
+            if ((modelElement != null) && (modelElement is CorePackageImpl)) {
                 return (CorePackage) modelElement;
             } else {
                 generateSemanticException(packageDeclaration,
@@ -1886,7 +1886,7 @@ namespace Ocl20.parser.typeChecker
                 return (CoreClassifier) classifier;
             } else {
                 classifier = (CoreModelElement) currentEnvironment.lookupPathName(classifierName);
-                if ((classifier != null) && (classifier.GetType() == typeof(CoreClassifierImpl))) {
+                if ((classifier != null) && (classifier is CoreClassifierImpl)) {
                     return (CoreClassifier) classifier;
                 } else {
                     generateSemanticException(node,
@@ -1930,11 +1930,11 @@ namespace Ocl20.parser.typeChecker
 
             CoreClassifier result = null;
     	
-            if (property.GetType() == typeof(CoreAttributeImpl)) {
+            if (property is CoreAttributeImpl) {
                 CoreAttribute	attr = (CoreAttribute) property;
                 Environment currentEnvironment = (Environment) stackOfEnvironments.Peek();
                 result = (CoreClassifier) currentEnvironment.lookup(attr.getFeatureType().getName());
-            } else if (property.GetType() == typeof(CoreAssociationEndImpl)) {
+            } else if (property is CoreAssociationEndImpl) {
                 CoreAssociationEnd	associationEnd = (CoreAssociationEnd) property;
                 result = associationEnd.isOneMultiplicity() ? associationEnd.getTheParticipant()																										  
                              : astFactory.createSpecificCollectionType(CollectionKindEnum.SET, associationEnd.getTheParticipant());
@@ -2241,7 +2241,7 @@ namespace Ocl20.parser.typeChecker
             CSTNameCS name,
             CSTOperationCS operation)  {
 
-            if (!(name.GetType() == typeof(CSTPathNameCS))) {
+            if (!(name is CSTPathNameCS)) {
                 generateSemanticException(name,
                                           Messages.getString(
                                               "OCLSemanticAnalyzerVisitor.classifier_not_defined_for_the_operation_#{0}#_1"),
@@ -2252,7 +2252,7 @@ namespace Ocl20.parser.typeChecker
         protected void checkForWrongOperationName(CSTNameCS name)
         {
 
-            if (name.GetType() == typeof(CSTPathNameCS)) {
+            if (name is CSTPathNameCS) {
                 generateSemanticException(name,
                                           Messages.getString(
                                               "OCLSemanticAnalyzerVisitor.wrong_operation_name_#{0}#__path_name_not_expected_3"),
@@ -2437,7 +2437,7 @@ namespace Ocl20.parser.typeChecker
 
             OclExpression argument = (OclExpression) simpleNameExp.getArgumentsAst()[0];
 
-            if (argument.GetType() == typeof(AssociationEndCallExp)) {
+            if (argument is AssociationEndCallExp) {
                 return ((AssociationEndCallExp) argument).getReferredAssociationEnd();
             } else {
                 generateSemanticException(simpleNameExp,
@@ -2455,7 +2455,7 @@ namespace Ocl20.parser.typeChecker
             CollectionType collectionType = (CollectionType) sourceType;
             CoreClassifier elementType = collectionType.getElementType();
 
-            if (elementType.GetType() == typeof(CollectionTypeImpl)) {
+            if (elementType is CollectionTypeImpl) {
                 generateSemanticException(node,
                                           "invalid source for property call expression: {0}",
                                           new object[] { elementType.getName() });
@@ -2466,7 +2466,7 @@ namespace Ocl20.parser.typeChecker
             CoreClassifier sourceType,
             CSTNode node)  {
 
-            if (!(sourceType.GetType() == typeof(CollectionTypeImpl))) {
+            if (!(sourceType is CollectionTypeImpl)) {
                 generateSemanticException(node,
                                           "left operand of an iterator expected to be a collection, but found {0}",
                                           new object[] { sourceType.getName() });

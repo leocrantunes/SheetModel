@@ -26,18 +26,18 @@ namespace Ocl20.library.impl.util
         }
 
         public	OclConstraint	createModelElementInitConstraint(string source, CoreClassifier contextualClassifier, CoreModelElement element, ExpressionInOcl initialValue) {
-            if (element.GetType() == typeof(CoreAttributeImpl)) {
+            if (element is CoreAttributeImpl) {
                 return	createAttributeInitConstraint(source, contextualClassifier, (CoreAttribute) element, initialValue);
-            } else if (element.GetType() == typeof(CoreAssociationEndImpl)) {
+            } else if (element is CoreAssociationEndImpl) {
                 return	createAssociationEndInitConstraint(source, contextualClassifier, (CoreAssociationEnd) element, initialValue);
             } else
                 return	null;
         }
 
         public	OclConstraint	createModelElementDeriveConstraint(string source, CoreClassifier contextualClassifier, CoreModelElement element, ExpressionInOcl initialValue) {
-            if (element.GetType() == typeof(CoreAttributeImpl)) {
+            if (element is CoreAttributeImpl) {
                 return	createAttributeDeriveConstraint(source, contextualClassifier, (CoreAttribute) element, initialValue);
-            } else if (element.GetType() == typeof(CoreAssociationEndImpl)) {
+            } else if (element is CoreAssociationEndImpl) {
                 return	createAssociationEndDeriveConstraint(source, contextualClassifier, (CoreAssociationEnd) element, initialValue);
             } else
                 return	null;

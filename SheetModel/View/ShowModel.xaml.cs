@@ -31,11 +31,11 @@ namespace SheetModel
 
         private void TreeView_SelectedClassChanged(object sender, System.Windows.RoutedPropertyChangedEventArgs<object> e)
         {
-            if (e.NewValue != null && e.NewValue.GetType() == typeof(ModelClass))
+            if (e.NewValue != null && e.NewValue is ModelClass)
             {
                 ViewModel.ClassDescription = ((ModelClass)e.NewValue).Description;
             }
-            else if (e.NewValue != null && e.NewValue.GetType() == typeof(ModelAttribute))
+            else if (e.NewValue != null && e.NewValue is ModelAttribute)
             {
                 ViewModel.ClassDescription = ((ModelAttribute)e.NewValue).Description;
             }
@@ -43,11 +43,11 @@ namespace SheetModel
 
         private void TreeView_SelectedAssociationChanged(object sender, System.Windows.RoutedPropertyChangedEventArgs<object> e)
         {
-            if (e.NewValue != null && e.NewValue.GetType() == typeof(ModelAssociation))
+            if (e.NewValue != null && e.NewValue is ModelAssociation)
             {
                 ViewModel.SelectedAssociation = (ModelAssociation)e.NewValue;
             }
-            else if (e.NewValue != null && e.NewValue.GetType() == typeof(AssociationMember))
+            else if (e.NewValue != null && e.NewValue is AssociationMember)
             {
                 // ((AssociationMember)e.NewValue).
             }

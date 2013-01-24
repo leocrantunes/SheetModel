@@ -45,9 +45,9 @@ namespace Ocl20.library.impl.environment
         }
 	
         public CoreClassifier getType() {
-            if (getReferredElement().GetType() == typeof(CoreClassifierImpl)) {
+            if (getReferredElement() is CoreClassifierImpl) {
                 return (CoreClassifier) getReferredElement();
-            } else if (getReferredElement().GetType() == typeof(VariableDeclarationImpl)) {
+            } else if (getReferredElement() is VariableDeclarationImpl) {
                 return ((VariableDeclaration) getReferredElement()).getType();
             } else {
                 return null;

@@ -79,8 +79,8 @@ namespace Ocl20.library.iface.expressions
      * of the same value.
      */
         public override bool Equals(object o) {
-            if (o.GetType() == typeof(CollectionKindEnum)) return (o == this);
-            else if (o.GetType() == typeof(CollectionKind)) return (o.ToString().Equals(literalName));
+            if (o is CollectionKindEnum) return (o == this);
+            else if (o is CollectionKind) return (o.ToString().Equals(literalName));
             else return (o.ToString().Equals(literalName));
         }
 

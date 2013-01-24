@@ -305,6 +305,28 @@ namespace Ocl20Test.MDRRepository.models.ocl20
         }
 
         [TestMethod]
+        public void fTest_01()
+        {
+            AstOclModelElementFactory factory1 = AstOclModelElementFactoryManager.getInstance(umlModel.getOclPackage());
+
+            VariableDeclaration variable = factory1.createVariableDeclaration("abc", getClassifier("SpecialFilm"), null);
+            VariableExp source = factory1.createVariableExp(variable);
+
+            CoreClassifier c1 = getClassifier("SpecialFilm");
+
+            CoreModel coreModel = c1.getModel();
+
+            List<object> ass = coreModel.getAllAssociations();
+
+            
+            CoreClassifier c2 = getClassifier("Film");
+            List<object> core = c1.getAllAssociationEnds();
+            List<object> core2 = c2.getAllAssociationEnds();
+
+            var a = c2.lookupAssociationEnd("tapes");
+        }
+
+        [TestMethod]
         public void testAssociationEndCallExp_02()
         {
             AstOclModelElementFactory factory1 = AstOclModelElementFactoryManager.getInstance(umlModel.getOclPackage());

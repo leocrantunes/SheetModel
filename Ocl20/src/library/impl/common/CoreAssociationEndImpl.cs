@@ -90,7 +90,7 @@ namespace Ocl20.library.impl.common
 
         protected CoreClassifier getSpecificParticipant()
         {
-            if (getType().GetType() == typeof(CoreClassifierImpl))
+            if (getType() is CoreClassifierImpl)
                 return (CoreClassifier) getType();
             else
                 return null;
@@ -115,7 +115,7 @@ namespace Ocl20.library.impl.common
             int index = 0;
             foreach (MultiplicityRange range in rangeCollection)
             {
-                if (range.getUpper() == 1 && index != rangeCollection.Count - 1)
+                if (range.getUpper() == 1 && rangeCollection.Count == 1)
                     return true;
                 index++;
             }
