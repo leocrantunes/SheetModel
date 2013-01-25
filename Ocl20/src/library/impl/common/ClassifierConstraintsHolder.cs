@@ -178,7 +178,11 @@ namespace Ocl20.library.impl.common
                 targetList = new List<CoreFeature>();
             }
             targetList.Add(element);
-            this.definedFeaturesBySource.Add(source, targetList);
+
+            if (this.definedFeaturesBySource.ContainsKey(source))
+                this.definedFeaturesBySource[source] = targetList;
+            else
+                this.definedFeaturesBySource.Add(source, targetList);
         }
     
     
@@ -263,7 +267,10 @@ namespace Ocl20.library.impl.common
                     bool foundafter = this.definedFeatures.TryGetValue(element, out coreFeature);
                 }
             
-                this.definedFeaturesBySource.Add(sourceName, new List<CoreFeature>());
+                if (this.definedFeaturesBySource.ContainsKey(sourceName))
+                    this.definedFeaturesBySource[sourceName] = new List<CoreFeature>();
+                else
+                    this.definedFeaturesBySource.Add(sourceName, new List<CoreFeature>());
             }
         
             return result;	
@@ -274,7 +281,7 @@ namespace Ocl20.library.impl.common
         }
     
         public CoreAttribute createOclDefinedAttribute(string source, string name, CoreClassifier type) {
-            CoreAttribute oclDefinedAttribute = classifier.getModel().getOclPackage().getConstraints().getOclDefinedAttribute().createOclDefinedAttribute();
+            CoreAttribute oclDefinedAttribute = classifier.getModel().getOclPackage().getConstraints().getOclDefinedAttribute();
     	
             oclDefinedAttribute.setFeatureOwner(classifier);
             oclDefinedAttribute.setFeatureType(type);
@@ -287,7 +294,7 @@ namespace Ocl20.library.impl.common
         } 
 
         public CoreOperation createOclDefinedOperation(string source, string name, List<object> paramNames, List<object> paramTypes, CoreClassifier returnType) {
-            CoreOperation oclDefinedOperation = classifier.getModel().getOclPackage().getConstraints().getOclDefinedOperation().createOclDefinedOperation();
+            CoreOperation oclDefinedOperation = classifier.getModel().getOclPackage().getConstraints().getOclDefinedOperation();
     	
             ((OclDefinedOperationImpl) oclDefinedOperation).setName(name);
             ((OclDefinedOperationImpl) oclDefinedOperation).setParamNames(paramNames);

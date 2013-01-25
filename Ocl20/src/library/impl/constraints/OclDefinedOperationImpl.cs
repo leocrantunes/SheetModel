@@ -6,7 +6,7 @@ using Ocl20.library.impl.common;
 
 namespace Ocl20.library.impl.constraints
 {
-    public abstract class OclDefinedOperationImpl : CoreOperationImpl, OclDefinedOperation {
+    public class OclDefinedOperationImpl : CoreOperationImpl, OclDefinedOperation {
 
         private String name;
         private List<object> paramTypes;

@@ -6,32 +6,26 @@ using Ocl20.library.iface.constraints;
 using Ocl20.library.iface.expressions;
 using Ocl20.library.iface.util;
 using Ocl20.library.impl.util;
+using Ocl20.xmireader;
 
 namespace Ocl20Test.MDRRepository.models.ocl20
 {
+    [TestClass]
     public class TestOclConstraints {
-    
-        //protected	static MOFRepositoryReader repository;
+
+        protected static XmiReader reader;
         protected	static CoreModel	  umlModel = null;
-        //protected static Uml13ModelsRepository  modelRepository = null;
         protected static String extentName = "RoseExample";
 
         [ClassInitialize]
-        public static void setUp() {
-            //if (modelRepository == null) {
-            //    try {
-            //        modelRepository = new Uml13ModelsRepository(MOFMetamodelRepositoryFactory.getRepository());
-            //        modelRepository.importModel(extentName, "tests/resource/examples/myExampleRose.xml");
-            //        repository = modelRepository;
-            //    } catch (Exception e) {
-            //        e.printStackTrace();
-            //    }
-            //}	
-            //setUmlModelsRepository();
+        public static void setUp(TestContext testContext)
+        {
+            reader = new XmiReader(@"C:\Users\Leo\Documents\visual studio 2010\Projects\SheetModel_20121206\SheetModel\Ocl20Test\resource\myExampleRose.xml");
+            setUmlModelsRepository();
         }
 	
-        public void setUmlModelsRepository() {
-            //Assert.IsNotNull(umlModel = repository.getModel(extentName));
+        public static void setUmlModelsRepository() {
+            Assert.IsNotNull(umlModel = reader.getModel());
         }
 
         protected CoreClassifier getClassifier(String name) {
@@ -94,7 +88,7 @@ namespace Ocl20Test.MDRRepository.models.ocl20
             ExpressionInOcl expInOcl = factory1.createExpressionInOcl("name", getClassifier("Film"), exp1);
             OclInvariantConstraint constraint = (OclInvariantConstraint) factory1.createInvariantConstraint("test.ocl", "myInvariant", getClassifier("Film"), expInOcl);
 
-            Assert.AreEqual("inv myInvariant: true", constraint.ToString());
+            Assert.AreEqual("inv myInvariant: True", constraint.ToString());
 		
             Assert.IsTrue(getClassifier("Film").getAllInvariants().Contains(constraint));
 		
@@ -144,8 +138,8 @@ namespace Ocl20Test.MDRRepository.models.ocl20
             OclConstraint preConstraint = factory1.createPreConstraint(constraint, "test.ocl", "myPre", oper, expInOcl1);
             OclConstraint postConstraint = factory1.createPostConstraint(constraint, "test.ocl", "myPost", oper, expInOcl2);
 		
-            Assert.AreEqual("pre myPre: true", preConstraint.ToString());
-            Assert.AreEqual("post myPost: false", postConstraint.ToString());
+            Assert.AreEqual("pre myPre: True", preConstraint.ToString());
+            Assert.AreEqual("post myPost: False", postConstraint.ToString());
 		
             Assert.IsTrue(oper.getSpecifications().Contains(constraint));
             OclPrePostConstraint example = (OclPrePostConstraint) oper.getSpecifications()[0];
@@ -155,45 +149,109 @@ namespace Ocl20Test.MDRRepository.models.ocl20
             oper.deleteAllConstraintsForSource("test.ocl");
             Assert.AreEqual(0, oper.getSpecifications().Count);
         }
-	
+
         [TestMethod]
-        public void testDefAttribute() {
+        public void testDefAttribute()
+        {
             getClassifier("Film").addDefinedElement("test.ocl", "myNewAttr", getClassifier("Integer"));
-            getClassifier("Film").addDefinedElement("test.ocl", "myNewAttr", getClassifier("Integer"));
-            getClassifier("Product").addDefinedElement("test.ocl", "myNewAttr", getClassifier("Integer"));
-            getClassifier("Film").addDefinedElement("test.ocl", "name", getClassifier("Integer"));
+            
+            try
+            {
+                getClassifier("Film").addDefinedElement("test.ocl", "myNewAttr", getClassifier("Integer"));
+                throw new AssertFailedException();
+            }
+            catch (Exception e)
+            {}
+
+            try
+            {
+                getClassifier("Product").addDefinedElement("test.ocl", "myNewAttr", getClassifier("Integer"));
+                throw new AssertFailedException();
+            }
+            catch (Exception e)
+            {}
+
+            try
+            {
+                getClassifier("Film").addDefinedElement("test.ocl", "name", getClassifier("Integer"));
+                throw new AssertFailedException();
+            }
+            catch (Exception e)
+            {}
 
             CoreAttribute attr = getClassifier("Film").lookupAttribute("myNewAttr");
             Assert.AreEqual("Integer", attr.getFeatureType().getName());
             Assert.IsTrue(attr.isOclDefined());
-		
+
             CoreAttribute nameAttr = getClassifier("Film").lookupAttribute("name");
             Assert.AreEqual("String", nameAttr.getFeatureType().getName());
             Assert.IsFalse(nameAttr.isOclDefined());
-		
+
             getClassifier("Film").deleteAllConstraintsForSource("test.ocl");
             Assert.IsNull(getClassifier("Film").lookupAttribute("myNewAttr"));
         }
 
         [TestMethod]
-        public void testDefOperation() {
+        public void testDefOperation()
+        {
             List<object> paramNames = new List<object>();
             paramNames.Add("param1");
-		
+
             List<object> paramTypes = new List<object>();
             paramTypes.Add(getClassifier("Real"));
-		
-            getClassifier("Film").addDefinedOperation("test.ocl", "myNewOper", paramNames, paramTypes, getClassifier("Integer"));
 
+            getClassifier("Film").addDefinedOperation("test.ocl", "myNewOper", paramNames, paramTypes, getClassifier("Integer"));
+            
             CoreOperation oper = getClassifier("Film").lookupOperation("myNewOper", paramTypes);
             Assert.AreEqual("Integer", oper.getReturnType().getName());
             Assert.IsTrue(oper.isOclDefined());
             List<object> args = new List<object>();
             args.Add(getClassifier("Integer"));
             Assert.IsTrue(oper.hasMatchingSignature(args));
-		
+
             getClassifier("Film").deleteAllConstraintsForSource("test.ocl");
             Assert.IsNull(getClassifier("Film").lookupOperation("myNewOper", paramTypes));
         }
+
+	
+        //[TestMethod]
+        //public void testDefAttribute() {
+        //    getClassifier("Film").addDefinedElement("test.ocl", "myNewAttr", getClassifier("Integer"));
+        //    getClassifier("Film").addDefinedElement("test.ocl", "myNewAttr", getClassifier("Integer"));
+        //    getClassifier("Product").addDefinedElement("test.ocl", "myNewAttr", getClassifier("Integer"));
+        //    getClassifier("Film").addDefinedElement("test.ocl", "name", getClassifier("Integer"));
+
+        //    CoreAttribute attr = getClassifier("Film").lookupAttribute("myNewAttr");
+        //    Assert.AreEqual("Integer", attr.getFeatureType().getName());
+        //    Assert.IsTrue(attr.isOclDefined());
+		
+        //    CoreAttribute nameAttr = getClassifier("Film").lookupAttribute("name");
+        //    Assert.AreEqual("String", nameAttr.getFeatureType().getName());
+        //    Assert.IsFalse(nameAttr.isOclDefined());
+		
+        //    getClassifier("Film").deleteAllConstraintsForSource("test.ocl");
+        //    Assert.IsNull(getClassifier("Film").lookupAttribute("myNewAttr"));
+        //}
+
+        //[TestMethod]
+        //public void testDefOperation() {
+        //    List<object> paramNames = new List<object>();
+        //    paramNames.Add("param1");
+		
+        //    List<object> paramTypes = new List<object>();
+        //    paramTypes.Add(getClassifier("Real"));
+		
+        //    getClassifier("Film").addDefinedOperation("test.ocl", "myNewOper", paramNames, paramTypes, getClassifier("Integer"));
+
+        //    CoreOperation oper = getClassifier("Film").lookupOperation("myNewOper", paramTypes);
+        //    Assert.AreEqual("Integer", oper.getReturnType().getName());
+        //    Assert.IsTrue(oper.isOclDefined());
+        //    List<object> args = new List<object>();
+        //    args.Add(getClassifier("Integer"));
+        //    Assert.IsTrue(oper.hasMatchingSignature(args));
+		
+        //    getClassifier("Film").deleteAllConstraintsForSource("test.ocl");
+        //    Assert.IsNull(getClassifier("Film").lookupOperation("myNewOper", paramTypes));
+        //}
     }
 }

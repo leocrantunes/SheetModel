@@ -10,6 +10,7 @@ using Ocl20.library.iface.expressions;
 using Ocl20.library.iface.types;
 using Ocl20.library.iface.util;
 using Ocl20.library.impl.common;
+using Ocl20.library.impl.constraints;
 using Ocl20.library.impl.types;
 using Ocl20.library.impl.util;
 
@@ -29,7 +30,7 @@ namespace Ocl20.library.impl
 
         public ConstraintsPackage getConstraints()
         {
-            throw new NotImplementedException();
+            return new ConstraintsPackageImpl();
         }
 
         public ExpressionsPackage getExpressions()

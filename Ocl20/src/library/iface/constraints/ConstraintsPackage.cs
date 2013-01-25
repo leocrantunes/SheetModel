@@ -9,102 +9,102 @@ namespace Ocl20.library.iface.constraints
      * Returns OclDefinedAttribute class proxy object.
      * @return OclDefinedAttribute class proxy object.
      */
-        OclDefinedAttributeClass getOclDefinedAttribute();
+        OclDefinedAttribute getOclDefinedAttribute();
         /**
      * Returns OclDefinedOperation class proxy object.
      * @return OclDefinedOperation class proxy object.
      */
-        OclDefinedOperationClass getOclDefinedOperation();
+        OclDefinedOperation getOclDefinedOperation();
         /**
      * Returns OclPrePostConstraint class proxy object.
      * @return OclPrePostConstraint class proxy object.
      */
-        OclPrePostConstraintClass getOclPrePostConstraint();
+        OclPrePostConstraint getOclPrePostConstraint();
         /**
      * Returns OclPostConstraint class proxy object.
      * @return OclPostConstraint class proxy object.
      */
-        OclPostConstraintClass getOclPostConstraint();
+        OclPostConstraint getOclPostConstraint();
         /**
      * Returns OclPreConstraint class proxy object.
      * @return OclPreConstraint class proxy object.
      */
-        OclPreConstraintClass getOclPreConstraint();
+        OclPreConstraint getOclPreConstraint();
         /**
      * Returns OclBodyConstraint class proxy object.
      * @return OclBodyConstraint class proxy object.
      */
-        OclBodyConstraintClass getOclBodyConstraint();
+        OclBodyConstraint getOclBodyConstraint();
         /**
      * Returns OclAssocEndInitConstraint class proxy object.
      * @return OclAssocEndInitConstraint class proxy object.
      */
-        OclAssocEndInitConstraintClass getOclAssocEndInitConstraint();
+        OclAssocEndInitConstraint getOclAssocEndInitConstraint();
         /**
      * Returns OclAttributeInitConstraint class proxy object.
      * @return OclAttributeInitConstraint class proxy object.
      */
-        OclAttributeInitConstraintClass getOclAttributeInitConstraint();
+        OclAttributeInitConstraint getOclAttributeInitConstraint();
         /**
      * Returns OclAssocEndDeriveConstraint class proxy object.
      * @return OclAssocEndDeriveConstraint class proxy object.
      */
-        OclAssocEndDeriveConstraintClass getOclAssocEndDeriveConstraint();
+        OclAssocEndDeriveConstraint getOclAssocEndDeriveConstraint();
         /**
      * Returns OclAttributeDeriveConstraint class proxy object.
      * @return OclAttributeDeriveConstraint class proxy object.
      */
-        OclAttributeDeriveConstraintClass getOclAttributeDeriveConstraint();
+        OclAttributeDeriveConstraint getOclAttributeDeriveConstraint();
         /**
      * Returns OclAttributeDefConstraint class proxy object.
      * @return OclAttributeDefConstraint class proxy object.
      */
-        OclAttributeDefConstraintClass getOclAttributeDefConstraint();
+        OclAttributeDefConstraint getOclAttributeDefConstraint();
         /**
      * Returns OclOperationDefConstraint class proxy object.
      * @return OclOperationDefConstraint class proxy object.
      */
-        OclOperationDefConstraintClass getOclOperationDefConstraint();
+        OclOperationDefConstraint getOclOperationDefConstraint();
         /**
      * Returns OclInvariantConstraint class proxy object.
      * @return OclInvariantConstraint class proxy object.
      */
-        OclInvariantConstraintClass getOclInvariantConstraint();
+        OclInvariantConstraint getOclInvariantConstraint();
         /**
      * Returns OclDefConstraint class proxy object.
      * @return OclDefConstraint class proxy object.
      */
-        OclDefConstraintClass getOclDefConstraint();
+        OclDefConstraint getOclDefConstraint();
         /**
      * Returns OclInitConstraint class proxy object.
      * @return OclInitConstraint class proxy object.
      */
-        OclInitConstraintClass getOclInitConstraint();
+        OclInitConstraint getOclInitConstraint();
         /**
      * Returns OclDeriveConstraint class proxy object.
      * @return OclDeriveConstraint class proxy object.
      */
-        OclDeriveConstraintClass getOclDeriveConstraint();
+        OclDeriveConstraint getOclDeriveConstraint();
         /**
      * Returns ExpressionInOcl class proxy object.
      * @return ExpressionInOcl class proxy object.
      */
-        ExpressionInOclClass getExpressionInOcl();
+        ExpressionInOcl getExpressionInOcl();
         /**
      * Returns OclClassifierConstraint class proxy object.
      * @return OclClassifierConstraint class proxy object.
      */
-        OclClassifierConstraintClass getOclClassifierConstraint();
+        OclClassifierConstraint getOclClassifierConstraint();
         /**
      * Returns OclOperationConstraint class proxy object.
      * @return OclOperationConstraint class proxy object.
      */
-        OclOperationConstraintClass getOclOperationConstraint();
+        OclOperationConstraint getOclOperationConstraint();
         /**
      * Returns OclConstraint class proxy object.
      * @return OclConstraint class proxy object.
      */
-        OclConstraintClass getOclConstraint();
+        OclConstraint getOclConstraint();
         /**
      * Returns ModelElementExpressionInOcl association proxy object.
      * @return ModelElementExpressionInOcl association proxy object.

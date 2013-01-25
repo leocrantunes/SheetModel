@@ -1,28 +1,22 @@
 using System;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Ocl20.library.iface;
 using Ocl20.library.iface.common;
 using Ocl20.library.iface.expressions;
 using Ocl20.library.iface.types;
 using Ocl20.library.iface.util;
-using Ocl20.library.impl;
-using Ocl20.library.impl.environment;
 using Ocl20.library.impl.types;
 using Ocl20.library.impl.util;
 using Ocl20.xmireader;
 using CoreAssociationEnd = Ocl20.library.iface.common.CoreAssociationEnd;
-using Environment = Ocl20.library.iface.environment.Environment;
 
 namespace Ocl20Test.MDRRepository.models.ocl20
 {
     [TestClass]
     public class TestOclModelElements
     {
-        //protected static XMIMetamodelReader repository;
         protected static XmiReader reader;
         protected static CoreModel umlModel = null;
-        //protected static XMIModelUml13ModelsRepository modelRepository = null;
         protected static String extentName = "RoseExample";
 
         [ClassInitialize]

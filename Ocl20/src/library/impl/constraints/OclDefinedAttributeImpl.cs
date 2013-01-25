@@ -6,7 +6,7 @@ using Ocl20.library.impl.common;
 
 namespace Ocl20.library.impl.constraints
 {
-    public abstract class OclDefinedAttributeImpl : CoreAttributeImpl, OclDefinedAttribute {
+    public class OclDefinedAttributeImpl : CoreAttributeImpl, OclDefinedAttribute {
 
         private CoreClassifier type;
         private String name;
