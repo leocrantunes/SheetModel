@@ -21,5 +21,10 @@ namespace Ocl20.library.utils
         {
             return listToClone.Select(item => (T)item.Clone()).ToList();
         }
+
+        public static string MySubstring(this string s, int start, int end)
+        {
+            return s.Substring(start, end - start);
+        }
     }
 }

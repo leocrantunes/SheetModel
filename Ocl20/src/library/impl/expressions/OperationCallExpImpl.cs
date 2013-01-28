@@ -51,7 +51,7 @@ namespace Ocl20.library.impl.expressions
 	    		
                     if (sourceAsString.EndsWith("@pre")) {
                         int indexPre = sourceAsString.LastIndexOf("@pre");
-                        return	sourceAsString.Substring(0, indexPre) + "."  + this.getReferredOperation().getName() + "@pre" + "(" + this.getArgumentsAsString() + ")";
+                        return	sourceAsString.MySubstring(0, indexPre) + "."  + this.getReferredOperation().getName() + "@pre" + "(" + this.getArgumentsAsString() + ")";
                     } else if (getSource().getType() is CollectionTypeImpl) {
                         return	getSource().ToString() + "->" + getSpecificString();
                     } else {

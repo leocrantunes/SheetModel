@@ -273,7 +273,7 @@ namespace Ocl20.library.impl.environment
             if ((firstNamespace != null) && firstNamespace is CoreNamespaceImpl) {
                     if (names.Count > 1) {
                         List<string> namesTail = new List<string>();
-                        namesTail.AddRange(names.GetRange(1, names.Count));
+                        namesTail.AddRange(names.GetRange(1, names.Count - 1));
                         result = ((EnvironmentImpl) nestedEnvironment().addNamespace((CoreNamespace) firstNamespace))
                             .lookupPathNameInsideInnerPackages(namesTail);
                     } else {
@@ -409,7 +409,7 @@ namespace Ocl20.library.impl.environment
 
             foreach (KeyValuePair<string,NamedElement> element in namedElements) {
                 if (element.Value.getReferredElement() is VariableDeclarationImpl) {
-                    variables.Add(element);
+                    variables.Add(element.Value);
                 }
             }
             return variables;

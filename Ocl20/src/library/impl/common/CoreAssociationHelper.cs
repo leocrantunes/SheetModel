@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Ocl20.library.iface.common;
+using Ocl20.library.utils;
 
 namespace Ocl20.library.impl.common
 {
@@ -13,7 +14,7 @@ namespace Ocl20.library.impl.common
             // first try to match role name
             foreach (CoreAssociationEnd assocEnd in association.getTheAssociationEnds()) {
                 StringBuilder upperCaseName = new StringBuilder(roleName);
-                char firstChar = roleName.Substring(0, 1).ToUpper()[0];
+                char firstChar = roleName.MySubstring(0, 1).ToUpper()[0];
                 upperCaseName.Insert(0, firstChar);
                 string adjustedRoleName = upperCaseName.ToString();
             

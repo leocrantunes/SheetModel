@@ -33,7 +33,7 @@ namespace Ocl20.library.impl.expressions
 
 
         public override bool conformsTo(CoreClassifier type) {
-            if (type.GetType() != typeof(CollectionTypeImpl))
+            if (!(type is CollectionTypeImpl))
                 return	false;
 	
             if (((CollectionTypeImpl) type).getCollectionKind() == CollectionKindEnum.COLLECTION ||
@@ -56,7 +56,7 @@ namespace Ocl20.library.impl.expressions
         }
 	
         public String	getCollectionTypeNameWithoutElementType() {
-            return	this.getType().getName().Substring(0, this.getType().getName().IndexOf('('));
+            return	this.getType().getName().MySubstring(0, this.getType().getName().IndexOf('('));
         }
 
         private	String	getCollectionPartsAsString() {

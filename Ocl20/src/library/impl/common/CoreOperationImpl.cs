@@ -4,6 +4,7 @@ using System.Text;
 using Ocl20.library.iface.common;
 using Ocl20.library.iface.constraints;
 using Ocl20.library.iface.expressions;
+using Ocl20.library.utils;
 using Ocl20.parser.semantics.types;
 
 namespace Ocl20.library.impl.common
@@ -472,7 +473,7 @@ namespace Ocl20.library.impl.common
             String name = base.getName();
 
             return (name[0] == '$')
-                       ? name.Substring(1, name.Length)
+                       ? name.MySubstring(1, name.Length)
                        : name;
         }
 

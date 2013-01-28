@@ -147,7 +147,7 @@ namespace Ocl20.parser.typeChecker
     
         protected List<object> compile(TextReader inChannel, string sourceName, StreamWriter errChannel, Type nodeClass, HashSet<Exception> pErrors) {
             resetCounters();
-            errors.Clear();
+            pErrors.Clear();
 
             cstNodes = performSyntaxAnalysis(inChannel, sourceName, errChannel, nodeClass, pErrors);
 
@@ -188,7 +188,7 @@ namespace Ocl20.parser.typeChecker
                     compilerException = new OCLCompilerException(e.Message, new SourceLocation(parser.getFilename(), -1, -1));
             } finally {
                 if ((err != null) && (compilerException != null)) {
-                    errors.Add(compilerException);
+                    pErrors.Add(compilerException);
                     syntaticErrorsCount++;
 
                     err.WriteLine(compilerException);
@@ -212,22 +212,22 @@ namespace Ocl20.parser.typeChecker
     	
             if (nodeClass == null) {
                 result = parser.expressionStream();
-            } else if (nodeClass == typeof(CSTExpressionInOclCS)) {
+            } else if (nodeClass.IsAssignableFrom(typeof(CSTExpressionInOclCS))) {
                 node = parser.expressionInOCLCS();
-            } else if (nodeClass == typeof(CSTTypeCS)) {
+            } else if (nodeClass.IsAssignableFrom(typeof(CSTTypeCS))) {
                 node = parser.typeCS();
-            } else if (nodeClass == typeof(CSTContextDeclarationCS)) {
+            } else if (nodeClass.IsAssignableFrom(typeof(CSTContextDeclarationCS))) {
                 node = parser.contextDeclarationCS();
-            } else if (nodeClass == typeof(CSTArgumentCS)) {
+            } else if (nodeClass.IsAssignableFrom(typeof(CSTArgumentCS))) {
                 List<object> arguments = parser.argumentsCS();
                 node = (CSTNode) arguments[0];
-            } else if (nodeClass == typeof(CSTLiteralExpCS)) {
+            } else if (nodeClass.IsAssignableFrom(typeof(CSTLiteralExpCS))) {
                 node = parser.literalExpCS();
-            } else if (nodeClass == typeof(CSTVariableDeclarationCS)) {
+            } else if (nodeClass.IsAssignableFrom(typeof(CSTVariableDeclarationCS))) {
                 node = parser.variableDeclarationCS();
-            } else if (nodeClass == typeof(CSTVariableDeclarationCS)) {
+            } else if (nodeClass.IsAssignableFrom(typeof(CSTVariableDeclarationCS))) {
                 node = parser.variableDeclarationCS();
-            } else if (nodeClass == typeof(CSTClassifierAttributeCallExpCS)) {
+            } else if (nodeClass.IsAssignableFrom(typeof(CSTClassifierAttributeCallExpCS))) {
                 node = parser.classifierAttributeCallExpCS();
             }
         

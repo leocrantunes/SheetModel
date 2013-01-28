@@ -33,6 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="antlr.runtime, Version=2.7.7.1, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core">
@@ -155,32 +156,31 @@
     <Content Include="src\psw\oclScript\virtualmachine\TestCompositeActions.java" />
     <Content Include="src\psw\oclScript\virtualmachine\TestJumpActions.java" />
     <Content Include="src\psw\oclScript\virtualmachine\TestPrimitiveActions.java" />
-    <Content Include="src\psw\parser\semantic\TestArgument.java" />
-    <Content Include="src\psw\parser\semantic\TestAssociationClassCallExp.java" />
-    <Content Include="src\psw\parser\semantic\TestAssociationEndCallExp.java" />
-    <Content Include="src\psw\parser\semantic\TestAttributeCallExp.java" />
-    <Content Include="src\psw\parser\semantic\TestCollectionLiteralExp.java" />
-    <Content Include="src\psw\parser\semantic\TestCollectionOperationsExp.java" />
-    <Content Include="src\psw\parser\semantic\TestDefConstraints.java" />
-    <Content Include="src\psw\parser\semantic\TestEnumLiteralExp.java" />
-    <Content Include="src\psw\parser\semantic\TestIfExp.java" />
-    <Content Include="src\psw\parser\semantic\TestInitConstraints.java" />
-    <Content Include="src\psw\parser\semantic\TestInvConstraints.java" />
-    <Content Include="src\psw\parser\semantic\TestIterateExp.java" />
-    <Content Include="src\psw\parser\semantic\TestIteratorExp.java" />
-    <Content Include="src\psw\parser\semantic\TestLetExp.java" />
-    <Content Include="src\psw\parser\semantic\TestLiteralExp.java" />
-    <Content Include="src\psw\parser\semantic\TestNodeCS.java" />
-    <Content Include="src\psw\parser\semantic\TestOclAnyOperations.java" />
-    <Content Include="src\psw\parser\semantic\TestOCLSemanticAnalyzer.java" />
-    <Content Include="src\psw\parser\semantic\TestOperationCallExp.java" />
-    <Content Include="src\psw\parser\semantic\TestPrePostConstraints.java" />
-    <Content Include="src\psw\parser\semantic\TestPrimitiveLiteralExp.java" />
-    <Content Include="src\psw\parser\semantic\TestPropertyCallExp.java" />
-    <Content Include="src\psw\parser\semantic\TestSemanticAnalysisSuite.java" />
-    <Content Include="src\psw\parser\semantic\TestTupleLiteralExp.java" />
-    <Content Include="src\psw\parser\semantic\TestTypeCS.java" />
-    <Content Include="src\psw\parser\semantic\TestVariableDeclaration.java" />
+    <Compile Include="src\psw\parser\semantic\TestArgument.cs" />
+    <Compile Include="src\psw\parser\semantic\TestAssociationClassCallExp.cs" />
+    <Compile Include="src\psw\parser\semantic\TestAssociationEndCallExp.cs" />
+    <Compile Include="src\psw\parser\semantic\TestAttributeCallExp.cs" />
+    <Compile Include="src\psw\parser\semantic\TestCollectionLiteralExp.cs" />
+    <Compile Include="src\psw\parser\semantic\TestCollectionOperationsExp.cs" />
+    <Compile Include="src\psw\parser\semantic\TestDefConstraints.cs" />
+    <Compile Include="src\psw\parser\semantic\TestEnumLiteralExp.cs" />
+    <Compile Include="src\psw\parser\semantic\TestIfExp.cs" />
+    <Compile Include="src\psw\parser\semantic\TestInitConstraints.cs" />
+    <Compile Include="src\psw\parser\semantic\TestInvConstraints.cs" />
+    <Compile Include="src\psw\parser\semantic\TestIterateExp.cs" />
+    <Compile Include="src\psw\parser\semantic\TestIteratorExp.cs" />
+    <Compile Include="src\psw\parser\semantic\TestLetExp.cs" />
+    <Compile Include="src\psw\parser\semantic\TestLiteralExp.cs" />
+    <Compile Include="src\psw\parser\semantic\TestNodeCS.cs" />
+    <Compile Include="src\psw\parser\semantic\TestOclAnyOperations.cs" />
+    <Compile Include="src\psw\parser\semantic\TestOCLSemanticAnalyzer.cs" />
+    <Compile Include="src\psw\parser\semantic\TestOperationCallExp.cs" />
+    <Compile Include="src\psw\parser\semantic\TestPrePostConstraints.cs" />
+    <Compile Include="src\psw\parser\semantic\TestPrimitiveLiteralExp.cs" />
+    <Compile Include="src\psw\parser\semantic\TestPropertyCallExp.cs" />
+    <Compile Include="src\psw\parser\semantic\TestTupleLiteralExp.cs" />
+    <Compile Include="src\psw\parser\semantic\TestTypeCS.cs" />
+    <Compile Include="src\psw\parser\semantic\TestVariableDeclaration.cs" />
     <Content Include="src\psw\project\MyTest.java" />
     <Content Include="src\psw\project\Teste.java" />
     <Content Include="src\psw\project\TestPswProject.java" />

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Ocl20.library.iface.common;
 using Ocl20.library.iface.constraints;
+using Ocl20.library.utils;
 
 namespace Ocl20.library.impl.common
 {
@@ -110,7 +111,7 @@ namespace Ocl20.library.impl.common
                 return name;
             else
                 return (name[0] == '/') ?
-                           name.Substring(1, name.Length - 1) :
+                           name.MySubstring(1, name.Length) :
                            name;
         }
         

@@ -1,3 +1,4 @@
+using Ocl20.library.utils;
 using Ocl20.parser.controller;
 
 namespace Ocl20.parser.cst.literalExp
@@ -22,7 +23,7 @@ namespace Ocl20.parser.cst.literalExp
         }
 
         private string getStringWithoutQuotationMarks(string source) {
-            return source.Substring(1, source.Length - 1);
+            return source.MySubstring(1, source.Length);
         }
     }
 }

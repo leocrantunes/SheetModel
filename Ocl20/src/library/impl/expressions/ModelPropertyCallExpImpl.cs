@@ -3,6 +3,7 @@ using Ocl20.library.iface.common;
 using Ocl20.library.iface.expressions;
 using Ocl20.library.iface.types;
 using Ocl20.library.impl.types;
+using Ocl20.library.utils;
 
 namespace Ocl20.library.impl.expressions
 {
@@ -47,7 +48,7 @@ namespace Ocl20.library.impl.expressions
 	
             if (sourceAsString.EndsWith("@pre")) {
                 int indexPre = sourceAsString.LastIndexOf("@pre", StringComparison.Ordinal);
-                return sourceAsString.Substring(0, indexPre) + "." + getSpecificString() + "@pre";
+                return sourceAsString.MySubstring(0, indexPre) + "." + getSpecificString() + "@pre";
             } else {
                 return	getSource().ToString() + "." + getSpecificString();
             }	

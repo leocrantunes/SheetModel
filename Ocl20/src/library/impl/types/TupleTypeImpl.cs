@@ -30,7 +30,7 @@ namespace Ocl20.library.impl.types
             if (c.getName().Equals("OclAny"))
                 return	true;
 
-            if (c.GetType() != typeof(TupleTypeImpl)) {
+            if (!(c is TupleTypeImpl)) {
                 return	false;
             }
 

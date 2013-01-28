@@ -403,13 +403,15 @@ namespace Ocl20.xmireader
         private CoreDataType createDataType(CoreNamespace ownerNamespace, CoreModelElement owner, XElement xdatatype)
         {
             CoreDataType coreDataType = new CoreDataTypeImpl();
-            coreDataType.setName(xdatatype.Attribute("name").Value);
+            var name = xdatatype.Attribute("name");
+            coreDataType.setName(name.Value);
             coreDataType.setElemOwner(owner);
             updateElemOwnedElements(owner, coreDataType);
             coreDataType.setNamespace(ownerNamespace);
             updateNamespaceElemOwnedElements(ownerNamespace, coreDataType);
-            
-            lookup.Add(xdatatype.Attribute("xmi.id").Value, coreDataType);
+
+            var id = xdatatype.Attribute("xmi.id");
+            lookup.Add(id.Value , coreDataType);
 
             return coreDataType;
         }
@@ -447,6 +449,11 @@ namespace Ocl20.xmireader
                 {
                     CoreClassifier modelClass = new CoreClassifierImpl();
                     modelClass.setName(xmodelClass.Attribute("name").Value);
+
+                    if (modelClass.getName().Contains("Sequence"))
+                    {
+                        
+                    }
 
                     modelClass.setElemOwner(owner);
                     updateElemOwnedElements(owner, modelClass);

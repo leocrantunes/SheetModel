@@ -59,7 +59,7 @@ namespace Ocl20.parser.cst.context
 
             foreach (var constraint in constraintsNodesCS)
             {
-                if (constraint != null && constraint.GetType() == constraintClass) {
+                if (constraint != null && constraint.GetType().IsAssignableFrom(constraintClass)) {
                     result.Add(constraint);
                 }
             }

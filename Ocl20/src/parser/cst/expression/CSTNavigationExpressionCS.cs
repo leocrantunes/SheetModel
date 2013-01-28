@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Ocl20.parser.controller;
+using System.Linq;
 
 namespace Ocl20.parser.cst.expression
 {
@@ -43,24 +44,41 @@ namespace Ocl20.parser.cst.expression
      * @see br.cos.ufrj.lens.odyssey.tools.psw.parser.cst.CSTNode#accept(br.cos.ufrj.lens.odyssey.tools.psw.parser.cst.CSTVisitor)
      */
         public override void accept(CSTVisitor visitor) {
-            //if (callExp != null) {
-            //    callExp.accept(visitor);
-            //    visitor.visitNavigationExpressionBegin(this, callExp);
+            if (callExp != null)
+            {
+                callExp.accept(visitor);
+                visitor.visitNavigationExpressionBegin(this, callExp);
 
-            //    for (Iterator iter = innerNavigation.iterator(), iterOperator = operators.iterator();
-            //            iter.hasNext() && iterOperator.hasNext();) {
-            //        CSTOclExpressionCS innerExp = (CSTOclExpressionCS) iter.next();
-            //        CSTNavigationOperatorCS operat = (CSTNavigationOperatorCS) iterOperator.next();
+                var expAndOperators = innerNavigation.Zip(operators, (e, o) => new { Expression = e, Operator = o });            
+                foreach (var e in expAndOperators)
+                {
+                    CSTOclExpressionCS innerExp = (CSTOclExpressionCS) e.Expression;
+                    CSTNavigationOperatorCS operat = (CSTNavigationOperatorCS) e.Operator;
 
-            //        if ((innerExp != null) && (operat != null)) {
-            //            operat.accept(visitor);
-            //            innerExp.accept(visitor);
-            //            visitor.visitNavigationExpression(this, innerExp);
-            //        }
-            //    }
+                    if ((innerExp != null) && (operat != null))
+                    {
+                        operat.accept(visitor);
+                        innerExp.accept(visitor);
+                        visitor.visitNavigationExpression(this, innerExp);
+                    }
+                }
 
-            //    visitor.visitNavigationExpressionEnd(this, innerNavigation, callExp);
-            //}
+                //for (Iterator iter = innerNavigation.iterator(), iterOperator = operators.iterator();
+                //        iter.hasNext() && iterOperator.hasNext(); )
+                //{
+                //    CSTOclExpressionCS innerExp = (CSTOclExpressionCS)iter.next();
+                //    CSTNavigationOperatorCS operat = (CSTNavigationOperatorCS)iterOperator.next();
+
+                //    if ((innerExp != null) && (operat != null))
+                //    {
+                //        operat.accept(visitor);
+                //        innerExp.accept(visitor);
+                //        visitor.visitNavigationExpression(this, innerExp);
+                //    }
+                //}
+
+                visitor.visitNavigationExpressionEnd(this, innerNavigation, callExp);
+            }
         }
 
         /* (non-Javadoc)

@@ -452,7 +452,7 @@ namespace Ocl20.library.impl.common
             if (result == null)
             {
                 StringBuilder upperCaseName = new StringBuilder(name);
-                char firstChar = name.Substring(0, 1).ToUpper()[0];
+                char firstChar = name.MySubstring(0, 1).ToUpper()[0];
                 upperCaseName.Insert(0, firstChar);
                 result = (CoreAssociationEnd) this.lookupFeature(upperCaseName.ToString(), typeof (CoreAssociationEndImpl));
             }

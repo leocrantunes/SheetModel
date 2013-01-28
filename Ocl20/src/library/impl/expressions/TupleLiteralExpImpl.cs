@@ -22,7 +22,7 @@ namespace Ocl20.library.impl.expressions
         }
 
         public override bool conformsTo(CoreClassifier type) {
-            if (type.GetType() != typeof(TupleTypeImpl))
+            if (!(type is TupleTypeImpl))
                 return	false;
 		
             TupleType targetType = (TupleType) type;
