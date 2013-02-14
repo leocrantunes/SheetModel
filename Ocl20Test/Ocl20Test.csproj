@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="src\modelreader\TestModelReader.cs" />
     <Compile Include="UnitTest1.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -103,10 +104,6 @@
     <Content Include="src\MDRRepository\models\uml14\TestUml14CorePackage.java" />
     <Content Include="src\MDRRepository\models\uml14\TestUml14ModelSuite.java" />
     <Content Include="src\MDRRepository\MofExample.java" />
-    <Content Include="src\psw\AllTestsCompiler.java" />
-    <Content Include="src\psw\AllTestsEvaluator.java" />
-    <Content Include="src\psw\AllTestsModels.java" />
-    <Content Include="src\psw\AllTestsOclScript.java" />
     <Content Include="src\psw\objectSpace\persistence\TestOclValuePersistence.java" />
     <Content Include="src\psw\objectSpace\Teste.java" />
     <Content Include="src\psw\objectSpace\TestObjectSpaceSuite.java" />

@@ -331,7 +331,12 @@ namespace Ocl20.parser.typeChecker
 
             if (node != null) {
                 CSTTypeCS typeNode = (CSTTypeCS) node;
-                parsedTypes.Add(typeNode.getAst().getFullPathName(), nodes);
+                string key = typeNode.getAst().getFullPathName();
+                if (parsedTypes.ContainsKey(key))
+                    parsedTypes[key] = nodes;
+                else
+                    parsedTypes.Add(key, nodes);
+
                 return typeNode.getAst();
             } else {
                 return null;

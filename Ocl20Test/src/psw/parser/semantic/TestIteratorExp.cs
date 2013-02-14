@@ -8,6 +8,12 @@ namespace Ocl20Test.psw.parser.semantic
     [TestClass]
     public class TestIteratorExp : TestPropertyCallExp  {
 
+        [TestCleanup]
+        public void testCleanup()
+        {
+            tearDown();
+        }
+
         [TestMethod]
         public void testIteratorExp_01() {
             List<object> constraints = doTestContextOK("context Film inv: self.tapes.theFilm = self.tapes.theFilm", getCurrentMethodName());

@@ -10,10 +10,10 @@ namespace Ocl20Test.psw.parser.semantic
     [TestClass]
     public class TestVariableDeclaration : TestNodeCS {
 
-        [ClassInitialize]
-        public static void setUp(TestContext testContext)
+        [TestCleanup]
+        public void testCleanup()
         {
-            setUp();
+            tearDown();
         }
 
         [TestMethod]

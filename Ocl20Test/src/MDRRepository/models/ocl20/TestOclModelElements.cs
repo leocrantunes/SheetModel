@@ -7,7 +7,7 @@ using Ocl20.library.iface.types;
 using Ocl20.library.iface.util;
 using Ocl20.library.impl.types;
 using Ocl20.library.impl.util;
-using Ocl20.xmireader;
+using Ocl20.modelreader;
 using CoreAssociationEnd = Ocl20.library.iface.common.CoreAssociationEnd;
 
 namespace Ocl20Test.MDRRepository.models.ocl20

@@ -8,6 +8,12 @@ namespace Ocl20Test.psw.parser.semantic
     [TestClass]
     public class TestPrePostConstraints : TestPropertyCallExp {
 
+        [TestCleanup]
+        public void testCleanup()
+        {
+            tearDown();
+        }
+
         [TestMethod]
         public void testPrePost_01() {
             doTestManyContextOK("context Film::getTapes() : Set(Tape) pre myPre: tapes->size() > 0 post myPost: result = tapes->select(rentalFee > 10)  pre anotherPre: tapes->size() < 10",     
@@ -179,7 +185,7 @@ namespace Ocl20Test.psw.parser.semantic
             CoreClassifier	film = (CoreClassifier) environment.lookup("Film");
             CoreOperation operation = film.lookupOperation("getTapes", null);
             Assert.AreEqual(1, new List<object>(operation.getSpecifications()).Count);
-            OclPrePostConstraint	constraint = (OclPrePostConstraint) new List<object>(operation.getSpecifications())[0];
+            OclPrePostConstraint constraint = (OclPrePostConstraint) new List<object>(operation.getSpecifications())[0];
             Assert.AreEqual(2, constraint.getPreConditions().Count);
             Assert.AreEqual("myPre", ((OclPreConstraint) new List<object>(constraint.getPreConditions())[0]).getName());
             Assert.AreEqual("anotherPre", ((OclPreConstraint) new List<object>(constraint.getPreConditions())[1]).getName());

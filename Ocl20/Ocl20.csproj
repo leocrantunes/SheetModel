@@ -372,6 +372,8 @@
     <Compile Include="src\library\impl\util\AstOclModelElementFactoryManager.cs" />
     <Compile Include="src\library\impl\util\UtilPackageImpl.cs" />
     <Compile Include="src\library\utils\CSharpExtensions.cs" />
+    <Compile Include="src\modelreader\ModelReader.cs" />
+    <Compile Include="src\modelreader\VscdReader.cs" />
     <Compile Include="src\parser\antlrcs\OCLScriptLexer.cs" />
     <Compile Include="src\parser\antlrcs\OCLScriptParser.cs" />
     <Compile Include="src\parser\antlrcs\OCLScriptTokenTypes.cs" />
@@ -458,7 +460,7 @@
     <Compile Include="src\parser\typeChecker\OCLSemanticAnalyzer.cs" />
     <Compile Include="src\parser\typeChecker\OCLSemanticAnalyzerVisitor.cs" />
     <Compile Include="src\parser\typeChecker\PSWOclCompiler.cs" />
-    <Compile Include="src\xmireader\XmiReader.cs" />
+    <Compile Include="src\modelreader\XmiReader.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="resource\metamodels\01-02-15.xml" />

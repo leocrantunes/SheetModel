@@ -1360,8 +1360,8 @@ namespace Ocl20.parser.typeChecker
 
         protected bool isImplicitSetAccess(OclExpression expression)
         {
-            return (!(expression is LiteralExp) &&
-                    !(expression is CollectionType));
+            return (!(expression is LiteralExpImpl) &&
+                    !(expression.getType() is CollectionTypeImpl));
         }
 
         protected OclExpression generateWithAsSetExpression(

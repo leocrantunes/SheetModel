@@ -11,6 +11,12 @@ namespace Ocl20Test.psw.parser.semantic
     [TestClass]
     public class TestCollectionLiteralExp : TestLiteralExp  {
 
+        [TestCleanup]
+        public void testCleanup()
+        {
+            tearDown();
+        }
+
         [TestMethod]
         public void testSetLiteral_01() {
             testCollectionLiteral("Set{ 1, 2, 3} ", "Integer", "Set(Integer)", 3, CollectionKindEnum.SET);

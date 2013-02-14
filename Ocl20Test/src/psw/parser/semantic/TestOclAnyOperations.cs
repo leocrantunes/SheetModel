@@ -7,6 +7,12 @@ namespace Ocl20Test.psw.parser.semantic
     [TestClass]
     public class TestOclAnyOperations : TestPropertyCallExp {
 
+        [TestCleanup]
+        public void testCleanup()
+        {
+            tearDown();
+        }
+
         [TestMethod]
         public void testEqual() {
             List<object> constraints	= doTestContextOK("context Tape inv: self = self",     

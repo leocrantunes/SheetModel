@@ -6,7 +6,13 @@ namespace Ocl20Test.psw.parser.semantic
 {
     [TestClass]
     public class TestAssociationClassCallExp : TestAttributeCallExp {
-    
+
+        [TestCleanup]
+        public void testCleanup()
+        {
+            tearDown();
+        }
+
         [TestMethod]
         public void testAssocClass_01() {
             List<object> constraints = doTestContextOK("context SpecialFilm inv: self.dist = self.dist",     

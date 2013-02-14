@@ -49,25 +49,11 @@ namespace Ocl20.parser.cst.expression
                 callExp.accept(visitor);
                 visitor.visitNavigationExpressionBegin(this, callExp);
 
-                var expAndOperators = innerNavigation.Zip(operators, (e, o) => new { Expression = e, Operator = o });            
-                foreach (var e in expAndOperators)
-                {
-                    CSTOclExpressionCS innerExp = (CSTOclExpressionCS) e.Expression;
-                    CSTNavigationOperatorCS operat = (CSTNavigationOperatorCS) e.Operator;
-
-                    if ((innerExp != null) && (operat != null))
-                    {
-                        operat.accept(visitor);
-                        innerExp.accept(visitor);
-                        visitor.visitNavigationExpression(this, innerExp);
-                    }
-                }
-
-                //for (Iterator iter = innerNavigation.iterator(), iterOperator = operators.iterator();
-                //        iter.hasNext() && iterOperator.hasNext(); )
+                //var expAndOperators = innerNavigation.Zip(operators, (e, o) => new { Expression = e, Operator = o });            
+                //foreach (var e in expAndOperators)
                 //{
-                //    CSTOclExpressionCS innerExp = (CSTOclExpressionCS)iter.next();
-                //    CSTNavigationOperatorCS operat = (CSTNavigationOperatorCS)iterOperator.next();
+                //    CSTOclExpressionCS innerExp = (CSTOclExpressionCS) e.Expression;
+                //    CSTNavigationOperatorCS operat = (CSTNavigationOperatorCS) e.Operator;
 
                 //    if ((innerExp != null) && (operat != null))
                 //    {
@@ -76,6 +62,21 @@ namespace Ocl20.parser.cst.expression
                 //        visitor.visitNavigationExpression(this, innerExp);
                 //    }
                 //}
+
+                var iter = innerNavigation.GetEnumerator();
+                var iterOperator = operators.GetEnumerator();
+                while (iter.MoveNext() && iterOperator.MoveNext())
+                {
+                    CSTOclExpressionCS innerExp = (CSTOclExpressionCS)iter.Current;
+                    CSTNavigationOperatorCS operat = (CSTNavigationOperatorCS)iterOperator.Current;
+
+                    if ((innerExp != null) && (operat != null))
+                    {
+                        operat.accept(visitor);
+                        innerExp.accept(visitor);
+                        visitor.visitNavigationExpression(this, innerExp);
+                    }
+                }
 
                 visitor.visitNavigationExpressionEnd(this, innerNavigation, callExp);
             }

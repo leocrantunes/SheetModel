@@ -6,7 +6,7 @@ using Ocl20.library.iface.constraints;
 using Ocl20.library.iface.expressions;
 using Ocl20.library.iface.util;
 using Ocl20.library.impl.util;
-using Ocl20.xmireader;
+using Ocl20.modelreader;
 
 namespace Ocl20Test.MDRRepository.models.ocl20
 {

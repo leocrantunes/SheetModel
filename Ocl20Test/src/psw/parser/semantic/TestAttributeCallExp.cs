@@ -10,6 +10,12 @@ namespace Ocl20Test.psw.parser.semantic
     [TestClass]
     public class TestAttributeCallExp : TestPropertyCallExp {
 
+        [TestCleanup]
+        public void testCleanup()
+        {
+            tearDown();
+        }
+
         [TestMethod]
         public void testAttributeCallExp_01() {
             List<object> constraints = doTestContextOK("context Film inv: name = name",     
@@ -93,12 +99,26 @@ namespace Ocl20Test.psw.parser.semantic
         }
 
         [TestMethod]
+        public void testClassifierAttribute_045()
+        {
+            List<object> constraints =
+                doTestManyContextOK("context Film::getSpecialFee(day:Integer) : Real pre: day > 10",
+                                    getCurrentMethodName());
+            CoreClassifier film = (CoreClassifier)environment.lookup("Film");
+            List<object> parms = new List<object>();
+            parms.Add((CoreClassifier) model.getEnvironmentWithoutParents().lookup("Integer"));
+            CoreOperation operation = film.lookupOperation("getSpecialFee", parms);
+            Assert.AreEqual(1, operation.getSpecifications().Count);
+        }
+
+        [TestMethod]
         public void testClassifierAttribute_05() {
             CoreClassifier	film = (CoreClassifier) environment.lookup("Film");
             CoreOperation operation = film.lookupOperation("getTapes", null);
             Assert.AreEqual(0, operation.getSpecifications().Count);
 
-            List<object> constraints	= doTestManyContextOK("context Film::getTapes() : Set(Tape) post: self.rentalFee@pre = 10 ",     
+            List<object> constraints	= 
+                doTestManyContextOK("context Film::getTapes() : Set(Tape) post: self.rentalFee@pre = 10 ",     
                             	                      getCurrentMethodName());
 
             film = (CoreClassifier) environment.lookup("Film");

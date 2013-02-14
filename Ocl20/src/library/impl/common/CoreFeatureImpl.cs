@@ -9,11 +9,11 @@ namespace Ocl20.library.impl.common
 
         public CoreFeatureImpl() 
         {
-            ownerScope = null;
+            ownerScope = ScopeKindEnum.SK_INSTANCE;
         }
 
         public virtual CoreClassifier getFeatureOwner() {
-            CoreModelElement owner = getSpecificOwnerElement();
+            CoreModelElement owner = getElemOwner();
             if (owner != null && owner is CoreClassifierImpl) 
                 return	(CoreClassifier) owner;
             else

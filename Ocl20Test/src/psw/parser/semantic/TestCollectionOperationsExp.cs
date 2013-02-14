@@ -11,6 +11,12 @@ namespace Ocl20Test.psw.parser.semantic
     [TestClass]
     public class TestCollectionOperationsExp : TestPropertyCallExp  {
 
+        [TestCleanup]
+        public void testCleanup()
+        {
+            tearDown();
+        }
+
         [TestMethod]
         public void testSize_01() {
             List<object> constraints	= doTestContextOK("context Tape inv: self.theFilm->size() > 10",     

@@ -24,7 +24,9 @@ namespace SheetModel
         }
 
         private void ThisAddIn_Shutdown(object sender, EventArgs e)
-        {}
+        {
+            Application.ActiveWorkbook.SaveAs();
+        }
 
         public void AddWorsheet(SheetTab sheetTab)
         {

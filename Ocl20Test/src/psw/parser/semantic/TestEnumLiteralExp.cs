@@ -9,6 +9,12 @@ namespace Ocl20Test.psw.parser.semantic
     [TestClass]
     public class TestEnumLiteralExp : TestLiteralExp {
 
+        [TestCleanup]
+        public void testCleanup()
+        {
+            tearDown();
+        }
+
         [TestMethod]
         public void testEnumOK_01() {
             doTestEnumOK("Situation", "Situation", "married", this.getCurrentMethodName());

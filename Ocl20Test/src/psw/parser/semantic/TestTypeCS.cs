@@ -12,6 +12,12 @@ namespace Ocl20Test.psw.parser.semantic
     [TestClass]
     public class TestTypeCS : TestNodeCS {
 
+        [TestCleanup]
+        public void testCleanup()
+        {
+            tearDown();
+        }
+
         [TestMethod]
         public void test_01() {
             String stream = "MyExample::Film ";

@@ -5,6 +5,12 @@ namespace Ocl20Test.psw.parser.semantic
 {
     [TestClass]
     public class TestInvConstraints : TestPropertyCallExp {
+
+        [TestCleanup]
+        public void testCleanup()
+        {
+            tearDown();
+        }
         
         [TestMethod]
         public void testInv_01() {

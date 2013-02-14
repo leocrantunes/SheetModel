@@ -8,6 +8,12 @@ namespace Ocl20Test.psw.parser.semantic
     [TestClass]
     public class TestOperationCallExp : TestPropertyCallExp {
 
+        [TestCleanup]
+        public void testCleanup()
+        {
+            tearDown();
+        }
+
         protected void checkOperationCallType(OclExpression oclExpression, String typeName, String operationName, Type sourceClass, String sourceType, Object[] argTypes) {
             Assert.IsTrue(oclExpression is OperationCallExp);
             OperationCallExp exp = (OperationCallExp) oclExpression;

@@ -7,6 +7,12 @@ namespace Ocl20Test.psw.parser.semantic
     [TestClass]
     public class TestInitConstraints : TestPropertyCallExp {
 
+        [TestCleanup]
+        public void testCleanup()
+        {
+            tearDown();
+        }
+
         [TestMethod]
         public void testInit_01() {
             doTestContextOK("context Film::name init : \"film name\"",     

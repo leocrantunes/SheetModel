@@ -350,7 +350,11 @@ namespace Ocl20.library.impl.common
                 targetList = new List<VariableDeclaration>();
             }
             targetList.Add(variable);
-            this.localVariablesBySource.Add(source, targetList);
+
+            if (this.localVariablesBySource.ContainsKey(source))
+                this.localVariablesBySource[source] = targetList;
+            else
+                this.localVariablesBySource.Add(source, targetList);
         }
 
         public VariableDeclaration lookupLocalVariable(string name)
@@ -412,7 +416,7 @@ namespace Ocl20.library.impl.common
 
         public override bool getSpecificIsInstanceScope()
         {
-            return (getOwnerScope() == ScopeKindEnum.SK_INSTANCE) && (getName()[0] != '$');
+            return (getOwnerScope() == ScopeKindEnum.SK_INSTANCE) && (base.getName()[0] != '$');
         }
 
         public bool getSpecificIsQuery()

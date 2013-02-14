@@ -4,11 +4,11 @@ using System.Diagnostics;
 using System.IO;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Ocl20.library.iface.common;
+using Ocl20.modelreader;
 using Ocl20.parser.controller;
 using Ocl20.parser.cst;
 using Ocl20.parser.exception;
 using Ocl20.parser.typeChecker;
-using Ocl20.xmireader;
 using Environment = Ocl20.library.iface.environment.Environment;
 
 namespace Ocl20Test.psw.parser.semantic
@@ -447,8 +447,8 @@ namespace Ocl20Test.psw.parser.semantic
         {
             CoreModel model;
             XmiReader reader;
-            reader = new XmiReader(@"C:\Users\Leo\Documents\visual studio 2010\Projects\SheetModel_20121206\SheetModel\Ocl20Test\resource\myExamplePoseidon.xml");
-            Assert.IsNotNull(model = reader.getMetamodel());
+            reader = new XmiReader(@"C:\Users\Leo\Documents\visual studio 2010\Projects\SheetModel_20121206\SheetModel\Ocl20Test\resource\myExampleRose.xml");
+            Assert.IsNotNull(model = reader.getModel());
             return model.getEnvironmentWithoutParents();
         }
 

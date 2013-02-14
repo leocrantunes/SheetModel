@@ -1,15 +1,12 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Xml.Linq;
 using Ocl20.library.iface;
 using Ocl20.library.iface.common;
-using Ocl20.library.iface.types;
 using Ocl20.library.impl;
 using Ocl20.library.impl.common;
 using Ocl20.library.impl.environment;
 using Ocl20.library.impl.types;
-using Ocl20.xmireader;
+using Ocl20.modelreader;
 using CorePackage = Ocl20.library.iface.common.CorePackage;
 using Environment = Ocl20.library.iface.environment.Environment;
 

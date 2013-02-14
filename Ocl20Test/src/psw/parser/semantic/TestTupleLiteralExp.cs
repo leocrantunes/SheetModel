@@ -9,6 +9,12 @@ namespace Ocl20Test.psw.parser.semantic
     [TestClass]
     public class TestTupleLiteralExp : TestLiteralExp  {
 
+        [TestCleanup]
+        public void testCleanup()
+        {
+            tearDown();
+        }
+
         [TestMethod]
         public void testTupleLiteralWithDuplicateNames_03() {
             parseWithError("Tuple{a:Integer = 10, b : Boolean = true, a: Integer = 9}", this.getCurrentMethodName());	

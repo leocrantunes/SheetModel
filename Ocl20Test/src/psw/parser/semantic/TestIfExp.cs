@@ -9,6 +9,12 @@ namespace Ocl20Test.psw.parser.semantic
     [TestClass]
     public class TestIfExp : TestPropertyCallExp {
 
+        [TestCleanup]
+        public void testCleanup()
+        {
+            tearDown();
+        }
+
         [TestMethod]
         public void testIfOK() {
             List<object> constraints = doTestContextOK("context Film inv: if 20 > 10 then self.name = self.name else self.name.concat(\"Alex\") = self.name endif",     

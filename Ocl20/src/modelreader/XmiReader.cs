@@ -6,24 +6,15 @@ using Ocl20.library.iface.common;
 using Ocl20.library.impl.common;
 using Ocl20.uml13.iface.foundation.datatypes;
 
-namespace Ocl20.xmireader
+namespace Ocl20.modelreader
 {
-    public class XmiReader
+    public class XmiReader : ModelReader
     {
-        private Dictionary<string, CoreModelElement> lookup;
-        private Dictionary<string, string> idToType; 
-        private XDocument doc;
-        private CoreModel coreModel;
-
         private readonly XNamespace xnamespaceUmlMetamodel = "org.omg.xmi.namespace.UML";
         private readonly XNamespace xnamespaceUmlModel = "href://org.omg/UML/1.3";
 
-        public XmiReader(string modelPath)
-        {
-            lookup = new Dictionary<string, CoreModelElement>();
-            idToType = new Dictionary<string, string>();
-            doc = XDocument.Load(modelPath);
-        }
+        public XmiReader(string modelPath) : base(modelPath)
+        {}
 
         #region model
 
@@ -32,7 +23,7 @@ namespace Ocl20.xmireader
             return getModel(xnamespaceUmlMetamodel);
         }
 
-        public CoreModel getModel()
+        public override CoreModel getModel()
         {
             return getModel(xnamespaceUmlModel);
         }
@@ -82,7 +73,7 @@ namespace Ocl20.xmireader
                     var xassociationclasses = xcoreModelNamespace.Descendants(xnamespace + "AssociationClass");
                     foreach (var xassociationclass in xassociationclasses)
                     {
-                        CoreAssociationClass associationClass = (CoreAssociationClass) createAssociation(xnamespace, coreNamespace, coreModel, xassociationclass, new CoreAssociationClassImpl());
+                        CoreAssociationClass associationClass = (CoreAssociationClass) createAssociation(xnamespace, xassociationclass, new CoreAssociationClassImpl());
                         fillModelElementTypes();
                         updateElemOwnedElements(coreModel, associationClass);
 
@@ -109,7 +100,7 @@ namespace Ocl20.xmireader
                     var xassociations = xcoreModelNamespace.Descendants(xnamespace + "Association");
                     foreach (var xassociation in xassociations)
                     {
-                        CoreAssociation coreAssociation = createAssociation(xnamespace, coreNamespace, coreModel, xassociation, new CoreAssociationImpl());
+                        CoreAssociation coreAssociation = createAssociation(xnamespace, xassociation, new CoreAssociationImpl());
                         fillModelElementTypes();
                         //coreModel.addAssociation(coreAssociation);
                         updateElemOwnedElements(coreModel, coreAssociation);
@@ -122,12 +113,6 @@ namespace Ocl20.xmireader
 
         #endregion
 
-        #region metamodel
-
-        
-
-        #endregion
-
         #region auxiliary methods
 
         private IEnumerable<XElement> getAllAvailableGeneralizations(XNamespace xnamespace, XElement xcoreModelNamespace)
@@ -135,7 +120,7 @@ namespace Ocl20.xmireader
             return xcoreModelNamespace.Descendants(xnamespace + "Generalization").Where(x => x.Attribute("xmi.id") != null);
         }
 
-        private CoreAssociation createAssociation(XNamespace xnamespace, CoreNamespace ownerNamespace, CoreModelElement owner, XElement xassociation, CoreAssociation coreAssociation)
+        private CoreAssociation createAssociation(XNamespace xnamespace, XElement xassociation, CoreAssociation coreAssociation)
         {
             coreAssociation.setName(xassociation.Attribute("name").Value);
             
@@ -293,21 +278,7 @@ namespace Ocl20.xmireader
 
             return generalization;
         }
-
-        private void updateChildGeneralizations(CoreClassifier owner, Generalization newGeneralization)
-        {
-            List<Generalization> generalizations = owner.getGeneralization();
-            generalizations.Add(newGeneralization);
-            owner.setGeneralization(generalizations);
-        }
-
-        private void updateParentSpecializations(CoreClassifier owner, Generalization newSpecialization)
-        {
-            List<Generalization> specializations = owner.getSpecialization();
-            specializations.Add(newSpecialization);
-            owner.setSpecialization(specializations);
-        }
-
+        
         private void fillGeneralizationMode1(XElement xgeneralization, Generalization generalization, XAttribute xattributechild)
         {
             string xchildidref = xattributechild.Value;
@@ -449,12 +420,7 @@ namespace Ocl20.xmireader
                 {
                     CoreClassifier modelClass = new CoreClassifierImpl();
                     modelClass.setName(xmodelClass.Attribute("name").Value);
-
-                    if (modelClass.getName().Contains("Sequence"))
-                    {
-                        
-                    }
-
+                    
                     modelClass.setElemOwner(owner);
                     updateElemOwnedElements(owner, modelClass);
                     modelClass.setNamespace(ownerNamespace);
@@ -487,36 +453,14 @@ namespace Ocl20.xmireader
             coreAttribute.setNamespace(ownerNamespace);
             updateNamespaceElemOwnedElements(ownerNamespace, coreAttribute);
 
+            coreAttribute.setOwnerScope(getScopeKind(xattribute.Attribute("ownerScope").Value));
+
             var id = xattribute.Attribute("xmi.id").Value;
             lookup.Add(id, coreAttribute);
             string xidref = xattribute.Attribute("type").Value;
             idToType.Add(id, xidref);
 
             return coreAttribute;
-        }
-
-        private void fillModelElementTypes()
-        {
-            foreach (KeyValuePair<string, string> pair in idToType)
-            {
-                CoreModelElement type;
-                lookup.TryGetValue(pair.Value, out type);
-                
-                CoreModelElement modelElement;
-                lookup.TryGetValue(pair.Key, out modelElement);
-
-                if (modelElement != null)
-                {
-                    if (modelElement is CoreAssociationEndImpl)
-                        ((CoreAssociationEnd) modelElement).setType((CoreClassifier) type);
-                    else if (modelElement is CoreAttributeImpl)
-                        ((CoreAttribute) modelElement).setFeatureType((CoreClassifier) type);
-                    else if (modelElement is ParameterImpl)
-                        ((Parameter) modelElement).setType((CoreClassifier)type);
-                }
-            }
-
-            idToType.Clear();
         }
 
         private CoreOperation createOperation(XNamespace xnamespace, CoreNamespace ownerNamespace, CoreModelElement owner, XElement xoperation)
@@ -527,6 +471,8 @@ namespace Ocl20.xmireader
             updateElemOwnedElements(owner, coreOperation);
             coreOperation.setNamespace(ownerNamespace);
             updateNamespaceElemOwnedElements(ownerNamespace, coreOperation);
+
+            coreOperation.setOwnerScope(getScopeKind(xoperation.Attribute("ownerScope").Value));
 
             var xbehavioralFeature = xoperation.Element(xnamespace + "BehavioralFeature.parameter");
             if (xbehavioralFeature != null)
@@ -584,111 +530,7 @@ namespace Ocl20.xmireader
 
             return parameter;
         }
-
-        private ParameterDirectionKind getParameterDirectionKind(string skind)
-        {
-            switch (skind)
-            {
-                case "in":
-                    return ParameterDirectionKindEnum.PDK_IN;
-                case "inout":
-                    return ParameterDirectionKindEnum.PDK_INOUT;
-                case "out":
-                    return ParameterDirectionKindEnum.PDK_OUT;
-                case "return":
-                    return ParameterDirectionKindEnum.PDK_RETURN;
-                default:
-                    return ParameterDirectionKindEnum.PDK_IN;
-            }
-        }
         
-        private void updateOperationParameters(CoreBehavioralFeature owner, Parameter newParameter)
-        {
-            List<Parameter> parameters = owner.getParameter();
-            parameters.Add(newParameter);
-            owner.setParameter(parameters);
-        }
-
-        private void updateElemOwnedElements(CoreModelElement owner, CoreModelElement newOwnedElement)
-        {
-            List<object> ownedElements = (List<object>) owner.getElemOwnedElements();
-            ownedElements.Add(newOwnedElement);
-            owner.setElemOwnedElements(ownedElements);
-        }
-
-        private void updateNamespaceElemOwnedElements(CoreNamespace coreNamespace, CoreModelElement newOwnedElement)
-        {
-            if (coreNamespace != null)
-            {
-                List<object> ownedElements = (List<object>) coreNamespace.getElemOwnedElements();
-                ownedElements.Add(newOwnedElement);
-                coreNamespace.setElemOwnedElements(ownedElements);
-            }
-        }
-
-        private void updateExtendedElements(CoreStereotype owner, CoreModelElement newExtendedElement)
-        {
-            List<object> extendedElements = (List<object>)owner.getExtendedElement();
-            extendedElements.Add(newExtendedElement);
-            owner.setExtendedElement(extendedElements);
-        }
-
-        private void updateStereotypes(CoreModelElement owner, CoreStereotype newStereotype)
-        {
-            List<CoreStereotype> stereotypes = owner.getTheStereotypes();
-            stereotypes.Add(newStereotype);
-            owner.setTheStereotypes(stereotypes);
-        }
-
-        private void updateQualifiers(CoreAssociationEnd owner, CoreAttribute newQualifier)
-        {
-            List<object> qualifiers = owner.getQualifier();
-            qualifiers.Add(newQualifier);
-            owner.setQualifier(qualifiers);
-        }
-
-        private void updateRanges(Multiplicity owner, MultiplicityRange newRange)
-        {
-            List<object> ranges = owner.getRange();
-            ranges.Add(newRange);
-            owner.setRange(ranges);
-        }
-
-        private void updateConnection(CoreAssociation owner, CoreAssociationEnd newConnection)
-        {
-            List<object> connections = owner.getConnection();
-            connections.Add(newConnection);
-            owner.setConnection(connections);
-        }
-
-        private void updateClient(Dependency owner, CoreModelElement newConnection)
-        {
-            List<object> dependency = owner.getClient();
-            dependency.Add(newConnection);
-            owner.setClient(dependency);
-        }
-
-        private void updateSupplier(Dependency owner, CoreModelElement newConnection)
-        {
-            List<object> supplierDependency = owner.getSupplier();
-            supplierDependency.Add(newConnection);
-            owner.setSupplier(supplierDependency);
-        }
-
-        private void updateClientDependency(CoreInterface owner, Dependency newConnection)
-        {
-            List<object> dependency = owner.getClientDependency();
-            dependency.Add(newConnection);
-            owner.setClientDependency(dependency);
-        }
-
-        private void updateSupplierDependency(CoreClassifier owner, Dependency newConnection)
-        {
-            List<Dependency> supplierDependency = owner.getSupplierDependency();
-            supplierDependency.Add(newConnection);
-            owner.setSupplierDependency(supplierDependency);
-        }
-
         #endregion
     }
 }

@@ -9,6 +9,12 @@ namespace Ocl20Test.psw.parser.semantic
     [TestClass]
     public class TestLetExp : TestPropertyCallExp {
 
+        [TestCleanup]
+        public void testCleanup()
+        {
+            tearDown();
+        }
+
         [TestMethod]
         public void testLetOK() {
             List<object> constraints = doTestContextOK("context Film inv: let x : Integer = 20 in x > 10 endif",     

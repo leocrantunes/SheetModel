@@ -10,7 +10,13 @@ namespace Ocl20Test.psw.parser.semantic
 {
     [TestClass]
     public class TestArgument : TestNodeCS {
-        
+
+        [TestCleanup]
+        public void testCleanup()
+        {
+            tearDown();
+        }
+
         [TestMethod]
         public void testArgument_01() {
             doTestOK("100", "Integer", this.getCurrentMethodName());

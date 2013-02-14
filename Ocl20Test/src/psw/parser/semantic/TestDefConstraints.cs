@@ -9,6 +9,12 @@ namespace Ocl20Test.psw.parser.semantic
     [TestClass]
     public class TestDefConstraints : TestPropertyCallExp {
 
+        [TestCleanup]
+        public void testCleanup()
+        {
+            tearDown();
+        }
+
         [TestMethod]
         public void testNewAttribute_01() {
             doTestManyContextOK("context Film def: newAttr : Integer = 10 context SpecialFilm inv: newAttr > 10",     

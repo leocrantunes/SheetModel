@@ -10,6 +10,23 @@ namespace Ocl20Test.psw.parser.semantic
     [TestClass]
     public class TestAssociationEndCallExp : TestPropertyCallExp {
 
+        [TestCleanup]
+        public void testCleanup()
+        {
+            tearDown();
+        }
+
+        [TestMethod]
+        public void testAssociationEndCallExp_01()
+        {
+            List<object> constraints = doTestContextOK("context Tape inv: theFilm = theFilm ",
+                                                  getCurrentMethodName());
+
+            OclExpression oclExpression = getConstraintExpression(constraints);
+            AssociationEndCallExp exp = checkAssociationEndCallExp(((OperationCallExp)oclExpression).getSource(), "theFilm", "Film");
+            checkImplicitSource(exp, "self", "Tape");
+        }
+
         [TestMethod]
         public void testAssociationEndCallExp_02() {
             List<object> constraints	= doTestContextOK("context Film inv: tapes = tapes",     
@@ -19,17 +36,7 @@ namespace Ocl20Test.psw.parser.semantic
             AssociationEndCallExp exp = checkAssociationEndCallExp(((OperationCallExp)oclExpression).getSource(), "tapes", "Set(Tape)");
             checkImplicitSource(exp, "self", "Film");
         }
-
-        [TestMethod]
-        public void testAssociationEndCallExp_01() {
-            List<object> constraints	= doTestContextOK("context Tape inv: theFilm = theFilm ",     
-                            	                  getCurrentMethodName());
-	
-            OclExpression oclExpression = getConstraintExpression(constraints);
-            AssociationEndCallExp exp = checkAssociationEndCallExp(((OperationCallExp)oclExpression).getSource(), "theFilm", "Film");
-            checkImplicitSource(exp, "self", "Tape");
-        }
-
+        
         [TestMethod]
         public void testAssociationEndCallExp_03() {
             List<object> constraints	= doTestContextOK("context Rental inv: itens->size() > 0",     

@@ -8,6 +8,12 @@ namespace Ocl20Test.psw.parser.semantic
     [TestClass]
     public class TestIterateExp : TestPropertyCallExp  {
 
+        [TestCleanup]
+        public void testCleanup()
+        {
+            tearDown();
+        }
+
         protected IterateExp checkIterateExp(OclExpression oclExpression, String typeName, String resultName, String iteratorName, String iteratorType, String bodyType, int iteratorsQty) {
             Assert.IsTrue(oclExpression is IterateExp);
             IterateExp exp = (IterateExp) oclExpression;

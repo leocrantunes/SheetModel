@@ -11,6 +11,12 @@ namespace Ocl20Test.psw.parser.semantic
     [TestClass]
     public class TestPrimitiveLiteralExp : TestLiteralExp {
 
+        [TestCleanup]
+        public void testCleanup()
+        {
+            tearDown();
+        }
+
         [TestMethod]
         public void testBooleanExpOK_01() {
             doTestBoolean(true);
@@ -72,7 +78,7 @@ namespace Ocl20Test.psw.parser.semantic
         }
 
         private void doTestBoolean(bool expectedValue) {
-            CSTNode node = parseOK (expectedValue.ToString(), this.getCurrentMethodName());
+            CSTNode node = parseOK (expectedValue.ToString().ToLower(), this.getCurrentMethodName());
             Assert.IsTrue(node is CSTBooleanLiteralExpCS);
             CSTBooleanLiteralExpCS literalExp = (CSTBooleanLiteralExpCS) node;
 		
@@ -105,7 +111,7 @@ namespace Ocl20Test.psw.parser.semantic
             Assert.IsNotNull(literalExp.getAst());
             Assert.IsTrue(literalExp.getAst() is RealLiteralExp);
             RealLiteralExp ast = (RealLiteralExp) literalExp.getAst();
-            Assert.AreEqual(expectedValue, Double.Parse(ast.getRealSymbol()));
+            Assert.AreEqual(expectedValue, Double.Parse(ast.getRealSymbol(), CultureInfo.InvariantCulture));
             CoreClassifier type = ast.getType();
             Assert.IsNotNull(type);
             Assert.AreEqual("Real", type.getName()); 
