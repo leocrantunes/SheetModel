@@ -23,6 +23,7 @@ namespace Ocl20.library.impl.expressions
         }
 
         public override void accept(IASTOclVisitor visitor) {
+            visitor.visitOperationCalllExpBeginBegin(this);
             if (this.getSource() != null) {
                 ((OclExpressionImpl) this.getSource()).accept(visitor);
             }
@@ -88,6 +89,17 @@ namespace Ocl20.library.impl.expressions
             }
 		
             return	result.ToString();
+        }
+
+        public bool isBooleanOperator(String operation)
+        {
+            String[] basicOperations = { "and", "or", "xor" };
+
+            for (int i = 0; i < basicOperations.Length; i++)
+                if (basicOperations[i].Equals(operation))
+                    return true;
+
+            return false;
         }
 
         public bool	isBasicOperator(String operation) {

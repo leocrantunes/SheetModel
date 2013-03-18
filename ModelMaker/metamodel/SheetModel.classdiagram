@@ -1,0 +1,254 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="f7ee261c-6a52-4236-8148-f6f8affeb60d" name="SheetModel" linkedPackageId="42a457ce-8303-4344-8663-35ea3147ff45" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="cde4aaac-f713-45cf-baa6-f86ea3ef2be8">
+      <profileInstance Id="8c9bd907-92ed-43bb-93b9-7d61e5c3983b" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="d4aa6413-e2a9-45c4-9ecf-2cb302074167">
+      <profileInstance Id="9b4d2502-fe90-46e3-9989-7ef0cbf275c5" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="4eaa7052-ed8b-4f11-aa7b-b70031a71fca" name="XNamedElement" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="152818c2-727f-4723-9c18-a5d865b1b4c1" />
+        <ownedAttributesInternal>
+          <property Id="6817a170-837c-40d0-99c9-07417bb874a5" name="name" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="41768e57-f199-4ffa-bc32-4aa78c0c930e" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="aeffc286-2889-4f6c-bf27-7accf6d1d25e" LastKnownName="String" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="f830eee2-3e2a-4e41-b28e-398d5e26bd83" name="XWorkbook" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="b57011c0-02b6-4041-99d2-13b6224f4843" />
+        <generalsInternal>
+          <generalization Id="a0a0baf4-86a2-4fb1-9c45-e81b503d26a0" isSubstitutable="false">
+            <classMoniker Id="4eaa7052-ed8b-4f11-aa7b-b70031a71fca" LastKnownName="XNamedElement" />
+            <elementDefinition Id="15b2ad88-90c7-4eb0-99e9-07817bd31d8b" />
+          </generalization>
+        </generalsInternal>
+        <targetEnds>
+          <association Id="d0ee263a-e51f-4218-a9cc-d972a0b487a5" isDerived="false" sourceEndRoleName="" targetEndRoleName="" isLeaf="false" isAbstract="false">
+            <classMoniker Id="79fa1436-5015-4cb5-b7e2-4ac02974a120" LastKnownName="XWorksheet" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="2835b035-a43d-4ec9-bad9-021a34e0d40c" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="a6286e44-5231-483d-8231-243b02e18d39" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="d5374a44-f122-4339-8b5c-72eb93077616" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="5610578f-730e-4cd9-ae89-6b468b323b64" name="Lower" value="1">
+                      <elementDefinition Id="098dc745-230d-4ca1-b245-bad71432139b" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="121123e1-6953-4677-a9e4-cc66100c8fc2" name="Upper" value="*">
+                      <elementDefinition Id="1d341d71-eaa8-4e37-a0d9-87c783a7fb11" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="6bbd583b-c0b9-4517-90ab-64f73b0719b3" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="5c0addd1-cd9e-4167-aca6-90e6cbea79c1" />
+          </association>
+        </targetEnds>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="79fa1436-5015-4cb5-b7e2-4ac02974a120" name="XWorksheet" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="70e280e2-4486-42a5-ba1d-954485d37cc5" />
+        <generalsInternal>
+          <generalization Id="8c71111c-6753-4bee-b842-f6c648fef36a" isSubstitutable="false">
+            <classMoniker Id="4eaa7052-ed8b-4f11-aa7b-b70031a71fca" LastKnownName="XNamedElement" />
+            <elementDefinition Id="f3963ac8-3935-468f-9cb3-0f393ec4b410" />
+          </generalization>
+        </generalsInternal>
+        <targetEnds>
+          <association Id="18ee043c-e0dc-4f74-a510-b6b64f284370" isDerived="false" sourceEndRoleName="" targetEndRoleName="" isLeaf="false" isAbstract="false">
+            <classMoniker Id="dcfd5682-cc72-4c90-9d40-4c7a29c53895" LastKnownName="XDataTable" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="99469f58-1be5-411f-a7cf-4ee6b4d6f18e" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="d2b31081-71d2-40ad-bd31-5f570e216e85" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="4ab97d48-ecf2-4150-b7bf-3ad5b1021696" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="b40fc732-89eb-4e3c-8585-9c7f82869e66" name="Lower" value="*">
+                      <elementDefinition Id="c9c66cc2-657f-4bc1-9576-b5fc50711866" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="60c9e176-cfa7-45a7-96ce-1d25bd9e12ec" name="Upper" value="*">
+                      <elementDefinition Id="d29cd7b5-11cf-41ce-9971-e114373cb3fd" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="f8173611-a933-4422-b920-47ed410624b8" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="90b691f8-496a-4b83-b62e-c9d6cdb33ff3" />
+          </association>
+        </targetEnds>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="dcfd5682-cc72-4c90-9d40-4c7a29c53895" name="XDataTable" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="04d848bd-65d0-40b7-ac7b-f87a74160086" />
+        <generalsInternal>
+          <generalization Id="4722c9ff-b4f5-4335-a3ae-7d8df0d2d873" isSubstitutable="false">
+            <classMoniker Id="4eaa7052-ed8b-4f11-aa7b-b70031a71fca" LastKnownName="XNamedElement" />
+            <elementDefinition Id="6dac9a2a-5b6a-442f-b6c0-abaf7d42e4a4" />
+          </generalization>
+        </generalsInternal>
+        <targetEnds>
+          <association Id="8bdeec8d-12b0-475b-868c-4a6ea42124bd" isDerived="false" sourceEndRoleName="" targetEndRoleName="" isLeaf="false" isAbstract="false">
+            <classMoniker Id="fd04e95c-0620-4af6-a7c0-c0dee0179a7e" LastKnownName="XDataTableColumn" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="79838ec3-bce6-4dff-93d7-9c2f3e1401e4" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="fd36bca8-1826-47f4-bf09-1cefd41c3f21" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="3dcce3e9-ca89-4f0e-bc23-c5d938400344" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="1ff9a9e5-9179-4a30-a419-44ddf9eca88e" name="Lower" value="1">
+                      <elementDefinition Id="bb8c897f-d800-4967-84cd-0b75e268a2a2" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="1a8d53a8-45af-4293-bddb-6c4b1fd9bc46" name="Upper" value="*">
+                      <elementDefinition Id="7639eaf0-2ba8-406b-b536-3d3a35750aef" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="2c7acb6f-9e6f-4c0f-ae3b-90529fd759f4" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="a98ad3fb-53c5-44e8-bca7-e337d8049b11" />
+          </association>
+        </targetEnds>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="fd04e95c-0620-4af6-a7c0-c0dee0179a7e" name="XDataTableColumn" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="f4343c87-5754-474c-8732-8878d3711aea" />
+        <generalsInternal>
+          <generalization Id="dd562975-b2de-4564-90ea-a56d2d94d658" isSubstitutable="false">
+            <classMoniker Id="4eaa7052-ed8b-4f11-aa7b-b70031a71fca" LastKnownName="XNamedElement" />
+            <elementDefinition Id="192ffe0f-a5fa-4d6e-bee9-b55c60ca0873" />
+          </generalization>
+        </generalsInternal>
+        <targetEnds>
+          <association Id="26a0e583-7bcc-4829-971a-39672fca2d47" isDerived="false" sourceEndRoleName="" targetEndRoleName="columnType" isLeaf="false" isAbstract="false">
+            <classMoniker Id="7385e3ac-46b4-4363-81e4-436e8755d05c" LastKnownName="XDataType" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="d076abd2-1858-4f0a-a4dc-00f5955a5b85" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString Id="e43e8596-ffbf-4908-b44b-e3e8bdce9d73" name="Lower" value="*">
+                      <elementDefinition Id="bc42d086-abb9-40b9-9392-a875eeb03914" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="6d21bc07-0bc6-478b-8e1e-80c62d509ffe" name="Upper" value="*">
+                      <elementDefinition Id="6bc1061d-609d-4a80-81df-4badcf9e879a" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="55bd57d4-635b-40a5-a094-e3dc33964737" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="adc72980-60a8-40e0-b413-9f6016aeb665" name="columnType" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="6bf420f4-d57d-4fc3-bf61-69960aada2dd" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="50356e89-d862-4bb8-adea-5e288fc962dc" />
+          </association>
+          <association Id="85be8e2c-565b-4be5-8721-f5364d16a495" isDerived="false" sourceEndRoleName="" targetEndRoleName="" isLeaf="false" isAbstract="false">
+            <classMoniker Id="073f5d41-7205-4d20-b3f3-8113c2e5e9d5" LastKnownName="XDataContent" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="c4fd276e-7aaa-4c43-a18e-1dce1cc80555" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString Id="4fa94841-1b9d-43b3-abab-7b644dba260f" name="Lower" value="*">
+                      <elementDefinition Id="6f44c41e-da97-4d1e-bf1d-c0602e535b20" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="154ff856-0a3a-4dcb-a1e7-a236e15970a9" name="Upper" value="*">
+                      <elementDefinition Id="4e91e715-30ee-4abd-93b5-aca922aada2f" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="1e14fcf7-5ac3-4b71-9fbd-26f27288cd70" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="e8c1c8b7-5d63-48b3-b42f-6ef5fa333079" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="2e36de8d-66d4-40ac-8657-526e266e2d4c" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="4857986f-e3a2-4bbd-8847-248ce8fe353a" />
+          </association>
+        </targetEnds>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="7385e3ac-46b4-4363-81e4-436e8755d05c" name="XDataType" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="67f29c4f-4c95-4f4c-a86f-8d58da206e44" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="dd3ab450-fd87-4853-8239-ba88778a3c2e" name="XDataElement" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="610b6d91-d6a3-403d-a655-cdb3d9c78d5a" />
+        <generalsInternal>
+          <generalization Id="70a91eb5-3330-4287-a1de-075ecaf2d160" isSubstitutable="false">
+            <classMoniker Id="073f5d41-7205-4d20-b3f3-8113c2e5e9d5" LastKnownName="XDataContent" />
+            <elementDefinition Id="0fb71e05-8598-4dfa-9c85-a6ba8bb345be" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="fceb63fe-16b6-421d-9bc1-9621cde0a400" name="XFormulaExp" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="4e962734-d4c1-4407-86c0-cb08a466d7b6" />
+        <generalsInternal>
+          <generalization Id="18056a3f-8b7b-474d-912e-68d4f32f75a5" isSubstitutable="false">
+            <classMoniker Id="073f5d41-7205-4d20-b3f3-8113c2e5e9d5" LastKnownName="XDataContent" />
+            <elementDefinition Id="0b034b47-c5fa-4a5d-9250-f712c26aa395" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="aeffc286-2889-4f6c-bf27-7accf6d1d25e" name="String" isAbstract="false" isLeaf="false" cachedFullName="String">
+        <elementDefinition Id="59259974-6d55-42c6-b7bd-763d77ac8ef9" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="073f5d41-7205-4d20-b3f3-8113c2e5e9d5" name="XDataContent" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="024e38d9-3cc2-4fbe-8f25-ca73dd1e4859" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+  </packagedElements>
+  <package Id="42a457ce-8303-4344-8663-35ea3147ff45" name="ModelMaker">
+    <elementDefinition Id="daf12c68-a035-43d4-9229-78c367d11986" />
+  </package>
+</logicalClassDesignerModel>

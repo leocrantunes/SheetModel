@@ -16,15 +16,11 @@ namespace Ocl20.library.impl.common
             List<object> associations = new List<object>();
 		
             foreach (CoreModelElement element in getElemOwnedElements()) {
-                if (element is CoreAssociationImpl ||
-                    element is CoreAssociationClassImpl) 
-                {
+                if (element is CoreAssociationImpl || element is CoreAssociationClassImpl) 
                     associations.Add(element);
-                }
-			
-                if (element is CorePackageImpl) {
-                    associations.AddRange( ((CoreNamespace) element).getAllAssociations());
-                }
+
+                if (element is CorePackageImpl)
+                    associations.AddRange(((CoreNamespace) element).getAllAssociations());
             }
 		
             return	associations;

@@ -305,18 +305,16 @@ namespace Ocl20.library.impl.common
         }
 
         public List<object> getConstraint(){ throw new NotImplementedException(); }
-        public void setActionBody(OclActionBodyConstraint body) { throw new NotImplementedException(); }
-        public OclActionBodyConstraint getActionBody() { throw new NotImplementedException(); }
+        
+        public void setActionBody(OclActionBodyConstraint body)
+        {
+            this.actionBody = body;
+        }
 
-        //public void setActionBody(OclActionBodyConstraint body)
-        //{
-        //    this.actionBody = body;
-        //}
-
-        //public OclActionBodyConstraint getActionBody()
-        //{
-        //    return this.actionBody;
-        //}
+        public OclActionBodyConstraint getActionBody()
+        {
+            return this.actionBody;
+        }
 
 
         /* (non-Javadoc)

@@ -38,6 +38,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -55,6 +56,28 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="sheetmodel\XBooleanExp.cs" />
+    <Compile Include="sheetmodel\XDataContent.cs" />
+    <Compile Include="sheetmodel\XDataElement.cs" />
+    <Compile Include="sheetmodel\XDataTableColumnReferenceExp.cs" />
+    <Compile Include="sheetmodel\XDataTableElementReferenceExp.cs" />
+    <Compile Include="sheetmodel\XDataTableReferenceExp.cs" />
+    <Compile Include="sheetmodel\XFunctionExp.cs" />
+    <Compile Include="sheetmodel\XIntegerExp.cs" />
+    <Compile Include="sheetmodel\XLiteralExp.cs" />
+    <Compile Include="sheetmodel\XNamedElement.cs" />
+    <Compile Include="sheetmodel\XDataTable.cs" />
+    <Compile Include="sheetmodel\XDataTableColumn.cs" />
+    <Compile Include="sheetmodel\XDataType.cs" />
+    <Compile Include="sheetmodel\XFormulaExp.cs" />
+    <Compile Include="sheetmodel\XParameter.cs" />
+    <Compile Include="sheetmodel\XPrimitiveType.cs" />
+    <Compile Include="sheetmodel\XRealExp.cs" />
+    <Compile Include="sheetmodel\XReferenceExp.cs" />
+    <Compile Include="sheetmodel\XTextExp.cs" />
+    <Compile Include="sheetmodel\XWorkbook.cs" />
+    <Compile Include="sheetmodel\XWorksheet.cs" />
+    <Compile Include="xformula\XFormulaCreatorVisitor.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -120,6 +143,12 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Ocl20\Ocl20.csproj">
+      <Project>{364D247C-51B0-448C-8A42-7695EF934B36}</Project>
+      <Name>Ocl20</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

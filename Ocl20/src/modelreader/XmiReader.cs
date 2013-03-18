@@ -524,8 +524,6 @@ namespace Ocl20.modelreader
             }
 
             string skind = xparameter.Attribute("kind").Value;
-            CoreModelElement kind;
-            lookup.TryGetValue(skind, out kind);
             parameter.setKind(getParameterDirectionKind(skind));
 
             return parameter;

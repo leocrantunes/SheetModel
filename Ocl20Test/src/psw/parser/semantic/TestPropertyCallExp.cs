@@ -85,7 +85,7 @@ namespace Ocl20Test.psw.parser.semantic
             source = testName;
             parseWithError(expression, testName);
         }
-
+            
         protected List<object> doTestContextOK(String expression, String testName) {
             source = testName;
             CSTNode rootNode = parseOK(expression, testName);

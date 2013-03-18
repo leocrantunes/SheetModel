@@ -112,12 +112,10 @@ namespace Ocl20.library.impl.common
         {
             Multiplicity multiplicity = getMultiplicity();
             List<object> rangeCollection = multiplicity.getRange();
-            int index = 0;
             foreach (MultiplicityRange range in rangeCollection)
             {
                 if (range.getUpper() == 1 && rangeCollection.Count == 1)
                     return true;
-                index++;
             }
             return false;
         }

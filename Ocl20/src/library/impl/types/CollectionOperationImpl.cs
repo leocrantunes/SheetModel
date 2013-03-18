@@ -321,12 +321,12 @@ namespace Ocl20.library.impl.types
 
         public void setActionBody(OclActionBodyConstraint body)
         {
-            throw new NotImplementedException();
+            jmiOperation.setActionBody(body);
         }
 
         public OclActionBodyConstraint getActionBody()
         {
-            throw new NotImplementedException();
+            return jmiOperation.getActionBody();
         }
 
         public void addLocalVariable(string source, VariableDeclaration variable)

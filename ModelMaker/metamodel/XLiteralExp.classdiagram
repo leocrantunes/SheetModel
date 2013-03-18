@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="b7179d2c-9aad-4881-9547-4cd232befab7" name="XLiteralExp" linkedPackageId="9e10dc1d-c460-4245-bb8c-aaa2d9d80a5f" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="398d1639-e40a-412f-a605-42db2a06e45f">
+      <profileInstance Id="1dd1e9f5-8f9c-42c5-9ab7-09be3a844da4" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="7e71eedc-dabb-40c4-a08f-b302ba5db644">
+      <profileInstance Id="40495b5f-ef75-4231-9b5e-2575c4c38c4b" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="a1d195da-c445-43ac-a56c-be250306a45a" name="XLiteralExp" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="0a5dfba0-508c-410f-91ad-9f0b334a60aa" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="7ca029dd-6aa6-4974-a322-119ca2555d49" name="XBooleanExp" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="89377a0f-0554-497a-ae48-ee83232c8158" />
+        <generalsInternal>
+          <generalization Id="dbd2496b-c2fa-4fab-8208-b1313744cee0" isSubstitutable="false">
+            <classMoniker Id="a1d195da-c445-43ac-a56c-be250306a45a" LastKnownName="XLiteralExp" />
+            <elementDefinition Id="0e39e023-374f-4a68-bc14-1449fb4f4950" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property Id="451082ae-1c70-4a4d-a0de-feef7f2aa762" name="booleanSymbol" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="3792bf4c-e71d-4cf3-9e4b-5dff473e4359" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="590f3756-5d79-4cec-92db-ffd86ffbb6a6" LastKnownName="Boolean" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="590f3756-5d79-4cec-92db-ffd86ffbb6a6" name="Boolean" isAbstract="false" isLeaf="false" cachedFullName="Boolean">
+        <elementDefinition Id="8943dc84-709e-4f62-b15a-a3273aa6f165" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="2feffe8d-054c-4a58-8a01-f3758dd03cfe" name="XTextExp" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="43972ee8-9202-4be6-aea6-6a71d9be6218" />
+        <generalsInternal>
+          <generalization Id="4d12a9c5-c8ab-4b13-af5e-a5f1f9756a8c" isSubstitutable="false">
+            <classMoniker Id="a1d195da-c445-43ac-a56c-be250306a45a" LastKnownName="XLiteralExp" />
+            <elementDefinition Id="98ee2a55-1596-45aa-979b-b033fbb43268" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property Id="45312972-220d-4922-8147-cc37b51038e1" name="textSymbol" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="4bbf1a2c-aeb4-4847-b6fa-6a5c93fdcc5d" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="0f55658e-6a3b-4c01-b78d-ecf16b48ed85" LastKnownName="String" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="0f55658e-6a3b-4c01-b78d-ecf16b48ed85" name="String" isAbstract="false" isLeaf="false" cachedFullName="String">
+        <elementDefinition Id="59259974-6d55-42c6-b7bd-763d77ac8ef9" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="bfaa5ea4-c2b2-457d-9be7-4694ffbc849c" name="XRealExp" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="dd0bfe88-a00d-45a8-a039-d3dba48a51d3" />
+        <generalsInternal>
+          <generalization Id="a425f64e-b317-418d-b2de-054212160f18" isSubstitutable="false">
+            <classMoniker Id="a1d195da-c445-43ac-a56c-be250306a45a" LastKnownName="XLiteralExp" />
+            <elementDefinition Id="43dcfa89-427e-4136-958e-2c6676eb40b2" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property Id="97abbd66-f654-4a4f-878f-f5ef2202de76" name="realSymbol" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="94566349-8969-4096-adf3-77d14d8cdff0" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="1bdc9926-f803-4a9c-ae5e-35d744a2e363" LastKnownName="Real" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="1bdc9926-f803-4a9c-ae5e-35d744a2e363" name="Real" isAbstract="false" isLeaf="false" cachedFullName="Real">
+        <elementDefinition Id="81231095-6b0e-4f07-861f-4303cd37b7ca" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="87d0189e-20d8-4631-a04f-50f9ee87fa4f" name="XIntegerExp" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="2e9350d6-6927-46c9-bd5c-80c74efd96be" />
+        <generalsInternal>
+          <generalization Id="afb5c7c1-223a-40a3-af9c-43eecfa24761" isSubstitutable="false">
+            <classMoniker Id="a1d195da-c445-43ac-a56c-be250306a45a" LastKnownName="XLiteralExp" />
+            <elementDefinition Id="c3df3839-edd4-4499-a940-f425899d6c10" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property Id="32313e5c-e3ef-46ff-9038-8ba553fc8de1" name="integerSymbol" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="3f30e240-534c-46e4-b05f-8dfe3621d1da" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="f9708783-8302-44a9-8591-30fcb4ee4230" LastKnownName="Integer" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="f9708783-8302-44a9-8591-30fcb4ee4230" name="Integer" isAbstract="false" isLeaf="false" cachedFullName="Integer">
+        <elementDefinition Id="220a3521-e091-4221-bae9-3ef9018e845c" />
+      </referencedType>
+    </packageHasNamedElement>
+  </packagedElements>
+  <package Id="9e10dc1d-c460-4245-bb8c-aaa2d9d80a5f" name="ModelMaker">
+    <elementDefinition Id="daf12c68-a035-43d4-9229-78c367d11986" />
+  </package>
+</logicalClassDesignerModel>

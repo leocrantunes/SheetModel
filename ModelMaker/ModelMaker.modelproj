@@ -17,6 +17,34 @@
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v10.0\ArchitectureTools\Microsoft.VisualStudio.TeamArchitect.ModelingProject.targets" />
   <ItemGroup>
+    <Content Include="metamodel\XFormulaExp.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="metamodel\XFormulaExp.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>metamodel\XFormulaExp.classdiagram</DependentUpon>
+    </Content>
+    <Content Include="metamodel\SheetModel.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="metamodel\SheetModel.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>metamodel\SheetModel.classdiagram</DependentUpon>
+    </Content>
+    <Content Include="metamodel\XLiteralExp.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="metamodel\XLiteralExp.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>metamodel\XLiteralExp.classdiagram</DependentUpon>
+    </Content>
+    <Content Include="metamodel\XReferenceExp.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="metamodel\XReferenceExp.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>metamodel\XReferenceExp.classdiagram</DependentUpon>
+    </Content>
     <Content Include="ModelDefinition\Package_1534.uml">
       <SubType>Content</SubType>
     </Content>
@@ -31,5 +59,6 @@
     <Content Include="ModelDefinition\ModelMaker.uml">
       <SubType>Content</SubType>
     </Content>
+    <Folder Include="metamodel" />
   </ItemGroup>
 </Project>

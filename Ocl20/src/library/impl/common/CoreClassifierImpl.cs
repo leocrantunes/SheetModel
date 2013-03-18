@@ -82,7 +82,7 @@ namespace Ocl20.library.impl.common
             CoreClassifier thisClassifier = getModel() != null ? getModel().toOclType(this) : this;
             CoreClassifier theOtherClassifier = c.getModel() != null ? (CoreClassifier) c.getModel().toOclType(c) : c;
 
-            return ((thisClassifier.getName().Equals(theOtherClassifier.getName())) || // shortcut (::Integer x ::PrimitiveTypes::Integer)
+            return (//(thisClassifier.getName().Equals(theOtherClassifier.getName())) || // shortcut (::Integer x ::PrimitiveTypes::Integer)
                     (thisClassifier == theOtherClassifier) ||
                     (thisClassifier.getFullPathName().Equals(theOtherClassifier.getFullPathName())) ||
                     (OCLANY.Equals(theOtherClassifier.getName())) ||

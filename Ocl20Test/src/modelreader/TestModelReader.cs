@@ -14,17 +14,14 @@ namespace Ocl20Test.modelreader
     {
         public override ModelReader getReader()
         {
-            return
-                new VscdReader(
+            return new VscdReader(
                     @"C:\Users\Leo\Documents\visual studio 2010\Projects\SheetModel_20121206\SheetModel\ModelMaker\Company.classdiagram");
         }
 
         [TestMethod]
         public void testAttributeCallExp_01()
         {
-            List<object> constraints = doTestContextOK("context Empregado inv: nome = nome",
-                                                       getCurrentMethodName());
-
+            List<object> constraints = doTestContextOK("context Empregado inv: nome = nome", getCurrentMethodName());
             OclExpression oclExpression = getConstraintExpression(constraints);
             AttributeCallExp attExp = checkAttributeCallExp(((OperationCallExp)oclExpression).getSource(), "nome", "String");
             checkImplicitSource(attExp, "self", "Empregado");
@@ -33,9 +30,7 @@ namespace Ocl20Test.modelreader
         [TestMethod]
         public void testAttributeCallExp_02()
         {
-            List<object> constraints = doTestContextOK("context Empregado inv: self.nome = nome",
-                                                  getCurrentMethodName());
-
+            List<object> constraints = doTestContextOK("context Empregado inv: self.nome = nome", getCurrentMethodName());
             OclExpression oclExpression = getConstraintExpression(constraints);
             AttributeCallExp attExp = checkAttributeCallExp(((OperationCallExp)oclExpression).getSource(), "nome", "String");
             checkImplicitSource(attExp, "self", "Empregado");
@@ -51,9 +46,7 @@ namespace Ocl20Test.modelreader
         [TestMethod]
         public void testAssociationEndCallExp_01()
         {
-            List<object> constraints = doTestContextOK("context Empregado inv: area = area ",
-                                                  getCurrentMethodName());
-
+            List<object> constraints = doTestContextOK("context Empregado inv: area = area ", getCurrentMethodName());
             OclExpression oclExpression = getConstraintExpression(constraints);
             AssociationEndCallExp exp = checkAssociationEndCallExp(((OperationCallExp)oclExpression).getSource(), "area", "Area");
             checkImplicitSource(exp, "self", "Empregado");
@@ -62,13 +55,19 @@ namespace Ocl20Test.modelreader
         [TestMethod]
         public void testAssociationEndCallExp_02()
         {
-            List<object> constraints = doTestContextOK("context Area inv: empregados = empregados",
-                                                  getCurrentMethodName());
-
+            List<object> constraints = doTestContextOK("context Area inv: empregados = empregados", getCurrentMethodName());
             OclExpression oclExpression = getConstraintExpression(constraints);
             AssociationEndCallExp exp = checkAssociationEndCallExp(((OperationCallExp)oclExpression).getSource(), "empregados", "Set(Empregado)");
             checkImplicitSource(exp, "self", "Area");
         }
 
+        [TestMethod]
+        public void testAddExp_01()
+        {
+            List<object> constraints = doTestContextOK("context Empregado inv: salario + 1000.0 < 2000.0", getCurrentMethodName());
+            OclExpression oclExpression = getConstraintExpression(constraints);
+            AssociationEndCallExp exp = checkAssociationEndCallExp(((OperationCallExp)oclExpression).getSource(), "empregados", "Set(Empregado)");
+            checkImplicitSource(exp, "self", "Area");
+        }
     }
 }

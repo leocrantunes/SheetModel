@@ -1,8 +1,13 @@
 ﻿<Window x:Class="SheetMaker.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        <Button Content="Gerar" Click="Button_Click" />
-    </Grid>
+        Title="SheetMaker" Height="350" Width="525">
+    <DockPanel>
+        <TextBox Name="TextBoxExpression" DockPanel.Dock="Top"/>
+        <DockPanel Dock="Top">
+            <Button DockPanel.Dock="Right" Width="30" Content="..." Click="openFileClick"/>
+            <TextBox Name="TextBoxPath" DockPanel.Dock="Left"/>
+        </DockPanel>
+        <Button Content="Gerar" Click="generateClick" />
+    </DockPanel>
 </Window>

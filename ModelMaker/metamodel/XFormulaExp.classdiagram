@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="7c43346d-deec-413c-a3d0-45d69c33f184" name="XFormulaExp" linkedPackageId="15ca8e7c-7d79-44d9-a109-e32987908f9c" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="cb23c879-30fb-4e70-96f7-7d6dee0365cb" name="XFormulaExp" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="b20558ad-0a54-45f7-819c-9c0d9db0ba43" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="00546dd8-10b7-48b4-8c51-05b817a74554" name="XLiteralExp" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="d772ccd1-4f60-4caf-89da-4a0eddc3b5e4" />
+        <generalsInternal>
+          <generalization Id="6b6d2f28-1ec2-4f6d-84c3-fa2f72915fff" isSubstitutable="false">
+            <classMoniker Id="cb23c879-30fb-4e70-96f7-7d6dee0365cb" LastKnownName="XFormulaExp" />
+            <elementDefinition Id="c0515e4e-8205-461c-befa-798d80089c63" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="024fd2c6-06f3-4302-b0d8-b31947b06d28" name="XFunctionExp" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="ee9700e7-58a1-443b-80f9-04e15307d7b7" />
+        <generalsInternal>
+          <generalization Id="d2169817-07a7-4fb5-941b-f30cb843b1ea" isSubstitutable="false">
+            <classMoniker Id="cb23c879-30fb-4e70-96f7-7d6dee0365cb" LastKnownName="XFormulaExp" />
+            <elementDefinition Id="0d41ea51-e6ee-420a-90df-6ce76c47d265" />
+          </generalization>
+        </generalsInternal>
+        <targetEnds>
+          <association Id="0eeb4b01-1994-49c9-9661-223ff3c8fa61" isDerived="false" sourceEndRoleName="" targetEndRoleName="parameters" isLeaf="false" isAbstract="false">
+            <classMoniker Id="9cea33a5-f846-490c-a9da-600b5a39e5a1" LastKnownName="XParameter" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="bbaf3bbd-52b0-4438-916e-44785e3c4a17" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="88cbfd4b-d980-41db-9411-3f2be65c5c52" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="f837c1c8-173c-459b-bc84-bd31e93110a4" name="parameters" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="8c6597a5-fd1d-4470-b9d6-8d7c70885092" name="Lower" value="*">
+                      <elementDefinition Id="249c34ae-f8a8-4bcf-868e-812e8c787f4a" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="4e2fd78f-d205-41ed-82ed-6f93dbff28c0" name="Upper" value="*">
+                      <elementDefinition Id="76067067-d6fe-4e99-bef4-2e0c1e1becce" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="90d0be58-ad74-4300-aaf4-937164dacd65" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="b89411ef-375d-44c7-b0f5-337035437c06" />
+          </association>
+        </targetEnds>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="a1048ddb-d620-4ea3-8e03-56d17c0eea02" name="XReferenceExp" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="ad7efdc8-c053-4024-b5f4-f81467be68f9" />
+        <generalsInternal>
+          <generalization Id="211470b6-3793-4f8b-a1b5-01373c8dc7a8" isSubstitutable="false">
+            <classMoniker Id="cb23c879-30fb-4e70-96f7-7d6dee0365cb" LastKnownName="XFormulaExp" />
+            <elementDefinition Id="5a82a2ec-3e3e-4646-bc6d-977e140eb537" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="9cea33a5-f846-490c-a9da-600b5a39e5a1" name="XParameter" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="3be7fb5a-bfa4-4d21-b7aa-9a513ca486ec" />
+        <targetEnds>
+          <association Id="f6fd61f1-c593-4f42-9d31-4ee44d4d10fc" isDerived="false" sourceEndRoleName="" targetEndRoleName="referredExp" isLeaf="false" isAbstract="false">
+            <classMoniker Id="cb23c879-30fb-4e70-96f7-7d6dee0365cb" LastKnownName="XFormulaExp" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="fe17bfae-abf7-403f-9e83-d5c2ebc6ef0c" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString Id="921fe6fe-912b-424e-b21c-3b1497fd45cd" name="Lower" value="*">
+                      <elementDefinition Id="232a2ffd-49de-42f5-a916-32f945b94706" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="12bf9345-dbd0-4350-b174-e03b5b32b3a4" name="Upper" value="*">
+                      <elementDefinition Id="5ec0b4a5-9883-4b83-9a8c-b64db70a3dcf" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="8c748e94-1ebe-4e28-ac0a-1832e1ca66ab" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="e68a2c19-dc10-407c-9c7f-a2f717f67345" name="referredExp" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="0992601b-235c-4fe2-b58f-acf7e1fd31d3" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="c7b4e87a-90f8-4076-b7ef-2b5eb2c9311f" />
+          </association>
+        </targetEnds>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+  </packagedElements>
+  <package Id="15ca8e7c-7d79-44d9-a109-e32987908f9c" name="ModelMaker">
+    <elementDefinition Id="daf12c68-a035-43d4-9229-78c367d11986" />
+    <profileInstances>
+      <packageHasProfileInstances Id="f7c28bd2-8e60-4db0-be42-69dada824bc8">
+        <profileInstance Id="20340707-198e-474b-943e-9fd435acda9e" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="e4370613-fa05-4652-9169-cef9aab08483">
+        <profileInstance Id="16406afa-9c25-4b6b-b4a8-7f70b8b44fce" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
+  </package>
+</logicalClassDesignerModel>

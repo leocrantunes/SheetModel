@@ -62,7 +62,7 @@ namespace Ocl20.parser.cst.context
             return result.ToString();
         }
 
-        private string getOperationName() {
+        public string getOperationName() {
             return nameNodeCS.getLastName();
         }
 

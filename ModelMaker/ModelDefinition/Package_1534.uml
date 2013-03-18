@@ -199,18 +199,37 @@
             <ownedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="ff6ee005-e33e-4192-8a49-0cffb013b405"
-                  name="Parameter1"
-                  direction="In" />
-              </operationHasOwnedParameters>
-              <operationHasOwnedParameters>
-                <parameter
                   Id="9fff0cb8-5ea1-471a-96f8-b7a5d6799202"
-                  direction="Return">
+                  direction="Return"
+                  isUnique="false">
                   <type_NamedElement>
                     <primitiveTypeMoniker
                       Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
                       LastKnownName="Boolean"
+                      LastKnownLocation="ModelMaker.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="654a6879-d308-41d5-8f65-bdbe80aca725"
+            name="Operation2"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="e6e02a4b-51b5-40c4-af50-de0f12109818"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                      LastKnownName="Integer"
                       LastKnownLocation="ModelMaker.uml" />
                   </type_NamedElement>
                 </parameter>
@@ -360,7 +379,7 @@
         isActiveClass="false">
         <targetEnds>
           <association
-            Id="885289cf-de41-4c38-ad55-ab6c686e308c"
+            Id="158f9b37-1811-4c2a-bfcd-ebb2303c37f6"
             isDerived="false"
             sourceEndRoleName=""
             targetEndRoleName="gerente"
@@ -373,18 +392,32 @@
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
                 <memberEnd
-                  Id="562c5794-9ba4-48a0-90a9-1ff08f1677c6"
+                  Id="7e013ff8-5454-4d61-a2cd-69d5cb346d42"
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"
                   isDerived="false"
                   isDerivedUnion="false"
                   aggregation="None"
-                  isComposite="false" />
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="b920d627-cfbc-4f7f-a487-acda74af16db"
+                      name="Lower"
+                      value="0" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="1c82411e-f6d0-4f2b-9ffd-b7f4686ed050"
+                      name="Upper"
+                      value="1" />
+                  </upperValueInternal>
+                </memberEnd>
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
                 <memberEnd
-                  Id="9ce20407-c0c1-41ad-8d65-492d8f2f67d2"
+                  Id="a9ffe5b4-a564-4990-906f-8ae47e98b2e5"
                   name="gerente"
                   isLeaf="false"
                   isStatic="false"
@@ -392,7 +425,20 @@
                   isDerived="false"
                   isDerivedUnion="false"
                   aggregation="None"
-                  isComposite="false" />
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="cd2791c2-728d-4b10-b3a6-54630f6da1f8"
+                      name="Lower"
+                      value="1" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="a33960fb-fc09-4c13-b89d-f15c2773cd0a"
+                      name="Upper"
+                      value="1" />
+                  </upperValueInternal>
+                </memberEnd>
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
           </association>

@@ -30,6 +30,8 @@ namespace Ocl20.modelreader
             if (xcoreModel != null)
             {
                 coreModel = new CoreModelImpl();
+                var name = xcoreModel.Attribute("name");
+                coreModel.setName(name != null ? name.Value : "");
                 var xcoreModelNamespace = xcoreModel.Element(xnamespace + "packagedElements");
 
                 if (xcoreModelNamespace != null)
@@ -151,9 +153,9 @@ namespace Ocl20.modelreader
                     modelClass.setNamespace(ownerNamespace);
                     updateNamespaceElemOwnedElements(ownerNamespace, modelClass);
 
-                    //var xoperations = xclassifierfeature.Elements(xnamespace + "Operation");
-                    //foreach (var xoperation in xoperations)
-                    //    createOperation(xnamespace, ownerNamespace, modelClass, xoperation);
+                    var xoperations = xmodelClass.Descendants(xnamespace + "operation");
+                    foreach (var xoperation in xoperations)
+                        createOperation(xnamespace, ownerNamespace, modelClass, xoperation);
 
                     var xattributes = xmodelClass.Descendants(xnamespace + "property");
                     foreach (var xattribute in xattributes)
@@ -298,6 +300,8 @@ namespace Ocl20.modelreader
                     range.setLower(lower);
                 }
             }
+            else // xlowerinternal == null (valor default)
+                range.setLower(1);
 
             var xupperinternal = xmultiplicity.Element(xnamespace + "upperValueInternal");
             if (xupperinternal != null)
@@ -311,9 +315,60 @@ namespace Ocl20.modelreader
                     range.setUpper(upper);
                 }
             }
+            else // xupperinternal == null (valor default)
+                range.setUpper(1);
             
             range.setMultiplicity(multiplicity);
             return range;
+        }
+
+        private CoreOperation createOperation(XNamespace xnamespace, CoreNamespace ownerNamespace, CoreModelElement owner, XElement xoperation)
+        {
+            CoreOperation coreOperation = new CoreOperationImpl();
+            coreOperation.setName(xoperation.Attribute("name").Value);
+            coreOperation.setElemOwner(owner);
+            updateElemOwnedElements(owner, coreOperation);
+            coreOperation.setNamespace(ownerNamespace);
+            updateNamespaceElemOwnedElements(ownerNamespace, coreOperation);
+
+            //coreOperation.setOwnerScope(getScopeKind(xoperation.Attribute("ownerScope").Value));
+
+            var xparameters = xoperation.Descendants(xnamespace + "parameter");
+            foreach (var xparameter in xparameters)
+                createParameter(xnamespace, ownerNamespace, coreOperation, xparameter);
+           
+            var isQuery = xoperation.Attribute("isQuery").Value;
+            coreOperation.setIsQuery(bool.Parse(isQuery));
+
+            lookup.Add(xoperation.Attribute("Id").Value, coreOperation);
+
+            return coreOperation;
+        }
+
+        private Parameter createParameter(XNamespace xnamespace, CoreNamespace ownerNamespace, CoreBehavioralFeature owner, XElement xparameter)
+        {
+            Parameter parameter = new ParameterImpl();
+            var name = xparameter.Attribute("name");
+            parameter.setName(name != null ? name.Value : "");
+            parameter.setBehavioralFeature(owner);
+            updateOperationParameters(owner, parameter);
+            parameter.setNamespace(ownerNamespace);
+            updateNamespaceElemOwnedElements(ownerNamespace, parameter);
+
+            var id = xparameter.Attribute("Id").Value;
+            lookup.Add(id, parameter);
+
+            var xptype = xparameter.Descendants(xnamespace + "referencedTypeMoniker").FirstOrDefault();
+            if (xptype != null)
+            {
+                var xtyperefid = xptype.Attribute("Id").Value;
+                idToType.Add(id, xtyperefid);
+            }
+
+            string skind = xparameter.Attribute("direction").Value.ToLower();
+            parameter.setKind(getParameterDirectionKind(skind));
+
+            return parameter;
         }
     }
 }
