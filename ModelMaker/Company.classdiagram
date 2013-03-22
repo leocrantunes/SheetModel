@@ -125,7 +125,7 @@
                       <parameter Id="49a41d70-530b-4e97-9f1a-17041b9cbe4b" direction="Return" isUnique="false">
                         <elementDefinition Id="e6e02a4b-51b5-40c4-af50-de0f12109818" />
                         <type_NamedElement>
-                          <referencedTypeMoniker Id="2884b44a-ac24-4ad1-8427-b6ecdc80a1bf" LastKnownName="Integer" />
+                          <referencedTypeMoniker Id="444c16e7-7a2d-4dfc-b3fb-6e6934c8ec41" LastKnownName="Real" />
                         </type_NamedElement>
                       </parameter>
                     </operationHasOwnedParameters>
@@ -195,6 +195,21 @@
                   </type_NamedElement>
                 </property>
               </ownedAttributesInternal>
+              <ownedOperationsInternal>
+                <operation Id="52391841-5aab-49dc-acf7-f8648f442587" name="Operation3" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="46c5e48e-1bbe-4d64-b91c-8b35a2ca116d" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="88312966-fd42-4ee2-9ff6-60ca01797aa0" direction="Return" isUnique="false">
+                        <elementDefinition Id="91a68402-ec10-4e4e-9fcd-084d27c26b37" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="c6bc8f1d-d254-4647-aba4-5187ec4037ff" LastKnownName="Boolean" />
+                        </type_NamedElement>
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+              </ownedOperationsInternal>
             </class>
           </packageHasNamedElement>
           <packageHasNamedElement>

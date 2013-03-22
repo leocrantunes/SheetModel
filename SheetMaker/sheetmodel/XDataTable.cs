@@ -20,11 +20,13 @@ namespace SheetMaker.sheetmodel
         private XWorksheet xWorksheet;
         private ColumnsArrangement arrangement;
         private List<XDataTableColumn> xDataTableColumns;
+        private int keyIndex;
 
         public XDataTable()
         {
             arrangement = ColumnsArrangement.Horizontal;
             xDataTableColumns = new List<XDataTableColumn>();
+            keyIndex = 1;
         }
 
         public XWorksheet getWorksheet()
@@ -56,5 +58,16 @@ namespace SheetMaker.sheetmodel
         {
             xDataTableColumns = value;
         }
+
+        public int getKeyIndex()
+        {
+            return keyIndex;
+        }
+
+        public void setKeyIndex(int value)
+        {
+            keyIndex = value;
+        }
+ 
     }
 }

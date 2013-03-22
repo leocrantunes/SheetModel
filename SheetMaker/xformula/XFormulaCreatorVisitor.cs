@@ -1,14 +1,6 @@
-﻿using System.Collections.Generic;
-using System.Globalization;
-using Ocl20.library.iface.expressions;
+﻿using Ocl20.library.iface.expressions;
 using Ocl20.library.impl;
 using Ocl20.library.impl.expressions;
-using Ocl20.parser.cst;
-using Ocl20.parser.cst.context;
-using Ocl20.parser.cst.expression;
-using Ocl20.parser.cst.literalExp;
-using Ocl20.parser.cst.type;
-using SheetMaker.sheetmodel;
 
 namespace SheetMaker.xformula
 {
@@ -79,32 +71,55 @@ namespace SheetMaker.xformula
         {}
 
         public void visitAttributeCallExp(AttributeCallExp exp)
-        {}
+        {
+            var attribute = exp.getReferredAttribute();
+            var name = attribute.getName();
+
+            var expsource = (VariableExp) exp.getSource();
+            var variable = expsource.getReferredVariable();
+            var type = variable.getType();
+            var typeName = type.getName();
+
+            formula += string.Format("{0}[{1}]", typeName, name);
+        }
 
         public void visitOperationCalllExpBeginBegin(OperationCallExp exp)
         {
-            string operationName = exp.getReferredOperation().getName();
-            if (((OperationCallExpImpl)exp).isBooleanOperator(operationName))
+            var operation = exp.getReferredOperation();
+            if (operation != null)
             {
-                formula += operationName + "(";
-            }
-            else if (((OperationCallExpImpl) exp).isBasicOperator(operationName))
-            {
-                formula += "(";
+                string operationName = operation.getName();
+                bool isBasicOperator = ((OperationCallExpImpl) exp).isBasicOperator(operationName);
+                if (((OperationCallExpImpl)exp).isBooleanOperator(operationName) || !isBasicOperator)
+                {
+                    string xoperationname = operationName;
+                    if (operationName.Equals("size")) xoperationname = "count";
+
+                    formula += xoperationname.ToUpper() + "(";
+                }
+                else
+                {
+                    formula += "(";
+                }
             }
         }
 
         public void visitOperationCalllExpBegin(OperationCallExp exp)
         {
-            string operationName = exp.getReferredOperation().getName();
-
-            if (((OperationCallExpImpl)exp).isBooleanOperator(operationName))
+            var operation = exp.getReferredOperation();
+            if (operation != null)
             {
-                foreach (var oclExpression in exp.getArguments())
-                {}
-            }
+                string operationName = operation.getName();
 
-            formula += string.Format(" {0} ", operationName);
+                if (((OperationCallExpImpl) exp).isBooleanOperator(operationName))
+                {
+                    formula += ",";
+                }
+                else if (((OperationCallExpImpl) exp).isBasicOperator(operationName))
+                {
+                    formula += string.Format(" {0} ", operationName);
+                }
+            }
         }
 
         public void visitOperationArgumentExpEnd(OperationCallExp exp)
@@ -112,7 +127,11 @@ namespace SheetMaker.xformula
 
         public void visitOperationCalllExpEnd(OperationCallExp exp)
         {
-            formula += ")";
+            var operation = exp.getReferredOperation();
+            if (operation != null)
+            {
+                formula += ")";
+            }
         }
 
         public void visitAssociationEndCallExp(AssociationEndCallExp exp)

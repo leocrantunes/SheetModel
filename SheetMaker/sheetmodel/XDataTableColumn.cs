@@ -10,6 +10,7 @@ namespace SheetMaker.sheetmodel
         private XDataTable xDataTable;
         private XDataType xDataType;
         private XDataContent xDataContent;
+        private string xReference = null;
 
         public XDataTableColumn()
         {}
@@ -42,6 +43,16 @@ namespace SheetMaker.sheetmodel
         public void setDataContent(XDataContent value)
         {
             xDataContent = value;
+        }
+
+        public string getXReference()
+        {
+            return xReference;
+        }
+
+        public void setXReference(string value)
+        {
+            xReference = value;
         }
     }
 }

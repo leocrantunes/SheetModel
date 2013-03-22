@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Windows;
@@ -43,6 +44,7 @@ namespace SheetMaker
 
             TextBoxPath.Text =
                 @"C:\Users\Leo\Documents\Visual Studio 2010\Projects\SheetModel_20121206\SheetModel\ModelMaker\Company.classdiagram";
+            TextBoxExpression.Text = "context Empregado::Operation1() : Boolean body: salario->sum() < 1000.0";
         }
 
         /// <summary>
@@ -67,7 +69,7 @@ namespace SheetMaker
                 
                 List<object> nodes = oclCompiler.compileOclStream(TextBoxExpression.Text, "", 
                     new StreamWriter(Console.OpenStandardOutput()), typeof(CSTContextDeclarationCS));
-                CSTOperationContextCS operationContextCS =  ((CSTOperationContextCS)nodes[0]);
+                CSTOperationContextCS operationContextCS = ((CSTOperationContextCS) nodes[0]);
                 var constraints = operationContextCS.getConstraintsNodesCS();
                 CSTOperationConstraintCS operationConstraint = (CSTOperationConstraintCS) constraints[0];
                 ExpressionInOcl expressionInOcl = operationConstraint.getExpressionInOCL();
@@ -77,7 +79,7 @@ namespace SheetMaker
                 bodyExpression.accept(visitor);
                 string formula = visitor.getFormula();
 
-                CoreClassifier classifier = (CoreClassifier)expressionInOcl.getContextualElement();
+                CoreClassifier classifier = (CoreClassifier) expressionInOcl.getContextualElement();
                 XDataTable targetTable = getTargetTable(xWorkbook, classifier);
 
                 var operation = operationContextCS.getOperationNodeCS();
@@ -87,7 +89,7 @@ namespace SheetMaker
                 
                 if (targetColumn == null) 
                     throw new Exception("Coluna não encontrada!");
-
+                
                 XTextExp xtext = new XTextExp();
                 xtext.setTextSymbol(formula);
                 targetColumn.setDataContent(xtext);
@@ -95,6 +97,8 @@ namespace SheetMaker
                 MessageBox.Show(formula);
 
                 Excel.Workbook eBook = createWorkbook(eApp, xWorkbook);
+                eBook = createValidation(eBook, xWorkbook);
+                //eBook = createFormulas(eBook, xWorkbook);
 
                 eBook.SaveAs(filePath);
                 eBook.Close();
@@ -141,8 +145,16 @@ namespace SheetMaker
             Excel.Workbook eBook = eApp.Workbooks.Add();
             eBook.Title = xWorkbook.getName();
 
+            int defaultNumWorksheets = eBook.Worksheets.Count;
+            int numWorksheets = 1;
             foreach (XWorksheet xWorksheet in xWorkbook.getWorksheets())
             {
+                //Excel.Worksheet eWorksheet = numWorksheets < defaultNumWorksheets
+                //                                 ? eBook.Worksheets[numWorksheets]
+                //                                 : eBook.Worksheets.Add(Missing.Value,
+                //                                                        eBook.Worksheets[numWorksheets - 1],
+                //                                                        Missing.Value, Missing.Value);
+
                 Excel.Worksheet eWorksheet = eBook.Worksheets.Add();
                 eWorksheet.Name = xWorksheet.getName();
 
@@ -156,7 +168,7 @@ namespace SheetMaker
                     Excel.ListObject eListObject = eListObjects.Add(Excel.XlListObjectSourceType.xlSrcRange, bBegin, Missing.Value, Excel.XlYesNoGuess.xlNo, Missing.Value);
                     eListObject.Name = xDataTable.getName() ?? "";
                     eListObject.ShowTotals = true;
-
+                    
                     eListObject.ListRows.Add();
                     eListObject.ListRows.Add();
 
@@ -167,18 +179,8 @@ namespace SheetMaker
                         Excel.ListColumn eListColumn = columns == 1 ? eListColumns[1] : eListColumns.Add();
                         eListColumn.Name = sheetColumn.getName();
                         eListColumn.TotalsCalculation = Excel.XlTotalsCalculation.xlTotalsCalculationSum;
-
-                        if (sheetColumn.getDataContent() != null)
-                        {
-                            Excel.ListColumn column = eListColumns.Item[columns];
-                            Excel.Range rng = column.DataBodyRange;
-                            XTextExp formula = (XTextExp)sheetColumn.getDataContent();
-                            rng.Formula = string.Format("{0}", formula.getTextSymbol());
-
-                            Marshal.ReleaseComObject(rng);
-                            Marshal.ReleaseComObject(column);
-                        }
-
+                        eListColumn.Range.EntireColumn.ColumnWidth = 14;
+                        
                         columns++;
 
                         Marshal.ReleaseComObject(eListColumn);
@@ -190,11 +192,136 @@ namespace SheetMaker
                     Marshal.ReleaseComObject(eListObjects);
                 }
 
+                numWorksheets++;
                 Marshal.ReleaseComObject(eWorksheet);
             }
 
             return eBook;
         }
+
+
+        /// <summary>
+        /// Cria as fórmulas do workbook passado como parâmetro
+        /// </summary>
+        /// <param name="eBook"></param>
+        /// <param name="xWorkbook"></param>
+        private Excel.Workbook createFormulas(Excel.Workbook eBook, XWorkbook xWorkbook)
+        {
+            foreach (XWorksheet xWorksheet in xWorkbook.getWorksheets())
+            {
+                Excel.Worksheet eWorksheet = eBook.Sheets[xWorksheet.getName()];
+                
+                foreach (XDataTable xDataTable in xWorksheet.getDataTables())
+                {
+                    Excel.ListObjects eListObjects = eWorksheet.ListObjects;
+                    Excel.ListObject eListObject = eListObjects[xDataTable.getName()];
+
+                    foreach (XDataTableColumn sheetColumn in xDataTable.getDataTableColumns())
+                    {
+                        Excel.ListColumns eListColumns = eListObject.ListColumns;
+                        Excel.ListColumn eListColumn = eListColumns[sheetColumn.getName()];
+                        
+                        if (sheetColumn.getDataContent() != null)
+                        {
+                            Excel.Range rng = eListColumn.DataBodyRange;
+                            XTextExp formula = (XTextExp)sheetColumn.getDataContent();
+                            rng.Formula = string.Format("{0}", formula.getTextSymbol());
+
+                            Marshal.ReleaseComObject(rng);
+                        }
+
+                        Marshal.ReleaseComObject(eListColumn);
+                        Marshal.ReleaseComObject(eListColumns);
+                    }
+
+                    Marshal.ReleaseComObject(eListObject);
+                    Marshal.ReleaseComObject(eListObjects);
+                }
+                
+                Marshal.ReleaseComObject(eWorksheet);
+            }
+
+            return eBook;
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <param name="eBook"></param>
+        /// <param name="xWorkbook"></param>
+        private Excel.Workbook createValidation(Excel.Workbook eBook, XWorkbook xWorkbook)
+        {
+            foreach (XWorksheet xWorksheet in xWorkbook.getWorksheets())
+            {
+                Excel.Worksheet eWorksheet = eBook.Sheets[xWorksheet.getName()];
+
+                foreach (XDataTable xDataTable in xWorksheet.getDataTables())
+                {
+                    Excel.ListObjects eListObjects = eWorksheet.ListObjects;
+                    Excel.ListObject eListObject = eListObjects[xDataTable.getName()];
+
+                    foreach (XDataTableColumn sheetColumn in xDataTable.getDataTableColumns())
+                    {
+                        Excel.ListColumns eListColumns = eListObject.ListColumns;
+                        Excel.ListColumn eListColumn = eListColumns[sheetColumn.getName()];
+
+                        string xreference = sheetColumn.getXReference();
+                        if (xreference != null)
+                        {
+                            var targettable = new XDataTable();
+                            var targetsheet = GetXReference(xWorkbook, xreference, ref targettable);
+                            if (targettable != null)
+                            {
+                                var index = targettable.getKeyIndex();
+                                eWorksheet = eBook.Sheets[targetsheet.getName()];
+                                eListObjects = eWorksheet.ListObjects;
+                                eListObject = eListObjects[targettable.getName()];
+                                eListColumns = eListObject.ListColumns;
+                                eListColumn = eListColumns[index];
+
+                                string rangename = targettable.getName() + index.ToString(CultureInfo.InvariantCulture);
+                                eBook.Names.Add(rangename, eListColumn.DataBodyRange);
+
+                                Excel.Name targetName = eBook.Names.Item(rangename, Type.Missing, Type.Missing);
+
+                                eWorksheet = eBook.Sheets[xWorksheet.getName()];
+                                eListObjects = eWorksheet.ListObjects;
+                                eListObject = eListObjects[xDataTable.getName()];
+                                eListColumns = eListObject.ListColumns;
+                                eListColumn = eListColumns[sheetColumn.getName()];
+                                eListColumn.DataBodyRange.Validation.Add(Excel.XlDVType.xlValidateList, 
+                                    Excel.XlDVAlertStyle.xlValidAlertStop, Excel.XlFormatConditionOperator.xlBetween, 
+                                    targetName, Type.Missing);
+        
+                            }
+
+                            Marshal.ReleaseComObject(eListColumn);
+                        }
+
+                        Marshal.ReleaseComObject(eListColumn);
+                        Marshal.ReleaseComObject(eListColumns);
+                    }
+
+                    Marshal.ReleaseComObject(eListObject);
+                    Marshal.ReleaseComObject(eListObjects);
+                }
+
+                Marshal.ReleaseComObject(eWorksheet);
+            }
+
+            return eBook;
+        }
+
+        private XWorksheet GetXReference(XWorkbook xWorkbook, string xreference, ref XDataTable targettable)
+        {
+            foreach (XWorksheet xWorksheet in xWorkbook.getWorksheets())
+            {
+                targettable = xWorksheet.getDataTables().FirstOrDefault(d => d.getName().Equals(xreference));
+                if (targettable != null) return xWorksheet;
+            }
+            targettable = null;
+            return null;
+        }
+
 
         /// <summary>
         /// Evento de click do botão de abrir arquivo .classdiagram do modelo 
@@ -252,7 +379,11 @@ namespace SheetMaker
         /// <param name="xDataTable">tabela</param>
         private void createFeatureColumns(CoreClassifier coreClassifier, XDataTable xDataTable)
         {
-            foreach (CoreFeature feature in coreClassifier.getClassifierFeatures())
+            List<object> features = new List<object>();
+            features.AddRange(coreClassifier.getClassifierFeatures().Where(f => f.GetType() == typeof(CoreAttributeImpl)));
+            features.AddRange(coreClassifier.getClassifierFeatures().Where(f => f.GetType() == typeof(CoreOperationImpl)));
+            
+            foreach (CoreFeature feature in features)
             {
                 XDataTableColumn xDataTableColumn = new XDataTableColumn();
                 xDataTableColumn.setName(feature.getName());
@@ -274,6 +405,7 @@ namespace SheetMaker
                 if (associationEnd.isOneMultiplicity())
                 {
                     XDataTableColumn xDataTableColumn = new XDataTableColumn();
+                    xDataTableColumn.setXReference(associationEnd.getType().getName());
                     xDataTableColumn.setName(associationEnd.getName());
                     xDataTableColumn.setDataTable(xDataTable);
                     updateDataTable(xDataTable, xDataTableColumn);
