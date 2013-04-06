@@ -3,8 +3,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="SheetMaker" Height="350" Width="525">
     <DockPanel>
-        <TextBox Name="TextBoxExpression" DockPanel.Dock="Top"/>
         <DockPanel Dock="Top">
+            <TextBlock Text="Expressions" VerticalAlignment="Center" Width="70"/>
+            <Button DockPanel.Dock="Right" Width="30" Content="..." Click="openExpFileClick"/>
+            <TextBox Name="TextBoxExpPath" DockPanel.Dock="Left"/>
+        </DockPanel>
+        <DockPanel Dock="Top">
+            <TextBlock Text="Model" VerticalAlignment="Center" Width="70"/>
             <Button DockPanel.Dock="Right" Width="30" Content="..." Click="openFileClick"/>
             <TextBox Name="TextBoxPath" DockPanel.Dock="Left"/>
         </DockPanel>

@@ -31,20 +31,15 @@ namespace SheetMaker
         private ConstraintSourceTracker tracker = new ConstraintSourceTrackerImpl();
         private Environment environment;
 
-        public enum AssociationType
-        {
-            OneToOne,
-            OneToMany,
-            ManyToMany
-        }
-
         public MainWindow()
         {
             InitializeComponent();
 
             TextBoxPath.Text =
                 @"C:\Users\Leo\Documents\Visual Studio 2010\Projects\SheetModel_20121206\SheetModel\ModelMaker\Company.classdiagram";
-            TextBoxExpression.Text = "context Empregado::Operation1() : Boolean body: salario->sum() < 1000.0";
+
+            TextBoxExpPath.Text =
+                @"C:\Users\Leo\Documents\Visual Studio 2010\Projects\SheetModel_20121206\SheetModel\ModelMaker\oclExpressions.txt";
         }
 
         /// <summary>
@@ -65,39 +60,17 @@ namespace SheetMaker
             {
                 XWorkbook xWorkbook = createXWorkbook(TextBoxPath.Text);
 
-                PSWOclCompiler oclCompiler = new PSWOclCompiler(environment, tracker);
-                
-                List<object> nodes = oclCompiler.compileOclStream(TextBoxExpression.Text, "", 
-                    new StreamWriter(Console.OpenStandardOutput()), typeof(CSTContextDeclarationCS));
-                CSTOperationContextCS operationContextCS = ((CSTOperationContextCS) nodes[0]);
-                var constraints = operationContextCS.getConstraintsNodesCS();
-                CSTOperationConstraintCS operationConstraint = (CSTOperationConstraintCS) constraints[0];
-                ExpressionInOcl expressionInOcl = operationConstraint.getExpressionInOCL();
-                OclExpressionImpl bodyExpression = (OclExpressionImpl) expressionInOcl.getBodyExpression();
-                
-                XFormulaCreatorVisitor visitor = new XFormulaCreatorVisitor();
-                bodyExpression.accept(visitor);
-                string formula = visitor.getFormula();
+                //context Departamento::op6() : Real body: areas->select(a | a.numero > 5).numero->sum()
+                //SUMIFS(Area[numero],Area[departamento],[numero],Area[numero],">"&5)
 
-                CoreClassifier classifier = (CoreClassifier) expressionInOcl.getContextualElement();
-                XDataTable targetTable = getTargetTable(xWorkbook, classifier);
-
-                var operation = operationContextCS.getOperationNodeCS();
-                var name = operation.getOperationName();
-                XDataTableColumn targetColumn =
-                    targetTable.getDataTableColumns().FirstOrDefault(c => c.getName().Equals(name));
-                
-                if (targetColumn == null) 
-                    throw new Exception("Coluna não encontrada!");
-                
-                XTextExp xtext = new XTextExp();
-                xtext.setTextSymbol(formula);
-                targetColumn.setDataContent(xtext);
-                
-                MessageBox.Show(formula);
+                string line;
+                StreamReader file = new StreamReader(TextBoxExpPath.Text);
+                while ((line = file.ReadLine()) != null)
+                    createXFormulas(line, xWorkbook);
+                file.Close();
 
                 Excel.Workbook eBook = createWorkbook(eApp, xWorkbook);
-                eBook = createValidation(eBook, xWorkbook);
+                //eBook = createValidation(eBook, xWorkbook);
                 //eBook = createFormulas(eBook, xWorkbook);
 
                 eBook.SaveAs(filePath);
@@ -116,6 +89,41 @@ namespace SheetMaker
             }
         }
 
+        private XWorkbook createXFormulas(string expressionText, XWorkbook xWorkbook)
+        {
+            PSWOclCompiler oclCompiler = new PSWOclCompiler(environment, tracker);
+            List<object> nodes = oclCompiler.compileOclStream(expressionText, "",
+                new StreamWriter(Console.OpenStandardOutput()), typeof(CSTContextDeclarationCS));
+            CSTOperationContextCS operationContextCS = ((CSTOperationContextCS)nodes[0]);
+            var constraints = operationContextCS.getConstraintsNodesCS();
+            CSTOperationConstraintCS operationConstraint = (CSTOperationConstraintCS)constraints[0];
+            ExpressionInOcl expressionInOcl = operationConstraint.getExpressionInOCL();
+            OclExpressionImpl bodyExpression = (OclExpressionImpl)expressionInOcl.getBodyExpression();
+
+            XFormulaCreatorVisitor visitor = new XFormulaCreatorVisitor(xWorkbook);
+            bodyExpression.accept(visitor);
+            string formula = visitor.getFormula();
+
+            CoreClassifier classifier = (CoreClassifier)expressionInOcl.getContextualElement();
+            XDataTable targetTable = getTargetTable(xWorkbook, classifier);
+
+            var operation = operationContextCS.getOperationNodeCS();
+            var name = operation.getOperationName();
+            XDataTableColumn targetColumn =
+                targetTable.getDataTableColumns().FirstOrDefault(c => c.getName().Equals(name));
+
+            if (targetColumn == null)
+                throw new Exception("Coluna não encontrada!");
+
+            XTextExp xtext = new XTextExp();
+            xtext.setTextSymbol(formula);
+            targetColumn.setDataContent(xtext);
+
+            MessageBox.Show(formula);
+
+            return xWorkbook;
+        }
+
         /// <summary>
         /// Retorna a tabela correspondente a determinado classifier
         /// </summary>
@@ -124,15 +132,18 @@ namespace SheetMaker
         /// <returns>Se encontrar, retorna a referência para a tabela, caso contrário, retorna null</returns>
         private XDataTable getTargetTable(XWorkbook xWorkbook, CoreClassifier classifier)
         {
-            foreach (XWorksheet xWorksheet in xWorkbook.getWorksheets())
+            return xWorkbook.getWorksheets()
+                            .SelectMany(xWorksheet => xWorksheet.getDataTables())
+                            .FirstOrDefault(xDataTable => xDataTable.getName().Equals(classifier.getName()));
+        }
+
+        private void PrepareWorkbook(Excel.Workbook eBook)
+        {
+            foreach (Excel.Worksheet worksheet in eBook.Worksheets)
             {
-                foreach (XDataTable xDataTable in xWorksheet.getDataTables())
-                {
-                    if (xDataTable.getName().Equals(classifier.getName()))
-                        return xDataTable;
-                }
+                if (worksheet.Index == 1) continue;
+                worksheet.Delete();
             }
-            return null;
         }
 
         /// <summary>
@@ -144,30 +155,33 @@ namespace SheetMaker
         {
             Excel.Workbook eBook = eApp.Workbooks.Add();
             eBook.Title = xWorkbook.getName();
+            PrepareWorkbook(eBook);
 
-            int defaultNumWorksheets = eBook.Worksheets.Count;
             int numWorksheets = 1;
             foreach (XWorksheet xWorksheet in xWorkbook.getWorksheets())
             {
-                //Excel.Worksheet eWorksheet = numWorksheets < defaultNumWorksheets
-                //                                 ? eBook.Worksheets[numWorksheets]
-                //                                 : eBook.Worksheets.Add(Missing.Value,
-                //                                                        eBook.Worksheets[numWorksheets - 1],
-                //                                                        Missing.Value, Missing.Value);
+                Excel.Worksheet eWorksheet = numWorksheets == 1
+                    ? (Excel.Worksheet)eBook.Worksheets.Add(Missing.Value, Missing.Value, Missing.Value, Missing.Value)
+                : (Excel.Worksheet)eBook.Worksheets.Add(Missing.Value, eBook.Worksheets[numWorksheets - 1], Missing.Value, Missing.Value);
 
-                Excel.Worksheet eWorksheet = eBook.Worksheets.Add();
                 eWorksheet.Name = xWorksheet.getName();
 
                 int i = 1;
                 foreach (XDataTable xDataTable in xWorksheet.getDataTables())
                 {
-                    eWorksheet.Cells[i, 1] = xDataTable.getName();
+                    Excel.Range title = eWorksheet.Cells[i, 1];
+                    title.Value = xDataTable.getName();
+                    Excel.Font titleFont = title.Font;
+                    titleFont.Bold = true;
+                    titleFont.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.Red);
+                    Marshal.ReleaseComObject(titleFont);
+                    Marshal.ReleaseComObject(title);
 
                     Excel.ListObjects eListObjects = eWorksheet.ListObjects;
                     Excel.Range bBegin = (Excel.Range) eWorksheet.Cells[++i, 1];
                     Excel.ListObject eListObject = eListObjects.Add(Excel.XlListObjectSourceType.xlSrcRange, bBegin, Missing.Value, Excel.XlYesNoGuess.xlNo, Missing.Value);
                     eListObject.Name = xDataTable.getName() ?? "";
-                    eListObject.ShowTotals = true;
+                    eListObject.ShowTotals = false;
                     
                     eListObject.ListRows.Add();
                     eListObject.ListRows.Add();
@@ -245,9 +259,10 @@ namespace SheetMaker
         }
 
         /// <summary>
+        /// Cria validações de dados nas colunas de referência a tabelas
         /// </summary>
-        /// <param name="eBook"></param>
-        /// <param name="xWorkbook"></param>
+        /// <param name="eBook">workbook correspondente do excel (COM)</param>
+        /// <param name="xWorkbook">xworkbook</param>
         private Excel.Workbook createValidation(Excel.Workbook eBook, XWorkbook xWorkbook)
         {
             foreach (XWorksheet xWorksheet in xWorkbook.getWorksheets())
@@ -282,6 +297,7 @@ namespace SheetMaker
                                 eBook.Names.Add(rangename, eListColumn.DataBodyRange);
 
                                 Excel.Name targetName = eBook.Names.Item(rangename, Type.Missing, Type.Missing);
+                                string nameLocal = "=" + targetName.NameLocal;
 
                                 eWorksheet = eBook.Sheets[xWorksheet.getName()];
                                 eListObjects = eWorksheet.ListObjects;
@@ -289,9 +305,8 @@ namespace SheetMaker
                                 eListColumns = eListObject.ListColumns;
                                 eListColumn = eListColumns[sheetColumn.getName()];
                                 eListColumn.DataBodyRange.Validation.Add(Excel.XlDVType.xlValidateList, 
-                                    Excel.XlDVAlertStyle.xlValidAlertStop, Excel.XlFormatConditionOperator.xlBetween, 
-                                    targetName, Type.Missing);
-        
+                                    Excel.XlDVAlertStyle.xlValidAlertStop, Missing.Value, 
+                                    nameLocal, Missing.Value);
                             }
 
                             Marshal.ReleaseComObject(eListColumn);
@@ -334,6 +349,19 @@ namespace SheetMaker
             var result = openFileDialog.ShowDialog();
             if (result == true)
                 TextBoxPath.Text = openFileDialog.FileName;
+        }
+
+        /// <summary>
+        /// Evento de click do botão de abrir arquivo .txt dos expressões OCL 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void openExpFileClick(object sender, RoutedEventArgs e)
+        {
+            var openFileDialog = new OpenFileDialog();
+            var result = openFileDialog.ShowDialog();
+            if (result == true)
+                TextBoxExpPath.Text = openFileDialog.FileName;
         }
 
         /// <summary>
@@ -402,7 +430,7 @@ namespace SheetMaker
         {
             foreach (CoreAssociationEnd associationEnd in model.getAssociationEndsForClassifier(coreClassifier))
             {
-                if (associationEnd.isOneMultiplicity())
+                if (associationEnd.isOneMultiplicity() && associationEnd.isMandatory())
                 {
                     XDataTableColumn xDataTableColumn = new XDataTableColumn();
                     xDataTableColumn.setXReference(associationEnd.getType().getName());

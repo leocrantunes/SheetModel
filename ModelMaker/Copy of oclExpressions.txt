@@ -1,0 +1,6 @@
+context Empregado::op1() : Boolean body: sexo = "F" and salario > 1000.0
+context Empregado::op2() : Real body: salario + (2 * salario)
+context Area::op3() : Integer body: emps->select(e | e.sexo = "M")->size()
+context Area::op4() : Boolean body: emps.salario->sum() > 1000.0
+context Departamento::op5() : Integer body: areas->select(a | a.numero < 3)->size()
+context Departamento::op6() : Real body: areas->select(a | a.numero > 5).emps->select(e | e.nasc < "1/1/2000".toDate()).salario->sum()

@@ -8,7 +8,7 @@ namespace Ocl20.library.impl.expressions
 {
     public abstract class OclExpressionImpl : OclModelElementImpl, OclExpression, IASTOclVisited {
 
-        private	OclValue	value;
+        private	object	value;
         private	CoreClassifier	type;
 	
         private	PropertyCallExp appliedProperty;
@@ -45,11 +45,11 @@ namespace Ocl20.library.impl.expressions
             return  getFactory().createAtPreOperation(this);
         }
 	
-        public	OclValue	getValue() {
+        public	object	getValue() {
             return	value;
         }
 
-        public	void	setValue(OclValue value) {
+        public	void	setValue(object value) {
             this.value = value;
         }
 	
@@ -274,7 +274,7 @@ namespace Ocl20.library.impl.expressions
             try  {
                 OclExpressionImpl theClone = (OclExpressionImpl) base.Clone();
                 if (value != null)
-                    theClone.value = (OclValue) value.Clone();
+                    theClone.value = ((ICloneable) value).Clone(); // theClone.value = (OclValue)value.Clone();
                 theClone.type = type;
 			
                 return	theClone;

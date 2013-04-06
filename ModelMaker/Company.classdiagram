@@ -29,11 +29,11 @@
             <class Id="39f66a10-f4d3-4daa-9e54-e93421076429" name="Empregado" isAbstract="false" isLeaf="false" isActiveClass="false">
               <elementDefinition Id="e4558e89-fb93-421e-b7d3-275e25333243" />
               <targetEnds>
-                <association Id="e13236ec-7801-4c3f-9d3f-633ea35ec150" isDerived="false" sourceEndRoleName="empregados" targetEndRoleName="area" isLeaf="false" isAbstract="false">
+                <association Id="e13236ec-7801-4c3f-9d3f-633ea35ec150" isDerived="false" sourceEndRoleName="emps" targetEndRoleName="area" isLeaf="false" isAbstract="false">
                   <classMoniker Id="f195133b-afc2-4e05-9d3d-79ac3206d202" LastKnownName="Area" />
                   <relationshipOwnedElementsInternal>
                     <associationHasOwnedEnds>
-                      <memberEnd Id="ee01ce05-e2d2-47d5-b13b-fa944bd861ba" name="empregados" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                      <memberEnd Id="ee01ce05-e2d2-47d5-b13b-fa944bd861ba" name="emps" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
                         <lowerValueInternal>
                           <literalString Id="4f96b2f0-d1e9-473e-acbb-f5db834892de" name="Lower" value="*">
                             <elementDefinition Id="b81e795d-4650-4462-9005-f3245245d4e0" />
@@ -105,7 +105,7 @@
                 </property>
               </ownedAttributesInternal>
               <ownedOperationsInternal>
-                <operation Id="40733e46-5302-4cb9-9b28-7106b6d18eae" name="Operation1" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                <operation Id="40733e46-5302-4cb9-9b28-7106b6d18eae" name="op1" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
                   <elementDefinition Id="7f93b1a4-aeac-41f4-8192-fb7fee1c48eb" />
                   <ownedParameters>
                     <operationHasOwnedParameters>
@@ -118,7 +118,7 @@
                     </operationHasOwnedParameters>
                   </ownedParameters>
                 </operation>
-                <operation Id="b04aa971-e919-47a0-8635-200ecf690da9" name="Operation2" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                <operation Id="b04aa971-e919-47a0-8635-200ecf690da9" name="op2" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
                   <elementDefinition Id="654a6879-d308-41d5-8f65-bdbe80aca725" />
                   <ownedParameters>
                     <operationHasOwnedParameters>
@@ -138,7 +138,7 @@
             <class Id="f195133b-afc2-4e05-9d3d-79ac3206d202" name="Area" isAbstract="false" isLeaf="false" isActiveClass="false">
               <elementDefinition Id="65c1a784-d776-4d2a-9eaf-53e2bbe4c25e" />
               <targetEnds>
-                <association Id="c0542ec0-16dc-47fc-9a73-fae067a0832a" isDerived="false" sourceEndRoleName="areas" targetEndRoleName="departamento" isLeaf="false" isAbstract="false">
+                <association Id="c0542ec0-16dc-47fc-9a73-fae067a0832a" isDerived="false" sourceEndRoleName="areas" targetEndRoleName="depto" isLeaf="false" isAbstract="false">
                   <classMoniker Id="6a53792c-da9d-487b-9087-5384cd70ef96" LastKnownName="Departamento" />
                   <relationshipOwnedElementsInternal>
                     <associationHasOwnedEnds>
@@ -157,7 +157,7 @@
                       </memberEnd>
                     </associationHasOwnedEnds>
                     <associationHasOwnedEnds>
-                      <memberEnd Id="fbd4e5bb-0f19-47d0-b444-53dc604461a6" name="departamento" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                      <memberEnd Id="fbd4e5bb-0f19-47d0-b444-53dc604461a6" name="depto" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
                         <lowerValueInternal>
                           <literalString Id="f9875fcc-5058-487f-b41a-c8c0d93c9330" name="Lower" value="1">
                             <elementDefinition Id="f9391219-f5d7-4c05-877d-f3993f9e20eb" />
@@ -196,12 +196,26 @@
                 </property>
               </ownedAttributesInternal>
               <ownedOperationsInternal>
-                <operation Id="52391841-5aab-49dc-acf7-f8648f442587" name="Operation3" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                <operation Id="52391841-5aab-49dc-acf7-f8648f442587" name="op3" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
                   <elementDefinition Id="46c5e48e-1bbe-4d64-b91c-8b35a2ca116d" />
                   <ownedParameters>
                     <operationHasOwnedParameters>
                       <parameter Id="88312966-fd42-4ee2-9ff6-60ca01797aa0" direction="Return" isUnique="false">
                         <elementDefinition Id="91a68402-ec10-4e4e-9fcd-084d27c26b37" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="2884b44a-ac24-4ad1-8427-b6ecdc80a1bf" LastKnownName="Integer" />
+                        </type_NamedElement>
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+                <operation Id="45400085-d25c-4e56-a3b1-fc5314bd7a6c" name="op4" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <description>jmhfkj</description>
+                  <elementDefinition Id="d975adb9-cd7d-442f-909d-891cd55d7f57" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="65f42732-8ffa-487d-8328-5b9692fc3a8f" direction="Return" isUnique="false">
+                        <elementDefinition Id="b71d0ec0-920b-4e74-bbd7-d4368097fd04" />
                         <type_NamedElement>
                           <referencedTypeMoniker Id="c6bc8f1d-d254-4647-aba4-5187ec4037ff" LastKnownName="Boolean" />
                         </type_NamedElement>
@@ -216,7 +230,7 @@
             <class Id="6a53792c-da9d-487b-9087-5384cd70ef96" name="Departamento" isAbstract="false" isLeaf="false" isActiveClass="false">
               <elementDefinition Id="783f778f-3fe5-47c5-b7aa-a8c9adf92c15" />
               <targetEnds>
-                <association Id="a6bfa8d8-31b2-4089-9a1e-04e805678681" isDerived="false" sourceEndRoleName="" targetEndRoleName="gerente" isLeaf="false" isAbstract="false">
+                <association Id="a6bfa8d8-31b2-4089-9a1e-04e805678681" isDerived="false" sourceEndRoleName="" targetEndRoleName="gerente" isLeaf="false" name="depto" isAbstract="false">
                   <classMoniker Id="39f66a10-f4d3-4daa-9e54-e93421076429" LastKnownName="Empregado" />
                   <relationshipOwnedElementsInternal>
                     <associationHasOwnedEnds>
@@ -267,6 +281,34 @@
                   </type_NamedElement>
                 </property>
               </ownedAttributesInternal>
+              <ownedOperationsInternal>
+                <operation Id="9298527f-6eff-4f57-92a2-a296d7712c66" name="op5" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="f07d634d-4636-4181-b06d-ee63b36c01fb" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="391c1d12-978a-4536-9763-1598ff017ecc" direction="Return" isUnique="false">
+                        <elementDefinition Id="50f677a1-f54d-41d4-a2cf-a10c44016c52" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="2884b44a-ac24-4ad1-8427-b6ecdc80a1bf" LastKnownName="Integer" />
+                        </type_NamedElement>
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+                <operation Id="7620c36c-dcd1-4ade-b263-aed01352fc71" name="op6" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="7dd7764c-3886-4142-8243-86e8301d8d1e" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="8783cd5f-bb47-4b28-8910-625210711a89" direction="Return" isUnique="false">
+                        <elementDefinition Id="1f836b7e-8978-47c7-9fac-db3d90dbe16c" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="444c16e7-7a2d-4dfc-b3fb-6e6934c8ec41" LastKnownName="Real" />
+                        </type_NamedElement>
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+              </ownedOperationsInternal>
             </class>
           </packageHasNamedElement>
         </packagedElements>

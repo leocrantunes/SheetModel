@@ -155,9 +155,9 @@ namespace Ocl20.library.iface.expressions
 
         void setInitializedVariable(VariableDeclaration newValue);
 
-        OclValue	getValue();
+        object	getValue();
 
-        void	setValue(OclValue value);
+        void	setValue(object value);
 
         Object Clone();
     }

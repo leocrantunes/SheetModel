@@ -15,7 +15,7 @@
           <association
             Id="686a7ae9-c3fc-4969-a34f-ca2bbe908429"
             isDerived="false"
-            sourceEndRoleName="empregados"
+            sourceEndRoleName="emps"
             targetEndRoleName="area"
             isLeaf="false"
             isAbstract="false">
@@ -27,7 +27,7 @@
               <associationHasOwnedEnds>
                 <memberEnd
                   Id="02f6fd51-7b0c-4dd8-abfc-04f7ea4d088c"
-                  name="empregados"
+                  name="emps"
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"
@@ -190,7 +190,7 @@
         <ownedOperationsInternal>
           <operation
             Id="7f93b1a4-aeac-41f4-8192-fb7fee1c48eb"
-            name="Operation1"
+            name="op1"
             isLeaf="false"
             isStatic="false"
             isAbstract="false"
@@ -214,7 +214,7 @@
           </operation>
           <operation
             Id="654a6879-d308-41d5-8f65-bdbe80aca725"
-            name="Operation2"
+            name="op2"
             isLeaf="false"
             isStatic="false"
             isAbstract="false"
@@ -251,7 +251,7 @@
             Id="9686e864-61a8-44e4-8256-dc9a33cf6f63"
             isDerived="false"
             sourceEndRoleName="areas"
-            targetEndRoleName="departamento"
+            targetEndRoleName="depto"
             isLeaf="false"
             isAbstract="false">
             <classMoniker
@@ -287,7 +287,7 @@
               <associationHasOwnedEnds>
                 <memberEnd
                   Id="91eee3d2-6322-4ca8-8709-49fa992384d6"
-                  name="departamento"
+                  name="depto"
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"
@@ -371,7 +371,7 @@
         <ownedOperationsInternal>
           <operation
             Id="46c5e48e-1bbe-4d64-b91c-8b35a2ca116d"
-            name="Operation3"
+            name="op3"
             isLeaf="false"
             isStatic="false"
             isAbstract="false"
@@ -381,6 +381,31 @@
               <operationHasOwnedParameters>
                 <parameter
                   Id="91a68402-ec10-4e4e-9fcd-084d27c26b37"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                      LastKnownName="Integer"
+                      LastKnownLocation="ModelMaker.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="d975adb9-cd7d-442f-909d-891cd55d7f57"
+            name="op4"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <description>jmhfkj</description>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="b71d0ec0-920b-4e74-bbd7-d4368097fd04"
                   direction="Return"
                   isUnique="false">
                   <type_NamedElement>
@@ -410,6 +435,7 @@
             sourceEndRoleName=""
             targetEndRoleName="gerente"
             isLeaf="false"
+            name="depto"
             isAbstract="false">
             <classMoniker
               Id="e4558e89-fb93-421e-b7d3-275e25333243"
@@ -507,6 +533,56 @@
             </type_NamedElement>
           </property>
         </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="f07d634d-4636-4181-b06d-ee63b36c01fb"
+            name="op5"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="50f677a1-f54d-41d4-a2cf-a10c44016c52"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                      LastKnownName="Integer"
+                      LastKnownLocation="ModelMaker.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="7dd7764c-3886-4142-8243-86e8301d8d1e"
+            name="op6"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="1f836b7e-8978-47c7-9fac-db3d90dbe16c"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="81231095-6b0e-4f07-861f-4303cd37b7ca"
+                      LastKnownName="Real"
+                      LastKnownLocation="Package_1534.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
     <packageHasNamedElement>
