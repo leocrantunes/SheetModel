@@ -23,7 +23,7 @@ namespace Ocl20.library.impl.expressions
         }
 
         public override void accept(IASTOclVisitor visitor) {
-            visitor.visitOperationCalllExpBeginBegin(this);
+            visitor.visitOperationCalllExpBeforeBegin(this);
             if (this.getSource() != null) {
                 ((OclExpressionImpl) this.getSource()).accept(visitor);
             }

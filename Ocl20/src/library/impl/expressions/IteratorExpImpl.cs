@@ -11,6 +11,7 @@ namespace Ocl20.library.impl.expressions
         public IteratorExpImpl() {
         }
         public override void accept(IASTOclVisitor visitor) {
+            visitor.visitIteratorExpBegin(this);
             base.accept(visitor);
             visitor.visitIteratorExp(this);
         }

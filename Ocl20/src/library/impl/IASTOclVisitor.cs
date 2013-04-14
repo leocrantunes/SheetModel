@@ -35,13 +35,14 @@ namespace Ocl20.library.impl
 
         void visitAttributeCallExp(AttributeCallExp exp);
 
-        void visitOperationCalllExpBeginBegin(OperationCallExp exp);
+        void visitOperationCalllExpBeforeBegin(OperationCallExp exp);
         void visitOperationCalllExpBegin(OperationCallExp exp);
         void visitOperationArgumentExpEnd(OperationCallExp exp);
         void visitOperationCalllExpEnd(OperationCallExp exp);
 
         void visitAssociationEndCallExp(AssociationEndCallExp exp);
 
+        void visitIteratorExpBegin(IteratorExp exp);
         void visitIteratorExp(IteratorExp exp);
 
         void visitIterateExp(IterateExp exp);
