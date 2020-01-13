@@ -2,5 +2,13 @@ context Empregado::op1() : Boolean body: sexo = "F" and salario > 1000.0
 context Empregado::op2() : Real body: salario + (2 * salario)
 context Area::op3() : Integer body: emps->select(e | e.sexo = "M")->size()
 context Area::op4() : Boolean body: emps.salario->sum() > 1000.0
-context Departamento::op5() : Integer body: areas->select(a | a.numero < 3)->size()
-context Departamento::op6() : Real body: areas->select(a | a.numero > 5).emps->select(e | e.nasc < "1/1/2000".toDate()).salario->sum()
+context Departamento::op5() : Integer body: areas.emps->select(e | e.salario < 200)->size()
+context Departamento::op6() : Real body: areas->select(a | a.numero > 0).emps->select(e | e.nasc < "1/1/2000".toDate()).salario->sum()
+
+context Departamento::op6() : Real body: areas->select(a | a.depto.numero < 0).numero->sum()
+
+context AvaliacaoParcial::NotaComPeso() : Real body: Nota * InstrumentoAvaliacao.Peso
+context Inscricao::NotaParcial() : Real body: AvaliacoesParciais.NotaComPeso()->sum()
+context Inscricao::NotaFinal() : Real body: (NotaParcial() + NotaAvaliacaoFinal)/2
+
+context Departamento::NumeroProdutos() : Integer body: Produtos.Codigo->size()

@@ -1,11 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{31587a38-4245-4f24-be6b-2196818df4a7}</ProjectGuid>
-    <ArchitectureToolsVersion>1.0.0.0</ArchitectureToolsVersion>
+    <ArchitectureToolsVersion>2.0.0.0</ArchitectureToolsVersion>
     <Name>ModelMaker</Name>
     <RootNamespace>ModelMaker</RootNamespace>
   </PropertyGroup>
@@ -15,8 +16,29 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
   </PropertyGroup>
-  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v10.0\ArchitectureTools\Microsoft.VisualStudio.TeamArchitect.ModelingProject.targets" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(VSToolsPath)\ArchitectureTools\Microsoft.VisualStudio.TeamArchitect.ModelingProject.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v10.0\ArchitectureTools\Microsoft.VisualStudio.TeamArchitect.ModelingProject.targets" Condition="false" />
   <ItemGroup>
+    <Content Include="MarketOclExpressions.txt">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Market.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Market.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Market.classdiagram</DependentUpon>
+    </Content>
+    <Content Include="ModelDefinition\Package_0142.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="StudentsOclExpressions.txt">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Copy of oclExpressions.txt">
       <SubType>Content</SubType>
     </Content>
@@ -48,11 +70,34 @@
       <SubType>Content</SubType>
       <DependentUpon>metamodel\XReferenceExp.classdiagram</DependentUpon>
     </Content>
+    <Content Include="ModelDefinition\Package_1244.uml">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="ModelDefinition\Package_1534.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package_1555.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package_2045.uml">
       <SubType>Content</SubType>
     </Content>
     <Content Include="oclExpressions.txt">
       <SubType>Content</SubType>
+    </Content>
+    <Content Include="Scrum.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Scrum.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Scrum.classdiagram</DependentUpon>
+    </Content>
+    <Content Include="Students.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Students.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Students.classdiagram</DependentUpon>
     </Content>
     <Folder Include="ModelDefinition\" />
     <Content Include="Company.classdiagram">

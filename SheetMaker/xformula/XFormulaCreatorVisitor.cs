@@ -5,28 +5,37 @@ using Ocl20.library.iface.expressions;
 using Ocl20.library.impl;
 using Ocl20.library.impl.common;
 using Ocl20.library.impl.expressions;
-using SheetMaker.sheetmodel;
 using CoreAssociationEnd = Ocl20.library.iface.common.CoreAssociationEnd;
 
 namespace SheetMaker.xformula
 {
     public class XFormulaCreatorVisitor : IASTOclVisitor
     {
-        private XWorkbook xWorkbook;
         private string formula = "=";
+        private string otherFormula;
+        private string firstNavigationName;
         private CoreClassifier currentClassifier;
-        private List<CoreAssociationEnd> associationEnds;
         private int navigationLevel = 0;
+        private readonly Dictionary<string, string> columnToFormula;
 
-        public XFormulaCreatorVisitor(XWorkbook xWorkbook)
+        public XFormulaCreatorVisitor()
         {
-            this.xWorkbook = xWorkbook;
-            associationEnds = new List<CoreAssociationEnd>();
+            columnToFormula = new Dictionary<string, string>();
         }
 
         public string getFormula()
         {
             return formula;
+        }
+
+        public Dictionary<string, string> getExtraColumns()
+        {
+            return columnToFormula;
+        }
+
+        public CoreClassifier getCurrentClassifier()
+        {
+            return currentClassifier;
         }
 
         public void visitIntegerLiteralExp(IntegerLiteralExp exp)
@@ -49,8 +58,15 @@ namespace SheetMaker.xformula
 
         public void visitStringLiteralExp(StringLiteralExp exp)
         {
-            // get string symbol and add to formula with quotation marks
-            formula += "\"" + exp.getStringSymbol() + "\"";
+            if (exp.getStringSymbol() == "today")
+            {
+                formula += "TODAY()";
+            }
+            else
+            {
+                // get string symbol and add to formula with quotation marks
+                formula += "\"" + exp.getStringSymbol() + "\"";
+            }
         }
 
         public void visitNullLiteralExp(NullLiteralExp exp)
@@ -77,8 +93,25 @@ namespace SheetMaker.xformula
         public void visitVariableExp(VariableExp exp)
         {}
 
+        public void visitIfExpBegin(IfExp exp)
+        {
+            formula += "IF(";
+        }
+
+        public void visitIfExpThenBegin(IfExp exp)
+        {
+            formula += ",";
+        }
+
+        public void visitIfExpElseBegin(IfExp exp)
+        {
+            formula += ",";
+        }
+
         public void visitIfExp(IfExp exp)
-        {}
+        {
+            formula += ")";
+        }
 
         public void beginVisitLetExp(LetExp exp)
         {}
@@ -88,36 +121,57 @@ namespace SheetMaker.xformula
 
         public void visitAttributeCallExp(AttributeCallExp exp)
         {
-            string typeName, name;
-            getTableReference(exp, out name, out typeName);
-            
-            // format table_name[column_name] (same of classifier.attribute)
-            formula += string.Format("{0}[{1}]", typeName, name);
+            if (exp.getSource() is AssociationEndCallExpImpl)
+            {
+                string typeName, name;
+                getTableReference(exp, out name, out typeName);
+
+                var columnName = string.Format("{0}_{1}", typeName.ToLower(), name.ToLower());
+                formula += string.Format("{0}[{1}]", currentClassifier.getName(), columnName);
+
+                otherFormula += string.Format(",COL({0}[{1}]))", typeName, name);
+                columnToFormula.Add(columnName, otherFormula);
+            }
+            else
+            {
+                string typeName, name;
+                getTableReference(exp, out name, out typeName);
+
+                // format table_name[column_name] (same of classifier.attribute)
+                formula += string.Format("{0}[{1}]", typeName, name);
+
+                if (currentClassifier == null)
+                    currentClassifier = (CoreClassifier)exp.getReferredAttribute().getElemOwner();    
+            }
         }
 
         public void visitOperationCalllExpBeforeBegin(OperationCallExp exp)
         {
             var operation = exp.getReferredOperation();
             if (operation == null) return;
-            
+
             // get type of operation
             string operationName = operation.getName();
             OperationCallExpImpl operationCall = (OperationCallExpImpl) exp;
             bool isBasicOperator = operationCall.isBasicOperator(operationName);
             bool isBooleanOperator = operationCall.isBooleanOperator(operationName);
+            var source = operationCall.getSource();
 
             // boolean operators or not basic operators (because boolean operator is a basic operator)
             if (isBooleanOperator || !isBasicOperator)
             {
                 // set formula name based on operation name
                 string xoperationname = operationName;
-                var source = operationCall.getSource();
-
+                
                 // map operation name to formula name based on source expression
                 if (source is AssociationEndCallExpImpl || source is IteratorExpImpl)
                 {
                     if (operationName.Equals("size")) xoperationname = "COUNTIFS";
                     else if (operationName.Equals("sum")) xoperationname = "SUMIFS";
+                }
+                else if (source is VariableExpImpl)
+                {
+                    formula += string.Format("[{0}]", operationName);
                 }
                 else
                 {
@@ -126,10 +180,12 @@ namespace SheetMaker.xformula
                     else if (operationName.Equals("toDate")) xoperationname = ""; // suppress toDate operation
                 }
 
-                formula += xoperationname.ToUpper();
+                if (!(source is VariableExpImpl))
+                    formula += xoperationname.ToUpper();
             }
 
-            formula += "(";
+            if (!(source is VariableExpImpl))
+                formula += "(";
         }
 
         public void visitOperationCalllExpBegin(OperationCallExp exp)
@@ -139,7 +195,7 @@ namespace SheetMaker.xformula
 
             // get type of operation
             string operationName = operation.getName();
-            OperationCallExpImpl operationCall = (OperationCallExpImpl)exp;
+            OperationCallExpImpl operationCall = (OperationCallExpImpl) exp;
             bool isBasicOperator = operationCall.isBasicOperator(operationName);
             bool isBooleanOperator = operationCall.isBooleanOperator(operationName);
 
@@ -156,44 +212,92 @@ namespace SheetMaker.xformula
         {
             // put parenthesis in the end of operation formula
             var operation = exp.getReferredOperation();
-            if (operation != null)
+            if (operation != null && !(exp.getSource() is VariableExpImpl))
+            {
                 formula += ")";
+                navigationLevel = 0;
+            }
         }
 
         public void visitAssociationEndCallExp(AssociationEndCallExp exp)
         {
             var associationEnd = exp.getReferredAssociationEnd();
             bool isOneMultiplicity = associationEnd.isOneMultiplicity();
-            if (!isOneMultiplicity)
+            string otherTypeName, otherKeyName, typeName, name;
+
+            if (isOneMultiplicity)
             {
-                var otherType = associationEnd.getType();
-                var otherTypeName = otherType.getName();
-
-                var otherKeyAttribute = (CoreAttributeImpl)otherType.getAllAttributes().FirstOrDefault(); // primeiro atributo é o atributo-chave
-                var otherKeyName = otherKeyAttribute != null ? otherKeyAttribute.getName() : "";
-
-                var participant = associationEnd.getTheParticipant();
-                var association = associationEnd.getAssociation();
-                var otherAssociationEnd =
-                    (CoreAssociationEndImpl) association.getTheAssociationEnds(participant).FirstOrDefault();
-                var otherName = otherAssociationEnd != null ? otherAssociationEnd.getName() : "";
-
-                var expsource = (VariableExp)exp.getSource();
-                var variable = expsource.getReferredVariable();
-                var type = variable.getType();
-                var typeName = type.getName();
-
-                var keyAttribute = (CoreAttributeImpl)type.getAllAttributes().FirstOrDefault(); // primeiro atributo é o atributo-chave
-                var name = keyAttribute != null ? keyAttribute.getName() : "";
-
-                string otherFormula = string.Format("=INDEX({0},MATCH([area],{0}[{1}],0),COL({0}[{2}]))", otherTypeName, otherKeyName, otherName);
-
-                associationEnds.Add(associationEnd);
-                
-                formula += string.Format("{0}[{1}],{2}[{3}]", otherTypeName, otherName, typeName, name);
+                getOneMultiplicityAssociationReference(exp, associationEnd, 
+                    out otherTypeName, out otherKeyName, out typeName, out name);
+                otherFormula = string.Format("=INDEX({0},MATCH([{1}],{0}[{2}],0)", otherTypeName, name, otherKeyName);
             }
+            else
+            {
+                string otherName;
+                getTargetAssociationReference(exp, associationEnd, 
+                    out otherTypeName, out otherKeyName, out otherName, out typeName, out name);
 
+                if (navigationLevel == 0)
+                {
+                    // add reference to key column of associated table
+                    formula += string.Format("{0}[{1}],{2}[{3}]", otherTypeName, otherName, typeName, name);
+                }
+                else
+                {
+                    // create new column on target table (where expression is based on)
+                    var columnName = string.Format("{0}_{1}", typeName.ToLower(), name.ToLower());
+                    formula += string.Format("{0}[{1}],{2}[{3}]", currentClassifier.getName(), columnName, typeName, name);
+                    otherFormula = string.Format("=INDEX({4},MATCH(INDEX({0},MATCH([{1}],{0}[{2}],0),COL({0}[{3}])),{4}[{5}],0),COL({4}[{5}]))",
+                            otherTypeName, firstNavigationName, otherKeyName, otherName, typeName, name);
+                    columnToFormula.Add(columnName, otherFormula);
+                }    
+            }
+            
             navigationLevel++;
+        }
+
+        private void getTargetAssociationReference(AssociationEndCallExp exp, CoreAssociationEnd associationEnd, out string otherTypeName, out string otherKeyName, out string otherName, out string typeName, out string name)
+        {
+            var otherType = associationEnd.getType();
+            otherTypeName = otherType.getName();
+
+            var otherKeyAttribute =
+                (CoreAttributeImpl) otherType.getAllAttributes().FirstOrDefault(a => ((CoreAttributeImpl) a).hasStereotype("Id")) ??
+                (CoreAttributeImpl) otherType.getAllAttributes().FirstOrDefault();
+            otherKeyName = otherKeyAttribute != null ? otherKeyAttribute.getName() : "";
+
+            var participant = associationEnd.getTheParticipant();
+            var association = associationEnd.getAssociation();
+            var otherAssociationEnd = (CoreAssociationEndImpl) association.getTheAssociationEnds(participant).FirstOrDefault();
+            otherName = otherAssociationEnd != null ? otherAssociationEnd.getName() : "";
+
+            var expsource = (VariableExp)exp.getSource();
+            var variable = expsource.getReferredVariable();
+            var type = variable.getType();
+            typeName = type.getName();
+
+            var keyAttribute = 
+                (CoreAttributeImpl) type.getAllAttributes().FirstOrDefault(a => ((CoreAttributeImpl) a).hasStereotype("Id")) ??
+                (CoreAttributeImpl) type.getAllAttributes().FirstOrDefault();
+            name = keyAttribute != null ? keyAttribute.getName() : "";
+        }
+
+        private void getOneMultiplicityAssociationReference(AssociationEndCallExp exp, CoreAssociationEnd associationEnd, out string otherTypeName, out string otherKeyName, out string typeName, out string name)
+        {
+            var otherType = associationEnd.getType();
+            otherTypeName = otherType.getName();
+
+            var otherKeyAttribute =
+                (CoreAttributeImpl)otherType.getAllAttributes().FirstOrDefault(a => ((CoreAttributeImpl)a).hasStereotype("Id")) ??
+                (CoreAttributeImpl)otherType.getAllAttributes().FirstOrDefault();
+            otherKeyName = otherKeyAttribute != null ? otherKeyAttribute.getName() : "";
+
+            var expsource = (VariableExp)exp.getSource();
+            var variable = expsource.getReferredVariable();
+            var type = variable.getType();
+            typeName = type.getName();
+
+            name = associationEnd.getName();
         }
 
         public void visitIteratorExpBegin(IteratorExp exp)
@@ -211,52 +315,108 @@ namespace SheetMaker.xformula
                 else if (body is AssociationEndCallExpImpl)
                 {
                     var bodyImpl = (AssociationEndCallExpImpl) body;
-                    bodyImpl.accept(this);
+                    
+                    var associationEnd = bodyImpl.getReferredAssociationEnd();
+                    bool isOneMultiplicity = associationEnd.isOneMultiplicity();
+                    if (!isOneMultiplicity)
+                    {
+                        string otherTypeName, otherKeyName, otherName, typeName, name;
+                        getTargetAssociationReference(bodyImpl, associationEnd, out otherTypeName, out otherKeyName,
+                                                      out otherName, out typeName, out name);
+                        otherFormula = string.Format("=INDEX({0},MATCH([{1}],{0}[{2}],0)",typeName, otherName, name);
+                        firstNavigationName = otherName;
+                    }
+
+                    navigationLevel++;
+                }
+                else if (body is OperationCallExpImpl)
+                {
+                    var bodyImpl = (OperationCallExpImpl) body;
+
+                    // get referred operation name
+                    var operation = bodyImpl.getReferredOperation();
+                    var name = operation.getName();
+
+                    var expsource = (VariableExp) bodyImpl.getSource();
+                    var variable = expsource.getReferredVariable();
+                    var type = variable.getType();
+                    var typeName = type.getName();
+
+                    formula += string.Format("{0}[{1}]", typeName, name);
                     formula += ",";
+
+                    if (currentClassifier == null)
+                        currentClassifier = (CoreClassifier) operation.getElemOwner();
                 }
             }
             else if (exp.getName() == "select")
             {
-                var body = exp.getBody();
-                var bodyImpl = body as OperationCallExpImpl;
-                if (bodyImpl != null)
-                {
-                    var operation = bodyImpl.getReferredOperation();
-                    if (operation != null)
-                    {
-                        string operationName = operation.getName();
-                        if (bodyImpl.isBasicOperator(operationName) && !bodyImpl.isBooleanOperator(operationName))
-                        {
-                            var bodySource = bodyImpl.getSource();
-                            var bodySourceImpl = bodySource as AttributeCallExpImpl;
-                            if (bodySourceImpl != null)
-                            {
-                                if (navigationLevel == 0)
-                                {
-                                    bodySourceImpl.accept(this);
-                                }
-                                else
-                                {
-                                    string typeName, name;
-                                    getTableReference(bodySourceImpl, out name, out typeName);
+                processSelectExpression(exp);
+            }
+        }
 
-                                    var columnName = string.Format("{0}_{1}", typeName.ToLower(), name.ToLower());
-                                    formula += string.Format("{0}[{1}]", currentClassifier.getName(), columnName); 
-                                }
-                                
-                                formula += ",";
-                                var bodySourceOperation = bodyImpl.getReferredOperation();
-                                if (bodySourceOperation.getName() != "=")
-                                    formula += string.Format("\"{0}\"&", operationName);
+        private void processSelectExpression(IteratorExp exp)
+        {
+            var body = exp.getBody();
+            var bodyImpl = body as OperationCallExpImpl;
+            if (bodyImpl != null)
+            {
+                var operation = bodyImpl.getReferredOperation();
+                if (operation != null)
+                {
+                    string operationName = operation.getName();
+                    if (bodyImpl.isBasicOperator(operationName) && !bodyImpl.isBooleanOperator(operationName))
+                    {
+                        var bodySource = bodyImpl.getSource();
+                        var bodySourceImpl = bodySource as AttributeCallExpImpl;
+                        if (bodySourceImpl != null)
+                        {
+                            if (navigationLevel == 0)
+                            {
+                                bodySourceImpl.accept(this);
+                            }
+                            else
+                            {
+                                string typeName, name;
+                                getTableReference(bodySourceImpl, out name, out typeName);
+
+                                var columnName = string.Format("{0}_{1}", typeName.ToLower(), name.ToLower());
+                                formula += string.Format("{0}[{1}]", currentClassifier.getName(), columnName);
+
+                                otherFormula += string.Format(",COL({0}[{1}]))", typeName, name);
+                                columnToFormula.Add(columnName, otherFormula);
                             }
 
-                            var argument = (OclExpressionImpl) bodyImpl.getArguments().FirstOrDefault();
-                            if (argument != null)
-                                argument.accept(this);
+                            formula += ",";
+                            var bodySourceOperation = bodyImpl.getReferredOperation();
+                            if (bodySourceOperation.getName() != "=")
+                                formula += string.Format("\"{0}\"&", operationName);
+                        }
+                        else
+                        {
+                            var obodySourceImpl = bodySource as OperationCallExpImpl;
+                            if (obodySourceImpl != null && navigationLevel == 0)
+                            {
+                                // get referred operation name
+                                var bodySourceOperation = obodySourceImpl.getReferredOperation();
+                                var name = bodySourceOperation.getName();
+
+                                var expsource = (VariableExp)obodySourceImpl.getSource();
+                                var variable = expsource.getReferredVariable();
+                                var type = variable.getType();
+                                var typeName = type.getName();
+
+                                formula += string.Format("{0}[{1}]", typeName, name);
+                                formula += ",";
+                            }
                         }
 
-                        formula += ",";
+                        var argument = (OclExpressionImpl)bodyImpl.getArguments().FirstOrDefault();
+                        if (argument != null)
+                            argument.accept(this);
                     }
+
+                    formula += ",";
                 }
             }
         }
@@ -266,12 +426,23 @@ namespace SheetMaker.xformula
             // get referred attribute name
             var attribute = exp.getReferredAttribute();
             name = attribute.getName();
+            typeName = null;
 
-            // get attribute source (always VariableExp) to get type (classifier) name
-            var expsource = (VariableExp)exp.getSource();
-            var variable = expsource.getReferredVariable();
-            var type = variable.getType();
-            typeName = type.getName();
+            // get attribute source to get type (classifier) name
+            if (exp.getSource() is VariableExpImpl)
+            {
+                var expsource = (VariableExp) exp.getSource();
+                var variable = expsource.getReferredVariable();
+                var type = variable.getType();
+                typeName = type.getName();
+            }
+            else if (exp.getSource() is AssociationEndCallExpImpl)
+            {
+                var expsource = (AssociationEndCallExp)exp.getSource();
+                var associationEnd = expsource.getReferredAssociationEnd();
+                var type = associationEnd.getType();
+                typeName = type.getName();
+            }
         }
 
         public void visitIteratorExp(IteratorExp exp)

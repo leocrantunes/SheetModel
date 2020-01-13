@@ -10,6 +10,7 @@ namespace Ocl20.modelreader
     public class VscdReader : ModelReader
     {
         private readonly XNamespace xnamespaceUmlModel = "http://schemas.microsoft.com/dsltools/LogicalClassDesigner";
+        private XElement xcoreModel;
 
         public VscdReader(string modelPath)
             : base(modelPath)
@@ -20,12 +21,28 @@ namespace Ocl20.modelreader
             return getModel(xnamespaceUmlModel);
         }
 
+        public override string tryFindCoreModelElementType(string id)
+        {
+            var xreferencedtypes = xcoreModel.Descendants(xnamespaceUmlModel + "referencedType");
+            var xtargetelement = xreferencedtypes.FirstOrDefault(x => x.Attribute("Id") != null && x.Attribute("Id").Value == id);
+            if (xtargetelement != null)
+            {
+                var name = xtargetelement.Attribute("name").Value;
+                var xotherelement =
+                    xcoreModel.Descendants()
+                              .FirstOrDefault(x => x.Attribute("name") != null && x.Attribute("name").Value == name);
+                if (xotherelement != null)
+                    return xotherelement.Attribute("Id").Value;
+            }
+            return "";
+        }
+
         public CoreModel getModel(XNamespace xnamespace)
         {
             if (coreModel != null)
                 return coreModel;
 
-            var xcoreModel = doc.Element(xnamespace + "logicalClassDesignerModel");
+            xcoreModel = doc.Element(xnamespace + "logicalClassDesignerModel");
 
             if (xcoreModel != null)
             {
@@ -37,66 +54,38 @@ namespace Ocl20.modelreader
                 if (xcoreModelNamespace != null)
                 {
                     CoreNamespace coreNamespace = new CoreNamespaceImpl();
-
-                    // all model datatypes
-                    var xdatatypes = xcoreModelNamespace.Descendants(xnamespace + "referencedType");
-                    foreach (var xdatatype in xdatatypes)
-                        createDataType(coreNamespace, coreModel, xdatatype);
-
-                    //var xmodelClasses = xcoreModelNamespace.Elements(xnamespace + "Class");
-                    //createModelClasses(xnamespace, coreNamespace, coreModel, xmodelClasses);
-
+                    
                     var xhaspackages = xcoreModelNamespace.Element(xnamespace + "logicalClassDesignerModelHasPackages");
                     if (xhaspackages != null)
                     {
                         var xpackages = xhaspackages.Elements(xnamespace + "package");
+
+                        // all model datatypes
+                        var xdatatypes = xcoreModelNamespace.Descendants(xnamespace + "referencedType");
+                        foreach (var xdatatype in xdatatypes.Where(x => !belongsPackages(x,xpackages)))
+                            createDataType(coreNamespace, coreModel, xdatatype);
+
                         foreach (var xpackage in xpackages)
                             createPackage(xnamespace, coreNamespace, coreModel, xpackage);
                     }
                     
-                    //// all model generalizations
-                    //var xgeneralizations = getAllAvailableGeneralizations(xnamespace, xcoreModelNamespace);
-                    //foreach (var xgeneralization in xgeneralizations)
-                    //    createGeneralization(xnamespace, xgeneralization);
-
-                    //// create all model abstractions
-                    //var xabstractions = xcoreModelNamespace.Descendants(xnamespace + "Abstraction");
-                    //foreach (var xabstraction in xabstractions)
-                    //    createAbstraction(xabstraction);
-
                     // fill model types
                     fillModelElementTypes();
-
-                    //// all associations classes
-                    //var xassociationclasses = xcoreModelNamespace.Descendants(xnamespace + "AssociationClass");
-                    //foreach (var xassociationclass in xassociationclasses)
-                    //{
-                    //    CoreAssociationClass associationClass = (CoreAssociationClass)createAssociation(xnamespace, coreNamespace, coreModel, xassociationclass, new CoreAssociationClassImpl());
-                    //    fillModelElementTypes();
-                    //    updateElemOwnedElements(coreModel, associationClass);
-
-                    //    associationClass.setElemOwner(coreModel);
-                    //    updateElemOwnedElements(coreModel, associationClass);
-                    //    associationClass.setNamespace(coreNamespace);
-                    //    updateNamespaceElemOwnedElements(coreNamespace, associationClass);
-
-                    //    var xclassifierfeature = xassociationclass.Element(xnamespace + "Classifier.feature");
-                    //    if (xclassifierfeature != null)
-                    //    {
-                    //        var xoperations = xclassifierfeature.Elements(xnamespace + "Operation");
-                    //        foreach (var xoperation in xoperations)
-                    //            createOperation(xnamespace, coreNamespace, associationClass, xoperation);
-
-                    //        var xattributes = xclassifierfeature.Elements(xnamespace + "Attribute");
-                    //        foreach (var xattribute in xattributes)
-                    //            createAttribute(coreNamespace, associationClass, xattribute);
-                    //    }
-
-                    //}
                 }
             }
 
             return coreModel;
+        }
+
+        private bool belongsPackages(XElement x, IEnumerable<XElement> packages)
+        {
+            foreach (var p in packages)
+            {
+                if (x.Attribute("cachedFullName").Value.Contains(p.Attribute("name").Value))
+                    return true;
+            }
+
+            return false;
         }
         
         private CorePackage createPackage(XNamespace xnamespace, CoreNamespace ownerNamespace, CoreModelElement owner, XElement xpackage)
@@ -118,53 +107,78 @@ namespace Ocl20.modelreader
                 var xhasnamedelements = xcoreNamespace.Element(xnamespace + "packageHasNamedElement");
                 if (xhasnamedelements != null)
                 {
-                    var xmodelClasses = xcoreNamespace.Descendants(xnamespace + "class");
-                    createModelClasses(xnamespace, coreNamespace, corePackage, xmodelClasses);
+                    var xenumerations = xcoreNamespace.Descendants(xnamespace + "enumeration");
+                    var stereotype = createStereotype(ownerNamespace, owner, "Enumeration");
+                    foreach (var xenumeration in xenumerations)
+                        createEnumeration(xnamespace, coreNamespace, corePackage, xenumeration, stereotype);
 
+                    var stereotypeId = createStereotype(ownerNamespace, owner, "Id");
+                    var xmodelClasses = xcoreNamespace.Descendants(xnamespace + "class");
+                    createModelClasses(xnamespace, coreNamespace, corePackage, xmodelClasses, stereotypeId);
+                    
                     var xpackages = xcoreNamespace.Descendants(xnamespace + "package");
                     foreach (var xinnerpackage in xpackages)
                         createPackage(xnamespace, coreNamespace, coreModel, xinnerpackage);
-
-                    //var xstereotypes = xcoreNamespace.Elements(xnamespace + "Stereotype");
-                    //foreach (var xstereotype in xstereotypes)
-                    //    createStereotype(coreNamespace, corePackage, xstereotype);
-
-                    //var xinterfaces = xcoreNamespace.Elements(xnamespace + "Interface");
-                    //foreach (var xinterface in xinterfaces)
-                    //    createInterface(coreNamespace, corePackage, xinterface);
                 }
             }
 
             return corePackage;
         }
 
-        private void createModelClasses(XNamespace xnamespace, CoreNamespace ownerNamespace, CoreModelElement owner, IEnumerable<XElement> xmodelClasses)
+        private CoreClassifier createEnumeration(XNamespace xnamespace, CoreNamespace ownerNamespace, CoreModelElement owner, XElement xenumeration, CoreStereotype coreStereotype)
+        {
+            CoreClassifier modelClass = new CoreClassifierImpl();
+            modelClass.setName(xenumeration.Attribute("name").Value);
+
+            modelClass.setElemOwner(owner);
+            updateElemOwnedElements(owner, modelClass);
+            modelClass.setNamespace(ownerNamespace);
+            updateNamespaceElemOwnedElements(ownerNamespace, modelClass);
+
+            updateExtendedElements(coreStereotype, modelClass);
+            updateStereotypes(modelClass, coreStereotype);
+
+            var xattributes = xenumeration.Descendants(xnamespace + "enumerationLiteral");
+            foreach (var xattribute in xattributes)
+            {
+                CoreAttribute coreAttribute = new CoreAttributeImpl();
+                coreAttribute.setName(xattribute.Attribute("name").Value);
+                coreAttribute.setElemOwner(modelClass);
+                updateElemOwnedElements(modelClass, coreAttribute);
+                coreAttribute.setNamespace(ownerNamespace);
+                updateNamespaceElemOwnedElements(ownerNamespace, coreAttribute);
+
+                var id2 = xattribute.Attribute("Id").Value;
+                lookup.Add(id2, coreAttribute);
+            }
+
+            var id = xenumeration.Attribute("Id").Value;
+            lookup.Add(id, modelClass);
+            
+            return modelClass;
+        }
+
+        private CoreStereotype createStereotype(CoreNamespace ownerNamespace, CoreModelElement owner, string name)
+        {
+            CoreStereotype coreStereotype = new CoreStereotypeImpl();
+            coreStereotype.setName(name);
+            coreStereotype.setElemOwner(owner);
+            updateElemOwnedElements(owner, coreStereotype);
+            coreStereotype.setNamespace(ownerNamespace);
+            updateNamespaceElemOwnedElements(ownerNamespace, coreStereotype);
+            
+            return coreStereotype;
+        }
+
+        private void createModelClasses(XNamespace xnamespace, CoreNamespace ownerNamespace, CoreModelElement owner, IEnumerable<XElement> xmodelClasses, CoreStereotype coreStereotype)
         {
             if (xmodelClasses != null)
             {
                 var iEnumerable = xmodelClasses as IList<XElement> ?? xmodelClasses.ToList();
                 foreach (var xmodelClass in iEnumerable)
                 {
-                    CoreClassifier modelClass = new CoreClassifierImpl();
-                    modelClass.setName(xmodelClass.Attribute("name").Value);
-
-                    modelClass.setElemOwner(owner);
-                    updateElemOwnedElements(owner, modelClass);
-                    modelClass.setNamespace(ownerNamespace);
-                    updateNamespaceElemOwnedElements(ownerNamespace, modelClass);
-
-                    var xoperations = xmodelClass.Descendants(xnamespace + "operation");
-                    foreach (var xoperation in xoperations)
-                        createOperation(xnamespace, ownerNamespace, modelClass, xoperation);
-
-                    var xattributes = xmodelClass.Descendants(xnamespace + "property");
-                    foreach (var xattribute in xattributes)
-                        createAttribute(ownerNamespace, modelClass, xattribute);
-                    
-                    var id = xmodelClass.Attribute("Id").Value;
-                    lookup.Add(id, modelClass);
+                    createClassifier(xnamespace, xmodelClass, ownerNamespace, owner, coreStereotype);
                 }
-
                 foreach (XElement xmodelClass in iEnumerable)
                 {
                     var xassociations = xmodelClass.Descendants(xnamespace + "association");
@@ -178,7 +192,31 @@ namespace Ocl20.modelreader
             }
         }
 
-        private CoreAttribute createAttribute(CoreNamespace ownerNamespace, CoreModelElement owner, XElement xattribute)
+        private CoreClassifier createClassifier(XNamespace xnamespace, XElement xmodelClass, CoreNamespace ownerNamespace, CoreModelElement owner, CoreStereotype coreStereotype)
+        {
+            CoreClassifier modelClass = new CoreClassifierImpl();
+            modelClass.setName(xmodelClass.Attribute("name").Value);
+
+            modelClass.setElemOwner(owner);
+            updateElemOwnedElements(owner, modelClass);
+            modelClass.setNamespace(ownerNamespace);
+            updateNamespaceElemOwnedElements(ownerNamespace, modelClass);
+
+            var xoperations = xmodelClass.Descendants(xnamespace + "operation");
+            foreach (var xoperation in xoperations)
+                createOperation(xnamespace, ownerNamespace, modelClass, xoperation);
+
+            var xattributes = xmodelClass.Descendants(xnamespace + "property");
+            foreach (var xattribute in xattributes)
+                createAttribute(ownerNamespace, modelClass, xattribute, coreStereotype);
+
+            var id = xmodelClass.Attribute("Id").Value;
+            lookup.Add(id, modelClass);
+
+            return modelClass;
+        }
+
+        private CoreAttribute createAttribute(CoreNamespace ownerNamespace, CoreModelElement owner, XElement xattribute, CoreStereotype coreStereotype)
         {
             CoreAttribute coreAttribute = new CoreAttributeImpl();
             coreAttribute.setName(xattribute.Attribute("name").Value);
@@ -196,6 +234,13 @@ namespace Ocl20.modelreader
             {
                 string xidref = xtype.Attribute("Id").Value;
                 idToType.Add(id, xidref);
+            }
+
+            var isUnique = xattribute.Attribute("isUnique");
+            if (isUnique == null || isUnique.Value == "true")
+            {
+                updateExtendedElements(coreStereotype, coreAttribute);
+                updateStereotypes(coreAttribute, coreStereotype);
             }
 
             return coreAttribute;

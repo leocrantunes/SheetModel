@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Xml.Linq;
 using Ocl20.library.iface.common;
 using Ocl20.library.impl.common;
@@ -21,6 +22,8 @@ namespace Ocl20.modelreader
 
         public abstract CoreModel getModel();
 
+        public abstract string tryFindCoreModelElementType(string id);
+
         protected void fillModelElementTypes()
         {
             foreach (KeyValuePair<string, string> pair in idToType)
@@ -28,9 +31,15 @@ namespace Ocl20.modelreader
                 CoreModelElement type;
                 lookup.TryGetValue(pair.Value, out type);
 
+                if (type == null)
+                {
+                    var newId = tryFindCoreModelElementType(pair.Value);
+                    lookup.TryGetValue(newId, out type);
+                }
+
                 CoreModelElement modelElement;
                 lookup.TryGetValue(pair.Key, out modelElement);
-
+                
                 if (modelElement != null)
                 {
                     if (modelElement is CoreAssociationEndImpl)

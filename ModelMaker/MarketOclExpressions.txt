@@ -1,0 +1,11 @@
+context Loja::Lucro() : Real body: TotalVendas() - TotalCompras()
+context Loja::TotalCompras() : Real body: Departamentos.TotalCompras()->sum()
+context Loja::TotalVendas() : Real body: Departamentos.TotalVendas()->sum()
+context Compra::PrecoTotal() : Real body: PrecoUnitario * Quantidade
+context Venda::PrecoTotal() : Real body: PrecoUnitario * Quantidade
+context Produto::AbaixoMinimo() : Boolean body: QuantidadeEmEstoque() < QuantidadeMinima
+context Produto::Alerta() : String body: if AbaixoMinimo() then "Comprar" else "Suficiente" endif
+context Produto::QuantidadeEmEstoque() : Integer body: Compras.Quantidade->sum() - Vendas.Quantidade->sum()
+context Departamento::TotalCompras() : Real body: Produtos.Compras.PrecoTotal()->sum()
+context Departamento::TotalVendas() : Real body: Produtos.Vendas.PrecoTotal()->sum()
+context Departamento::NumeroProdutos() : Integer body: Produtos->size()

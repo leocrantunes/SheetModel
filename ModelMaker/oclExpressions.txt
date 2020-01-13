@@ -1,5 +1,11 @@
-context Empregado::op1() : Boolean body: sexo = "F" and salario > 1000.0
-context Empregado::op2() : Real body: salario + (2 * salario)
-context Area::op3() : Integer body: emps->select(e | e.sexo = "M")->size()
-context Area::op4() : Boolean body: emps.salario->sum() > 1000.0
-context Departamento::op5() : Integer body: areas->select(a | a.numero < 3)->size()
+context Sprint::EsforcoRestante() : Real body: Tarefas.HorasRestantes->sum()
+context Sprint::EsforcoRealizado() : Real body: Tarefas.EsforcoTotalRealizado->sum()
+context Sprint::EsforcoTarefasPlanejadas() : Real body: Tarefas.EsforcoInicialmenteEstimado->sum()
+context Sprint::EsforcoEstimadoPBIAlocados() : Real body: ProductBacklogItems.Tarefas.EsforcoInicialmenteEstimado->sum()
+context Sprint::Capacidade() : Real body: Alocacoes.Horas->sum()
+context Release::EsforcoRestante() : Real body: Sprints.EsforcoRestante()->sum()
+context Release::EsforcoRealizado() : Real body: Sprints.EsforcoRealizado()->sum()
+context Release::EsforcoTarefasPlanejadas() : Real body: Sprints.EsforcoTarefasPlanejadas()->sum()
+context Release::Capacidade() : Real body: Sprints.Capacidade()->sum()
+context ProductBacklogItem::EsforcoInicial() : Real body: Tarefas.EsforcoInicialmenteEstimado->sum()
+context ProductBacklogItem::EsforcoRestante() : Real body: Tarefas.HorasRestantes->sum()

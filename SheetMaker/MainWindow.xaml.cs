@@ -36,10 +36,10 @@ namespace SheetMaker
             InitializeComponent();
 
             TextBoxPath.Text =
-                @"C:\Users\Leo\Documents\Visual Studio 2010\Projects\SheetModel_20121206\SheetModel\ModelMaker\Company.classdiagram";
+                @"C:\Repos\SheetModel\ModelMaker\Market.classdiagram";
 
             TextBoxExpPath.Text =
-                @"C:\Users\Leo\Documents\Visual Studio 2010\Projects\SheetModel_20121206\SheetModel\ModelMaker\oclExpressions.txt";
+                @"C:\Repos\SheetModel\ModelMaker\MarketOclExpressions.txt";
         }
 
         /// <summary>
@@ -49,7 +49,7 @@ namespace SheetMaker
         /// <param name="e"></param>
         private void generateClick(object sender, RoutedEventArgs e)
         {
-            const string filePath = "C:\\spreadsheet\\Teste.xlsx";
+            const string filePath = @"C:/spreadsheet/Teste.xlsx";
 
             if (File.Exists(filePath))
                 File.Delete(filePath);
@@ -60,9 +60,6 @@ namespace SheetMaker
             {
                 XWorkbook xWorkbook = createXWorkbook(TextBoxPath.Text);
 
-                //context Departamento::op6() : Real body: areas->select(a | a.numero > 5).numero->sum()
-                //SUMIFS(Area[numero],Area[departamento],[numero],Area[numero],">"&5)
-
                 string line;
                 StreamReader file = new StreamReader(TextBoxExpPath.Text);
                 while ((line = file.ReadLine()) != null)
@@ -70,10 +67,9 @@ namespace SheetMaker
                 file.Close();
 
                 Excel.Workbook eBook = createWorkbook(eApp, xWorkbook);
-                //eBook = createValidation(eBook, xWorkbook);
-                //eBook = createFormulas(eBook, xWorkbook);
-
-                eBook.SaveAs(filePath);
+                eBook = createValidation(eBook, xWorkbook);
+                eBook = createFormulas(eBook, xWorkbook);
+                eBook.SaveAs("Teste");
                 eBook.Close();
 
                 Marshal.ReleaseComObject(eBook);
@@ -100,7 +96,7 @@ namespace SheetMaker
             ExpressionInOcl expressionInOcl = operationConstraint.getExpressionInOCL();
             OclExpressionImpl bodyExpression = (OclExpressionImpl)expressionInOcl.getBodyExpression();
 
-            XFormulaCreatorVisitor visitor = new XFormulaCreatorVisitor(xWorkbook);
+            XFormulaCreatorVisitor visitor = new XFormulaCreatorVisitor();
             bodyExpression.accept(visitor);
             string formula = visitor.getFormula();
 
@@ -120,6 +116,24 @@ namespace SheetMaker
             targetColumn.setDataContent(xtext);
 
             MessageBox.Show(formula);
+
+            var extraColumns = visitor.getExtraColumns();
+            foreach (KeyValuePair<string, string> pair in extraColumns)
+            {
+                string columnName = pair.Key;
+                string columnFormula = pair.Value;
+
+                targetTable = getTargetTable(xWorkbook, visitor.getCurrentClassifier());
+
+                var newTableColumn = new XDataTableColumn();
+                newTableColumn.setName(columnName);
+                newTableColumn.setDataTable(targetTable);
+                updateDataTable(targetTable, newTableColumn);
+                
+                XTextExp xColumnFormula = new XTextExp();
+                xColumnFormula.setTextSymbol(columnFormula);
+                newTableColumn.setDataContent(xColumnFormula);
+            }
 
             return xWorkbook;
         }
@@ -182,7 +196,7 @@ namespace SheetMaker
                     Excel.ListObject eListObject = eListObjects.Add(Excel.XlListObjectSourceType.xlSrcRange, bBegin, Missing.Value, Excel.XlYesNoGuess.xlNo, Missing.Value);
                     eListObject.Name = xDataTable.getName() ?? "";
                     eListObject.ShowTotals = false;
-                    
+
                     eListObject.ListRows.Add();
                     eListObject.ListRows.Add();
 
@@ -194,7 +208,27 @@ namespace SheetMaker
                         eListColumn.Name = sheetColumn.getName();
                         eListColumn.TotalsCalculation = Excel.XlTotalsCalculation.xlTotalsCalculationSum;
                         eListColumn.Range.EntireColumn.ColumnWidth = 14;
-                        
+
+                        if (xDataTable.getDataTableColumns().Count == 1 &&
+                            xDataTable.getDataTableColumns()[0].getDataContent() != null)
+                        {
+                            var datacontent = xDataTable.getDataTableColumns()[0].getDataContent();
+                            if (datacontent is XDataArray)
+                            {
+                                var datacontentimpl = (XDataArray) datacontent;
+                                var arraysymbol = datacontentimpl.getArray();
+                                int numSymbols = 0;
+                                foreach (var symbol in arraysymbol)
+                                {
+                                    if (eListColumn.DataBodyRange.Count < numSymbols)
+                                        eListObject.ListRows.Add();
+
+                                    eListColumn.DataBodyRange[numSymbols + 1] = symbol;
+                                    numSymbols++;
+                                }
+                            }
+                        }
+
                         columns++;
 
                         Marshal.ReleaseComObject(eListColumn);
@@ -234,11 +268,11 @@ namespace SheetMaker
                     {
                         Excel.ListColumns eListColumns = eListObject.ListColumns;
                         Excel.ListColumn eListColumn = eListColumns[sheetColumn.getName()];
-                        
-                        if (sheetColumn.getDataContent() != null)
+
+                        if (sheetColumn.getDataContent() is XTextExp)
                         {
                             Excel.Range rng = eListColumn.DataBodyRange;
-                            XTextExp formula = (XTextExp)sheetColumn.getDataContent();
+                            XTextExp formula = (XTextExp) sheetColumn.getDataContent();
                             rng.Formula = string.Format("{0}", formula.getTextSymbol());
 
                             Marshal.ReleaseComObject(rng);
@@ -257,7 +291,7 @@ namespace SheetMaker
 
             return eBook;
         }
-
+        
         /// <summary>
         /// Cria validações de dados nas colunas de referência a tabelas
         /// </summary>
@@ -379,8 +413,7 @@ namespace SheetMaker
             xWorkbook.setName(model.getName());
 
             environment = model.getEnvironmentWithoutParents();
-            IEnumerable<CoreClassifier> modelClasses = getClasses(environment, model);
-
+            IEnumerable<CoreClassifier> modelClasses = getClasses(model);
             foreach (CoreClassifier coreClassifier in modelClasses)
             {
                 XWorksheet xWorksheet = new XWorksheet();
@@ -393,8 +426,39 @@ namespace SheetMaker
                 xDataTable.setWorksheet(xWorksheet);
                 updateWorksheet(xWorksheet, xDataTable);
 
-                createFeatureColumns(coreClassifier, xDataTable);
+                createFeatureColumns(coreClassifier, xDataTable, model);
                 createAssociationColumn(model, coreClassifier, xDataTable);
+            }
+
+            IEnumerable<CoreClassifier> enumerations = getEnumerations(model);
+            var iEnumerable = enumerations as IList<CoreClassifier> ?? enumerations.ToList();
+            if (enumerations != null && iEnumerable.Any())
+            {
+                foreach (CoreClassifier enumeration in iEnumerable)
+                {
+                    XWorksheet xWorksheet = new XWorksheet();
+                    xWorksheet.setName(enumeration.getName());
+                    xWorksheet.setWorkbook(xWorkbook);
+                    updateWorkbook(xWorkbook, xWorksheet);
+
+                    XDataTable xDataTable = new XDataTable();
+                    xDataTable.setName(enumeration.getName());
+                    xDataTable.setWorksheet(xWorksheet);
+                    updateWorksheet(xWorksheet, xDataTable);
+
+                    XDataTableColumn xDataTableColumn = new XDataTableColumn();
+                    xDataTableColumn.setName(enumeration.getName());
+                    xDataTableColumn.setDataTable(xDataTable);
+                    updateDataTable(xDataTable, xDataTableColumn);
+
+                    XDataArray dataArray = new XDataArray();
+                    var arraySymbol =
+                        (from CoreAttributeImpl attribute in
+                             enumeration.getClassifierFeatures().Where(f => f is CoreAttributeImpl)
+                         select attribute.getName()).ToList();
+                    dataArray.setArray(arraySymbol);
+                    xDataTableColumn.setDataContent(dataArray);
+                }
             }
 
             return xWorkbook;
@@ -405,18 +469,41 @@ namespace SheetMaker
         /// </summary>
         /// <param name="coreClassifier">classifier</param>
         /// <param name="xDataTable">tabela</param>
-        private void createFeatureColumns(CoreClassifier coreClassifier, XDataTable xDataTable)
+        /// <param name="model">modelo</param>
+        private void createFeatureColumns(CoreClassifier coreClassifier, XDataTable xDataTable, CoreModelImpl model)
         {
             List<object> features = new List<object>();
             features.AddRange(coreClassifier.getClassifierFeatures().Where(f => f.GetType() == typeof(CoreAttributeImpl)));
+
+            var keyAttribute = features.FirstOrDefault(f => ((CoreAttributeImpl) f).hasStereotype("Id"));
+            if (keyAttribute != null)
+                xDataTable.setKeyIndex(features.IndexOf(keyAttribute) + 1);
+
             features.AddRange(coreClassifier.getClassifierFeatures().Where(f => f.GetType() == typeof(CoreOperationImpl)));
-            
+
             foreach (CoreFeature feature in features)
             {
                 XDataTableColumn xDataTableColumn = new XDataTableColumn();
                 xDataTableColumn.setName(feature.getName());
                 xDataTableColumn.setDataTable(xDataTable);
                 updateDataTable(xDataTable, xDataTableColumn);
+
+                if (feature is CoreAttributeImpl)
+                {
+                    var featureImpl = (CoreAttributeImpl) feature;
+                    string featureName = featureImpl.getFeatureType().getName();
+                    if (coreClassifier.isEnumeration())
+                    {
+                        xDataTableColumn.setXReference(featureName);
+                    }
+                    else
+                    {
+                        var enumerations = getEnumerations(model);
+                        if (enumerations.FirstOrDefault(e => e.getName() == featureName) != null)
+                            xDataTableColumn.setXReference(featureName);
+                    }
+                }
+                
             }
         }
 
@@ -480,20 +567,28 @@ namespace SheetMaker
         /// <summary>
         /// Retorna todas as classes existente em um determinado modelo
         /// </summary>
-        /// <param name="environment">environment</param>
         /// <param name="model">modelo</param>
         /// <returns></returns>
-        private IEnumerable<CoreClassifier> getClasses(Environment environment, CoreModelImpl model)
+        private IEnumerable<CoreClassifier> getClasses(CoreModelImpl model)
         {
             var classes = environment.getAllOfType(typeof(CoreClassifierImpl));
             List<CoreClassifier> realClasses = new List<CoreClassifier>();
             foreach (CoreClassifierImpl classifier in classes)
             {
-                if (!model.isPrimitiveType(classifier))
+                if (!model.isPrimitiveType(classifier) && !classifier.isEnumeration() && !(classifier is CoreDataTypeImpl))
                     realClasses.Add(classifier);
             }
 
             return realClasses;
+        }
+
+        private IEnumerable<CoreClassifier> getEnumerations(CoreModelImpl model)
+        {
+            var enumStereotype =
+                (CoreStereotypeImpl)
+                model.getAllStereotypes().FirstOrDefault(s => ((CoreStereotypeImpl) s).getName().Equals("Enumeration"));
+
+            return enumStereotype != null ? enumStereotype.getExtendedElement().Cast<CoreClassifier>().ToList() : new List<CoreClassifier>();
         }
     }
 }

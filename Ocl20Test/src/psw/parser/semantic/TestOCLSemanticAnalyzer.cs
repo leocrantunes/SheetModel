@@ -447,7 +447,7 @@ namespace Ocl20Test.psw.parser.semantic
         {
             CoreModel model;
             XmiReader reader;
-            reader = new XmiReader(@"C:\Users\Leo\Documents\visual studio 2010\Projects\SheetModel_20121206\SheetModel\Ocl20Test\resource\myExampleRose.xml");
+            reader = new XmiReader(@"C:\Repos\SheetModel\Ocl20Test\resource\myExampleRose.xml");
             Assert.IsNotNull(model = reader.getModel());
             return model.getEnvironmentWithoutParents();
         }

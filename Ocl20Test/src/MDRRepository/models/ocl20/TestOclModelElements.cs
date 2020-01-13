@@ -22,7 +22,7 @@ namespace Ocl20Test.MDRRepository.models.ocl20
         [ClassInitialize]
         public static void setUp(TestContext testContext)
         {
-            reader = new XmiReader(@"C:\Users\Leo\Documents\visual studio 2010\Projects\SheetModel_20121206\SheetModel\Ocl20Test\resource\myExampleRose.xml");
+            reader = new XmiReader(@"C:\Repos\SheetModel\Ocl20Test\resource\myExampleRose.xml");
             setUmlModelsRepository();
         }
 

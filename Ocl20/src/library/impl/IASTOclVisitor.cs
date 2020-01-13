@@ -27,6 +27,9 @@ namespace Ocl20.library.impl
 
         void visitVariableExp(VariableExp exp);
 
+        void visitIfExpBegin(IfExp exp);
+        void visitIfExpThenBegin(IfExp exp);
+        void visitIfExpElseBegin(IfExp exp);
         void visitIfExp(IfExp exp);
 
         void beginVisitLetExp(LetExp exp);

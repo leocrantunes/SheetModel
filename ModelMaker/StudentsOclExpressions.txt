@@ -1,0 +1,2 @@
+context Inscricao::SituacaoParcial() : String body: if NotaParcial() >= 7.0 then "Aprovado" else if NotaParcial() >= 4.0 then "ProvaFinal" else "Reprovado" endif endif
+context Inscricao::SituacaoFinal() : String body: if NotaFinal() >= 5.0 then "Aprovado" else "Reprovado" endif

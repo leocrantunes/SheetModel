@@ -13,9 +13,12 @@ namespace Ocl20.library.impl.expressions
         }
 
         public override void accept(IASTOclVisitor visitor) {
+            visitor.visitIfExpBegin(this);
             ((OclExpressionImpl) getCondition()).accept(visitor);
+            visitor.visitIfExpThenBegin(this);
             // shouldn't it evaluate only one of the expressions (then or else)?
             ((OclExpressionImpl) getThenExpression()).accept(visitor);
+            visitor.visitIfExpElseBegin(this);
             ((OclExpressionImpl) getElseExpression()).accept(visitor);
             visitor.visitIfExp(this);
         }

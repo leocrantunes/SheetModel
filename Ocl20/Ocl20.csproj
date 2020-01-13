@@ -478,6 +478,7 @@
     <Compile Include="src\parser\semantics\types\OclTypesDefinition.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
     <None Include="src\parser\antlrcs\antlr.bat" />
     <None Include="src\parser\antlrcs\OCLSCRIPT.G" />
     <None Include="src\parser\typeChecker\messages.properties" />
@@ -491,6 +492,10 @@
     <Folder Include="src\uml13\impl\foundation\core\" />
     <Folder Include="src\uml13\impl\foundation\extensionmechanisms\" />
     <Folder Include="src\uml13\impl\modelmanagement\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\Microsoft.DependencyValidation.Analyzers.0.10.0\analyzers\dotnet\cs\Microsoft.DependencyValidation.Analyzers.resources.dll" />
+    <Analyzer Include="..\packages\Microsoft.DependencyValidation.Analyzers.0.10.0\analyzers\dotnet\Microsoft.DependencyValidation.Analyzers.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,10 +1,7 @@
 using System;
-using System.Collections.Generic;
 using Ocl20.library.iface.common;
-using Ocl20.library.iface.constraints;
 using Ocl20.library.iface.types;
 using Ocl20.library.impl.common;
-using Environment = Ocl20.library.iface.environment.Environment;
 
 namespace Ocl20.library.impl.types
 {

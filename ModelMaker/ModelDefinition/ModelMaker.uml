@@ -1056,6 +1056,29 @@
         isLeaf="false"
         isActiveClass="false" />
     </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="5b1eae43-87b7-469d-9c5f-7220e81c5b5b"
+        name="Strinfg" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="2fddd82b-6d0b-48f7-b5c2-40c43f4d0e88"
+        LastKnownName="Principal"
+        LastKnownLocation="Package_2045.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="5afd1ad1-022f-40eb-8f85-89a97e688a65"
+        LastKnownName="Principal"
+        LastKnownLocation="Package_1555.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="4aec4f31-47b9-4d89-96d8-d584e3afdf3e"
+        LastKnownName="Package1"
+        LastKnownLocation="Package_0142.uml" />
+    </packageHasNamedElement>
   </packagedElements>
   <primitiveType
     Id="220a3521-e091-4221-bae9-3ef9018e845c"

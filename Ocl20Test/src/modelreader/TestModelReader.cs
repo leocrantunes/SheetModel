@@ -15,7 +15,7 @@ namespace Ocl20Test.modelreader
         public override ModelReader getReader()
         {
             return new VscdReader(
-                    @"C:\Users\Leo\Documents\visual studio 2010\Projects\SheetModel_20121206\SheetModel\ModelMaker\Company.classdiagram");
+                    @"C:\Repos\SheetModel\ModelMaker\Company.classdiagram");
         }
 
         [TestMethod]

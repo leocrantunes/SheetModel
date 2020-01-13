@@ -65,7 +65,7 @@ namespace Ocl20.parser.semantics.types
         private static void loadTypesDefinitions() {
             if (oclTypesEnvironment == null)
             {
-                XmiReader reader = new XmiReader(@"C:\Users\Leo\Documents\visual studio 2010\Projects\SheetModel_20121206\SheetModel\Ocl20\resource\metamodels\oclPrimitiveTypes.xml");
+                XmiReader reader = new XmiReader(@"C:\Repos\SheetModel\Ocl20\resource\metamodels\oclPrimitiveTypes.xml");
                 oclTypesModel = reader.getMetamodel();
 
                 if (oclTypesModel != null)

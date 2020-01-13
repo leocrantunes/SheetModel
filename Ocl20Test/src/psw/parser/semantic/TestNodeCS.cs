@@ -31,7 +31,7 @@ namespace Ocl20Test.psw.parser.semantic
         {
             return
                 new XmiReader(
-                    @"C:\Users\Leo\Documents\visual studio 2010\Projects\SheetModel_20121206\SheetModel\Ocl20Test\resource\myExampleRose.xml");
+                    @"C:\Repos\SheetModel\Ocl20Test\resource\myExampleRose.xml");
         }
 
         public void setUp()

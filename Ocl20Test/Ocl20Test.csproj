@@ -196,6 +196,7 @@
     <Content Include="src\psw\typeChecker\TestPswOclCompiler.java" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
     <None Include="resource\alex.psw" />
     <None Include="resource\anotherExampleRose.mdl" />
     <None Include="resource\Book\Appendix.ocl" />
@@ -237,6 +238,10 @@
   <ItemGroup>
     <Folder Include="resource\Book\expressions\Book\" />
     <Folder Include="src\psw\parser\antlr\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\Microsoft.DependencyValidation.Analyzers.0.10.0\analyzers\dotnet\cs\Microsoft.DependencyValidation.Analyzers.resources.dll" />
+    <Analyzer Include="..\packages\Microsoft.DependencyValidation.Analyzers.0.10.0\analyzers\dotnet\Microsoft.DependencyValidation.Analyzers.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

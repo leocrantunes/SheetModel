@@ -28,6 +28,11 @@ namespace Ocl20.modelreader
             return getModel(xnamespaceUmlModel);
         }
 
+        public override string tryFindCoreModelElementType(string id)
+        {
+            throw new NotImplementedException();
+        }
+
         public CoreModel getModel(XNamespace xnamespace)
         {
             if (coreModel != null)
